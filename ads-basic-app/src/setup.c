@@ -181,7 +181,8 @@ s32 SetupInitSetting(void)
         gstAppSysCfg.stCommuParam.eMsgLenType = LENTYPE_HEX;         
 
         gstAppSysCfg.stCommuParam.bIsUseBackupFirst = FALSE;
-        gstAppSysCfg.stCommuParam.uiCommuMode = SDK_COMM_GPRS;
+       // gstAppSysCfg.stCommuParam.uiCommuMode = SDK_COMM_GPRS;
+		gstAppSysCfg.stCommuParam.uiCommuMode = SDK_COMM_ETHERNET;
         gstAppSysCfg.stCommuParam.bIsWithSSL = FALSE;
 
         strcpy(gstAppSysCfg.stCommuParam.asPhone1, "8073");
@@ -204,10 +205,10 @@ s32 SetupInitSetting(void)
         strcpy(gstAppSysCfg.stCommuParam.asCdmaHostPort2, "8496");
 
         gstAppSysCfg.stCommuParam.bIsNetDHCP = TRUE;
-        strcpy(gstAppSysCfg.stCommuParam.asNetHostIP1, "172.23.1.133");
-        strcpy(gstAppSysCfg.stCommuParam.asNetHostPort1, "8716");
-        strcpy(gstAppSysCfg.stCommuParam.asNetHostIP2, "172.23.1.133");
-        strcpy(gstAppSysCfg.stCommuParam.asNetHostPort2, "8716");
+        strcpy(gstAppSysCfg.stCommuParam.asNetHostIP1, "172.23.1.84");
+        strcpy(gstAppSysCfg.stCommuParam.asNetHostPort1, "8000");
+        strcpy(gstAppSysCfg.stCommuParam.asNetHostIP2, "172.23.1.84");
+        strcpy(gstAppSysCfg.stCommuParam.asNetHostPort2, "8000");
         
         strcpy(gstAppSysCfg.stCommuParam.asWifiHostIP1, "172.23.1.133");
         strcpy(gstAppSysCfg.stCommuParam.asWifiHostPort1, "8716");
@@ -1795,7 +1796,10 @@ void SetupOthersClearBatch(void)
         sdkKbWaitKey(SDK_KEY_MASK_ESC | SDK_KEY_MASK_ENTER, TMR_PROMPT);
         return;
     }
-    
+#ifdef JEFF_DEBUG
+			DbgSaveDbgTranTotalNum(0);
+			unlink(FILENAME_SAVED_8583_PKG);
+#endif    
     RecordDeleteAll();
     BatchUpDeleteInfo();
     sdkDispClearScreen();

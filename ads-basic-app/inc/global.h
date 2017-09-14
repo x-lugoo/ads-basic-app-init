@@ -39,7 +39,6 @@
 #include "sdkGlobal.h"
 #include "sdkexGlobal.h"
 #include "sdkiso8583.h"
-
 /*-----------------------------------------------------------------------------
 *                          GLOBAL MACROS/CONSTANTS
 -----------------------------------------------------------------------------*/
@@ -63,6 +62,10 @@
 #define FALSE 0
 #endif
 
+
+#define JEFF_DEBUG  //for jeff to debug added 20170913
+
+
 #define TMR_OPERATE  (30*1000)  // Timer for exiting to main menu automatically when no operation
 #define TMR_WAITKEY  (5*1000)   // Timer for waiting key to confirm 
 #define TMR_PROMPT   (3*1000)   // Timer for prompting
@@ -74,7 +77,9 @@
 #define FILE_BACKGROUND_BMP  "/mtd0/res/background.bmp"    // background image
 #define FILENAME_PRINT_BMP   "printlogo.bmp"               // print title image
 #define FILENAME_WELCOME_BMP "welcome.bmp"                 // welcome display image
-
+#define FILENAME_TATAL_SAVED_8383_NUM "/mtd0/res/debug8583Num"  //saved debug 8583 numbers
+#define FILENAME_SAVED_8583_PKG       "/mtd0/res/debug8583Pkg"  //saved debug 8583 packages
+   
 #define CARDPROC_NONEEDPIN       (100)
 #define CARDPROC_OFFLINE_SUCC    (101)
 #define CARDPROC_OFFLINE_FAIL    (102)

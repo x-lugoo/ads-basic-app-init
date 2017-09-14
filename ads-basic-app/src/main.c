@@ -42,8 +42,8 @@ DBG_FILTER DbgFilter =
 {
     TRUE,                  // whether in testing state
     DBG_OUTPUT_ALL,        // only block the tags of black list
-    DBG_MODE_PINPAD,        // mode for Trace(), TraceHex(), Assert(), Verify().
-    DBG_ENABLE_PINPAD,        // enable all trace modes
+    DBG_MODE_PINPAD,// DBG_MODE_PINPAD,        // mode for Trace(), TraceHex(), Assert(), Verify().
+    DBG_ENABLE_ALL,// DBG_ENABLE_PINPAD,        // enable all trace modes
 };
 #endif
 
@@ -120,6 +120,11 @@ void AppInit(void)
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_SYSTEM_INIT, SDK_DISP_DEFAULT);
     sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_PLEASE_WAIT, SDK_DISP_DEFAULT);
     sdkDispBrushScreen();
+#ifdef JEFF_DEBUG
+	if(false == sdkAccessFile(FILENAME_TATAL_SAVED_8383_NUM)){
+		DbgSaveDbgTranTotalNum(0);
+	}
+#endif
     
     sdkIccPowerStartInit();                                                 // Must be called for EMV IC card reset
     
@@ -218,6 +223,7 @@ void OnCircle(void)
     bool refresh = TRUE;
     bool refresh_time = TRUE;
     bool refresh_led = TRUE;
+	bool bPreIndexMode = false;
     u8 max_line;
     s32 color;
 
@@ -290,10 +296,15 @@ void OnCircle(void)
              
         // process key input
         key = sdkKbGetKey();
+#ifdef JEFF_DEBUG
+		if(0 != key){
+			Trace("xgd","key=%d ,%s(%d)\r\n",key,__FUNCTION__,__LINE__);
+		}
+#endif
         if(SDK_KEY_ENTER == key)
         {
             sdkSysBeep(SDK_SYS_BEEP_OK);
-            gstTransData.stTransLog.eTransID = TRANSID_MAINMENU;
+			gstTransData.stTransLog.eTransID = TRANSID_MAINMENU;
         }
         else if(key > SDK_KEY_0 && key <= SDK_KEY_9)
         {
@@ -310,6 +321,26 @@ void OnCircle(void)
             sdkSysBeep(SDK_SYS_BEEP_ERR);
         }
 
+		
+#ifdef JEFF_DEBUG
+		if(true == bPreIndexMode && SDK_KEY_0 == key){
+			Trace("xgd","Entrying into index mode%s(%d)\r\n",__FUNCTION__,__LINE__);
+			PrintDebug8583();
+			gstTransData.stTransLog.eTransID = TRANSID_WELCOME;
+			refresh = TRUE;
+		}
+		else if(true == bPreIndexMode && 0 == key){
+			bPreIndexMode = true;
+		}
+		else{
+			bPreIndexMode = false;
+		}
+		
+		if(SDK_KEY_ESC == key){
+			bPreIndexMode = true;
+			Trace("xgd","key=%d,prepare for index mode,%s(%d)\r\n",key,__FUNCTION__,__LINE__);
+		}
+#endif
         // refresh disp timer
         if(sdkTimerIsEnd(tmr_disp, TMR_REFRESH_TIME))
         {

@@ -433,8 +433,8 @@
 #define STR_SETUP_SET_TIME             "SET TIME"
 #define STR_SETUP_SYSTEM_TIME          "SYSTEM TIME"
 #define STR_SETUP_NEW_TIME             "NEW TIME"
-
-
+#define STR_DEBUG_8583				   "PRINT 8583"
+#define STR_SETUP_INPUT_STN			   "INPUT STN"
 /*-----------------------------------------------------------------------------
 *                           DATA STRUCTURE
 -----------------------------------------------------------------------------*/

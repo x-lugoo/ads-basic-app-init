@@ -1470,3 +1470,60 @@ s32 PrintDetailReportFooter(void)
     return SDK_OK;
 }
 
+s32 PrintDebug8583(void)
+{
+#ifndef JEFF_DEBUG
+	return SDK_OK;
+#else
+	char  buf[64];
+	s32   uiSavedDebug8583Num;
+	s32   uiNum;
+	s32   uiRet;
+	ST_SAVED_DEBUG8583 stSavedDebug8583;
+	
+	DispTitle(STR_DEBUG_8583);
+	Trace("xgd","prepare to input traceNo %s(%d) \r\n",__FUNCTION__,__LINE__);
+	DispClearContent();
+	DbgReadDbgTranTotalNum(&uiSavedDebug8583Num);
+	if(uiSavedDebug8583Num <= 0){
+		sdkDispFillRowRam(SDK_DISP_LINE3, 0,"NO ORIGINAL TRANS", SDK_DISP_DEFAULT);
+		uiRet = SDK_ERR;
+		goto end;
+	}else{
+		memset(buf, 0, sizeof(buf));
+	    if (!TrnInputTraceNo(buf))
+	    {
+	        return SDK_ERR;
+	    }
+		DispClearContent();
+		Trace("xgd","TraceNo=%02X %02X %02X %02X %02X %02X %02X %02X  %s(%d)\r\n",
+			 buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7],__FUNCTION__,__LINE__);
+		for(uiNum = 0;uiNum < uiSavedDebug8583Num;uiNum++)
+		{
+			uiRet = DbgReadTran8583(&stSavedDebug8583,uiNum);
+			if(uiRet < 0 || uiRet != sizeof(ST_SAVED_DEBUG8583)){
+				sdkDispFillRowRam(SDK_DISP_LINE3, 0,"READ TRANS FILE FAIL", SDK_DISP_DEFAULT);
+				uiRet = SDK_ERR;
+				goto end;
+			}
+			Trace("xgd","sTranNo=%d \r\n",stSavedDebug8583.sTranNo,__FUNCTION__,__LINE__);
+			if(stSavedDebug8583.sTranNo == atoi(buf)){
+				sdkDispFillRowRam(SDK_DISP_LINE3, 0,"PRINTING DEBUG 8583", SDK_DISP_DEFAULT);
+				sdkDispBrushScreen();
+				DbgPrintHex8583("SEND ISO8583 HEX",stSavedDebug8583.stSendBag8583.ucBagData,stSavedDebug8583.stSendBag8583.nBagLen);
+				DbgPrintIso8583("SENT ISO8583 FIELD",&stSavedDebug8583.stSendBag8583);
+				DbgPrintHex8583("RECEIVED ISO8583 HEX",stSavedDebug8583.stRecvBag8583.ucBagData,stSavedDebug8583.stRecvBag8583.nBagLen);
+				DbgPrintIso8583("RECEIVED ISO8583 FIELD",&stSavedDebug8583.stRecvBag8583);
+				uiRet = SDK_OK;
+				goto end;
+			}
+		}
+     	sdkDispFillRowRam(SDK_DISP_LINE3, 0,"NO THIS TRANS", SDK_DISP_DEFAULT);
+end:
+		sdkDispBrushScreen();
+		sdkKbWaitKey(SDK_KEY_MASK_ESC | SDK_KEY_MASK_ENTER, TMR_PROMPT);
+		sdkKbKeyFlush();
+	}
+	return uiRet;
+#endif	
+}

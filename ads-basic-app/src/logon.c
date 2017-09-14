@@ -266,6 +266,10 @@ void LogonTrans(void)
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_PASSWORD, SDK_DISP_LEFT_DEFAULT);
     sdkDispBrushScreen();
 
+#ifdef JEFF_DEBUG
+	Trace("xgd","InputUse=%d,sysPwd=%s,adminPwd=%s %s(%d)\r\n",cashier,
+		  gstAppSysCfg.stUserPwd.asSysPwd,gstAppSysCfg.stUserPwd.asAdminPwd,__FUNCTION__,__LINE__);
+#endif
     // Input password
     memset(buf, 0, sizeof(buf));
     ret = sdkKbGetScanf(TMR_OPERATE, buf, 4, 8, SDK_MMI_NUMBER | SDK_MMI_PWD, SDK_DISP_LINE3);
@@ -274,7 +278,10 @@ void LogonTrans(void)
         TrnSetStatus(ret);
         return;
     }
-    
+#ifdef JEFF_DEBUG
+	Trace("xgd","InputPwd=%s,( %02X %02X %02X %02X %02X %02X %02X %02X )\r\n",
+	    &buf[1],buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7],__FUNCTION__,__LINE__);
+#endif 
     if (SYSADMINNO == cashier && 0 == strcmp(&buf[1], gstAppSysCfg.stUserPwd.asSysPwd))
     {
         gstLoginInfo.ucUserNO = cashier;

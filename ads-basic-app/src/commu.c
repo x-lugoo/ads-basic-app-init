@@ -15,8 +15,8 @@
   
 ******************************************************************************/
 #include "global.h"
-
-
+#include <pthread.h>
+#include "Appdbg.h"
 static SDK_SSL_HANDLE _pgSSL;
 /*----------------------------------------------------------------------------*/
 /*****************************************************************************
@@ -776,7 +776,12 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
     s32 ret;
     u8 bag_data[SDK_8583_BAGMAXLEN + 2];
     u32 len = SDK_8583_BAGMAXLEN;
-    
+#ifdef JEFF_DEBUG
+	pthread_t tid;
+	s32 uiDbg8583TotalNum;
+    ST_SAVED_DEBUG8583stSaveDebug8583;
+#endif
+	
     //DispClearContent();
     sdkDispClearRowRam(SDK_DISP_LINE3);
     sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_SENDING, SDK_DISP_DEFAULT);
@@ -785,7 +790,12 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
     // Send transation data
     TraceHex("commu", "ISO8583 send", pstIsoMsgSend->ucBagData, pstIsoMsgSend->nBagLen);
     DbgTraceIso8583("commu", pstIsoMsgSend);
-
+#ifdef JEFF_DEBUG
+	//pthread_create(&tid,NULL, DbgPrintIso8583,pstIsoMsgSend);
+	//pthread_join(tid,NULL);
+	DbgPrintHex8583("SENT ISO8583 HEX",pstIsoMsgSend->ucBagData,pstIsoMsgSend->nBagLen);
+	DbgPrintIso8583("SENT ISO8583 FIELDS",pstIsoMsgSend);
+#endif
     if(0 == gstAppSysCfg.stCommuParam.bIsWithSSL)
     {
         if(LENTYPE_BCD == gstAppSysCfg.stCommuParam.eMsgLenType)
@@ -907,7 +917,14 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
         return ERR_UNPACK_MSG;
     }
     DbgTraceIso8583("commu", pstIsoMsgRecv);
-
+#ifdef JEFF_DEBUG
+	DbgPrintHex8583("RECEIVED ISO8583 HEX",pstIsoMsgRecv->ucBagData,pstIsoMsgRecv->nBagLen);
+	DbgPrintIso8583("RECEIVED ISO8583 FIELDS",pstIsoMsgRecv->ucBagData);
+	DbgReadDbgTranTotalNum(&uiDbg8583TotalNum);
+	DbgSaveTran8583(atoi(gstAppSysCfg.stTransParam.asTraceNO) - 1,
+					pstIsoMsgSend,pstIsoMsgRecv,uiDbg8583TotalNum);
+	DbgSaveDbgTranTotalNum(++uiDbg8583TotalNum);
+#endif
     return TrnUpdateTransDataRecv(pstIsoMsgRecv);
 }
 

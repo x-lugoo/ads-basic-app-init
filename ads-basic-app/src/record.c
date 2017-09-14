@@ -442,6 +442,8 @@ s32 RecordSearch(s32 iId, void *pasValue, ST_TRANSLOG *pstTransLog)
     st_filter.iLen = st_field.iLen;
     
     memset(&_gstTransLog, 0, sizeof(ST_TRANSLOG));
+	/*sdkDbSearchRecord hides some details ,I think that the function must have handled the global veriable _gstTransLog .
+	 */
     if(DB_EXIT_SUCCESS != sdkDbSearchRecord(TabTransLog.pasTabName, &st_filter, &TabTransLog))
     {
         return SDK_ERR;
