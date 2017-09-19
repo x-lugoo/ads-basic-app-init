@@ -155,10 +155,15 @@ s32 LogonPackMsg(SDK_8583_ST8583 *pstIsoMsg)
     {
         return 0;
     }
-    
+
+#ifdef JEFF_DEBUG
+	Trace("xgd","pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
+#endif	
     // Message ID
     IsoSetField(pstIsoMsg, SDK_8583_FIELD_MSG, "0800", 4);
-
+#ifdef JEFF_DEBUG
+	Trace("xgd","pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
+#endif
     //60Óò
     memset(buf, 0, sizeof(buf));
     strcat(buf, "00");
@@ -181,6 +186,53 @@ s32 LogonPackMsg(SDK_8583_ST8583 *pstIsoMsg)
     IsoSetField(pstIsoMsg, 63, buf, strlen(buf));
 
     return pstIsoMsg->nBagLen;
+}
+
+s32 EchoLogonPackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)
+{
+#ifndef JEFF_DEBUG
+	return 0;
+#else
+	ST_SAVE_ECHO_MSG stEchoMsg;
+	u8 buf[64];
+	s32 siRet;
+
+	IsoSetField(pstIsoMsgRecv,SDK_8583_FIELD_MSG,"0810",4);  //Field 0,message code
+	EchoIsoPackPublicMsg(pstIsoMsgSend,pstIsoMsgRecv);
+
+	IsoSetField(pstIsoMsgRecv,37,"952795289529",12);  //Field 37 data
+	IsoSetField(pstIsoMsgRecv,39,"00",2);  //Field 37 data
+	/*set field 60*/
+	strcpy(buf,"00");
+	strcpy(buf + 2,"000001");
+	strcpy(buf + 8,"001");
+	IsoSetField(pstIsoMsgRecv,60,buf,11);
+
+	/*set field62*/
+	DbgEchoInitMsg(&stEchoMsg);
+	memcpy(buf,stEchoMsg.heEchoTpk,8);
+	sdkDesS(TRUE,buf,stEchoMsg.heEchoTmk);//usr Tmk to  encrypt tpk
+	TraceHex("xgd","Encrypted Tpk=",buf,8);
+	 //calc tpk kcv 
+	memset(buf + 8,0x00,8);                 
+	sdkDesS(TRUE,buf + 8,stEchoMsg.heEchoTpk);
+	TraceHex("xgd","Tpk,KCV=",buf + 8,8);
+	//usr Tmk to  encrypt Tak
+	memcpy(buf + 12,stEchoMsg.heEchoTak,8); 
+	sdkDesS(TRUE,buf + 12,stEchoMsg.heEchoTmk);
+	TraceHex("xgd","Encrypted Tak=",buf + 12,8);
+	 //calc tak kcv 
+	memset(buf + 20,0x00,8);       
+	sdkDesS(TRUE,buf + 20,stEchoMsg.heEchoTak);
+	TraceHex("xgd","Tak,KCV=",buf + 20,8);
+	
+	IsoSetField(pstIsoMsgRecv,62,buf,24);
+	siRet = DbgSaveEchoMsg(&stEchoMsg);
+	if(siRet < 0){
+		return siRet;
+	}
+	return 0;
+#endif
 }
 
 /*****************************************************************************

@@ -184,80 +184,258 @@ bool DbgPrintHex8583(u8 *pasTitle,const u8 *pheData, s32 uiDataLen)
 #endif
 }
 
-s32 DbgSaveTran8583(s32 uiTranNO,SDK_8583_ST8583 *pstSentBag8583,SDK_8583_ST8583 *pstRecv8583,s32 uiOffset)
+s32 DbgSaveTran8583(s32 siTranNO,SDK_8583_ST8583 *pstSentBag8583,SDK_8583_ST8583 *pstRecv8583,s32 siOffset)
 {
 #ifndef JEFF_DEBUG
 	return 0;
 #else	
-	s32 uiFd;
+	s32 siFd;
+	s32 siRet;
 	ST_SAVED_DEBUG8583 stSavedDebug8583;
 	
 
-	uiFd = open(FILENAME_SAVED_8583_PKG,O_CREAT | O_RDWR,0644);
-	if(uiFd < 0){
+	siFd = open(FILENAME_SAVED_8583_PKG,O_CREAT | O_RDWR,0644);
+	if(siFd < 0){
 		return -1;
 	}
-	lseek(uiFd,sizeof(ST_SAVED_DEBUG8583) * uiOffset,SEEK_SET);
-	stSavedDebug8583.sTranNo = uiTranNO;
+	lseek(siFd,sizeof(ST_SAVED_DEBUG8583) * siOffset,SEEK_SET);
+	stSavedDebug8583.sTranNo = siTranNO;
 	stSavedDebug8583.stSendBag8583 = *pstSentBag8583;
 	stSavedDebug8583.stRecvBag8583 = *pstRecv8583;
-	write(uiFd,&stSavedDebug8583,sizeof(stSavedDebug8583));
-	close(uiFd);
+	siRet = write(siFd,&stSavedDebug8583,sizeof(stSavedDebug8583));
+	if(siRet != sizeof(stSavedDebug8583)){
+		close(siFd);
+		return -2;
+	}
+	close(siFd);
 	return 0;
 #endif
 }
 
-s32 DbgReadTran8583(ST_SAVED_DEBUG8583 *pstSavedDebug8583,s32 uiOffset)
+s32 DbgReadTran8583(ST_SAVED_DEBUG8583 *pstSavedDebug8583,s32 siOffset)
 {
 #ifndef JEFF_DEBUG
 	return 0;
 #else
-	s32 uiFd;
-	s32 uiRet;
+	s32 siFd;
+	s32 siRet;
 
-	uiFd = open(FILENAME_SAVED_8583_PKG,O_RDONLY,0);
-	if(uiFd < 0){
+	siFd = open(FILENAME_SAVED_8583_PKG,O_RDONLY,0);
+	if(siFd < 0){
 		return -1;
 	}
-	lseek(uiFd,sizeof(ST_SAVED_DEBUG8583) * uiOffset,SEEK_SET);
-	uiRet = read(uiFd,pstSavedDebug8583,sizeof(ST_SAVED_DEBUG8583));
-	close(uiFd);
-	return uiRet;
+	lseek(siFd,sizeof(ST_SAVED_DEBUG8583) * siOffset,SEEK_SET);
+	siRet = read(siFd,pstSavedDebug8583,sizeof(ST_SAVED_DEBUG8583));
+	if(siRet != sizeof(ST_SAVED_DEBUG8583)){
+		close(siFd);
+		return -2;
+	}
+	close(siFd);
+	return siRet;
 #endif	
 }
 
-s32 DbgSaveDbgTranTotalNum(s32 uiSaveDebugNum)
+s32 DbgSaveDbgTranTotalNum(s32 siSaveDebugNum)
 {
 #ifndef JEFF_DEBUG
 	return 0;
 #else
-	s32 uiFd;
+	s32 siFd;
+	s32 siRet;
 
-	uiFd = open(FILENAME_TATAL_SAVED_8383_NUM,O_CREAT | O_RDWR,0644);
-	if(uiFd < 0){
+	siFd = open(FILENAME_TATAL_SAVED_8383_NUM,O_CREAT | O_RDWR,0644);
+	if(siFd < 0){
 		return -1;
 	}
-	write(uiFd,&uiSaveDebugNum,sizeof(s32));
-	close(uiFd);
+	siRet = write(siFd,&siSaveDebugNum,sizeof(s32));
+	if(siRet != sizeof(s32)){
+		close(siFd);
+		return -2;
+	}
+	close(siFd);
 	return 0;
 #endif	
 }
 
-s32 DbgReadDbgTranTotalNum(s32 *uiSavedDebugNum)
+s32 DbgReadDbgTranTotalNum(s32 *siSavedDebugNum)
 {
 #ifndef JEFF_DEBUG
 	return 0;
 #else
-	s32 uiFd;
-	s32 uiRet;
+	s32 siFd;
+	s32 siRet;
 
-	uiFd = open(FILENAME_TATAL_SAVED_8383_NUM,O_RDONLY,0);
-	if(uiFd < 0){
+	siFd = open(FILENAME_TATAL_SAVED_8383_NUM,O_RDONLY,0);
+	if(siFd < 0){
 		return -1;
 	}
-	uiRet = read(uiFd,uiSavedDebugNum,sizeof(s32));
-	close(uiFd);
-	return uiRet;
+	siRet = read(siFd,siSavedDebugNum,sizeof(s32));
+	if(siRet != sizeof(s32)){
+		close(siFd);
+		return -2;
+	}
+	close(siFd);
+	return siRet;
 #endif
 }
 
+s32 DbgSaveEchoMsg(ST_SAVE_ECHO_MSG *pstEchoMsg)
+{
+#ifndef JEFF_DEBUG
+	return 0;
+#else
+	s32 siFd;
+	s32 siRet;
+	
+	siFd = open(FILENAME_SAVED_ECHO_MEG,O_CREAT | O_RDWR,0644);
+	if(siFd < 0){
+		return -1;
+	}
+	siRet = write(siFd,pstEchoMsg,sizeof(ST_SAVE_ECHO_MSG));
+	if(siRet != sizeof(ST_SAVE_ECHO_MSG)){
+		close(siFd);
+		return -2;
+	}
+	close(siFd);
+	return siRet;
+#endif
+}
+
+
+
+s32 DbgReadEchoMsg(ST_SAVE_ECHO_MSG *pstEchoMsg)
+{
+#ifndef JEFF_DEBUG
+	return 0;
+#else
+	s32 siFd;
+	s32 siRet;
+	
+	siFd = open(FILENAME_SAVED_ECHO_MEG,O_RDONLY,0);
+	if(siFd < 0){
+		return -1;
+	}
+	siRet = read(siFd,pstEchoMsg,sizeof(ST_SAVE_ECHO_MSG));
+	if(siRet != sizeof(ST_SAVE_ECHO_MSG)){
+		close(siFd);
+		return -2;
+	}
+	close(siFd);
+	return siRet;
+#endif		
+}
+
+s32 DbgEchoModeExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)
+{
+#ifndef JEFF_DEBUG
+	return 0;
+#else
+	s32 siRet;
+	u8  buf1[20]= {0};
+	u8  buf2[20]= {0};
+
+	siRet = EchoIsoPackMsgHeader(pstIsoMsgRecv);
+	if(siRet < 0){
+		return siRet;
+	}
+	IsoGetField(pstIsoMsgSend,SDK_8583_FIELD_MSG,buf1,sizeof(buf1));//get message code
+	TraceHex("xgd","get sent Message code",buf1,4);
+	IsoGetField(pstIsoMsgSend,3,buf2,sizeof(buf2));//get process code
+	TraceHex("xgd","get sent Message code",buf2,4);
+	if(0 == memcmp(buf1,"0800",4)){
+		siRet = EchoLogonPackMsg(pstIsoMsgSend,pstIsoMsgRecv);
+	}else if(0 == memcmp(buf1,"0200",4) && 0 == memcmp(buf2,"000000",6)){
+		siRet = EchoSalePackMsg(pstIsoMsgSend,pstIsoMsgRecv);
+	}else if(0 == memcmp(buf1,"0200",4) && 0 == memcmp(buf2,"0200",4)){
+	
+	}
+	if(siRet < 0){
+		Trace("xgd","siRet=%d %s(%d)\r\n",siRet,__FUNCTION__,__LINE__);
+		return siRet;
+	}
+	//exit(0);//only for debug
+	return 0;
+#endif
+}
+
+s32 DbgEchoInitMsg(ST_SAVE_ECHO_MSG *pstEchoMsg)
+{
+#ifndef JEFF_DEBUG
+	return 0;
+#else
+	u8 ucBuf[16];
+	
+	memset(pstEchoMsg,0x00,sizeof(ST_SAVE_ECHO_MSG));
+	memcpy(pstEchoMsg->heEchoTmk,"\x31\x31\x31\x31\x31\x31\x31\x31",8);
+#if 0	
+	if(SDK_OK == sdkGetRandom(ucBuf,16)){
+		memcpy(pstEchoMsg->heEchoTpk,ucBuf,8);
+		memcpy(pstEchoMsg->heEchoTak,ucBuf + 8,8);
+	}else{
+		memcpy(pstEchoMsg->heEchoTpk,"\x32\x32\x32\x32\x32\x32\x32\x32",8);
+		memcpy(pstEchoMsg->heEchoTak,"\x33\x33\x33\x33\x33\x33\x33\x33",8);
+	}
+#endif
+#if 1
+		memcpy(pstEchoMsg->heEchoTpk,"\x32\x32\x32\x32\x32\x32\x32\x32",8);
+		memcpy(pstEchoMsg->heEchoTak,"\x33\x33\x33\x33\x33\x33\x33\x33",8);
+#endif
+	TraceHex("xgd","Init TPK",pstEchoMsg->heEchoTpk,8);
+	TraceHex("xgd","Init TAK",pstEchoMsg->heEchoTak,8);
+	strcpy(pstEchoMsg->asAccount,"6217921154022159");
+	strcpy(pstEchoMsg->asAmount,"000000008000");
+	strcpy(pstEchoMsg->asPin,"852369");
+	return 0;
+#endif
+}
+
+s32 DbgEchoHandleField39(E_TRANS_ID eTranId, SDK_8583_ST8583 *pstIsoMsgSend,u8 *pucFile39)
+{
+#ifndef JEFF_DEBUG
+	return 0;
+#else
+	ST_SAVE_ECHO_MSG stEchoMsg;
+	s32 iRet;
+	u8  ucBuf[64];
+	u8  ucBuf2[64];
+	u8  ucAmt[6];
+	u8  ucAmt2[6];
+	u8  ucAmt3[6];
+
+	iRet = DbgReadEchoMsg(&stEchoMsg);
+	if(iRet < 0){
+		return iRet;
+	}
+	strcpy(pucFile39,"00");
+	switch(eTranId){
+		case TRANSID_SALE:
+			IsoGetField(pstIsoMsgSend,2,ucBuf,sizeof(ucBuf));
+			if(sdk8583IsDomainExist(pstIsoMsgSend,4)){
+		  		IsoGetField(pstIsoMsgSend,4,ucBuf2,sizeof(ucBuf2));
+				if(memcmp(ucBuf,stEchoMsg.asAccount,16) == 0){
+					TraceHex("xgd","sale amount",ucBuf2,12);
+					TraceHex("xgd","Account amount",stEchoMsg.asAmount,12);
+					if(memcmp(ucBuf2,stEchoMsg.asAmount,12) > 0){
+						strcpy(pucFile39,"51");
+					}else{
+						sdkAscToBcd(ucAmt,stEchoMsg.asAmount,12);
+						sdkAscToBcd(ucAmt2,ucBuf2,12);
+						sdkBcdSub(ucAmt3, ucAmt,6,ucAmt2, 6);
+						sdkBcdToAsc(stEchoMsg.asAmount,ucAmt3,6);
+						TraceHex("xgd","remain amount",stEchoMsg.asAmount,12);
+						iRet = DbgSaveEchoMsg(&stEchoMsg);
+						if(iRet < 0){
+							return iRet;
+						}
+					}
+				}
+			
+		    }
+			break;
+		default:
+			break;
+	}
+
+	return 0;
+#endif
+}

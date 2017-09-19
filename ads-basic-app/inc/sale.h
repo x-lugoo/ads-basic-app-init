@@ -33,7 +33,7 @@
 extern void SaleTrans(u16 usCardType);
 extern s32 SalePackMsg(SDK_8583_ST8583 *pstIsoMsg);
 extern void OnSale(void);
-
+extern s32 EchoSalePackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv);
 
 
 /*-----------------------------------------------------------------------------*/

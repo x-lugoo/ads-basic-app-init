@@ -18,6 +18,7 @@
 #include "global.h"
 #undef AFX_APP_VARIABLES
 
+
 // functions
 void AppMain(void);
 void MainMenu(void);
@@ -30,7 +31,8 @@ void OnCircle();
 #ifdef XGD_SDK_DEBUG
 
 #ifdef USE_SDK_DEBUG 
-static const SDK_DEBUG_FILTER DebugFilter =
+
+static  const SDK_DEBUG_FILTER DebugFilter =
 {
     FALSE,                   //whether in testing state
     FALSE,                   //whether output function name
@@ -85,7 +87,8 @@ s32 main(s32 argc, char const *argv[])
     
 #ifdef XGD_SDK_DEBUG
 #ifdef USE_SDK_DEBUG
-        Verify(sdkDebugInitalList(pWhiteList, sizeof(pWhiteList) / sizeof(char *), pBlackList, sizeof(pBlackList) / sizeof(char *)) == SDK_OK);
+        Verify(sdkDebugInitalList(pWhiteList, sizeof(pWhiteList) / sizeof(char *), 
+        		pBlackList, sizeof(pBlackList) / sizeof(char *)) == SDK_OK);
         Verify(sdkDebugSetFilter(&DebugFilter) == SDK_OK);
 #else /* if 0 */
         AppDbgInit(&DbgFilter,
@@ -120,7 +123,7 @@ void AppInit(void)
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_SYSTEM_INIT, SDK_DISP_DEFAULT);
     sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_PLEASE_WAIT, SDK_DISP_DEFAULT);
     sdkDispBrushScreen();
-#ifdef JEFF_DEBUG
+#ifdef JEFF_DEBUG //init the number of saved debug 8583 tranx
 	if(false == sdkAccessFile(FILENAME_TATAL_SAVED_8383_NUM)){
 		DbgSaveDbgTranTotalNum(0);
 	}
@@ -322,7 +325,7 @@ void OnCircle(void)
         }
 
 		
-#ifdef JEFF_DEBUG
+#ifdef JEFF_DEBUG//use cancel + '0' to  query tranx history
 		if(true == bPreIndexMode && SDK_KEY_0 == key){
 			Trace("xgd","Entrying into index mode%s(%d)\r\n",__FUNCTION__,__LINE__);
 			PrintDebug8583();

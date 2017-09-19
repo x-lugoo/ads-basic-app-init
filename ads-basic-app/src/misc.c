@@ -3051,17 +3051,42 @@ s32 TrnUpdateTransDataRecv(SDK_8583_ST8583 *pstRecvPacket)
     pst_translog = &gstTransData.stTransLog;
     pst_msginfo = &gstTransData.stTransLog.stMsgInfo;
     pst_cardinfo = &gstTransData.stTransLog.stCardInfo;
-    
+	
+#ifdef JEFF_DEBUG
+	if(SDK_COMM_ECHO == gstAppSysCfg.stCommuParam.uiCommuMode
+	        && 8 == IsoGetField(pstRecvPacket, 64, buf, sizeof(buf))){
+	       //Taking mannual method to calc mac
+		ret = EchoGetMsgMac(pstRecvPacket,mac,11);
+		if(ret < 0){
+			return ret;
+		}
+		TraceHex("xgd","buf Mac",buf,8);
+		TraceHex("xgd","verify Mac",mac,8);
+	    if(0 != memcmp(buf, mac, 8))
+        {
+            TrnSetStatus(ERR_CALCMAC);
+            return ERR_CALCMAC;
+        }
+		
+	}else{
+#endif
+
     if(8 == IsoGetField(pstRecvPacket, 64, buf, sizeof(buf)))
     {
         IsoGetMsgMac(pstRecvPacket, mac);
+		TraceHex("xgd","buf Mac",buf,8);
+		TraceHex("xgd","varify Mac",mac,8);
         if(0 != memcmp(buf, mac, 8))
         {
             TrnSetStatus(ERR_CALCMAC);
             return ERR_CALCMAC;
         }
     }
-    
+
+#ifdef JEFF_DEBUG
+	}
+#endif 
+
     if(IsoGetField(pstRecvPacket, 0, buf, sizeof(buf)) <= 0)
     {
         TrnSetStatus(ERR_UNPACK_MSG);

@@ -79,7 +79,8 @@
 #define FILENAME_WELCOME_BMP "welcome.bmp"                 // welcome display image
 #define FILENAME_TATAL_SAVED_8383_NUM "/mtd0/res/debug8583Num"  //saved debug 8583 numbers
 #define FILENAME_SAVED_8583_PKG       "/mtd0/res/debug8583Pkg"  //saved debug 8583 packages
-   
+#define FILENAME_SAVED_ECHO_MEG       "/mtd0/res/echoMsg"       //saved echo message
+
 #define CARDPROC_NONEEDPIN       (100)
 #define CARDPROC_OFFLINE_SUCC    (101)
 #define CARDPROC_OFFLINE_FAIL    (102)
@@ -534,6 +535,7 @@ typedef struct
 #include "print.h"
 #include "display.h"
 #include "appdbg.h"
+
 
 /*-----------------------------------------------------------------------------
 *                           GLOBAL VARIABLES

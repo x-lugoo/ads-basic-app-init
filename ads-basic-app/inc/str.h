@@ -334,6 +334,7 @@
 #define STR_SETUP_1_MODEM_2_GPRS       "1.MODEM   2.GPRS"
 #define STR_SETUP_3_CDMA_4_ETHERNET    "3.CDMA    4.ETHERNET"
 #define STR_SETUP_5_WIFI               "5.WIFI"
+#define STR_SETUP_5_WIFI_6_ECHO        "5.WIFI    6.ECHO"
 #define STR_SETUP_TEL_NUMBER1          "TEL NUMBER1:"
 #define STR_SETUP_TEL_NUMBER2          "TEL NUMBER2:"
 #define STR_SETUP_TEL_NUMBER3          "TEL NUMBER3:"

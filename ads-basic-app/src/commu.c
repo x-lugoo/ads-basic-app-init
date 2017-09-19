@@ -384,7 +384,11 @@ s32 CommuSslConnect(s32 iTimeOut)
 s32 CommuCreateLink(void)
 {
     s32 ret;
-    
+
+#ifdef JEFF_DEBUG
+	if(SDK_COMM_ECHO != gstAppSysCfg.stCommuParam.uiCommuMode)
+		{
+#endif
     CommuConfigParam(FALSE);
 
     // Create a link
@@ -443,6 +447,9 @@ s32 CommuCreateLink(void)
         sdkKbWaitKey(SDK_KEY_MASK_ENTER | SDK_KEY_MASK_ESC, TMR_WAITKEY);
         return SDK_ERR;
     }
+#ifdef JEFF_DEBUG
+	}
+#endif
     return SDK_OK;
 }
 
@@ -777,9 +784,7 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
     u8 bag_data[SDK_8583_BAGMAXLEN + 2];
     u32 len = SDK_8583_BAGMAXLEN;
 #ifdef JEFF_DEBUG
-	pthread_t tid;
 	s32 uiDbg8583TotalNum;
-    ST_SAVED_DEBUG8583stSaveDebug8583;
 #endif
 	
     //DispClearContent();
@@ -791,11 +796,25 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
     TraceHex("commu", "ISO8583 send", pstIsoMsgSend->ucBagData, pstIsoMsgSend->nBagLen);
     DbgTraceIso8583("commu", pstIsoMsgSend);
 #ifdef JEFF_DEBUG
-	//pthread_create(&tid,NULL, DbgPrintIso8583,pstIsoMsgSend);
-	//pthread_join(tid,NULL);
-	DbgPrintHex8583("SENT ISO8583 HEX",pstIsoMsgSend->ucBagData,pstIsoMsgSend->nBagLen);
-	DbgPrintIso8583("SENT ISO8583 FIELDS",pstIsoMsgSend);
+	//DbgPrintHex8583("SENT ISO8583 HEX",pstIsoMsgSend->ucBagData,pstIsoMsgSend->nBagLen);
+	//DbgPrintIso8583("SENT ISO8583 FIELDS",pstIsoMsgSend);
 #endif
+
+#ifdef JEFF_DEBUG
+	Trace("xgd","communMOde=%d  %s(%d)\r\n",gstAppSysCfg.stCommuParam.uiCommuMode,__FUNCTION__,__LINE__);
+	if(SDK_COMM_ECHO == gstAppSysCfg.stCommuParam.uiCommuMode){
+		//sleep(1);//delay 1 second to show "sending "
+		TrnIncTraceNo(1);
+		sdkDispClearRowRam(SDK_DISP_LINE3);
+   		sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_RECEIVING, SDK_DISP_DEFAULT);
+    	sdkDispBrushScreen();
+	 	ret = DbgEchoModeExchangeIsoPacket(pstIsoMsgSend,pstIsoMsgRecv);
+		if(ret < 0){
+			return ret;
+		}
+	}else{
+#endif
+
     if(0 == gstAppSysCfg.stCommuParam.bIsWithSSL)
     {
         if(LENTYPE_BCD == gstAppSysCfg.stCommuParam.eMsgLenType)
@@ -831,7 +850,7 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
         }
         TrnSetStatus(ERR_SEND);
         return SDK_ERR;
-    }
+    }	
     //DispClearContent();
     sdkDispClearRowRam(SDK_DISP_LINE3);
     sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_RECEIVING, SDK_DISP_DEFAULT);
@@ -907,19 +926,46 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
         pstIsoMsgRecv->nBagLen = len - 2;
         memmove(pstIsoMsgRecv->ucBagData, &pstIsoMsgRecv->ucBagData[2], pstIsoMsgRecv->nBagLen);
     }
+	
+#ifdef JEFF_DEBUG
+	}
+#endif
 
     // Parse the response message
-    TraceHex("commu", "ISO8583 received", pstIsoMsgRecv->ucBagData, pstIsoMsgRecv->nBagLen);
+    TraceHex("commu", "ISO8583 received1", pstIsoMsgRecv->ucBagData, pstIsoMsgRecv->nBagLen);
 
-    if (0 == IsoParse8583(pstIsoMsgRecv))
-    {
-        TrnSetStatus(ERR_UNPACK_MSG);
-        return ERR_UNPACK_MSG;
-    }
+#ifdef JEFF_DEBUG
+	Trace("xgd","pstIsoMsgRecv->nBagLen=%d ,msgOffsethead=%d, %s(%d)\r\n",pstIsoMsgRecv->nBagLen,
+			pstIsoMsgRecv->stFiled[SDK_8583_FIELD_MSG].nFieldHead,__FUNCTION__,__LINE__);
+#endif
+
+#ifdef JEFF_DEBUG
+	if(SDK_COMM_ECHO != gstAppSysCfg.stCommuParam.uiCommuMode)
+	{
+#endif
+	    if (0 == IsoParse8583(pstIsoMsgRecv))
+	    {
+	        TrnSetStatus(ERR_UNPACK_MSG);
+	        return ERR_UNPACK_MSG;
+	    }
+		
+#ifdef JEFF_DEBUG
+	}
+#endif
+
+
+#ifdef JEFF_DEBUG
+	// Parse the response message
+    TraceHex("commu", "ISO8583 received2", pstIsoMsgRecv->ucBagData, pstIsoMsgRecv->nBagLen);
+	Trace("xgd","pstIsoMsgRecv->nBagLen=%d,msgOffsethead=%d  %s(%d)\r\n",
+		pstIsoMsgRecv->nBagLen,pstIsoMsgRecv->stFiled[SDK_8583_FIELD_MSG].nFieldHead,__FUNCTION__,__LINE__);
+#endif
+	
+	
     DbgTraceIso8583("commu", pstIsoMsgRecv);
 #ifdef JEFF_DEBUG
-	DbgPrintHex8583("RECEIVED ISO8583 HEX",pstIsoMsgRecv->ucBagData,pstIsoMsgRecv->nBagLen);
-	DbgPrintIso8583("RECEIVED ISO8583 FIELDS",pstIsoMsgRecv->ucBagData);
+	//DbgPrintHex8583("RECEIVED ISO8583 HEX",pstIsoMsgRecv->ucBagData,pstIsoMsgRecv->nBagLen);
+	//DbgPrintIso8583("RECEIVED ISO8583 FIELDS",pstIsoMsgRecv->ucBagData);
 	DbgReadDbgTranTotalNum(&uiDbg8583TotalNum);
 	DbgSaveTran8583(atoi(gstAppSysCfg.stTransParam.asTraceNO) - 1,
 					pstIsoMsgSend,pstIsoMsgRecv,uiDbg8583TotalNum);

@@ -47,9 +47,17 @@ s32 SalePackMsg(SDK_8583_ST8583 *pstIsoMsg)
     {
         return 0;
     }
-    
+	
+#ifdef JEFF_DEBUG
+	Trace("xgd","pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
+#endif   
+
     // #0  Message Type Identifier (MTI)
     ret = IsoSetField(pstIsoMsg, SDK_8583_FIELD_MSG, "0200", 4);
+
+#ifdef JEFF_DEBUG
+	Trace("xgd","pstIsoMsg->nBagLen=%d Ret=%d %s(%d)\r\n",pstIsoMsg->nBagLen,ret,__FUNCTION__,__LINE__);
+#endif	
     if (ret <= 0)
     {
         return 0;
@@ -96,6 +104,48 @@ s32 SalePackMsg(SDK_8583_ST8583 *pstIsoMsg)
     return pstIsoMsg->nBagLen;
 }
 
+
+s32 EchoSalePackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)
+{
+#ifndef JEFF_DEBUG
+	return 0;
+#else
+	s32 iRet;
+	u8 	mac[16] = {0};
+	u8  ucField39[2];
+	
+	IsoSetField(pstIsoMsgRecv,SDK_8583_FIELD_MSG,"0210",4);  //Field 0,message code
+	EchoIsoPackPublicMsg(pstIsoMsgSend,pstIsoMsgRecv);
+
+	IsoSetField(pstIsoMsgRecv,25,"00",2);  //Field 37,reference num
+	IsoSetField(pstIsoMsgRecv,37,"123456789012",12);  //Field 37,reference num
+	IsoSetField(pstIsoMsgRecv,38,"123456",6);  //Field 38,auth code
+	
+	iRet = DbgEchoHandleField39(TRANSID_SALE,pstIsoMsgSend,ucField39);
+	if(iRet < 0){
+		return iRet;
+	}
+	IsoSetField(pstIsoMsgRecv,39,ucField39,2);  //Field 39,response code
+	IsoSetField(pstIsoMsgRecv,44,"0102000001030000",strlen("0102000001030000"));  //Field 39,response code
+	IsoSetField(pstIsoMsgRecv,49,"156",3);  //currency code
+	IsoSetField(pstIsoMsgRecv,60,"22000001000600",strlen("22000001000600"));  
+	IsoSetField(pstIsoMsgRecv,63,"cup",3);
+	IsoSetField(pstIsoMsgRecv,64,"\x00\x00\x00\x00\x00\x00\x00\x00", 8);//calc ,need to copy mac before calc truely mac
+	memset(mac,0,sizeof(mac)); //get mac
+	iRet = IsoGetMsgMac(pstIsoMsgRecv, mac);
+	if (iRet <= 0)
+    {
+        return SDK_ESC;
+    }
+	TraceHex("xgd","generate Mac2",mac,8);
+	iRet = IsoSetField(pstIsoMsgRecv, 64, mac, 8);
+    if (iRet <= 0)
+    {
+        return SDK_ESC;
+    }
+	return 0;
+#endif
+}
 /*****************************************************************************
 ** Description :  ICC offline Sale transaction process 
 ** Parameters  :  input
