@@ -38,7 +38,9 @@ typedef struct
 	u8 heEchoTpk[8+1];
 	u8 heEchoTak[8+1];
 	u8 asAccount[19+1];
+	u8 ucCardNoLen;
 	u8 asPin[12+1];
+	u8 ucPinLen;
 	u8 asAmount[12+1];
 }ST_SAVE_ECHO_MSG;
 
@@ -57,7 +59,8 @@ extern s32 DbgEchoModeExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583
 extern s32 DbgEchoInitMsg(ST_SAVE_ECHO_MSG *pstEchoMsg);
 extern s32 DbgSaveEchoMsg(ST_SAVE_ECHO_MSG *pstEchoMsg);
 extern s32 DbgReadEchoMsg(ST_SAVE_ECHO_MSG *pstEchoMsg);
-extern s32 DbgEchoHandleField39(E_TRANS_ID eTranId, SDK_8583_ST8583 *pstIsoMsgSend,u8 *pucFile39);
+extern s32 DbgEchoHandleField39AndField54(E_TRANS_ID eTranId, SDK_8583_ST8583 *pstIsoMsgSend,u8 *pucFiled39,u8 *pszField54);
+extern bool DbgEchoIsRightPin(SDK_8583_ST8583 *pstIsoMsgSend,ST_SAVE_ECHO_MSG *pstEchoMsg);
 /*-----------------------------------------------------------------------------*/
 #endif
 

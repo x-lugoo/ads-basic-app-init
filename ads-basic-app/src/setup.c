@@ -1473,7 +1473,11 @@ void SetupSecureTmk(void)
     s32 index;
     u8 tmp[33] = {0};
     u8 key[33] = {0};
-     
+	
+#ifdef JEFF_DEBUG
+	ST_SAVE_ECHO_MSG stEchoMsg;
+	s32 iRet;
+#endif
     DispClearContent();
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_SETUP_KEY_INDEX_0_9, SDK_DISP_LEFT_DEFAULT);
     sdkDispBrushScreen();
@@ -1510,6 +1514,17 @@ void SetupSecureTmk(void)
     }
     sdkAscToBcd(key, &tmp[1], tmp[0]);
 #ifdef JEFF_DEBUG
+	iRet = DbgReadEchoMsg(&stEchoMsg);
+	if(iRet < 0){
+		return;
+	}
+	if(0 == gstAppSysCfg.stSecureKey.bIsTripleDES){
+		memcpy(stEchoMsg.heEchoTmk,key,tmp[0]);
+	}
+	iRet = DbgSaveEchoMsg(&stEchoMsg);
+	if(iRet < 0){
+		return;
+	}
 	Trace("xgd","TMK index=%d,Len=%d, %02X %02X %02X %02X %02X %02X %02X %02X "
 		 	  "%02X %02X %02X %02X %02X %02X %02X %02X %s(%d)\r\n",index,tmp[0],
 			 tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],

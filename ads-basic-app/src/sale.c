@@ -112,16 +112,16 @@ s32 EchoSalePackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRe
 #else
 	s32 iRet;
 	u8 	mac[16] = {0};
-	u8  ucField39[2];
+	u8  ucField39[2+1];
 	
 	IsoSetField(pstIsoMsgRecv,SDK_8583_FIELD_MSG,"0210",4);  //Field 0,message code
 	EchoIsoPackPublicMsg(pstIsoMsgSend,pstIsoMsgRecv);
 
-	IsoSetField(pstIsoMsgRecv,25,"00",2);  //Field 37,reference num
+	IsoSetField(pstIsoMsgRecv,25,"00",2);  //Field 25,condition code
 	IsoSetField(pstIsoMsgRecv,37,"123456789012",12);  //Field 37,reference num
 	IsoSetField(pstIsoMsgRecv,38,"123456",6);  //Field 38,auth code
 	
-	iRet = DbgEchoHandleField39(TRANSID_SALE,pstIsoMsgSend,ucField39);
+	iRet = DbgEchoHandleField39AndField54(TRANSID_SALE,pstIsoMsgSend,ucField39,NULL);
 	if(iRet < 0){
 		return iRet;
 	}

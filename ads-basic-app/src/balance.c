@@ -154,6 +154,54 @@ s32 BalancePackMsg(SDK_8583_ST8583 *pstIsoMsg)
     return pstIsoMsg->nBagLen;
 }
 
+
+s32 EchoBalancePackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)
+{
+#ifndef JEFF_DEBUG
+	return 0;
+#else
+	s32 iRet;
+	u8 	mac[16] = {0};
+	u8  ucField39[2];
+	u8  ucField54[30] = {0};
+	
+	IsoSetField(pstIsoMsgRecv,SDK_8583_FIELD_MSG,"0210",4);  //Field 0,message code
+	EchoIsoPackPublicMsg(pstIsoMsgSend,pstIsoMsgRecv);
+
+	IsoSetField(pstIsoMsgRecv,25,"00",2);  //Field 25,condition code
+	IsoSetField(pstIsoMsgRecv,37,"123456789012",12);  //Field 37,reference num
+	IsoSetField(pstIsoMsgRecv,38,"123456",6);  //Field 38,auth code
+	
+	iRet = DbgEchoHandleField39AndField54(TRANSID_BALANCE,pstIsoMsgSend,ucField39,ucField54);
+	if(iRet < 0){
+		return iRet;
+	}
+	IsoSetField(pstIsoMsgRecv,39,ucField39,2);  //Field 39,response code
+	IsoSetField(pstIsoMsgRecv,44,"0102000001030000",strlen("0102000001030000"));  //Field 39,response code
+	IsoSetField(pstIsoMsgRecv,49,"156",3);  //currency code
+	IsoSetField(pstIsoMsgRecv,54,ucField54,strlen(ucField54));  //field54 balance
+	
+	TraceHex("xgd","balance field54",ucField54,strlen(ucField54));
+	IsoSetField(pstIsoMsgRecv,60,"22000001000600",strlen("22000001000600"));  
+	IsoSetField(pstIsoMsgRecv,63,"cup",3);
+	IsoSetField(pstIsoMsgRecv,64,"\x00\x00\x00\x00\x00\x00\x00\x00", 8);//calc ,need to copy mac before calc truely mac
+	memset(mac,0,sizeof(mac)); //get mac
+	iRet = IsoGetMsgMac(pstIsoMsgRecv, mac);
+	if (iRet <= 0)
+    {
+        return SDK_ESC;
+    }
+	TraceHex("xgd","generate Mac2",mac,8);
+	iRet = IsoSetField(pstIsoMsgRecv, 64, mac, 8);
+    if (iRet <= 0)
+    {
+        return SDK_ESC;
+    }
+	return 0;
+#endif
+}
+
+
 /*****************************************************************************
 ** Description :  Query balance transaction process
 ** Parameters  :  input

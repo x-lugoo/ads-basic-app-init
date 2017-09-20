@@ -209,7 +209,10 @@ s32 EchoLogonPackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgR
 	IsoSetField(pstIsoMsgRecv,60,buf,11);
 
 	/*set field62*/
-	DbgEchoInitMsg(&stEchoMsg);
+	siRet = DbgReadEchoMsg(&stEchoMsg);
+	if(siRet < 0){
+		return siRet;
+	}
 	memcpy(buf,stEchoMsg.heEchoTpk,8);
 	sdkDesS(TRUE,buf,stEchoMsg.heEchoTmk);//usr Tmk to  encrypt tpk
 	TraceHex("xgd","Encrypted Tpk=",buf,8);
@@ -225,12 +228,7 @@ s32 EchoLogonPackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgR
 	memset(buf + 20,0x00,8);       
 	sdkDesS(TRUE,buf + 20,stEchoMsg.heEchoTak);
 	TraceHex("xgd","Tak,KCV=",buf + 20,8);
-	
 	IsoSetField(pstIsoMsgRecv,62,buf,24);
-	siRet = DbgSaveEchoMsg(&stEchoMsg);
-	if(siRet < 0){
-		return siRet;
-	}
 	return 0;
 #endif
 }

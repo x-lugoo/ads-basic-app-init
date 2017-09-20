@@ -127,6 +127,17 @@ void AppInit(void)
 	if(false == sdkAccessFile(FILENAME_TATAL_SAVED_8383_NUM)){
 		DbgSaveDbgTranTotalNum(0);
 	}
+	if(false == sdkAccessFile(FILENAME_SAVED_ECHO_MEG)){
+		ST_SAVE_ECHO_MSG stEchoMsg;
+		u32 siRet;
+		
+		DbgEchoInitMsg(&stEchoMsg);
+		siRet = DbgSaveEchoMsg(&stEchoMsg);
+		if(siRet < 0){
+			return;
+		}
+		
+	}
 #endif
     
     sdkIccPowerStartInit();                                                 // Must be called for EMV IC card reset
