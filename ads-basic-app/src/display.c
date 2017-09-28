@@ -1889,3 +1889,15 @@ s32 MenuProcess(const ST_MENU *pstMenu, s32 iTimeOut)
     }
 }
 
+
+void DispUnpack8583Err(s32 iFieldNo)
+{
+	u8 buf[30];
+
+	snprintf(buf,30,"unpack Field[%d] err",iFieldNo);
+	DispClearContent();
+    sdkDispFillRowRam(SDK_DISP_LINE3, 0, buf, SDK_DISP_DEFAULT);
+    sdkDispBrushScreen();
+    sdkKbWaitKey(SDK_KEY_MASK_ENTER | SDK_KEY_MASK_ESC, TMR_PROMPT);
+}
+

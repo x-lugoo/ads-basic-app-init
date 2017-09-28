@@ -564,57 +564,6 @@ s32 IsoPackPublicMsg(SDK_8583_ST8583 *pstIsoMsg, ST_TRANSDATA *pstTransData, u8 
 }
 
 
-s32 EchoIsoPackPublicMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)
-{
-#ifndef JEFF_DEBUG
-	return 0;
-#else
-	u8 buf[64];
-	u8 buf2[64];
-
-	if(sdk8583IsDomainExist(pstIsoMsgSend,3)){
-		memset(buf,0,sizeof(buf));
-		IsoGetField(pstIsoMsgSend,3,buf,sizeof(buf));
-		TraceHex("xgd","get F3",buf,strlen(buf));
-		IsoSetField(pstIsoMsgRecv,3,buf,strlen(buf));
-	}
-	
-	if(sdk8583IsDomainExist(pstIsoMsgSend,11)){
-		memset(buf,0,sizeof(buf));
-		IsoGetField(pstIsoMsgSend,11,buf,sizeof(buf));
-		TraceHex("xgd","get F11",buf,strlen(buf));
-		IsoSetField(pstIsoMsgRecv,11,buf,strlen(buf));
-	}
-	if(SDK_OK == sdkGetRtc(buf))
-    {
-    	sdkBcdToAsc(buf2, &buf[3], 3);
-		IsoSetField(pstIsoMsgRecv,12,buf2,6);  //Field 12,time
-		TraceHex("xgd","F12,time",buf2,6);
-		
-        sdkBcdToAsc(buf2, &buf[1], 2);
-		IsoSetField(pstIsoMsgRecv,13,buf2,4);  //Field 13 data
-		TraceHex("xgd","F13,data",buf2,4);
-    }
-
-	IsoSetField(pstIsoMsgRecv,32,"00010000",8);  //Field 32 data
-	if(sdk8583IsDomainExist(pstIsoMsgSend,41)){
-		memset(buf,0,sizeof(buf));
-		IsoGetField(pstIsoMsgSend,41,buf,sizeof(buf));
-		TraceHex("xgd","get F41",buf,strlen(buf));
-		IsoSetField(pstIsoMsgRecv,41,buf,strlen(buf));
-	}
-	
-	if(sdk8583IsDomainExist(pstIsoMsgSend,42)){
-		memset(buf,0,sizeof(buf));
-		IsoGetField(pstIsoMsgSend,42,buf,sizeof(buf));
-		TraceHex("xgd","get F41",buf,strlen(buf));
-		IsoSetField(pstIsoMsgRecv,42,buf,strlen(buf));
-	}
-	
-	return 0;
-#endif
-	
-}
 
 /*****************************************************************************
 ** Description :  Pack the message header
@@ -671,12 +620,12 @@ s32 IsoPackMsgHeader(SDK_8583_ST8583 *pstIsoMsg)
 
     pstIsoMsg->stFiled[SDK_8583_FIELD_MSG].nFieldHead = pstIsoMsg->nBagLen;
 
-#ifdef JEFF_DEBUG
+#ifdef JEFF_ECHO
 	Trace("xgd","pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
 #endif
     // Bitmap
     len = IsoSetField(pstIsoMsg, SDK_8583_FIELD_MAP, tmp, 0);
-#ifdef JEFF_DEBUG
+#ifdef JEFF_ECHO
 	Trace("xgd","pstIsoMsg->nBagLen=%d,len=%d,tmp=%s, Hextmp=%02X %02X %02X %02X %02X %02X %02X %02X %s(%d)\r\n",
 	pstIsoMsg->nBagLen,len,tmp,tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],__FUNCTION__,__LINE__);
 #endif
@@ -690,42 +639,40 @@ s32 IsoPackMsgHeader(SDK_8583_ST8583 *pstIsoMsg)
 
 s32 EchoIsoPackMsgHeader(SDK_8583_ST8583 *pstIsoMsg)
 {
-#ifndef JEFF_DEBUG
-	return 0;
+#ifndef JEFF_ECHO
+	return SDK_OK;
 #else
-	u8 tmp[256] = {0};
+	u8 tmpBuf1[30] = {0};
+	u8 tmpBuf[30] = {0};
 	u8 *p;
-	s32 len;
-
+	u8 *pSendEchoMsg;
+	s32 iLen;
+	
 	if(NULL == pstIsoMsg)
     {
         return SDK_PARA_ERR;
     }
 	memset(pstIsoMsg, 0x00, sizeof(SDK_8583_ST8583));
+	pSendEchoMsg = pstIsoMsg->ucBagData + pstIsoMsg->nBagLen;
 	// TPDU
-	p = gstAppSysCfg.stCommuParam.asTPDU;
-	memcpy(tmp,p,2);
+	iLen = EchoGetField(tmpBuf1,0);//get Tpdu
+	if(iLen <= 0)
+	{
+		return SDK_ERR;
+	}
+	p = tmpBuf1;
+	memcpy(tmpBuf,p,2);
 	p += 6;
-	memcpy(tmp + 2,p,4);
+	memcpy(tmpBuf + 2,p,4);
 	p -= 4;
-	memcpy(tmp + 6,p,4);
-    sdkAscToBcd(pstIsoMsg->ucBagData,tmp,10);
+	memcpy(tmpBuf + 6,p,4);
+    sdkAscToBcd(pSendEchoMsg,tmpBuf,10);	
     pstIsoMsg->nBagLen += 5;
+	pSendEchoMsg += 5;
 	TraceHex("xgd","ECHO TPDU:",pstIsoMsg->ucBagData,5);
-	//Head
-	memcpy(pstIsoMsg->ucBagData + pstIsoMsg->nBagLen,"\x00\x00\x00\x31\x00\x32",6);
+	//Head	
+	memcpy(pSendEchoMsg,"\x00\x00\x00\x31\x00\x32",6);
 	pstIsoMsg->nBagLen += 6;
-	//message code len 
-	pstIsoMsg->stFiled[SDK_8583_FIELD_MSG].nFieldHead = pstIsoMsg->nBagLen;//calc FIELD_MSD for calculating mac
-	//bitmap
-	memset(tmp,0,sizeof(tmp));
-	Trace("xgd","before bit map pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
-	len = IsoSetField(pstIsoMsg, SDK_8583_FIELD_MAP, tmp, 0);
-	Trace("xgd","after bit map pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
-	if (len < 0)
-    {
-        return len;
-    }
 	return pstIsoMsg->nBagLen;
 #endif
 
@@ -850,12 +797,11 @@ s32 IsoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac)
 }
 
 
-s32 EchoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac,u32 uiMsgCodeOffset)
+s32 EchoGetMsgMac(const u8 *pheSrc,s32 iSrcLen, u8 *pucMac,u32 uiMsgCodeOffset)
 {
-#ifndef JEFF_DEBUG
-	return 0;
+#ifndef JEFF_ECHO
+	return SDK_OK;
 #else
-	ST_SAVE_ECHO_MSG stEchoMsg;
 	u8 ucMacResult[8+1];
 	u8 ucIsoMsgBuf[2048+1];
 	u8 ucTmpBuf[16];
@@ -863,37 +809,36 @@ s32 EchoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac,u32 uiMsgCodeOffset)
 	s32 iLen2;
 	s32 i;
 	s32 j;
-	s32 iRet;
 
-	iLen = pstIsoMsg->nBagLen - uiMsgCodeOffset - 8;
+	iLen = iSrcLen - uiMsgCodeOffset;
 	iLen2 = iLen;
 	
-	memcpy(ucIsoMsgBuf,pstIsoMsg->ucBagData + uiMsgCodeOffset,iLen);
-	if(0 != (iLen % 8)){
+	memcpy(ucIsoMsgBuf,pheSrc + uiMsgCodeOffset,iLen);
+	if(0 != (iLen % 8))
+	{
 		iLen = ((iLen / 8) + 1) * 8;
 	}
 	memset(ucMacResult,0x00,sizeof(ucMacResult));
 	memset(ucIsoMsgBuf + iLen2,0x00,iLen - iLen2);
-	for(j = 0;j < iLen / 8;j++){
-		for(i = 0;i < 8;i++){
+	for(j = 0;j < iLen / 8;j++)
+	{
+		for(i = 0;i < 8;i++)
+		{
 			ucMacResult[i] ^= ucIsoMsgBuf[j * 8 + i];
 		}
 	}
 	sdkBcdToAsc(ucTmpBuf, ucMacResult, 8);
-	iRet = DbgReadEchoMsg(&stEchoMsg);
-	if(iRet < 0){
-		return iRet;
-	}
-	TraceHex("commu", "ReadTAK",stEchoMsg.heEchoTak,8);
+	TraceHex("commu", "ReadTAK",gstSavedEchoMsg.heEchoTak,8);
 	memcpy(ucMacResult,ucTmpBuf,8);
-	sdkDesS(TRUE,ucMacResult,stEchoMsg.heEchoTak);
-	for(i = 0;i < 8;i++){
+	sdkDesS(TRUE,ucMacResult,gstSavedEchoMsg.heEchoTak);
+	for(i = 0;i < 8;i++)
+	{
 		ucMacResult[i] ^= ucTmpBuf[8 + i];
 	}
-	sdkDesS(TRUE,ucMacResult,stEchoMsg.heEchoTak);
+	sdkDesS(TRUE,ucMacResult,gstSavedEchoMsg.heEchoTak);
 	sdkBcdToAsc(ucTmpBuf, ucMacResult, 8);
 	memcpy(pucMac,ucTmpBuf,8);
-	return 0;
+	return SDK_OK;
 #endif
 	
 }

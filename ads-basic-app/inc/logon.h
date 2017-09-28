@@ -36,7 +36,7 @@ extern s32 LogonPackMsg(SDK_8583_ST8583 *pstIsoMsg);
 extern s32 LogonSendMsg();
 extern void LogonTrans(void);
 
-extern s32 EchoLogonPackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv);
+extern s32 EchoLogonPackMsg(SDK_8583_ST8583 *pstIsoMsgRecv);
 /*-----------------------------------------------------------------------------*/
 #endif
 

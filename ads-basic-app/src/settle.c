@@ -2457,10 +2457,6 @@ s32 SettleEndProcess(bool bRePrint)
 
         if (SETTLE_PRINTED == st_settle.ucPrintState)
         {
-#ifdef JEFF_DEBUG
-			DbgSaveDbgTranTotalNum(0);
-			unlink(FILENAME_SAVED_8583_PKG);
-#endif
             RecordDeleteAll();
             BatchUpDeleteInfo();
             TrnIncBatchNo(1);
@@ -2540,11 +2536,7 @@ s32 SettleReprint(void)
         }
         
         if (SETTLE_PRINTED == st_settle.ucPrintState)
-        {
-#ifdef JEFF_DEBUG
-			DbgSaveDbgTranTotalNum(0);
-			unlink(FILENAME_SAVED_8583_PKG);
-#endif       
+        {   
             RecordDeleteAll();
             BatchUpDeleteInfo();
             TrnIncBatchNo(1);

@@ -156,12 +156,12 @@ s32 LogonPackMsg(SDK_8583_ST8583 *pstIsoMsg)
         return 0;
     }
 
-#ifdef JEFF_DEBUG
+#ifdef JEFF_ECHO
 	Trace("xgd","pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
 #endif	
     // Message ID
     IsoSetField(pstIsoMsg, SDK_8583_FIELD_MSG, "0800", 4);
-#ifdef JEFF_DEBUG
+#ifdef JEFF_ECHO
 	Trace("xgd","pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
 #endif
     //60Óò
@@ -188,48 +188,57 @@ s32 LogonPackMsg(SDK_8583_ST8583 *pstIsoMsg)
     return pstIsoMsg->nBagLen;
 }
 
-s32 EchoLogonPackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)
+s32 EchoLogonPackMsg(SDK_8583_ST8583 *pstIsoMsgRecv)
 {
-#ifndef JEFF_DEBUG
-	return 0;
+#ifndef JEFF_ECHO
+	return SDK_OK;
 #else
-	ST_SAVE_ECHO_MSG stEchoMsg;
-	u8 buf[64];
-	s32 siRet;
+	u8 field39[2+1] = {0};
+	s32 iRet;
+	u8 *pSendEchoMsg;
 
-	IsoSetField(pstIsoMsgRecv,SDK_8583_FIELD_MSG,"0810",4);  //Field 0,message code
-	EchoIsoPackPublicMsg(pstIsoMsgSend,pstIsoMsgRecv);
-
-	IsoSetField(pstIsoMsgRecv,37,"952795289529",12);  //Field 37 data
-	IsoSetField(pstIsoMsgRecv,39,"00",2);  //Field 37 data
-	/*set field 60*/
-	strcpy(buf,"00");
-	strcpy(buf + 2,"000001");
-	strcpy(buf + 8,"001");
-	IsoSetField(pstIsoMsgRecv,60,buf,11);
-
-	/*set field62*/
-	siRet = DbgReadEchoMsg(&stEchoMsg);
-	if(siRet < 0){
-		return siRet;
+	pSendEchoMsg = pstIsoMsgRecv->ucBagData + pstIsoMsgRecv->nBagLen;
+	memcpy(pSendEchoMsg,"\x08\x10",2);//set Msg code
+	pstIsoMsgRecv->nBagLen += 2;
+	pSendEchoMsg += 2;
+	memcpy(pSendEchoMsg,"\x00\x38\x00\x01\x0A\xC0\x00\x14",8);//set bitmap
+	pstIsoMsgRecv->nBagLen += 8;
+	iRet = EchoIsoPackPublicMsg(TRANSID_LOGON,pstIsoMsgRecv);
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
 	}
-	memcpy(buf,stEchoMsg.heEchoTpk,8);
-	sdkDesS(TRUE,buf,stEchoMsg.heEchoTmk);//usr Tmk to  encrypt tpk
-	TraceHex("xgd","Encrypted Tpk=",buf,8);
-	 //calc tpk kcv 
-	memset(buf + 8,0x00,8);                 
-	sdkDesS(TRUE,buf + 8,stEchoMsg.heEchoTpk);
-	TraceHex("xgd","Tpk,KCV=",buf + 8,8);
-	//usr Tmk to  encrypt Tak
-	memcpy(buf + 12,stEchoMsg.heEchoTak,8); 
-	sdkDesS(TRUE,buf + 12,stEchoMsg.heEchoTmk);
-	TraceHex("xgd","Encrypted Tak=",buf + 12,8);
-	 //calc tak kcv 
-	memset(buf + 20,0x00,8);       
-	sdkDesS(TRUE,buf + 20,stEchoMsg.heEchoTak);
-	TraceHex("xgd","Tak,KCV=",buf + 20,8);
-	IsoSetField(pstIsoMsgRecv,62,buf,24);
-	return 0;
+	iRet = EchoHandleField32(pstIsoMsgRecv); //set field32
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField37(pstIsoMsgRecv);//set Field37
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField39(TRANSID_LOGON,pstIsoMsgRecv,field39);//set Field39
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleTIDMID(pstIsoMsgRecv);//set field 41,42
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+    iRet = EchoHandleField60(TRANSID_LOGON, pstIsoMsgRecv);//set field 60
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField62(TRANSID_LOGON, pstIsoMsgRecv,field39);//set field62
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	return SDK_OK;
 #endif
 }
 
@@ -316,7 +325,7 @@ void LogonTrans(void)
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_PASSWORD, SDK_DISP_LEFT_DEFAULT);
     sdkDispBrushScreen();
 
-#ifdef JEFF_DEBUG
+#ifdef JEFF_ECHO
 	Trace("xgd","InputUse=%d,sysPwd=%s,adminPwd=%s %s(%d)\r\n",cashier,
 		  gstAppSysCfg.stUserPwd.asSysPwd,gstAppSysCfg.stUserPwd.asAdminPwd,__FUNCTION__,__LINE__);
 #endif
@@ -328,7 +337,7 @@ void LogonTrans(void)
         TrnSetStatus(ret);
         return;
     }
-#ifdef JEFF_DEBUG
+#ifdef JEFF_ECHO
 	Trace("xgd","InputPwd=%s,( %02X %02X %02X %02X %02X %02X %02X %02X )\r\n",
 	    &buf[1],buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7],__FUNCTION__,__LINE__);
 #endif 

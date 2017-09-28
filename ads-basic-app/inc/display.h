@@ -131,6 +131,7 @@ extern void MenuPreProcess(const ST_MENU *pstMenu, ST_MENU_ITEM *pstDispMenu, u3
 extern s32 MenuSelectByKeyNum(const ST_MENU *pstMenu, s32 iTimeOut);
 extern s32 MenuSelectByKeyEnt(const ST_MENU *pstMenu, s32 iTimeOut);
 extern s32 MenuProcess(const ST_MENU *pstMenu, s32 iTimeOut);
+extern void DispUnpack8583Err(s32 iFieldNo);
 
 /*-----------------------------------------------------------------------------*/
 #endif

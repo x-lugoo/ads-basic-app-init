@@ -1,0 +1,2223 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADMINNO	inc/logon.h	23;"	d
+ADMIN_PWDLEN	inc/setup.h	36;"	d
+AFX_APP_VARIABLES	src/main.c	17;"	d	file:
+AFX_APP_VARIABLES	src/main.c	19;"	d	file:
+AID_AID	inc/aid.h	/^    AID_AID,               $/;"	e	enum:__anon2
+AID_AIDLEN	inc/aid.h	/^    AID_AIDLEN,            $/;"	e	enum:__anon2
+AID_APP_VERSION	inc/aid.h	/^    AID_APP_VERSION,         $/;"	e	enum:__anon2
+AID_ASI	inc/aid.h	/^    AID_ASI,               $/;"	e	enum:__anon2
+AID_CTLS_CVM_LIMIT	inc/aid.h	/^    AID_CTLS_CVM_LIMIT,     $/;"	e	enum:__anon2
+AID_CTLS_FLOOR_LIMIT	inc/aid.h	/^    AID_CTLS_FLOOR_LIMIT,$/;"	e	enum:__anon2
+AID_CTLS_TRANS_LIMIT	inc/aid.h	/^    AID_CTLS_TRANS_LIMIT,   $/;"	e	enum:__anon2
+AID_EMV_FLOOR_LIMIT	inc/aid.h	/^    AID_EMV_FLOOR_LIMIT,        $/;"	e	enum:__anon2
+AID_ID	inc/aid.h	/^    AID_ID,$/;"	e	enum:__anon2
+AID_IS_FORCE_ONLINE	inc/aid.h	/^    AID_IS_FORCE_ONLINE,  $/;"	e	enum:__anon2
+AID_IS_LOCAL_NAME	inc/aid.h	/^    AID_IS_LOCAL_NAME,    $/;"	e	enum:__anon2
+AID_IS_SHOW_RAND_NUM	inc/aid.h	/^    AID_IS_SHOW_RAND_NUM,      $/;"	e	enum:__anon2
+AID_LOCAL_NAME	inc/aid.h	/^    AID_LOCAL_NAME,                 \/\/add $/;"	e	enum:__anon2
+AID_LOCAL_NAME_LEN	inc/aid.h	/^    AID_LOCAL_NAME_LEN,             \/\/add          $/;"	e	enum:__anon2
+AID_MAX_TARGET_PERCENT	inc/aid.h	/^    AID_MAX_TARGET_PERCENT,  $/;"	e	enum:__anon2
+AID_TAC_DECLINE	inc/aid.h	/^    AID_TAC_DECLINE,        $/;"	e	enum:__anon2
+AID_TAC_DEFAULT	inc/aid.h	/^    AID_TAC_DEFAULT,        $/;"	e	enum:__anon2
+AID_TAC_ONLINE	inc/aid.h	/^    AID_TAC_ONLINE,         $/;"	e	enum:__anon2
+AID_TARGET_PERCENT	inc/aid.h	/^    AID_TARGET_PERCENT,     $/;"	e	enum:__anon2
+AID_TERM_DDOL	inc/aid.h	/^    AID_TERM_DDOL,          $/;"	e	enum:__anon2
+AID_TERM_DDOL_LEN	inc/aid.h	/^    AID_TERM_DDOL_LEN,       $/;"	e	enum:__anon2
+AID_TERM_PIN_CAP	inc/aid.h	/^    AID_TERM_PIN_CAP,        $/;"	e	enum:__anon2
+AID_THRESHOLD	inc/aid.h	/^    AID_THRESHOLD,         $/;"	e	enum:__anon2
+AID_VLP_TRANS_LIMIT	inc/aid.h	/^    AID_VLP_TRANS_LIMIT,     $/;"	e	enum:__anon2
+AMEX	inc/aid.h	/^    AMEX,$/;"	e	enum:__anon1
+APPVERSION	inc/global.h	45;"	d
+AdjustPackMsg	src/adjust.c	/^s32 AdjustPackMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+AdjustTrans	src/adjust.c	/^void AdjustTrans(void)$/;"	f
+AppInit	src/main.c	/^void AppInit(void)$/;"	f
+AppMain	src/main.c	/^void AppMain(void)$/;"	f
+BATCHUP_ALL	inc/settle.h	25;"	d
+BATCHUP_FRN	inc/settle.h	24;"	d
+BATCHUP_ICLOG	inc/settle.h	26;"	d
+BATCHUP_ONCE_NUM	inc/settle.h	32;"	d
+BATCHUP_RMB	inc/settle.h	23;"	d
+BATTERY_0	inc/display.h	/^    BATTERY_0 = 0,              \/\/ battery empty$/;"	e	enum:__anon13
+BATTERY_1	inc/display.h	/^    BATTERY_1 = 1,              \/\/ battery level 1$/;"	e	enum:__anon13
+BATTERY_2	inc/display.h	/^    BATTERY_2 = 2,              \/\/ battery level 2$/;"	e	enum:__anon13
+BATTERY_3	inc/display.h	/^    BATTERY_3 = 3,              \/\/ battery level 3$/;"	e	enum:__anon13
+BATTERY_ERR	inc/display.h	/^    BATTERY_ERR = -2,           \/\/ no battery$/;"	e	enum:__anon13
+BATTERY_HIDE	inc/display.h	/^    BATTERY_HIDE = 98,          \/\/ hide battery icon$/;"	e	enum:__anon13
+BATTERY_LOW	inc/display.h	/^    BATTERY_LOW =  -1,          \/\/ battery low$/;"	e	enum:__anon13
+BATTERY_MAX	inc/display.h	/^    BATTERY_MAX = 99,           \/\/ battery full$/;"	e	enum:__anon13
+BalancePackMsg	src/balance.c	/^s32 BalancePackMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+BalanceTrans	src/balance.c	/^void BalanceTrans(u16 usCardType)$/;"	f
+BatchUpContinue	src/settle.c	/^s32 BatchUpContinue(void)$/;"	f
+BatchUpDeleteInfo	src/settle.c	/^void BatchUpDeleteInfo(void)$/;"	f
+BatchUpReadInfo	src/settle.c	/^s32 BatchUpReadInfo(ST_BATCHUP_INFO *pstBatchInfo)$/;"	f
+BatchUpSaveInfo	src/settle.c	/^void BatchUpSaveInfo(ST_BATCHUP_INFO *pstBatchInfo)$/;"	f
+BatchUpTrans	src/settle.c	/^s32 BatchUpTrans(void)$/;"	f
+BatchUpTransAdvice	src/settle.c	/^s32 BatchUpTransAdvice(ST_BATCHUP_INFO *pstBatchInfo, bool *pbIsResend)$/;"	f
+BatchUpTransAllIcc	src/settle.c	/^s32 BatchUpTransAllIcc(ST_BATCHUP_INFO *pstBatchInfo, bool *pbIsResend)$/;"	f
+BatchUpTransAllIccArpcErr	src/settle.c	/^s32 BatchUpTransAllIccArpcErr(ST_BATCHUP_INFO *pstBatchInfo, bool *pbIsResend)$/;"	f
+BatchUpTransAllIccFail	src/settle.c	/^s32 BatchUpTransAllIccFail(ST_BATCHUP_INFO *pstBatchInfo, bool *pbIsResend)$/;"	f
+BatchUpTransAllMag	src/settle.c	/^s32 BatchUpTransAllMag(ST_BATCHUP_INFO *pstBatchInfo, bool *pbIsResend)$/;"	f
+BatchUpTransIccOffline	src/settle.c	/^s32 BatchUpTransIccOffline(ST_BATCHUP_INFO *pstBatchInfo, bool *pbIsResend)$/;"	f
+BatchUpTransOffline	src/settle.c	/^s32 BatchUpTransOffline(ST_BATCHUP_INFO *pstBatchInfo, bool *pbIsResend)$/;"	f
+CAPK_ARITH_INDEX	inc/capk.h	/^    CAPK_ARITH_INDEX,   $/;"	e	enum:__anon5
+CAPK_CAPKI	inc/capk.h	/^    CAPK_CAPKI,      $/;"	e	enum:__anon5
+CAPK_CHECKSUM	inc/capk.h	/^    CAPK_CHECKSUM,   $/;"	e	enum:__anon5
+CAPK_CHECKSUM_LEN	inc/capk.h	/^    CAPK_CHECKSUM_LEN,$/;"	e	enum:__anon5
+CAPK_EXPIRE_DATE	inc/capk.h	/^    CAPK_EXPIRE_DATE, $/;"	e	enum:__anon5
+CAPK_EXPONENT	inc/capk.h	/^    CAPK_EXPONENT,   $/;"	e	enum:__anon5
+CAPK_EXPONENT_LEN	inc/capk.h	/^    CAPK_EXPONENT_LEN,$/;"	e	enum:__anon5
+CAPK_HASH_INDEX	inc/capk.h	/^    CAPK_HASH_INDEX,    $/;"	e	enum:__anon5
+CAPK_ID	inc/capk.h	/^    CAPK_ID,$/;"	e	enum:__anon5
+CAPK_MODUL	inc/capk.h	/^    CAPK_MODUL,      $/;"	e	enum:__anon5
+CAPK_MODUL_LEN	inc/capk.h	/^    CAPK_MODUL_LEN,   $/;"	e	enum:__anon5
+CAPK_RID	inc/capk.h	/^    CAPK_RID,        $/;"	e	enum:__anon5
+CARDMODE_CTLS	inc/global.h	146;"	d
+CARDMODE_INSERT	inc/global.h	143;"	d
+CARDMODE_MANUAL	inc/global.h	141;"	d
+CARDMODE_MSD	inc/global.h	145;"	d
+CARDMODE_QCTLS	inc/global.h	144;"	d
+CARDMODE_SWIPE	inc/global.h	142;"	d
+CARDPROC_CTLS_FALLBACK	inc/global.h	88;"	d
+CARDPROC_CTLS_SWITCH	inc/global.h	87;"	d
+CARDPROC_DISCOVERY	inc/global.h	89;"	d
+CARDPROC_NONEEDPIN	inc/global.h	84;"	d
+CARDPROC_OFFLINE_FAIL	inc/global.h	86;"	d
+CARDPROC_OFFLINE_SUCC	inc/global.h	85;"	d
+CASHBACK_AMOUNT	inc/misc.h	/^    CASHBACK_AMOUNT,$/;"	e	enum:__anon44
+CASHIER_NUM	inc/setup.h	34;"	d
+CASHIER_PWDLEN	inc/setup.h	35;"	d
+CFG_ADMIN_PWD	inc/setup.h	/^    CFG_ADMIN_PWD,              \/\/ admin password$/;"	e	enum:__anon57
+CFG_AMOUNT_DECIMALLEN	inc/setup.h	/^    CFG_AMOUNT_DECIMALLEN,      \/\/ lenght of decimal for amount(x.xx, x.xxx, ...)  $/;"	e	enum:__anon57
+CFG_AUTO_LOGON	inc/setup.h	/^    CFG_AUTO_LOGON,$/;"	e	enum:__anon57
+CFG_AUTO_LOGOUT	inc/setup.h	/^    CFG_AUTO_LOGOUT,            \/\/ auto logout after settlement: enable\/disable$/;"	e	enum:__anon57
+CFG_BACKLIGHT	inc/setup.h	/^    CFG_BACKLIGHT,              \/\/ LCD backlight : enable\/disable$/;"	e	enum:__anon57
+CFG_BATCH_NO	inc/setup.h	/^    CFG_BATCH_NO,               \/\/ batch no.$/;"	e	enum:__anon57
+CFG_CARD_TRACK1	inc/setup.h	/^    CFG_CARD_TRACK1,            \/\/ get track-1 data of card : enable\/disable                 $/;"	e	enum:__anon57
+CFG_CASHIER_PWD	inc/setup.h	/^    CFG_CASHIER_PWD,            \/\/ cashier password$/;"	e	enum:__anon57
+CFG_CDMA_HOSTIP	inc/setup.h	/^    CFG_CDMA_HOSTIP,            \/\/ CDMA host IP address$/;"	e	enum:__anon57
+CFG_CDMA_HOSTPORT	inc/setup.h	/^    CFG_CDMA_HOSTPORT,          \/\/ CDMA host port$/;"	e	enum:__anon57
+CFG_CDMA_USER	inc/setup.h	/^    CFG_CDMA_USER,              \/\/ CDMA user name$/;"	e	enum:__anon57
+CFG_CDMA_USERPWD	inc/setup.h	/^    CFG_CDMA_USERPWD,           \/\/ CDMA user password$/;"	e	enum:__anon57
+CFG_CHECK_ADMINPWD	inc/setup.h	/^    CFG_CHECK_ADMINPWD,         \/\/ check admin password when doing transactions of void: enable\/disable$/;"	e	enum:__anon57
+CFG_COMMU_MODE	inc/setup.h	/^    CFG_COMMU_MODE,             \/\/ communication mode : dial-up, GPRS, WCDMA, ETHERNET, WIFI$/;"	e	enum:__anon57
+CFG_COUNTRY_CODE	inc/setup.h	/^    CFG_COUNTRY_CODE,$/;"	e	enum:__anon57
+CFG_CTLS_LED	inc/setup.h	/^    CFG_CTLS_LED,               \/\/ LEDs for contactless transaction : enable\/disable$/;"	e	enum:__anon57
+CFG_CURRENCY_CODE	inc/setup.h	/^    CFG_CURRENCY_CODE,          \/\/ currency code$/;"	e	enum:__anon57
+CFG_CURRENCY_NAME	inc/setup.h	/^    CFG_CURRENCY_NAME,          \/\/ currency name$/;"	e	enum:__anon57
+CFG_DAIL_TIME	inc/setup.h	/^    CFG_DAIL_TIME,$/;"	e	enum:__anon57
+CFG_DES_TYPE	inc/setup.h	/^    CFG_DES_TYPE,               \/\/ mode of DES encryption: 3des\/des$/;"	e	enum:__anon57
+CFG_DIALUP_PABXNO	inc/setup.h	/^    CFG_DIALUP_PABXNO,          \/\/ PABX NO.(prefix no.)$/;"	e	enum:__anon57
+CFG_DIALUP_PHONE1	inc/setup.h	/^    CFG_DIALUP_PHONE1,           \/\/ dial-up phone$/;"	e	enum:__anon57
+CFG_DIALUP_PHONE2	inc/setup.h	/^    CFG_DIALUP_PHONE2,           \/\/ dial-up phone$/;"	e	enum:__anon57
+CFG_DIALUP_PHONE3	inc/setup.h	/^    CFG_DIALUP_PHONE3,           \/\/ dial-up phone$/;"	e	enum:__anon57
+CFG_ETHERNET_DHCP	inc/setup.h	/^    CFG_ETHERNET_DHCP,          \/\/ ethernet DHCP : enable\/disable$/;"	e	enum:__anon57
+CFG_ETHERNET_DNS1	inc/setup.h	/^    CFG_ETHERNET_DNS1,          \/\/ ethernet DNS 1$/;"	e	enum:__anon57
+CFG_ETHERNET_DNS2	inc/setup.h	/^    CFG_ETHERNET_DNS2,          \/\/ ethernet DNS 2$/;"	e	enum:__anon57
+CFG_ETHERNET_GATEWAY	inc/setup.h	/^    CFG_ETHERNET_GATEWAY,       \/\/ ethernet gateway$/;"	e	enum:__anon57
+CFG_ETHERNET_HOSTIP	inc/setup.h	/^    CFG_ETHERNET_HOSTIP,        \/\/ ethernet host IP address$/;"	e	enum:__anon57
+CFG_ETHERNET_HOSTPORT	inc/setup.h	/^    CFG_ETHERNET_HOSTPORT,      \/\/ ethernet host port$/;"	e	enum:__anon57
+CFG_ETHERNET_LOCALIP	inc/setup.h	/^    CFG_ETHERNET_LOCALIP,       \/\/ ethernet local IP address$/;"	e	enum:__anon57
+CFG_ETHERNET_MASK	inc/setup.h	/^    CFG_ETHERNET_MASK,          \/\/ ethernet mask$/;"	e	enum:__anon57
+CFG_EXTERNAL_PED	inc/setup.h	/^    CFG_EXTERNAL_PED,           \/\/ external pinpad(PED) : enable\/disable$/;"	e	enum:__anon57
+CFG_FORCE_ONLINE	inc/setup.h	/^    CFG_FORCE_ONLINE,           \/\/ force online : enable\/disable$/;"	e	enum:__anon57
+CFG_GPRS_APN	inc/setup.h	/^    CFG_GPRS_APN,               \/\/ GPRS APN$/;"	e	enum:__anon57
+CFG_GPRS_HOSTIP	inc/setup.h	/^    CFG_GPRS_HOSTIP,            \/\/ GPRS host IP adrress$/;"	e	enum:__anon57
+CFG_GPRS_HOSTPORT	inc/setup.h	/^    CFG_GPRS_HOSTPORT,          \/\/ GPRS host port$/;"	e	enum:__anon57
+CFG_GPRS_NEEDUSER	inc/setup.h	/^    CFG_GPRS_NEEDUSER,          \/\/ GPRS need user name : enable\/disable$/;"	e	enum:__anon57
+CFG_GPRS_USER	inc/setup.h	/^    CFG_GPRS_USER,              \/\/ GPRS user name$/;"	e	enum:__anon57
+CFG_GPRS_USERPWD	inc/setup.h	/^    CFG_GPRS_USERPWD,           \/\/ GPRS user password$/;"	e	enum:__anon57
+CFG_ID	inc/setup.h	/^    CFG_ID,                                       $/;"	e	enum:__anon57
+CFG_IDLE_TIMER	inc/setup.h	/^    CFG_IDLE_TIMER,             \/\/ system idle countdown timer$/;"	e	enum:__anon57
+CFG_LANGUAGE	inc/setup.h	/^    CFG_LANGUAGE,$/;"	e	enum:__anon57
+CFG_MASK_PAN	inc/setup.h	/^    CFG_MASK_PAN,               \/\/ mask PAN when doing transactions of sale: enable\/disalbe.$/;"	e	enum:__anon57
+CFG_MAX_TRANS_NUM	inc/setup.h	/^    CFG_MAX_TRANS_NUM,          \/\/ max. number of transactions$/;"	e	enum:__anon57
+CFG_MERCHANT_ADDR1	inc/setup.h	/^    CFG_MERCHANT_ADDR1,         \/\/ merchant address 1$/;"	e	enum:__anon57
+CFG_MERCHANT_ADDR2	inc/setup.h	/^    CFG_MERCHANT_ADDR2,         \/\/ merchant address 2$/;"	e	enum:__anon57
+CFG_MERCHANT_ADDR3	inc/setup.h	/^    CFG_MERCHANT_ADDR3,         \/\/ merchant address 3$/;"	e	enum:__anon57
+CFG_MERCHANT_ID	inc/setup.h	/^    CFG_MERCHANT_ID,            \/\/ merchant ID$/;"	e	enum:__anon57
+CFG_MERCHANT_NAME	inc/setup.h	/^    CFG_MERCHANT_NAME,          \/\/ merchant name$/;"	e	enum:__anon57
+CFG_MERCHANT_TEL	inc/setup.h	/^    CFG_MERCHANT_TEL,           \/\/ merchant telephone no.$/;"	e	enum:__anon57
+CFG_MSGLEN_TYPE	inc/setup.h	/^    CFG_MSGLEN_TYPE,            \/\/ type of message's length : bcd\/hex\/asc$/;"	e	enum:__anon57
+CFG_MSG_NII	inc/setup.h	/^    CFG_MSG_NII,                \/\/ #24 network international identifier (NII)$/;"	e	enum:__anon57
+CFG_MSG_TPDU	inc/setup.h	/^    CFG_MSG_TPDU,               \/\/ TPDU of message$/;"	e	enum:__anon57
+CFG_OFF_SALE_AUTOUPNUM	inc/setup.h	/^    CFG_OFF_SALE_AUTOUPNUM,     \/\/ offline sale auto upload number$/;"	e	enum:__anon57
+CFG_OFF_TRANS_UPTIMES	inc/setup.h	/^    CFG_OFF_TRANS_UPTIMES,      \/\/ offline transaction upload times$/;"	e	enum:__anon57
+CFG_PRINT_MINUSSIGN	inc/setup.h	/^    CFG_PRINT_MINUSSIGN,$/;"	e	enum:__anon57
+CFG_PRINT_SIZE	inc/setup.h	/^    CFG_PRINT_SIZE,             \/\/ print recipt size$/;"	e	enum:__anon57
+CFG_PRINT_TIMES	inc/setup.h	/^    CFG_PRINT_TIMES,            \/\/ print recipt times$/;"	e	enum:__anon57
+CFG_PROMPT_ICC	inc/setup.h	/^    CFG_PROMPT_ICC,             \/\/ prompt the card is ICC : enable\/disable$/;"	e	enum:__anon57
+CFG_RECV_TIME	inc/setup.h	/^    CFG_RECV_TIME,$/;"	e	enum:__anon57
+CFG_REDAIL_TIMES	inc/setup.h	/^    CFG_REDAIL_TIMES,$/;"	e	enum:__anon57
+CFG_REFUND_MAX_AMOUNT	inc/setup.h	/^    CFG_REFUND_MAX_AMOUNT,      \/\/ max-amount of refund transaction$/;"	e	enum:__anon57
+CFG_REFUND_MODE	inc/setup.h	/^    CFG_REFUND_MODE,            \/\/ refund mode$/;"	e	enum:__anon57
+CFG_REVERSAL_TIMES	inc/setup.h	/^    CFG_REVERSAL_TIMES,         \/\/ reversal times$/;"	e	enum:__anon57
+CFG_RF_READER_MODE	inc/setup.h	/^    CFG_RF_READER_MODE,         \/\/ RF reader mode: internal, external, auto$/;"	e	enum:__anon57
+CFG_SUPPORT_ADJUST	inc/setup.h	/^    CFG_SUPPORT_ADJUST,         \/\/ adjust\/tip transaction : enable\/disable$/;"	e	enum:__anon57
+CFG_SUPPORT_REFUND	inc/setup.h	/^    CFG_SUPPORT_REFUND,         \/\/ refund transaction : enable\/disable$/;"	e	enum:__anon57
+CFG_SUPPORT_SALE	inc/setup.h	/^    CFG_SUPPORT_SALE,           \/\/ sale transaction : enable\/disable$/;"	e	enum:__anon57
+CFG_SUPPORT_VOID	inc/setup.h	/^    CFG_SUPPORT_VOID,           \/\/ void transaction : enable\/disable$/;"	e	enum:__anon57
+CFG_SYSTEM_PWD	inc/setup.h	/^    CFG_SYSTEM_PWD,             \/\/ system password$/;"	e	enum:__anon57
+CFG_SYS_BEEP	inc/setup.h	/^    CFG_SYS_BEEP,               \/\/ system beep : enable\/disable$/;"	e	enum:__anon57
+CFG_TAK_INDEX	inc/setup.h	/^    CFG_TAK_INDEX,              \/\/ index of terminal MAC key(TAK)$/;"	e	enum:__anon57
+CFG_TERMINAL_ID	inc/setup.h	/^    CFG_TERMINAL_ID,            \/\/ terminal ID$/;"	e	enum:__anon57
+CFG_TIP_RATE	inc/setup.h	/^    CFG_TIP_RATE,               \/\/ adjust\/tip rate$/;"	e	enum:__anon57
+CFG_TIP_TIMES	inc/setup.h	/^    CFG_TIP_TIMES,              \/\/ adjust\/tip times$/;"	e	enum:__anon57
+CFG_TMK_INDEX	inc/setup.h	/^    CFG_TMK_INDEX,              \/\/ index of terminal master key(TMK)$/;"	e	enum:__anon57
+CFG_TPK_INDEX	inc/setup.h	/^    CFG_TPK_INDEX,              \/\/ index of terminal PIN key(TPK) $/;"	e	enum:__anon57
+CFG_TRACE_NO	inc/setup.h	/^    CFG_TRACE_NO,               \/\/ trace no.$/;"	e	enum:__anon57
+CFG_TRANS_CTLS	inc/setup.h	/^    CFG_TRANS_CTLS,             \/\/ contactless transaction : enable\/disable$/;"	e	enum:__anon57
+CFG_TRANS_FALLBACK	inc/setup.h	/^    CFG_TRANS_FALLBACK,         \/\/ fallback transaction : enable\/disable$/;"	e	enum:__anon57
+CFG_USE_DUKPT	inc/setup.h	/^    CFG_USE_DUKPT,              \/\/ use DUKPT to encrypt : enable\/disable                         $/;"	e	enum:__anon57
+CFG_VIRTUAL_LED	inc/setup.h	/^    CFG_VIRTUAL_LED,$/;"	e	enum:__anon57
+CFG_VOID_PIN	inc/setup.h	/^    CFG_VOID_PIN,               \/\/ need PIN when doing transactions of void: enable\/disable$/;"	e	enum:__anon57
+CFG_VOID_READCARD	inc/setup.h	/^    CFG_VOID_READCARD,          \/\/ read card when doing transactions of void: enable\/disable$/;"	e	enum:__anon57
+CFG_WIFI_AUTH	inc/setup.h	/^    CFG_WIFI_AUTH,              \/\/ WIFI authorization$/;"	e	enum:__anon57
+CFG_WIFI_CIPHER	inc/setup.h	/^    CFG_WIFI_CIPHER,            \/\/ WIFI cipher$/;"	e	enum:__anon57
+CFG_WIFI_DHCP	inc/setup.h	/^    CFG_WIFI_DHCP,              \/\/ WIFI DHCP : enable\/disable$/;"	e	enum:__anon57
+CFG_WIFI_DNS1	inc/setup.h	/^    CFG_WIFI_DNS1,              \/\/ WIFI DNS 1$/;"	e	enum:__anon57
+CFG_WIFI_DNS2	inc/setup.h	/^    CFG_WIFI_DNS2,              \/\/ WIFI DNS 1$/;"	e	enum:__anon57
+CFG_WIFI_GATEWAY	inc/setup.h	/^    CFG_WIFI_GATEWAY,           \/\/ WIFI gateway$/;"	e	enum:__anon57
+CFG_WIFI_HOSTIP	inc/setup.h	/^    CFG_WIFI_HOSTIP,        \/\/ ethernet host IP address$/;"	e	enum:__anon57
+CFG_WIFI_HOSTPORT	inc/setup.h	/^    CFG_WIFI_HOSTPORT,      \/\/ ethernet host port$/;"	e	enum:__anon57
+CFG_WIFI_LOCALIP	inc/setup.h	/^    CFG_WIFI_LOCALIP,           \/\/ WIFI local IP address$/;"	e	enum:__anon57
+CFG_WIFI_MASK	inc/setup.h	/^    CFG_WIFI_MASK,              \/\/ WIFI mask$/;"	e	enum:__anon57
+CFG_WIFI_PWD	inc/setup.h	/^    CFG_WIFI_PWD,               \/\/ WIFI password$/;"	e	enum:__anon57
+CFG_WIFI_SSID	inc/setup.h	/^    CFG_WIFI_SSID,              \/\/ WIFI Service Set Identifier (SSID)$/;"	e	enum:__anon57
+CFG_WITH_SSL	inc/setup.h	/^    CFG_WITH_SSL,               \/\/ communication with SSL : enable\/disable$/;"	e	enum:__anon57
+COLOR_GREP	inc/misc.h	35;"	d
+CTLSFLOW_FALLBACK	inc/global.h	/^    CTLSFLOW_FALLBACK   = 0x04,         \/\/ Contact fallback$/;"	e	enum:__anon29
+CTLSFLOW_FULLEMV	inc/global.h	/^    CTLSFLOW_FULLEMV    = 0x01,         \/\/ Contactless PBOC$/;"	e	enum:__anon29
+CTLSFLOW_MSD	inc/global.h	/^    CTLSFLOW_MSD        = 0x03,         \/\/ Contactless MSD$/;"	e	enum:__anon29
+CTLSFLOW_NORMAL	inc/global.h	/^    CTLSFLOW_NORMAL     = 0x00,         \/\/ Normal flow$/;"	e	enum:__anon29
+CTLSFLOW_QUICK	inc/global.h	/^    CTLSFLOW_QUICK      = 0x02,         \/\/ Contactless QPBOC$/;"	e	enum:__anon29
+CTLSTYPE_MSD	inc/global.h	/^    CTLSTYPE_MSD     = 0x22,$/;"	e	enum:__anon28
+CTLSTYPE_PAYPASS	inc/global.h	/^    CTLSTYPE_PAYPASS = 0x02,$/;"	e	enum:__anon28
+CTLSTYPE_PAYWAVE	inc/global.h	/^    CTLSTYPE_PAYWAVE = 0x17,$/;"	e	enum:__anon28
+CTLSTYPE_QUICK	inc/global.h	/^    CTLSTYPE_QUICK   = 0x91,$/;"	e	enum:__anon28
+CTLS_PAYPASS	inc/emv.h	/^    CTLS_PAYPASS = 0x04,        \/\/paypass$/;"	e	enum:__anon20
+CTLS_PAYWAVE	inc/emv.h	/^    CTLS_PAYWAVE = 0x02,        \/\/paywave$/;"	e	enum:__anon20
+CTLS_QPBOC	inc/emv.h	/^    CTLS_QPBOC   = 0x01,        \/\/qPBOC$/;"	e	enum:__anon20
+CTLS_UNKNOWN	inc/emv.h	/^    CTLS_UNKNOWN = 0X00,        \/\/unknown ctls card type$/;"	e	enum:__anon20
+CUP	inc/aid.h	/^    CUP$/;"	e	enum:__anon1
+CbEmvCltsRemoveCard	src/emv.c	/^s32 CbEmvCltsRemoveCard(void)$/;"	f
+CbEmvDispCandAppList	src/emv.c	/^s32 CbEmvDispCandAppList(u8 ucAppNum, u8 **ppheAppList)$/;"	f
+CbEmvDispCardNo	src/emv.c	/^s32 CbEmvDispCardNo(u8 const *pasCardNo)$/;"	f
+CbEmvDispPrompts	src/emv.c	/^s32 CbEmvDispPrompts(SDK_ICC_PROMPT_TYPE ePromptType)$/;"	f
+CbEmvInputAmount	src/emv.c	/^s32 CbEmvInputAmount(u8 *pasAmount)$/;"	f
+CbEmvInputPin	src/emv.c	/^s32 CbEmvInputPin(const u8 *pasTransAmount, u8 ucRemainPinTries, u8 ePinMode, u8 *phePin)$/;"	f
+CbEmvReinitCtlsParam	src/emv.c	/^void CbEmvReinitCtlsParam(void)$/;"	f
+CbEmvReinitParam	src/emv.c	/^void CbEmvReinitParam(void)$/;"	f
+CbTrnDispAmount	src/misc.c	/^s32 CbTrnDispAmount(u8 *pStrDisp, const u32 uiMode, const s32 siDispRow, void *pVar)$/;"	f
+CommuConfigParam	src/commu.c	/^void CommuConfigParam(bool bIsUseBackup)$/;"	f
+CommuCreateLink	src/commu.c	/^s32 CommuCreateLink(void)$/;"	f
+CommuExchangeIsoMsg	src/commu.c	/^s32 CommuExchangeIsoMsg(SDK_ICC_TRADE_PARAM *pstIccTradeParam, $/;"	f
+CommuExchangeIsoPacket	src/commu.c	/^s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)$/;"	f
+CommuOpenEthernet	src/commu.c	/^bool CommuOpenEthernet(void)$/;"	f
+CommuOpenWiFi	src/commu.c	/^bool CommuOpenWiFi(void)$/;"	f
+CommuPreLink	src/commu.c	/^void CommuPreLink(void)$/;"	f
+CommuSslConnect	src/commu.c	/^s32 CommuSslConnect(s32 iTimeOut)$/;"	f
+DB_DATATYPE_ASC	inc/database.h	/^    DB_DATATYPE_ASC,$/;"	e	enum:__anon7
+DB_DATATYPE_BIN	inc/database.h	/^    DB_DATATYPE_BIN,$/;"	e	enum:__anon7
+DB_DATATYPE_U16	inc/database.h	/^    DB_DATATYPE_U16,$/;"	e	enum:__anon7
+DB_DATATYPE_U32	inc/database.h	/^    DB_DATATYPE_U32,$/;"	e	enum:__anon7
+DB_DATATYPE_U8	inc/database.h	/^    DB_DATATYPE_U8,$/;"	e	enum:__anon7
+DB_EXIT_ABORT	inc/database.h	/^    DB_EXIT_ABORT = -4,          \/*!< Enum value Callback routine requested an abort *\/$/;"	e	enum:__anon6
+DB_EXIT_AUTH	inc/database.h	/^    DB_EXIT_AUTH = -23,          \/*!< Enum value Authorization denied *\/$/;"	e	enum:__anon6
+DB_EXIT_BUSY	inc/database.h	/^    DB_EXIT_BUSY = -5,           \/*!< Enum value The database file is locked *\/$/;"	e	enum:__anon6
+DB_EXIT_CANTOPEN	inc/database.h	/^    DB_EXIT_CANTOPEN = -14,      \/*!< Enum value Unable to open the database file *\/$/;"	e	enum:__anon6
+DB_EXIT_CONSTRAINT	inc/database.h	/^    DB_EXIT_CONSTRAINT = -19,    \/*!< Enum value Abort due to contraint violation *\/$/;"	e	enum:__anon6
+DB_EXIT_CORRUPT	inc/database.h	/^    DB_EXIT_CORRUPT = -11,       \/*!< Enum value The database disk image is malformed *\/$/;"	e	enum:__anon6
+DB_EXIT_DONE	inc/database.h	/^    DB_EXIT_DONE = -101,         \/*!< Enum value All rows are executed *\/$/;"	e	enum:__anon6
+DB_EXIT_EMPTY	inc/database.h	/^    DB_EXIT_EMPTY = -16,         \/*!< Enum value (Internal Only) Database table is empty *\/$/;"	e	enum:__anon6
+DB_EXIT_ERROR	inc/database.h	/^    DB_EXIT_ERROR = -1,          \/*!< Enum value SQL error or missing database *\/$/;"	e	enum:__anon6
+DB_EXIT_FULL	inc/database.h	/^    DB_EXIT_FULL = -13,          \/*!< Enum value Insertion failed because database is full *\/$/;"	e	enum:__anon6
+DB_EXIT_HANDLEERR	inc/database.h	/^    DB_EXIT_HANDLEERR = -1001,   \/*!< Enum value DB or Query handle not found *\/$/;"	e	enum:__anon6
+DB_EXIT_INTERNAL	inc/database.h	/^    DB_EXIT_INTERNAL = -2,       \/*!< Enum value An internal logic error *\/$/;"	e	enum:__anon6
+DB_EXIT_INTERRUPT	inc/database.h	/^    DB_EXIT_INTERRUPT = -9,      \/*!< Enum value Operation terminated by interrupt function *\/$/;"	e	enum:__anon6
+DB_EXIT_IOERR	inc/database.h	/^    DB_EXIT_IOERR = -10,         \/*!< Enum value Some kind of disk I\/O error occurred *\/$/;"	e	enum:__anon6
+DB_EXIT_LOCKED	inc/database.h	/^    DB_EXIT_LOCKED = -6,         \/*!< Enum value A table in the database is locked *\/$/;"	e	enum:__anon6
+DB_EXIT_MEMORYERR	inc/database.h	/^    DB_EXIT_MEMORYERR = -1002,   \/*!< Enum value Dynamic memory allocation problem  *\/$/;"	e	enum:__anon6
+DB_EXIT_MISMATCH	inc/database.h	/^    DB_EXIT_MISMATCH = -20,      \/*!< Enum value Data type mismatch *\/$/;"	e	enum:__anon6
+DB_EXIT_MISUSE	inc/database.h	/^    DB_EXIT_MISUSE = -21,        \/*!< Enum value Library used incorrectly *\/$/;"	e	enum:__anon6
+DB_EXIT_NOLFS	inc/database.h	/^    DB_EXIT_NOLFS = -22,         \/*!< Enum value Uses OS features not supported on host *\/$/;"	e	enum:__anon6
+DB_EXIT_NORIGHT	inc/database.h	/^    DB_EXIT_NORIGHT = -99,       \/*!< Enum value User doesn't have right to perform the operation*\/$/;"	e	enum:__anon6
+DB_EXIT_NOTFOUND	inc/database.h	/^    DB_EXIT_NOTFOUND = -12,      \/*!< Enum value (Internal Only) Table or record not found *\/$/;"	e	enum:__anon6
+DB_EXIT_OTHER	inc/database.h	/^    DB_EXIT_OTHER = -98,         \/*!< Enum value any other reason to exit *\/$/;"	e	enum:__anon6
+DB_EXIT_PERM	inc/database.h	/^    DB_EXIT_PERM = -3,           \/*!< Enum value Access permission denied *\/$/;"	e	enum:__anon6
+DB_EXIT_PROTOCOL	inc/database.h	/^    DB_EXIT_PROTOCOL = -15,      \/*!< Enum value Database lock protocol error *\/$/;"	e	enum:__anon6
+DB_EXIT_READONLY	inc/database.h	/^    DB_EXIT_READONLY = -8,       \/*!< Enum value Attempt to write a readonly database *\/$/;"	e	enum:__anon6
+DB_EXIT_ROW	inc/database.h	/^    DB_EXIT_ROW = -100,          \/*!< Enum value Row is ready *\/$/;"	e	enum:__anon6
+DB_EXIT_SCHEMA	inc/database.h	/^    DB_EXIT_SCHEMA = -17,        \/*!< Enum value The database schema changed *\/$/;"	e	enum:__anon6
+DB_EXIT_SUCCESS	inc/database.h	/^    DB_EXIT_SUCCESS = 0,         \/*!< Enum value Database operation is successful*\/$/;"	e	enum:__anon6
+DB_EXIT_TOOBIG	inc/database.h	/^    DB_EXIT_TOOBIG = -18,        \/*!< Enum value Too much data for one row of a table *\/$/;"	e	enum:__anon6
+DB_MAXFILTER	inc/database.h	21;"	d
+DB_MAXFILTER_VALUE	inc/database.h	22;"	d
+DB_MAX_FIELDS	inc/database.h	9;"	d
+DB_PRIMARY_KEY	inc/database.h	/^    DB_PRIMARY_KEY,$/;"	e	enum:__anon7
+DISPAMOUNT_NONE	inc/global.h	/^    DISPAMOUNT_NONE,            \/\/ Don't display amount   $/;"	e	enum:__anon26
+DISPAMOUNT_NORNAL	inc/global.h	/^    DISPAMOUNT_NORNAL,          \/\/ Display amount        $/;"	e	enum:__anon26
+DISPAMOUNT_ORGINAL	inc/global.h	/^    DISPAMOUNT_ORGINAL,         \/\/ Display original amount$/;"	e	enum:__anon26
+DISP_LIST_MAX	inc/display.h	25;"	d
+DbgEchoHandleField39AndField54	src/appdbg.c	/^s32 DbgEchoHandleField39AndField54(E_TRANS_ID eTranId, SDK_8583_ST8583 *pstIsoMsgSend,u8 *pucFiled39,u8 *pszField54)$/;"	f
+DbgEchoInitMsg	src/appdbg.c	/^s32 DbgEchoInitMsg(ST_SAVE_ECHO_MSG *pstEchoMsg)$/;"	f
+DbgEchoIsRightPin	src/appdbg.c	/^bool DbgEchoIsRightPin(SDK_8583_ST8583 *pstIsoMsgSend,ST_SAVE_ECHO_MSG *pstEchoMsg)$/;"	f
+DbgEchoModeExchangeIsoPacket	src/appdbg.c	/^s32 DbgEchoModeExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)$/;"	f
+DbgFilter	src/main.c	/^DBG_FILTER DbgFilter =$/;"	v
+DbgIsAscStr	src/appdbg.c	/^bool DbgIsAscStr(const u8 *pData, u32 uiDataLen)$/;"	f
+DbgPrintHex8583	src/appdbg.c	/^bool DbgPrintHex8583(u8 *pasTitle,const u8 *pheData, s32 uiDataLen)$/;"	f
+DbgPrintIso8583	src/appdbg.c	/^void *DbgPrintIso8583(u8 *pasTitle,void *arg)$/;"	f
+DbgReadDbgTranTotalNum	src/appdbg.c	/^s32 DbgReadDbgTranTotalNum(s32 *siSavedDebugNum)$/;"	f
+DbgReadEchoMsg	src/appdbg.c	/^s32 DbgReadEchoMsg(ST_SAVE_ECHO_MSG *pstEchoMsg)$/;"	f
+DbgReadTran8583	src/appdbg.c	/^s32 DbgReadTran8583(ST_SAVED_DEBUG8583 *pstSavedDebug8583,s32 siOffset)$/;"	f
+DbgSaveDbgTranTotalNum	src/appdbg.c	/^s32 DbgSaveDbgTranTotalNum(s32 siSaveDebugNum)$/;"	f
+DbgSaveEchoMsg	src/appdbg.c	/^s32 DbgSaveEchoMsg(ST_SAVE_ECHO_MSG *pstEchoMsg)$/;"	f
+DbgSaveTran8583	src/appdbg.c	/^s32 DbgSaveTran8583(s32 siTranNO,SDK_8583_ST8583 *pstSentBag8583,SDK_8583_ST8583 *pstRecv8583,s32 siOffset)$/;"	f
+DbgTraceAsc	src/appdbg.c	/^void DbgTraceAsc(const u8 *pheData, u32 uiDataLen)$/;"	f
+DbgTraceIso8583	src/appdbg.c	/^void DbgTraceIso8583(u8 *pasTitle, SDK_8583_ST8583 *pstBag8583)$/;"	f
+DebugFilter	src/main.c	/^static  const SDK_DEBUG_FILTER DebugFilter =$/;"	v	file:
+DispAOSA	src/display.c	/^bool DispAOSA(void)$/;"	f
+DispBackground	src/display.c	/^void DispBackground(const u8 *pasBmpFileName)$/;"	f
+DispBalanceAmount	src/balance.c	/^void DispBalanceAmount(void)$/;"	f
+DispBatteryIcon	src/display.c	/^void DispBatteryIcon(s32 iPosition)$/;"	f
+DispCardNo	src/display.c	/^bool DispCardNo(const u8 *pasCardNo)$/;"	f
+DispClearContent	src/display.c	/^void DispClearContent(void)$/;"	f
+DispDateTime	src/display.c	/^void DispDateTime(u8 ucLine)$/;"	f
+DispEMVErr	src/display.c	/^s32 DispEMVErr(const u8 *pasSection, const u8 *pasKey)$/;"	f
+DispEmvReadCardReturn	src/display.c	/^void DispEmvReadCardReturn(SDK_EMV_RLT eEmvRet)$/;"	f
+DispErrResponse	src/display.c	/^void DispErrResponse(void)$/;"	f
+DispGetBmpSize	src/display.c	/^void DispGetBmpSize(const u8 *pasFileName, u32 *puiHeight, u32 *puiWidth)$/;"	f
+DispGetMaxLine	src/display.c	/^u8 DispGetMaxLine(void)$/;"	f
+DispIcon	src/display.c	/^void DispIcon(void)$/;"	f
+DispInputPin	src/display.c	/^u8 DispInputPin(u8 *pucDispLine, $/;"	f
+DispListBox	src/display.c	/^s32 DispListBox(s32 siOvertimer, ST_DISP_LIST *pstList)$/;"	f
+DispReadCard	src/display.c	/^void DispReadCard(s32 iCardMode)$/;"	f
+DispReadCardErr	src/display.c	/^void DispReadCardErr(u8 ucMode)$/;"	f
+DispRestoreScreen	src/display.c	/^void DispRestoreScreen(void)$/;"	f
+DispSaveScreen	src/display.c	/^void DispSaveScreen(void)$/;"	f
+DispSaveSetupParam	src/display.c	/^void DispSaveSetupParam(void)$/;"	f
+DispSetMaxLine	src/display.c	/^void DispSetMaxLine(void)$/;"	f
+DispSignalIcon	src/display.c	/^void DispSignalIcon(s32 iPosition)$/;"	f
+DispSuccResponse	src/display.c	/^void DispSuccResponse(void)$/;"	f
+DispTitle	src/display.c	/^void DispTitle(const u8 *pasTitle)$/;"	f
+DispTransDetail	src/display.c	/^s32 DispTransDetail(ST_TRANSLOG *pstTransLog)$/;"	f
+DispTransStatus	src/display.c	/^void DispTransStatus(void)$/;"	f
+DispTransSucc	src/display.c	/^void DispTransSucc(void)$/;"	f
+DispTransTotal	src/display.c	/^s32 DispTransTotal(ST_SETTLE *pstSettle)$/;"	f
+DispWelcome	src/display.c	/^void DispWelcome(void)$/;"	f
+DispWirelessIcon	src/display.c	/^void DispWirelessIcon(s32 iPosition)$/;"	f
+EMV_CAPK_INI	src/capk.c	1333;"	d	file:
+ERR_ADJUST_LIMIT	inc/global.h	/^    ERR_ADJUST_LIMIT    = (SDK_APP_RET_ERR_MAX + (-38)),  \/\/adjust times limit$/;"	e	enum:__anon22
+ERR_ALREADY_ADJUSTED	inc/global.h	/^    ERR_ALREADY_ADJUSTED= (SDK_APP_RET_ERR_MAX + (-36)),  \/\/transaction is already adjusted$/;"	e	enum:__anon22
+ERR_ALREADY_VOID	inc/global.h	/^    ERR_ALREADY_VOID    = (SDK_APP_RET_ERR_MAX + (-35)),  \/\/transaction is already voided$/;"	e	enum:__anon22
+ERR_AMT_LIMIT	inc/global.h	/^    ERR_AMT_LIMIT       = (SDK_APP_RET_ERR_MAX + (-45)),  \/\/not any transaction record in pos$/;"	e	enum:__anon22
+ERR_BATCHNO	inc/global.h	/^    ERR_BATCHNO         = (SDK_APP_RET_ERR_MAX + (-27)),  \/\/matching batch number fail$/;"	e	enum:__anon22
+ERR_BATCHUP	inc/global.h	/^    ERR_BATCHUP         = (SDK_APP_RET_ERR_MAX + (-39)),  \/\/batch up fail$/;"	e	enum:__anon22
+ERR_CALCMAC	inc/global.h	/^    ERR_CALCMAC         = (SDK_APP_RET_ERR_MAX + (-30)),  \/\/calc MAC fail$/;"	e	enum:__anon22
+ERR_CASHBACK_LIMIT	inc/global.h	/^    ERR_CASHBACK_LIMIT  = (SDK_APP_RET_ERR_MAX + (-46)),  \/\/not any transaction record in pos$/;"	e	enum:__anon22
+ERR_CHIPMAGCARD	inc/global.h	/^    ERR_CHIPMAGCARD     = (SDK_APP_RET_ERR_MAX + (-12)),  \/\/swipe a mag card with chip$/;"	e	enum:__anon22
+ERR_DIFF_CARD	inc/global.h	/^    ERR_DIFF_CARD       = (SDK_APP_RET_ERR_MAX + (-37)),  \/\/the card is different with original card$/;"	e	enum:__anon22
+ERR_ENCRYPT	inc/global.h	/^    ERR_ENCRYPT         = (SDK_APP_RET_ERR_MAX + (-19)),  \/\/encrypt data fail$/;"	e	enum:__anon22
+ERR_FILE_SYSTEM	inc/global.h	/^    ERR_FILE_SYSTEM     = (SDK_APP_RET_ERR_MAX + (-6)),   \/\/file system error$/;"	e	enum:__anon22
+ERR_ICC_AUTHFAIL	inc/global.h	/^    ERR_ICC_AUTHFAIL    = (SDK_APP_RET_ERR_MAX + (-11)),  \/\/ICC 2nd authorization fail$/;"	e	enum:__anon22
+ERR_ICC_RESET	inc/global.h	/^    ERR_ICC_RESET       = (SDK_APP_RET_ERR_MAX + (-13)),  \/\/icc card reset fail$/;"	e	enum:__anon22
+ERR_LINK	inc/global.h	/^    ERR_LINK            = (SDK_APP_RET_ERR_MAX + (-14)),  \/\/create link fail$/;"	e	enum:__anon22
+ERR_LINK_TIMEOUT	inc/global.h	/^    ERR_LINK_TIMEOUT    = (SDK_APP_RET_ERR_MAX + (-15)),  \/\/create link timeout$/;"	e	enum:__anon22
+ERR_LOGON_FAIL	inc/global.h	/^    ERR_LOGON_FAIL      = (SDK_APP_RET_ERR_MAX + (-3)),   \/\/pos logon fail$/;"	e	enum:__anon22
+ERR_MEMORY_FULL	inc/global.h	/^    ERR_MEMORY_FULL     = (SDK_APP_RET_ERR_MAX + (-7)),   \/\/flash memory is full$/;"	e	enum:__anon22
+ERR_MERCHANTNO	inc/global.h	/^    ERR_MERCHANTNO      = (SDK_APP_RET_ERR_MAX + (-29)),  \/\/matching merchant ID fail$/;"	e	enum:__anon22
+ERR_MSGTYPE	inc/global.h	/^    ERR_MSGTYPE         = (SDK_APP_RET_ERR_MAX + (-23)),  \/\/matching message type fail$/;"	e	enum:__anon22
+ERR_NOTALLOW_ADJUST	inc/global.h	/^    ERR_NOTALLOW_ADJUST = (SDK_APP_RET_ERR_MAX + (-34)),  \/\/adjust transaction is not allow$/;"	e	enum:__anon22
+ERR_NOTALLOW_VOID	inc/global.h	/^    ERR_NOTALLOW_VOID   = (SDK_APP_RET_ERR_MAX + (-33)),  \/\/void transaction is not allow$/;"	e	enum:__anon22
+ERR_NO_CASHIER	inc/global.h	/^    ERR_NO_CASHIER      = (SDK_APP_RET_ERR_MAX + (-1)),   \/\/is not cashier logon status$/;"	e	enum:__anon22
+ERR_NO_LOGON	inc/global.h	/^    ERR_NO_LOGON        = (SDK_APP_RET_ERR_MAX + (-2)),   \/\/pos is not logon$/;"	e	enum:__anon22
+ERR_NO_TRANS	inc/global.h	/^    ERR_NO_TRANS        = (SDK_APP_RET_ERR_MAX + (-44)),  \/\/not any transaction record in pos$/;"	e	enum:__anon22
+ERR_PACK_MSG	inc/global.h	/^    ERR_PACK_MSG        = (SDK_APP_RET_ERR_MAX + (-20)),  \/\/pack message fail$/;"	e	enum:__anon22
+ERR_PASSWORD	inc/global.h	/^    ERR_PASSWORD        = (SDK_APP_RET_ERR_MAX + (-42)),  \/\/password is wrong$/;"	e	enum:__anon22
+ERR_PRINT	inc/global.h	/^    ERR_PRINT           = (SDK_APP_RET_ERR_MAX + (-31)),  \/\/print receipt fail$/;"	e	enum:__anon22
+ERR_PROCESSCODE	inc/global.h	/^    ERR_PROCESSCODE     = (SDK_APP_RET_ERR_MAX + (-24)),  \/\/matching process code fail$/;"	e	enum:__anon22
+ERR_READ_CARD	inc/global.h	/^    ERR_READ_CARD       = (SDK_APP_RET_ERR_MAX + (-10)),  \/\/read card fail$/;"	e	enum:__anon22
+ERR_RECV	inc/global.h	/^    ERR_RECV            = (SDK_APP_RET_ERR_MAX + (-17)),  \/\/receive message fail$/;"	e	enum:__anon22
+ERR_RECV_TIMEOUT	inc/global.h	/^    ERR_RECV_TIMEOUT    = (SDK_APP_RET_ERR_MAX + (-18)),  \/\/receive message timeout$/;"	e	enum:__anon22
+ERR_REPRINT	inc/global.h	/^    ERR_REPRINT         = (SDK_APP_RET_ERR_MAX + (-4)),   \/\/last print is error$/;"	e	enum:__anon22
+ERR_RESP_CODE	inc/global.h	/^    ERR_RESP_CODE       = (SDK_APP_RET_ERR_MAX + (-22)),  \/\/response code error$/;"	e	enum:__anon22
+ERR_SCRIPTFAIL	inc/global.h	/^    ERR_SCRIPTFAIL      = (SDK_APP_RET_ERR_MAX + (-40)),  \/\/execute ICC script fail$/;"	e	enum:__anon22
+ERR_SEND	inc/global.h	/^    ERR_SEND            = (SDK_APP_RET_ERR_MAX + (-16)),  \/\/send message fail$/;"	e	enum:__anon22
+ERR_SETTING_BASE	inc/setup.h	25;"	d
+ERR_SETTING_CREATE	inc/setup.h	28;"	d
+ERR_SETTING_ID	inc/setup.h	31;"	d
+ERR_SETTING_INTERNAL	inc/setup.h	27;"	d
+ERR_SETTING_READ	inc/setup.h	29;"	d
+ERR_SETTING_WRITE	inc/setup.h	30;"	d
+ERR_SETTLE_PRINT	inc/global.h	/^    ERR_SETTLE_PRINT    = (SDK_APP_RET_ERR_MAX + (-32)),  \/\/print settlement fail	$/;"	e	enum:__anon22
+ERR_SETTLE_STARTED	inc/global.h	/^    ERR_SETTLE_STARTED  = (SDK_APP_RET_ERR_MAX + (-5)),   \/\/settlement is not finish$/;"	e	enum:__anon22
+ERR_TERMINALNO	inc/global.h	/^    ERR_TERMINALNO      = (SDK_APP_RET_ERR_MAX + (-28)),  \/\/matching terminal ID fail$/;"	e	enum:__anon22
+ERR_TRACENO	inc/global.h	/^    ERR_TRACENO         = (SDK_APP_RET_ERR_MAX + (-25)),  \/\/matching trace number fail$/;"	e	enum:__anon22
+ERR_TRANSAMOUNT	inc/global.h	/^    ERR_TRANSAMOUNT     = (SDK_APP_RET_ERR_MAX + (-26)),  \/\/matching transation amount fail$/;"	e	enum:__anon22
+ERR_TRANSNUM_LIMIT	inc/global.h	/^    ERR_TRANSNUM_LIMIT  = (SDK_APP_RET_ERR_MAX + (-8)),   \/\/transaction number is limit$/;"	e	enum:__anon22
+ERR_TRANS_NOSUPPORT	inc/global.h	/^    ERR_TRANS_NOSUPPORT = (SDK_APP_RET_ERR_MAX + (-9)),   \/\/transaction is not support$/;"	e	enum:__anon22
+ERR_UNPACK_MSG	inc/global.h	/^    ERR_UNPACK_MSG      = (SDK_APP_RET_ERR_MAX + (-21)),  \/\/unpack message fail$/;"	e	enum:__anon22
+ERR_UPDATE_KEY	inc/global.h	/^    ERR_UPDATE_KEY      = (SDK_APP_RET_ERR_MAX + (-43)),  \/\/update work key fail$/;"	e	enum:__anon22
+ERR_USER_NOEXIST	inc/global.h	/^    ERR_USER_NOEXIST    = (SDK_APP_RET_ERR_MAX + (-41)),  \/\/user is not exist$/;"	e	enum:__anon22
+EXTERN	inc/global.h	21;"	d
+EXTERN	inc/global.h	23;"	d
+E_AID_ITEM	inc/aid.h	/^}E_AID_ITEM;$/;"	t	typeref:enum:__anon2
+E_ALIGN_MODE	inc/misc.h	/^}E_ALIGN_MODE;$/;"	t	typeref:enum:__anon43
+E_AMOUNT_MODE	inc/misc.h	/^}E_AMOUNT_MODE;$/;"	t	typeref:enum:__anon44
+E_APP_ERRNO	inc/global.h	/^}E_APP_ERRNO;$/;"	t	typeref:enum:__anon22
+E_BATTERY_STATE	inc/display.h	/^}E_BATTERY_STATE;$/;"	t	typeref:enum:__anon13
+E_CAPK_ITEM	inc/capk.h	/^}E_CAPK_ITEM;$/;"	t	typeref:enum:__anon5
+E_CARD_TYPE	inc/aid.h	/^}E_CARD_TYPE;$/;"	t	typeref:enum:__anon1
+E_CTLS_CARD_TYPE	inc/emv.h	/^}E_CTLS_CARD_TYPE;$/;"	t	typeref:enum:__anon20
+E_DB_DATATYPE	inc/database.h	/^}E_DB_DATATYPE;$/;"	t	typeref:enum:__anon7
+E_DB_EXIT	inc/database.h	/^} E_DB_EXIT;$/;"	t	typeref:enum:__anon6
+E_DUKPT_GETMAC	inc/global.h	/^}E_DUKPT_GETMAC;$/;"	t	typeref:enum:__anon31
+E_DUKPT_GETPIN	inc/global.h	/^}E_DUKPT_GETPIN;$/;"	t	typeref:enum:__anon30
+E_EMV_CTLS_FLOW	inc/global.h	/^}E_EMV_CTLS_FLOW;$/;"	t	typeref:enum:__anon29
+E_EMV_CTLS_TYPE	inc/global.h	/^}E_EMV_CTLS_TYPE;$/;"	t	typeref:enum:__anon28
+E_FILTER_MODE	inc/database.h	/^}E_FILTER_MODE;$/;"	t	typeref:enum:__anon9
+E_ICCRET	inc/global.h	/^}E_ICCRET;$/;"	t	typeref:enum:__anon27
+E_MENU_MODE	inc/display.h	/^}E_MENU_MODE;$/;"	t	typeref:enum:__anon12
+E_MSGLEN_TYPE	inc/setup.h	/^}E_MSGLEN_TYPE;$/;"	t	typeref:enum:__anon58
+E_PED_DISPAMOUNT	inc/global.h	/^}E_PED_DISPAMOUNT;                                        $/;"	t	typeref:enum:__anon26
+E_PRINT_FONT	inc/print.h	/^}E_PRINT_FONT;$/;"	t	typeref:enum:__anon47
+E_PRINT_SIZE	inc/print.h	/^}E_PRINT_SIZE;$/;"	t	typeref:enum:__anon48
+E_SETTLE_STATE	inc/settle.h	/^}E_SETTLE_STATE;$/;"	t	typeref:enum:__anon56
+E_SETUP_TYPE	inc/setup.h	/^}E_SETUP_TYPE;$/;"	t	typeref:enum:__anon59
+E_SYSCFG_TAB	inc/setup.h	/^}E_SYSCFG_TAB; $/;"	t	typeref:enum:__anon57
+E_TRANSLOG_ID	inc/record.h	/^}E_TRANSLOG_ID;$/;"	t	typeref:enum:__anon49
+E_TRANS_ID	inc/global.h	/^}E_TRANS_ID;$/;"	t	typeref:enum:__anon23
+E_TRANS_STATUS	inc/global.h	/^}E_TRANS_STATUS;$/;"	t	typeref:enum:__anon25
+E_UPLOAD_STATUS	inc/global.h	/^}E_UPLOAD_STATUS;$/;"	t	typeref:enum:__anon24
+EchoBalancePackMsg	src/balance.c	/^s32 EchoBalancePackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)$/;"	f
+EchoGetMsgMac	src/iso8583.c	/^s32 EchoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac,u32 uiMsgCodeOffset)$/;"	f
+EchoIsoPackMsgHeader	src/iso8583.c	/^s32 EchoIsoPackMsgHeader(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+EchoIsoPackPublicMsg	src/iso8583.c	/^s32 EchoIsoPackPublicMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)$/;"	f
+EchoLogonPackMsg	src/logon.c	/^s32 EchoLogonPackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)$/;"	f
+EchoSalePackMsg	src/sale.c	/^s32 EchoSalePackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)$/;"	f
+EchoVoidPackMsg	src/void.c	/^s32 EchoVoidPackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)$/;"	f
+EmvCheckRespCode	src/emv.c	/^bool EmvCheckRespCode(const u8 *pasRespCode)$/;"	f
+EmvConfigTransParam	src/emv.c	/^void EmvConfigTransParam(ST_TRANSDATA *pstTransData, SDK_ICC_TRADE_PARAM *pstIccTradeParam)$/;"	f
+EmvGetReadCardResult	src/emv.c	/^E_ICCRET EmvGetReadCardResult(SDK_EMV_RLT eEmvRet)$/;"	f
+EmvGetTagLen	src/emv.c	/^s32 EmvGetTagLen(const u8 *pTagData)$/;"	f
+EmvInitAid	src/aid.c	/^s32 EmvInitAid(bool bIsLiveAid)$/;"	f
+EmvInitCapk	src/capk.c	/^s32 EmvInitCapk(bool bIsLiveCapk)$/;"	f
+EmvInitCtlsParam	src/emv.c	/^void EmvInitCtlsParam(void)$/;"	f
+EmvInitPayPassWave	src/emv.c	/^void EmvInitPayPassWave(SDK_ICC_TRADE_PARAM *pstTradeParam)$/;"	f
+EmvInputPin	src/emv.c	/^s32 EmvInputPin(u8 *phePin, bool bIsWithPan, const u8 *pasTransAmount, SDK_PED_PIN_MODE ePinMode, u8 ucDispLine)$/;"	f
+EmvLedClose	src/emv.c	/^void EmvLedClose(void)$/;"	f
+EmvLedIdle	src/emv.c	/^void EmvLedIdle(void)$/;"	f
+EmvLedReadCard	src/emv.c	/^void EmvLedReadCard(void)$/;"	f
+EmvLedReadCardOk	src/emv.c	/^void EmvLedReadCardOk(void)$/;"	f
+EmvLedTransFail	src/emv.c	/^void EmvLedTransFail(void)$/;"	f
+EmvMandatoryTransFlow	src/emv.c	/^E_ICCRET EmvMandatoryTransFlow(SDK_ICC_TRADE_PARAM *pstIccTradeParam, SDK_ICC_PARAM *pstIccParam)$/;"	f
+EmvMandatoryTransFlowDetail	src/emv.c	/^s32 EmvMandatoryTransFlowDetail(SDK_ICC_TRADE_PARAM * pstIccTradeParam, SDK_ICC_PARAM * pstIccParam)$/;"	f
+EmvMandatoryTransFlowStart	src/emv.c	/^E_ICCRET EmvMandatoryTransFlowStart(SDK_ICC_TRADE_PARAM  *pstIccTradeParam, ST_CARDINFO *pstCardInfo)$/;"	f
+EmvOptImportRespData	src/emv.c	/^s32 EmvOptImportRespData(SDK_8583_ST8583 *pst8583Packet)$/;"	f
+EmvOptTransFlowOnlineProcess	src/emv.c	/^E_ICCRET EmvOptTransFlowOnlineProcess(SDK_ICC_TRADE_PARAM *pstIccTradeParam, SDK_ICC_PARAM *pstIccParam)$/;"	f
+EmvParseIccTlv	src/emv.c	/^s32 EmvParseIccTlv(const u8 *pData, s32 iDatalen, const u8 *pheTag, u8 *pheOutData, s32 *piOutLen)$/;"	f
+EmvReadPaypassPaywaveCfgIni	src/emv.c	/^s32 EmvReadPaypassPaywaveCfgIni(void)$/;"	f
+EmvSetAid	src/aid.c	/^s32 EmvSetAid(E_CARD_TYPE eCardType, bool bIsLiveAid)$/;"	f
+EmvSetAllDefaultAid	src/aid.c	/^void EmvSetAllDefaultAid(bool bIsLiveAid)$/;"	f
+EmvSetAllDefaultCapk	src/capk.c	/^void EmvSetAllDefaultCapk(bool bIsLiveCapk)$/;"	f
+EmvSetCapk	src/capk.c	/^s32 EmvSetCapk(E_CARD_TYPE eCardType, bool bIsLiveCapk)$/;"	f
+FALSE	inc/database.h	18;"	d
+FALSE	inc/global.h	62;"	d
+FILENAME_BATCHUP	inc/settle.h	30;"	d
+FILENAME_DATABASE	inc/database.h	7;"	d
+FILENAME_PRINT_BMP	inc/global.h	78;"	d
+FILENAME_RECORDBACKUP	inc/record.h	25;"	d
+FILENAME_SAVED_8583_PKG	inc/global.h	81;"	d
+FILENAME_SAVED_ECHO_MEG	inc/global.h	82;"	d
+FILENAME_SETTLE	inc/settle.h	29;"	d
+FILENAME_TATAL_SAVED_8383_NUM	inc/global.h	80;"	d
+FILENAME_WELCOME_BMP	inc/global.h	79;"	d
+FILE_BACKGROUND_BMP	inc/global.h	77;"	d
+FILE_EMV_BEEP_ERR	inc/emv.h	24;"	d
+FILE_EMV_BEEP_OK	inc/emv.h	23;"	d
+FILTER_BETWEEN	inc/database.h	/^    FILTER_BETWEEN,$/;"	e	enum:__anon9
+FILTER_GREATER_THAN	inc/database.h	/^    FILTER_GREATER_THAN,$/;"	e	enum:__anon9
+FILTER_LESS_THAN	inc/database.h	/^    FILTER_LESS_THAN,$/;"	e	enum:__anon9
+FILTER_MULTI	inc/database.h	/^    FILTER_MULTI,$/;"	e	enum:__anon9
+FILTER_SIGNEL	inc/database.h	/^    FILTER_SIGNEL,$/;"	e	enum:__anon9
+FILTER_SIGNEL_BESIDE	inc/database.h	/^    FILTER_SIGNEL_BESIDE,$/;"	e	enum:__anon9
+GETMAC_NEWKEY	inc/global.h	/^    GETMAC_NEWKEY = 1,          \/\/use new key$/;"	e	enum:__anon31
+GETMAC_OLDKEY	inc/global.h	/^    GETMAC_OLDKEY = 2,          \/\/use old key$/;"	e	enum:__anon31
+GETPIN_DEBUG	inc/global.h	/^    GETPIN_DEBUG    = 1,      $/;"	e	enum:__anon30
+GETPIN_NOUPDATE	inc/global.h	/^    GETPIN_NOUPDATE = 3,  $/;"	e	enum:__anon30
+GETPIN_RELEASE	inc/global.h	/^    GETPIN_RELEASE  = 0,    $/;"	e	enum:__anon30
+HANDONLY	inc/global.h	133;"	d
+ICCONLY	inc/global.h	135;"	d
+ICCRET_CTLS_FALLBACK	inc/global.h	/^    ICCRET_CTLS_FALLBACK    = 11,       \/\/ Swiping card repeated$/;"	e	enum:__anon27
+ICCRET_CTLS_SWITCH	inc/global.h	/^    ICCRET_CTLS_SWITCH      = 12,       \/\/ CTLS interface switchs to contact interface$/;"	e	enum:__anon27
+ICCRET_DISCOVERY	inc/global.h	/^    ICCRET_DISCOVERY        = 13,       \/\/ Restart discovery processing$/;"	e	enum:__anon27
+ICCRET_EASYFLOW	inc/global.h	/^    ICCRET_EASYFLOW         = 10,       \/\/ Simplified flow$/;"	e	enum:__anon27
+ICCRET_ERR	inc/global.h	/^    ICCRET_ERR              =  8,       \/\/ Error$/;"	e	enum:__anon27
+ICCRET_FALLBACK	inc/global.h	/^    ICCRET_FALLBACK         =  7,       \/\/ Fallback$/;"	e	enum:__anon27
+ICCRET_OFFLINE_APPROVE	inc/global.h	/^    ICCRET_OFFLINE_APPROVE  =  2,       \/\/ Offline approve$/;"	e	enum:__anon27
+ICCRET_OFFLINE_DECLINE	inc/global.h	/^    ICCRET_OFFLINE_DECLINE  =  3,       \/\/ Offline decline, error packet needs to be saved$/;"	e	enum:__anon27
+ICCRET_OK	inc/global.h	/^    ICCRET_OK               =  0,       \/\/ Continue IC transaction$/;"	e	enum:__anon27
+ICCRET_ONLINE_APPROVE	inc/global.h	/^    ICCRET_ONLINE_APPROVE   =  4,       \/\/ Online approve$/;"	e	enum:__anon27
+ICCRET_ONLINE_DECLINE	inc/global.h	/^    ICCRET_ONLINE_DECLINE   =  5,       \/\/ Online decline$/;"	e	enum:__anon27
+ICCRET_ONLINE_WAIT	inc/global.h	/^    ICCRET_ONLINE_WAIT      =  1,       \/\/ Go online$/;"	e	enum:__anon27
+ICCRET_REVERSAL	inc/global.h	/^    ICCRET_REVERSAL         =  9,       \/\/ Reversal$/;"	e	enum:__anon27
+ICCRET_TRANS_CANCEL	inc/global.h	/^    ICCRET_TRANS_CANCEL     =  6,       \/\/ Transaction cancelled$/;"	e	enum:__anon27
+ICCRF	inc/global.h	138;"	d
+IsTermColorScreen	src/display.c	/^bool IsTermColorScreen(void)$/;"	f
+IsoCheckBimap	src/iso8583.c	/^bool IsoCheckBimap(const u8 *pheBitmap, u8 ucFieldNo)$/;"	f
+IsoFormIccDataField055	src/iso8583.c	/^void IsoFormIccDataField055(u8 *pheDolData, s32 *piLen)$/;"	f
+IsoGetField	src/iso8583.c	/^s32 IsoGetField(SDK_8583_ST8583 *pstPacket8583, u8 ucFieldNo, u8 *pheFieldData, u16 usMaxSize)$/;"	f
+IsoGetMsgMac	src/iso8583.c	/^s32 IsoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac)$/;"	f
+IsoPackMsgHeader	src/iso8583.c	/^s32 IsoPackMsgHeader(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+IsoPackMsgMac	src/iso8583.c	/^s32 IsoPackMsgMac(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+IsoPackPublicMsg	src/iso8583.c	/^s32 IsoPackPublicMsg(SDK_8583_ST8583 *pstIsoMsg, ST_TRANSDATA *pstTransData, u8 *pasBitMap)$/;"	f
+IsoParse8583	src/iso8583.c	/^s32 IsoParse8583(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+IsoSetField	src/iso8583.c	/^s32 IsoSetField(SDK_8583_ST8583 *pstPacket8583, u8 ucFieldNo, u8 *pheFieldData, u16 usDataLen)$/;"	f
+JCB	inc/aid.h	/^    JCB,$/;"	e	enum:__anon1
+JEFF_DEBUG	inc/global.h	66;"	d
+KEYINDEX_TAK	inc/global.h	130;"	d
+KEYINDEX_TMK	inc/global.h	128;"	d
+KEYINDEX_TPK	inc/global.h	129;"	d
+LDFLAGS_STATIC	makefile	/^LDFLAGS_STATIC = -Wl,-elf2flt$/;"	m
+LED_1	inc/global.h	115;"	d
+LED_1234_OFF	inc/global.h	124;"	d
+LED_1234_ON	inc/global.h	123;"	d
+LED_123_ON	inc/global.h	122;"	d
+LED_12_ON	inc/global.h	121;"	d
+LED_1_ON	inc/global.h	120;"	d
+LED_2	inc/global.h	116;"	d
+LED_3	inc/global.h	117;"	d
+LED_4	inc/global.h	118;"	d
+LED_BOTTOM_RIGHT_X	inc/global.h	112;"	d
+LED_BOTTOM_RIGHT_Y	inc/global.h	113;"	d
+LED_COLOR_GAP	inc/global.h	104;"	d
+LED_COLOR_SIZE_H	inc/global.h	103;"	d
+LED_COLOR_SIZE_W	inc/global.h	102;"	d
+LED_G3	inc/global.h	93;"	d
+LED_G870	inc/global.h	92;"	d
+LED_LEFT_BEGIN_G3	inc/global.h	95;"	d
+LED_LEFT_BEGIN_G870	inc/global.h	97;"	d
+LED_LEFT_BEGIN_MONO	inc/global.h	99;"	d
+LED_MONO_GAP	inc/global.h	108;"	d
+LED_MONO_SIZE_H	inc/global.h	107;"	d
+LED_MONO_SIZE_W	inc/global.h	106;"	d
+LED_TOP_BEGIN_G3	inc/global.h	96;"	d
+LED_TOP_BEGIN_G870	inc/global.h	98;"	d
+LED_TOP_BEGIN_MONO	inc/global.h	100;"	d
+LED_TOP_LEFT_X	inc/global.h	110;"	d
+LED_TOP_LEFT_Y	inc/global.h	111;"	d
+LEFT_ALIGN	inc/misc.h	/^    LEFT_ALIGN,$/;"	e	enum:__anon43
+LENTYPE_ASC	inc/setup.h	/^    LENTYPE_ASC,$/;"	e	enum:__anon58
+LENTYPE_BCD	inc/setup.h	/^    LENTYPE_BCD = 0,$/;"	e	enum:__anon58
+LENTYPE_HEX	inc/setup.h	/^    LENTYPE_HEX,$/;"	e	enum:__anon58
+LOG_CARD_CARDHOLDER	inc/record.h	/^    LOG_CARD_CARDHOLDER,$/;"	e	enum:__anon49
+LOG_CARD_CARDLEN	inc/record.h	/^    LOG_CARD_CARDLEN,$/;"	e	enum:__anon49
+LOG_CARD_CARDMODE	inc/record.h	/^    LOG_CARD_CARDMODE,$/;"	e	enum:__anon49
+LOG_CARD_CARDNO	inc/record.h	/^    LOG_CARD_CARDNO,$/;"	e	enum:__anon49
+LOG_CARD_CLTYPE	inc/record.h	/^    LOG_CARD_CLTYPE,$/;"	e	enum:__anon49
+LOG_CARD_ICCMAGCARD	inc/record.h	/^    LOG_CARD_ICCMAGCARD,$/;"	e	enum:__anon49
+LOG_CARD_UID	inc/record.h	/^    LOG_CARD_UID,$/;"	e	enum:__anon49
+LOG_CARD_UIDLEN	inc/record.h	/^    LOG_CARD_UIDLEN,$/;"	e	enum:__anon49
+LOG_ICC_AC	inc/record.h	/^    LOG_ICC_AC,$/;"	e	enum:__anon49
+LOG_ICC_AID	inc/record.h	/^    LOG_ICC_AID,$/;"	e	enum:__anon49
+LOG_ICC_AIDLEN	inc/record.h	/^    LOG_ICC_AIDLEN,$/;"	e	enum:__anon49
+LOG_ICC_AIP	inc/record.h	/^    LOG_ICC_AIP,$/;"	e	enum:__anon49
+LOG_ICC_AMOUNTOTHER	inc/record.h	/^    LOG_ICC_AMOUNTOTHER,$/;"	e	enum:__anon49
+LOG_ICC_AOSA	inc/record.h	/^    LOG_ICC_AOSA,$/;"	e	enum:__anon49
+LOG_ICC_APPLABEL	inc/record.h	/^    LOG_ICC_APPLABEL,$/;"	e	enum:__anon49
+LOG_ICC_APPPREFERNAME	inc/record.h	/^    LOG_ICC_APPPREFERNAME,$/;"	e	enum:__anon49
+LOG_ICC_APPVERNUM	inc/record.h	/^    LOG_ICC_APPVERNUM,$/;"	e	enum:__anon49
+LOG_ICC_ATC	inc/record.h	/^    LOG_ICC_ATC,$/;"	e	enum:__anon49
+LOG_ICC_CATEGORYCODE	inc/record.h	/^    LOG_ICC_CATEGORYCODE,$/;"	e	enum:__anon49
+LOG_ICC_CID	inc/record.h	/^    LOG_ICC_CID,$/;"	e	enum:__anon49
+LOG_ICC_COUNTRYCODE	inc/record.h	/^    LOG_ICC_COUNTRYCODE,$/;"	e	enum:__anon49
+LOG_ICC_CURRENCYCODE	inc/record.h	/^    LOG_ICC_CURRENCYCODE,$/;"	e	enum:__anon49
+LOG_ICC_CVMR	inc/record.h	/^    LOG_ICC_CVMR,$/;"	e	enum:__anon49
+LOG_ICC_FFI	inc/record.h	/^    LOG_ICC_FFI,$/;"	e	enum:__anon49
+LOG_ICC_FFILEN	inc/record.h	/^    LOG_ICC_FFILEN,$/;"	e	enum:__anon49
+LOG_ICC_IAD	inc/record.h	/^    LOG_ICC_IAD,$/;"	e	enum:__anon49
+LOG_ICC_IADLEN	inc/record.h	/^    LOG_ICC_IADLEN,$/;"	e	enum:__anon49
+LOG_ICC_IDN	inc/record.h	/^    LOG_ICC_IDN,$/;"	e	enum:__anon49
+LOG_ICC_IFDSN	inc/record.h	/^    LOG_ICC_IFDSN,$/;"	e	enum:__anon49
+LOG_ICC_ISSAUTHDATA	inc/record.h	/^    LOG_ICC_ISSAUTHDATA,$/;"	e	enum:__anon49
+LOG_ICC_ISSAUTHDATALEN	inc/record.h	/^    LOG_ICC_ISSAUTHDATALEN,$/;"	e	enum:__anon49
+LOG_ICC_PANSN	inc/record.h	/^    LOG_ICC_PANSN,$/;"	e	enum:__anon49
+LOG_ICC_RFU	inc/record.h	/^    LOG_ICC_RFU,$/;"	e	enum:__anon49
+LOG_ICC_RFULEN	inc/record.h	/^    LOG_ICC_RFULEN,$/;"	e	enum:__anon49
+LOG_ICC_SCRIPTRESULT	inc/record.h	/^    LOG_ICC_SCRIPTRESULT,$/;"	e	enum:__anon49
+LOG_ICC_SCRIPTRESULTLEN	inc/record.h	/^    LOG_ICC_SCRIPTRESULTLEN,$/;"	e	enum:__anon49
+LOG_ICC_TERMAPPVERNUM	inc/record.h	/^    LOG_ICC_TERMAPPVERNUM,$/;"	e	enum:__anon49
+LOG_ICC_TERMCAP	inc/record.h	/^    LOG_ICC_TERMCAP,$/;"	e	enum:__anon49
+LOG_ICC_TERMTYPE	inc/record.h	/^    LOG_ICC_TERMTYPE,$/;"	e	enum:__anon49
+LOG_ICC_TRANSAMOUNT	inc/record.h	/^    LOG_ICC_TRANSAMOUNT,$/;"	e	enum:__anon49
+LOG_ICC_TRANSDATE	inc/record.h	/^    LOG_ICC_TRANSDATE,$/;"	e	enum:__anon49
+LOG_ICC_TRANSSEQCNT	inc/record.h	/^    LOG_ICC_TRANSSEQCNT,$/;"	e	enum:__anon49
+LOG_ICC_TRANSTYPE	inc/record.h	/^    LOG_ICC_TRANSTYPE,$/;"	e	enum:__anon49
+LOG_ICC_TSI	inc/record.h	/^    LOG_ICC_TSI,$/;"	e	enum:__anon49
+LOG_ICC_TVR	inc/record.h	/^    LOG_ICC_TVR,$/;"	e	enum:__anon49
+LOG_ICC_UN	inc/record.h	/^    LOG_ICC_UN,$/;"	e	enum:__anon49
+LOG_ID	inc/record.h	/^    LOG_ID,$/;"	e	enum:__anon49
+LOG_MSG_ACQINFO	inc/record.h	/^    LOG_MSG_ACQINFO,$/;"	e	enum:__anon49
+LOG_MSG_ACQUIRERCODE	inc/record.h	/^    LOG_MSG_ACQUIRERCODE,$/;"	e	enum:__anon49
+LOG_MSG_AIID	inc/record.h	/^    LOG_MSG_AIID,$/;"	e	enum:__anon49
+LOG_MSG_AMOUNT	inc/record.h	/^    LOG_MSG_AMOUNT,$/;"	e	enum:__anon49
+LOG_MSG_AUTHCODE	inc/record.h	/^    LOG_MSG_AUTHCODE,$/;"	e	enum:__anon49
+LOG_MSG_BALANCE	inc/record.h	/^    LOG_MSG_BALANCE,$/;"	e	enum:__anon49
+LOG_MSG_BATCHNO	inc/record.h	/^    LOG_MSG_BATCHNO,$/;"	e	enum:__anon49
+LOG_MSG_BITMAP	inc/record.h	/^    LOG_MSG_BITMAP,$/;"	e	enum:__anon49
+LOG_MSG_CASHIERNO	inc/record.h	/^    LOG_MSG_CASHIERNO,$/;"	e	enum:__anon49
+LOG_MSG_CONDITIONCODE	inc/record.h	/^    LOG_MSG_CONDITIONCODE,$/;"	e	enum:__anon49
+LOG_MSG_CUPINFO	inc/record.h	/^    LOG_MSG_CUPINFO,$/;"	e	enum:__anon49
+LOG_MSG_CURRENCYCODE	inc/record.h	/^    LOG_MSG_CURRENCYCODE,$/;"	e	enum:__anon49
+LOG_MSG_DATETIME	inc/record.h	/^    LOG_MSG_DATETIME,$/;"	e	enum:__anon49
+LOG_MSG_ENTRYMODE	inc/record.h	/^    LOG_MSG_ENTRYMODE,$/;"	e	enum:__anon49
+LOG_MSG_FUNCCODE	inc/record.h	/^    LOG_MSG_FUNCCODE,$/;"	e	enum:__anon49
+LOG_MSG_INTERORGCODE	inc/record.h	/^    LOG_MSG_INTERORGCODE,$/;"	e	enum:__anon49
+LOG_MSG_ISSUERCODE	inc/record.h	/^    LOG_MSG_ISSUERCODE,$/;"	e	enum:__anon49
+LOG_MSG_ISSUERINFO	inc/record.h	/^    LOG_MSG_ISSUERINFO,$/;"	e	enum:__anon49
+LOG_MSG_MERCHID	inc/record.h	/^    LOG_MSG_MERCHID,$/;"	e	enum:__anon49
+LOG_MSG_ORIGBATCHNO	inc/record.h	/^    LOG_MSG_ORIGBATCHNO,$/;"	e	enum:__anon49
+LOG_MSG_ORIGDATE	inc/record.h	/^    LOG_MSG_ORIGDATE,$/;"	e	enum:__anon49
+LOG_MSG_ORIGTRACENO	inc/record.h	/^    LOG_MSG_ORIGTRACENO,$/;"	e	enum:__anon49
+LOG_MSG_PINCAPCODE	inc/record.h	/^    LOG_MSG_PINCAPCODE,$/;"	e	enum:__anon49
+LOG_MSG_PROCCODE	inc/record.h	/^    LOG_MSG_PROCCODE,$/;"	e	enum:__anon49
+LOG_MSG_REFNO	inc/record.h	/^    LOG_MSG_REFNO,$/;"	e	enum:__anon49
+LOG_MSG_RESPCODE	inc/record.h	/^    LOG_MSG_RESPCODE,$/;"	e	enum:__anon49
+LOG_MSG_SETTLEMENTDATE	inc/record.h	/^    LOG_MSG_SETTLEMENTDATE,$/;"	e	enum:__anon49
+LOG_MSG_TERMID	inc/record.h	/^    LOG_MSG_TERMID,$/;"	e	enum:__anon49
+LOG_MSG_TERMRESERVED	inc/record.h	/^    LOG_MSG_TERMRESERVED,$/;"	e	enum:__anon49
+LOG_MSG_TIPAMOUNT	inc/record.h	/^    LOG_MSG_TIPAMOUNT,$/;"	e	enum:__anon49
+LOG_MSG_TRACENO	inc/record.h	/^    LOG_MSG_TRACENO,$/;"	e	enum:__anon49
+LOG_MSG_TRANSDATE	inc/record.h	/^    LOG_MSG_TRANSDATE,$/;"	e	enum:__anon49
+LOG_MSG_TRANSTIME	inc/record.h	/^    LOG_MSG_TRANSTIME,$/;"	e	enum:__anon49
+LOG_ORIGINALID	inc/record.h	/^    LOG_ORIGINALID,$/;"	e	enum:__anon49
+LOG_RFU	inc/record.h	/^    LOG_RFU,$/;"	e	enum:__anon49
+LOG_STAT_ADJUSTED	inc/record.h	/^    LOG_STAT_ADJUSTED,$/;"	e	enum:__anon49
+LOG_STAT_ICCFAILTRANS	inc/record.h	/^    LOG_STAT_ICCFAILTRANS,$/;"	e	enum:__anon49
+LOG_STAT_ICCTRANS	inc/record.h	/^    LOG_STAT_ICCTRANS,$/;"	e	enum:__anon49
+LOG_STAT_NEEDREPRINT	inc/record.h	/^    LOG_STAT_NEEDREPRINT,$/;"	e	enum:__anon49
+LOG_STAT_NEEDREVERSAL	inc/record.h	/^    LOG_STAT_NEEDREVERSAL,$/;"	e	enum:__anon49
+LOG_STAT_NEEDSCRIPT	inc/record.h	/^    LOG_STAT_NEEDSCRIPT,$/;"	e	enum:__anon49
+LOG_STAT_OFFLINE	inc/record.h	/^    LOG_STAT_OFFLINE,$/;"	e	enum:__anon49
+LOG_STAT_REFUNDED	inc/record.h	/^    LOG_STAT_REFUNDED,$/;"	e	enum:__anon49
+LOG_STAT_REVERSALREASON	inc/record.h	/^    LOG_STAT_REVERSALREASON,$/;"	e	enum:__anon49
+LOG_STAT_UPLOADSTATUS	inc/record.h	/^    LOG_STAT_UPLOADSTATUS,          $/;"	e	enum:__anon49
+LOG_STAT_VOIDED	inc/record.h	/^    LOG_STAT_VOIDED,$/;"	e	enum:__anon49
+LOG_TRANSID	inc/record.h	/^    LOG_TRANSID,$/;"	e	enum:__anon49
+LogonPackMsg	src/logon.c	/^s32 LogonPackMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+LogonSendMsg	src/logon.c	/^s32 LogonSendMsg(void)$/;"	f
+LogonTrans	src/logon.c	/^void LogonTrans(void)$/;"	f
+LogoutTrans	src/logout.c	/^void LogoutTrans(void)$/;"	f
+MAGICC	inc/global.h	136;"	d
+MAGICCHAND	inc/global.h	139;"	d
+MAGONLY	inc/global.h	134;"	d
+MASTER	inc/aid.h	/^    MASTER,$/;"	e	enum:__anon1
+MAX_MENU_ITEM	inc/display.h	23;"	d
+MENUITEM_FUN	inc/display.h	/^typedef void (*MENUITEM_FUN)();$/;"	t
+MENU_HIGHLIGHT	inc/display.h	/^    MENU_HIGHLIGHT,$/;"	e	enum:__anon12
+MENU_HIGHLIGHT_NUMBER	inc/display.h	/^    MENU_HIGHLIGHT_NUMBER,$/;"	e	enum:__anon12
+MENU_NUMBER	inc/display.h	/^    MENU_NUMBER,$/;"	e	enum:__anon12
+MainMenu	src/main.c	/^void MainMenu(void)$/;"	f
+MenuAdmin	src/setup.c	/^void MenuAdmin(void)$/;"	f
+MenuPreProcess	src/display.c	/^void MenuPreProcess(const ST_MENU *pstMenu, $/;"	f
+MenuPrintTrans	src/report.c	/^void MenuPrintTrans(void)$/;"	f
+MenuProcess	src/display.c	/^s32 MenuProcess(const ST_MENU *pstMenu, s32 iTimeOut)$/;"	f
+MenuQueryTrans	src/report.c	/^void MenuQueryTrans(void)$/;"	f
+MenuSelectByKeyEnt	src/display.c	/^s32 MenuSelectByKeyEnt(const ST_MENU *pstMenu, s32 iTimeOut)$/;"	f
+MenuSelectByKeyNum	src/display.c	/^s32 MenuSelectByKeyNum(const ST_MENU *pstMenu, s32 iTimeOut)$/;"	f
+MenuSetup	src/setup.c	/^void MenuSetup(void)$/;"	f
+MenuSetupOthers	src/setup.c	/^void MenuSetupOthers(void)$/;"	f
+OBJS	makefile	/^OBJS = $(patsubst %.c, %.o, $(SRC))$/;"	m
+OfflineAutoUpload	src/offline.c	/^void OfflineAutoUpload(void)$/;"	f
+OfflinePackIccTransMsg	src/offline.c	/^s32 OfflinePackIccTransMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+OfflinePackMagTransMsg	src/offline.c	/^s32 OfflinePackMagTransMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+OfflineSendMsg	src/offline.c	/^bool OfflineSendMsg(void)$/;"	f
+OfflineSendMsgIcc	src/offline.c	/^s32 OfflineSendMsgIcc(u32 uiUpNum)$/;"	f
+OfflineSendMsgMag	src/offline.c	/^s32 OfflineSendMsgMag(u32 uiUpNum)$/;"	f
+OnAdjust	src/adjust.c	/^void OnAdjust(void)$/;"	f
+OnBalance	src/balance.c	/^void OnBalance(void)$/;"	f
+OnCircle	src/main.c	/^void OnCircle(void)$/;"	f
+OnRefund	src/refund.c	/^void OnRefund(void)$/;"	f
+OnSale	src/sale.c	/^void OnSale(void)$/;"	f
+OnSettle	src/settle.c	/^void OnSettle(void)$/;"	f
+OnVoid	src/void.c	/^void OnVoid(void)$/;"	f
+PACKET_FUN	inc/global.h	/^typedef s32 (*PACKET_FUN)(SDK_8583_ST8583 *pstIsoMsg);$/;"	t
+PATH_MTD0_RES	inc/global.h	55;"	d
+PAYPASSPAYWAVE_CFG_INI	inc/emv.h	25;"	d
+PRINT_FONT_BOLD	inc/print.h	/^    PRINT_FONT_BOLD,$/;"	e	enum:__anon47
+PRINT_FONT_FULL	inc/print.h	/^    PRINT_FONT_FULL,$/;"	e	enum:__anon47
+PRINT_FONT_HALF	inc/print.h	/^    PRINT_FONT_HALF,$/;"	e	enum:__anon47
+PRINT_FONT_HIGHBOLD	inc/print.h	/^    PRINT_FONT_HIGHBOLD,$/;"	e	enum:__anon47
+PRINT_FONT_SMALL	inc/print.h	/^    PRINT_FONT_SMALL,$/;"	e	enum:__anon47
+PRINT_SIZE_BIG	inc/print.h	/^    PRINT_SIZE_BIG = 1,$/;"	e	enum:__anon48
+PRINT_SIZE_MEDIUM	inc/print.h	/^    PRINT_SIZE_MEDIUM,$/;"	e	enum:__anon48
+PRINT_SIZE_SMALL	inc/print.h	/^    PRINT_SIZE_SMALL,$/;"	e	enum:__anon48
+PedShowWelcome	src/display.c	/^void PedShowWelcome(void)$/;"	f
+PedUpdateSessionKey	src/logon.c	/^static s32 PedUpdateSessionKey(void)$/;"	f	file:
+PrintDebug8583	src/print.c	/^s32 PrintDebug8583(void)$/;"	f
+PrintDetailReport	src/print.c	/^s32 PrintDetailReport(ST_TRANSLOG *stTransLog)$/;"	f
+PrintDetailReportFooter	src/print.c	/^s32 PrintDetailReportFooter(void)$/;"	f
+PrintDetailReportHeader	src/print.c	/^s32 PrintDetailReportHeader(const u8 *pasTitle)$/;"	f
+PrintFormDetailData	src/print.c	/^s32 PrintFormDetailData(ST_TRANSLOG *stTransLog)$/;"	f
+PrintFormDetailEndData	src/print.c	/^s32 PrintFormDetailEndData(void)$/;"	f
+PrintFormDetailHeaderData	src/print.c	/^s32 PrintFormDetailHeaderData(const u8 *pasTitle)$/;"	f
+PrintFormReciptData	src/print.c	/^s32 PrintFormReciptData(bool bIsReprint, u32 uiPrintTimes, u32 uiTotalTimes)$/;"	f
+PrintFormRefData	src/print.c	/^void PrintFormRefData(bool bIsReprint, SDK_PRINT_FONT stFont, s32 iOffset, s32 iRowGap, s32 iRowChar)$/;"	f
+PrintFormSettleData	src/print.c	/^s32 PrintFormSettleData(bool bIsReprint)$/;"	f
+PrintFormTotalData	src/print.c	/^s32 PrintFormTotalData(ST_SETTLE *pstSettle)$/;"	f
+PrintJustifyLine	src/print.c	/^s32 PrintJustifyLine(u8 *pasDest, const u8 *pasSrcLeft, const u8 *pasSrcRight, u8 ucRowCharNum)$/;"	f
+PrintRecipt	src/print.c	/^s32 PrintRecipt(bool bIsReprint)$/;"	f
+PrintSetFont	src/print.c	/^void PrintSetFont(SDK_PRINT_FONT *pstFont, E_PRINT_FONT eFont)$/;"	f
+PrintSettleReport	src/print.c	/^s32 PrintSettleReport(bool bIsReprint)$/;"	f
+PrintStart	src/print.c	/^s32 PrintStart(bool bIsRollPaper)$/;"	f
+PrintTotalReport	src/print.c	/^s32 PrintTotalReport(ST_SETTLE *pstSettle)$/;"	f
+REFUND_MODE_CUP	inc/refund.h	24;"	d
+REFUND_MODE_GENERAL	inc/refund.h	23;"	d
+RFONLY	inc/global.h	137;"	d
+RIGHT_ALIGN	inc/misc.h	/^    RIGHT_ALIGN,$/;"	e	enum:__anon43
+RecordAppend	src/record.c	/^s32 RecordAppend(ST_TRANSLOG *pstTransLog)$/;"	f
+RecordDeleteAll	src/record.c	/^s32 RecordDeleteAll(void)$/;"	f
+RecordDeleteLast	src/record.c	/^s32 RecordDeleteLast(void)$/;"	f
+RecordDeleteOne	src/record.c	/^s32 RecordDeleteOne(ST_TRANSLOG *pstTransLog)$/;"	f
+RecordGetField	src/record.c	/^s32 RecordGetField(ST_DB_FIELD *pstField)$/;"	f
+RecordGetNum	src/record.c	/^s32 RecordGetNum(void)$/;"	f
+RecordGetNumEx	src/record.c	/^s32 RecordGetNumEx(ST_RECORD_FILTER *pstFilter)$/;"	f
+RecordGetSum	src/record.c	/^s32 RecordGetSum(s32 iId, ST_RECORD_FILTER *pstFilter, u8 *pasValue)$/;"	f
+RecordInit	src/record.c	/^s32 RecordInit(void)$/;"	f
+RecordRead	src/record.c	/^s32 RecordRead(s32 iIndex, ST_TRANSLOG *pstTransLog)$/;"	f
+RecordReadLast	src/record.c	/^s32 RecordReadLast(ST_TRANSLOG *pstTransLog)$/;"	f
+RecordSearch	src/record.c	/^s32 RecordSearch(s32 iId, void *pasValue, ST_TRANSLOG *pstTransLog)$/;"	f
+RecordSearchEx	src/record.c	/^s32 RecordSearchEx(ST_RECORD_FILTER *pstFilter, s32 iOffset, ST_TRANSLOG *pstTransLog)$/;"	f
+RecordUpdate	src/record.c	/^s32 RecordUpdate(ST_TRANSLOG *pstTransLog)$/;"	f
+RefundPackMsg	src/refund.c	/^s32 RefundPackMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+RefundTrans	src/refund.c	/^void RefundTrans(u16 usCardType)$/;"	f
+ReportPrintErrSendTransDetail	src/report.c	/^s32 ReportPrintErrSendTransDetail(void)$/;"	f
+ReportPrintLastTrans	src/report.c	/^void ReportPrintLastTrans(void)$/;"	f
+ReportPrintSettle	src/report.c	/^void ReportPrintSettle(void)$/;"	f
+ReportPrintSpecifiedTrans	src/report.c	/^void ReportPrintSpecifiedTrans(void)$/;"	f
+ReportPrintTransDetail	src/report.c	/^s32 ReportPrintTransDetail(void)$/;"	f
+ReportPrintTransTotal	src/report.c	/^void ReportPrintTransTotal(void)$/;"	f
+ReportQuerySpecifiedTrans	src/report.c	/^void ReportQuerySpecifiedTrans(void)$/;"	f
+ReportQueryTransDetail	src/report.c	/^void ReportQueryTransDetail(void)$/;"	f
+ReportQueryTransTotal	src/report.c	/^void ReportQueryTransTotal(void)$/;"	f
+ReportRePrintTransDetail	src/report.c	/^void ReportRePrintTransDetail(void)$/;"	f
+ReversalPackMsg	src/reversal.c	/^s32 ReversalPackMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+ReversalSendMsg	src/reversal.c	/^s32 ReversalSendMsg(void)$/;"	f
+SALE_AMOUNT	inc/misc.h	/^    SALE_AMOUNT = 0,$/;"	e	enum:__anon44
+SDK_ICC_PLS_INSERT_CARD	inc/global.h	51;"	d
+SDK_ICC_PLS_SEE_PHONE	inc/global.h	52;"	d
+SDK_RECORD_CREATE_ERR	inc/record.h	30;"	d
+SDK_RECORD_ERR_BASE	inc/record.h	27;"	d
+SDK_RECORD_ID_ERR	inc/record.h	33;"	d
+SDK_RECORD_INTERNAL_ERR	inc/record.h	29;"	d
+SDK_RECORD_READ_ERR	inc/record.h	31;"	d
+SDK_RECORD_WRITE_ERR	inc/record.h	32;"	d
+SETTLE_CLEARED	inc/settle.h	/^    SETTLE_CLEARED, $/;"	e	enum:__anon56
+SETTLE_NONE	inc/settle.h	/^    SETTLE_NONE,$/;"	e	enum:__anon56
+SETTLE_PRINTED	inc/settle.h	/^    SETTLE_PRINTED,$/;"	e	enum:__anon56
+SETTLE_SEND	inc/settle.h	/^    SETTLE_SEND,$/;"	e	enum:__anon56
+SETUP_ASC	inc/setup.h	/^    SETUP_ASC, $/;"	e	enum:__anon59
+SETUP_ASC_NOZERO	inc/setup.h	/^    SETUP_ASC_NOZERO,$/;"	e	enum:__anon59
+SETUP_CHAR	inc/setup.h	/^    SETUP_CHAR, $/;"	e	enum:__anon59
+SETUP_INT	inc/setup.h	/^    SETUP_INT, $/;"	e	enum:__anon59
+SETUP_IP	inc/setup.h	/^    SETUP_IP,  $/;"	e	enum:__anon59
+SETUP_MAXITEM	inc/setup.h	39;"	d
+SETUP_MAXPROMPT_LINE	inc/setup.h	40;"	d
+SQLITE3_TEXT	inc/sqlite3.h	3523;"	d
+SQLITE_ABORT	inc/sqlite3.h	386;"	d
+SQLITE_ABORT_ROLLBACK	inc/sqlite3.h	465;"	d
+SQLITE_ACCESS_EXISTS	inc/sqlite3.h	1085;"	d
+SQLITE_ACCESS_READ	inc/sqlite3.h	1087;"	d
+SQLITE_ACCESS_READWRITE	inc/sqlite3.h	1086;"	d
+SQLITE_ALTER_TABLE	inc/sqlite3.h	2385;"	d
+SQLITE_ANALYZE	inc/sqlite3.h	2387;"	d
+SQLITE_ANY	inc/sqlite3.h	3881;"	d
+SQLITE_API	inc/sqlite3.h	53;"	d
+SQLITE_ATTACH	inc/sqlite3.h	2383;"	d
+SQLITE_AUTH	inc/sqlite3.h	405;"	d
+SQLITE_BLOB	inc/sqlite3.h	3516;"	d
+SQLITE_BUSY	inc/sqlite3.h	387;"	d
+SQLITE_BUSY_RECOVERY	inc/sqlite3.h	459;"	d
+SQLITE_CANTOPEN	inc/sqlite3.h	396;"	d
+SQLITE_CANTOPEN_ISDIR	inc/sqlite3.h	461;"	d
+SQLITE_CANTOPEN_NOTEMPDIR	inc/sqlite3.h	460;"	d
+SQLITE_CHECKPOINT_FULL	inc/sqlite3.h	6853;"	d
+SQLITE_CHECKPOINT_PASSIVE	inc/sqlite3.h	6852;"	d
+SQLITE_CHECKPOINT_RESTART	inc/sqlite3.h	6854;"	d
+SQLITE_CONFIG_GETMALLOC	inc/sqlite3.h	1560;"	d
+SQLITE_CONFIG_GETMUTEX	inc/sqlite3.h	1566;"	d
+SQLITE_CONFIG_GETPCACHE	inc/sqlite3.h	1570;"	d
+SQLITE_CONFIG_GETPCACHE2	inc/sqlite3.h	1574;"	d
+SQLITE_CONFIG_HEAP	inc/sqlite3.h	1563;"	d
+SQLITE_CONFIG_LOG	inc/sqlite3.h	1571;"	d
+SQLITE_CONFIG_LOOKASIDE	inc/sqlite3.h	1568;"	d
+SQLITE_CONFIG_MALLOC	inc/sqlite3.h	1559;"	d
+SQLITE_CONFIG_MEMSTATUS	inc/sqlite3.h	1564;"	d
+SQLITE_CONFIG_MULTITHREAD	inc/sqlite3.h	1557;"	d
+SQLITE_CONFIG_MUTEX	inc/sqlite3.h	1565;"	d
+SQLITE_CONFIG_PAGECACHE	inc/sqlite3.h	1562;"	d
+SQLITE_CONFIG_PCACHE	inc/sqlite3.h	1569;"	d
+SQLITE_CONFIG_PCACHE2	inc/sqlite3.h	1573;"	d
+SQLITE_CONFIG_SCRATCH	inc/sqlite3.h	1561;"	d
+SQLITE_CONFIG_SERIALIZED	inc/sqlite3.h	1558;"	d
+SQLITE_CONFIG_SINGLETHREAD	inc/sqlite3.h	1556;"	d
+SQLITE_CONFIG_URI	inc/sqlite3.h	1572;"	d
+SQLITE_CONSTRAINT	inc/sqlite3.h	401;"	d
+SQLITE_COPY	inc/sqlite3.h	2392;"	d
+SQLITE_CORRUPT	inc/sqlite3.h	393;"	d
+SQLITE_CORRUPT_VTAB	inc/sqlite3.h	462;"	d
+SQLITE_CREATE_INDEX	inc/sqlite3.h	2360;"	d
+SQLITE_CREATE_TABLE	inc/sqlite3.h	2361;"	d
+SQLITE_CREATE_TEMP_INDEX	inc/sqlite3.h	2362;"	d
+SQLITE_CREATE_TEMP_TABLE	inc/sqlite3.h	2363;"	d
+SQLITE_CREATE_TEMP_TRIGGER	inc/sqlite3.h	2364;"	d
+SQLITE_CREATE_TEMP_VIEW	inc/sqlite3.h	2365;"	d
+SQLITE_CREATE_TRIGGER	inc/sqlite3.h	2366;"	d
+SQLITE_CREATE_VIEW	inc/sqlite3.h	2367;"	d
+SQLITE_CREATE_VTABLE	inc/sqlite3.h	2388;"	d
+SQLITE_DBCONFIG_ENABLE_FKEY	inc/sqlite3.h	1635;"	d
+SQLITE_DBCONFIG_ENABLE_TRIGGER	inc/sqlite3.h	1636;"	d
+SQLITE_DBCONFIG_LOOKASIDE	inc/sqlite3.h	1634;"	d
+SQLITE_DBSTATUS_CACHE_HIT	inc/sqlite3.h	6030;"	d
+SQLITE_DBSTATUS_CACHE_MISS	inc/sqlite3.h	6031;"	d
+SQLITE_DBSTATUS_CACHE_USED	inc/sqlite3.h	6024;"	d
+SQLITE_DBSTATUS_CACHE_WRITE	inc/sqlite3.h	6032;"	d
+SQLITE_DBSTATUS_LOOKASIDE_HIT	inc/sqlite3.h	6027;"	d
+SQLITE_DBSTATUS_LOOKASIDE_MISS_FULL	inc/sqlite3.h	6029;"	d
+SQLITE_DBSTATUS_LOOKASIDE_MISS_SIZE	inc/sqlite3.h	6028;"	d
+SQLITE_DBSTATUS_LOOKASIDE_USED	inc/sqlite3.h	6023;"	d
+SQLITE_DBSTATUS_MAX	inc/sqlite3.h	6033;"	d
+SQLITE_DBSTATUS_SCHEMA_USED	inc/sqlite3.h	6025;"	d
+SQLITE_DBSTATUS_STMT_USED	inc/sqlite3.h	6026;"	d
+SQLITE_DELETE	inc/sqlite3.h	2368;"	d
+SQLITE_DENY	inc/sqlite3.h	2337;"	d
+SQLITE_DEPRECATED	inc/sqlite3.h	70;"	d
+SQLITE_DETACH	inc/sqlite3.h	2384;"	d
+SQLITE_DONE	inc/sqlite3.h	410;"	d
+SQLITE_DROP_INDEX	inc/sqlite3.h	2369;"	d
+SQLITE_DROP_TABLE	inc/sqlite3.h	2370;"	d
+SQLITE_DROP_TEMP_INDEX	inc/sqlite3.h	2371;"	d
+SQLITE_DROP_TEMP_TABLE	inc/sqlite3.h	2372;"	d
+SQLITE_DROP_TEMP_TRIGGER	inc/sqlite3.h	2373;"	d
+SQLITE_DROP_TEMP_VIEW	inc/sqlite3.h	2374;"	d
+SQLITE_DROP_TRIGGER	inc/sqlite3.h	2375;"	d
+SQLITE_DROP_VIEW	inc/sqlite3.h	2376;"	d
+SQLITE_DROP_VTABLE	inc/sqlite3.h	2389;"	d
+SQLITE_EMPTY	inc/sqlite3.h	398;"	d
+SQLITE_ERROR	inc/sqlite3.h	383;"	d
+SQLITE_EXPERIMENTAL	inc/sqlite3.h	71;"	d
+SQLITE_EXTERN	inc/sqlite3.h	49;"	d
+SQLITE_FAIL	inc/sqlite3.h	6938;"	d
+SQLITE_FCNTL_CHUNK_SIZE	inc/sqlite3.h	845;"	d
+SQLITE_FCNTL_FILE_POINTER	inc/sqlite3.h	846;"	d
+SQLITE_FCNTL_LOCKSTATE	inc/sqlite3.h	840;"	d
+SQLITE_FCNTL_OVERWRITE	inc/sqlite3.h	850;"	d
+SQLITE_FCNTL_PERSIST_WAL	inc/sqlite3.h	849;"	d
+SQLITE_FCNTL_POWERSAFE_OVERWRITE	inc/sqlite3.h	852;"	d
+SQLITE_FCNTL_PRAGMA	inc/sqlite3.h	853;"	d
+SQLITE_FCNTL_SIZE_HINT	inc/sqlite3.h	844;"	d
+SQLITE_FCNTL_SYNC_OMITTED	inc/sqlite3.h	847;"	d
+SQLITE_FCNTL_VFSNAME	inc/sqlite3.h	851;"	d
+SQLITE_FCNTL_WIN32_AV_RETRY	inc/sqlite3.h	848;"	d
+SQLITE_FLOAT	inc/sqlite3.h	3515;"	d
+SQLITE_FORMAT	inc/sqlite3.h	406;"	d
+SQLITE_FULL	inc/sqlite3.h	395;"	d
+SQLITE_FUNCTION	inc/sqlite3.h	2390;"	d
+SQLITE_GET_LOCKPROXYFILE	inc/sqlite3.h	841;"	d
+SQLITE_IGNORE	inc/sqlite3.h	2338;"	d
+SQLITE_INDEX_CONSTRAINT_EQ	inc/sqlite3.h	5071;"	d
+SQLITE_INDEX_CONSTRAINT_GE	inc/sqlite3.h	5075;"	d
+SQLITE_INDEX_CONSTRAINT_GT	inc/sqlite3.h	5072;"	d
+SQLITE_INDEX_CONSTRAINT_LE	inc/sqlite3.h	5073;"	d
+SQLITE_INDEX_CONSTRAINT_LT	inc/sqlite3.h	5074;"	d
+SQLITE_INDEX_CONSTRAINT_MATCH	inc/sqlite3.h	5076;"	d
+SQLITE_INSERT	inc/sqlite3.h	2377;"	d
+SQLITE_INTEGER	inc/sqlite3.h	3514;"	d
+SQLITE_INTERNAL	inc/sqlite3.h	384;"	d
+SQLITE_INTERRUPT	inc/sqlite3.h	391;"	d
+SQLITE_IOCAP_ATOMIC	inc/sqlite3.h	520;"	d
+SQLITE_IOCAP_ATOMIC16K	inc/sqlite3.h	526;"	d
+SQLITE_IOCAP_ATOMIC1K	inc/sqlite3.h	522;"	d
+SQLITE_IOCAP_ATOMIC2K	inc/sqlite3.h	523;"	d
+SQLITE_IOCAP_ATOMIC32K	inc/sqlite3.h	527;"	d
+SQLITE_IOCAP_ATOMIC4K	inc/sqlite3.h	524;"	d
+SQLITE_IOCAP_ATOMIC512	inc/sqlite3.h	521;"	d
+SQLITE_IOCAP_ATOMIC64K	inc/sqlite3.h	528;"	d
+SQLITE_IOCAP_ATOMIC8K	inc/sqlite3.h	525;"	d
+SQLITE_IOCAP_POWERSAFE_OVERWRITE	inc/sqlite3.h	532;"	d
+SQLITE_IOCAP_SAFE_APPEND	inc/sqlite3.h	529;"	d
+SQLITE_IOCAP_SEQUENTIAL	inc/sqlite3.h	530;"	d
+SQLITE_IOCAP_UNDELETABLE_WHEN_OPEN	inc/sqlite3.h	531;"	d
+SQLITE_IOERR	inc/sqlite3.h	392;"	d
+SQLITE_IOERR_ACCESS	inc/sqlite3.h	448;"	d
+SQLITE_IOERR_BLOCKED	inc/sqlite3.h	446;"	d
+SQLITE_IOERR_CHECKRESERVEDLOCK	inc/sqlite3.h	449;"	d
+SQLITE_IOERR_CLOSE	inc/sqlite3.h	451;"	d
+SQLITE_IOERR_DELETE	inc/sqlite3.h	445;"	d
+SQLITE_IOERR_DIR_CLOSE	inc/sqlite3.h	452;"	d
+SQLITE_IOERR_DIR_FSYNC	inc/sqlite3.h	440;"	d
+SQLITE_IOERR_FSTAT	inc/sqlite3.h	442;"	d
+SQLITE_IOERR_FSYNC	inc/sqlite3.h	439;"	d
+SQLITE_IOERR_LOCK	inc/sqlite3.h	450;"	d
+SQLITE_IOERR_NOMEM	inc/sqlite3.h	447;"	d
+SQLITE_IOERR_RDLOCK	inc/sqlite3.h	444;"	d
+SQLITE_IOERR_READ	inc/sqlite3.h	436;"	d
+SQLITE_IOERR_SEEK	inc/sqlite3.h	457;"	d
+SQLITE_IOERR_SHMLOCK	inc/sqlite3.h	455;"	d
+SQLITE_IOERR_SHMMAP	inc/sqlite3.h	456;"	d
+SQLITE_IOERR_SHMOPEN	inc/sqlite3.h	453;"	d
+SQLITE_IOERR_SHMSIZE	inc/sqlite3.h	454;"	d
+SQLITE_IOERR_SHORT_READ	inc/sqlite3.h	437;"	d
+SQLITE_IOERR_TRUNCATE	inc/sqlite3.h	441;"	d
+SQLITE_IOERR_UNLOCK	inc/sqlite3.h	443;"	d
+SQLITE_IOERR_WRITE	inc/sqlite3.h	438;"	d
+SQLITE_LAST_ERRNO	inc/sqlite3.h	843;"	d
+SQLITE_LIMIT_ATTACHED	inc/sqlite3.h	2872;"	d
+SQLITE_LIMIT_COLUMN	inc/sqlite3.h	2867;"	d
+SQLITE_LIMIT_COMPOUND_SELECT	inc/sqlite3.h	2869;"	d
+SQLITE_LIMIT_EXPR_DEPTH	inc/sqlite3.h	2868;"	d
+SQLITE_LIMIT_FUNCTION_ARG	inc/sqlite3.h	2871;"	d
+SQLITE_LIMIT_LENGTH	inc/sqlite3.h	2865;"	d
+SQLITE_LIMIT_LIKE_PATTERN_LENGTH	inc/sqlite3.h	2873;"	d
+SQLITE_LIMIT_SQL_LENGTH	inc/sqlite3.h	2866;"	d
+SQLITE_LIMIT_TRIGGER_DEPTH	inc/sqlite3.h	2875;"	d
+SQLITE_LIMIT_VARIABLE_NUMBER	inc/sqlite3.h	2874;"	d
+SQLITE_LIMIT_VDBE_OP	inc/sqlite3.h	2870;"	d
+SQLITE_LOCKED	inc/sqlite3.h	388;"	d
+SQLITE_LOCKED_SHAREDCACHE	inc/sqlite3.h	458;"	d
+SQLITE_LOCK_EXCLUSIVE	inc/sqlite3.h	545;"	d
+SQLITE_LOCK_NONE	inc/sqlite3.h	541;"	d
+SQLITE_LOCK_PENDING	inc/sqlite3.h	544;"	d
+SQLITE_LOCK_RESERVED	inc/sqlite3.h	543;"	d
+SQLITE_LOCK_SHARED	inc/sqlite3.h	542;"	d
+SQLITE_MISMATCH	inc/sqlite3.h	402;"	d
+SQLITE_MISUSE	inc/sqlite3.h	403;"	d
+SQLITE_MUTEX_FAST	inc/sqlite3.h	5686;"	d
+SQLITE_MUTEX_RECURSIVE	inc/sqlite3.h	5687;"	d
+SQLITE_MUTEX_STATIC_LRU	inc/sqlite3.h	5693;"	d
+SQLITE_MUTEX_STATIC_LRU2	inc/sqlite3.h	5694;"	d
+SQLITE_MUTEX_STATIC_MASTER	inc/sqlite3.h	5688;"	d
+SQLITE_MUTEX_STATIC_MEM	inc/sqlite3.h	5689;"	d
+SQLITE_MUTEX_STATIC_MEM2	inc/sqlite3.h	5690;"	d
+SQLITE_MUTEX_STATIC_OPEN	inc/sqlite3.h	5691;"	d
+SQLITE_MUTEX_STATIC_PMEM	inc/sqlite3.h	5695;"	d
+SQLITE_MUTEX_STATIC_PRNG	inc/sqlite3.h	5692;"	d
+SQLITE_NOLFS	inc/sqlite3.h	404;"	d
+SQLITE_NOMEM	inc/sqlite3.h	389;"	d
+SQLITE_NOTADB	inc/sqlite3.h	408;"	d
+SQLITE_NOTFOUND	inc/sqlite3.h	394;"	d
+SQLITE_NULL	inc/sqlite3.h	3517;"	d
+SQLITE_OK	inc/sqlite3.h	381;"	d
+SQLITE_OPEN_AUTOPROXY	inc/sqlite3.h	479;"	d
+SQLITE_OPEN_CREATE	inc/sqlite3.h	476;"	d
+SQLITE_OPEN_DELETEONCLOSE	inc/sqlite3.h	477;"	d
+SQLITE_OPEN_EXCLUSIVE	inc/sqlite3.h	478;"	d
+SQLITE_OPEN_FULLMUTEX	inc/sqlite3.h	489;"	d
+SQLITE_OPEN_MAIN_DB	inc/sqlite3.h	481;"	d
+SQLITE_OPEN_MAIN_JOURNAL	inc/sqlite3.h	484;"	d
+SQLITE_OPEN_MASTER_JOURNAL	inc/sqlite3.h	487;"	d
+SQLITE_OPEN_NOMUTEX	inc/sqlite3.h	488;"	d
+SQLITE_OPEN_PRIVATECACHE	inc/sqlite3.h	491;"	d
+SQLITE_OPEN_READONLY	inc/sqlite3.h	474;"	d
+SQLITE_OPEN_READWRITE	inc/sqlite3.h	475;"	d
+SQLITE_OPEN_SHAREDCACHE	inc/sqlite3.h	490;"	d
+SQLITE_OPEN_SUBJOURNAL	inc/sqlite3.h	486;"	d
+SQLITE_OPEN_TEMP_DB	inc/sqlite3.h	482;"	d
+SQLITE_OPEN_TEMP_JOURNAL	inc/sqlite3.h	485;"	d
+SQLITE_OPEN_TRANSIENT_DB	inc/sqlite3.h	483;"	d
+SQLITE_OPEN_URI	inc/sqlite3.h	480;"	d
+SQLITE_OPEN_WAL	inc/sqlite3.h	492;"	d
+SQLITE_PERM	inc/sqlite3.h	385;"	d
+SQLITE_PRAGMA	inc/sqlite3.h	2378;"	d
+SQLITE_PROTOCOL	inc/sqlite3.h	397;"	d
+SQLITE_RANGE	inc/sqlite3.h	407;"	d
+SQLITE_READ	inc/sqlite3.h	2379;"	d
+SQLITE_READONLY	inc/sqlite3.h	390;"	d
+SQLITE_READONLY_CANTLOCK	inc/sqlite3.h	464;"	d
+SQLITE_READONLY_RECOVERY	inc/sqlite3.h	463;"	d
+SQLITE_REINDEX	inc/sqlite3.h	2386;"	d
+SQLITE_REPLACE	inc/sqlite3.h	6940;"	d
+SQLITE_ROLLBACK	inc/sqlite3.h	6936;"	d
+SQLITE_ROW	inc/sqlite3.h	409;"	d
+SQLITE_SAVEPOINT	inc/sqlite3.h	2391;"	d
+SQLITE_SCHEMA	inc/sqlite3.h	399;"	d
+SQLITE_SELECT	inc/sqlite3.h	2380;"	d
+SQLITE_SET_LOCKPROXYFILE	inc/sqlite3.h	842;"	d
+SQLITE_SHM_EXCLUSIVE	inc/sqlite3.h	1114;"	d
+SQLITE_SHM_LOCK	inc/sqlite3.h	1112;"	d
+SQLITE_SHM_NLOCK	inc/sqlite3.h	1124;"	d
+SQLITE_SHM_SHARED	inc/sqlite3.h	1113;"	d
+SQLITE_SHM_UNLOCK	inc/sqlite3.h	1111;"	d
+SQLITE_SOURCE_ID	inc/sqlite3.h	112;"	d
+SQLITE_STATIC	inc/sqlite3.h	4088;"	d
+SQLITE_STATUS_MALLOC_COUNT	inc/sqlite3.h	5913;"	d
+SQLITE_STATUS_MALLOC_SIZE	inc/sqlite3.h	5909;"	d
+SQLITE_STATUS_MEMORY_USED	inc/sqlite3.h	5904;"	d
+SQLITE_STATUS_PAGECACHE_OVERFLOW	inc/sqlite3.h	5906;"	d
+SQLITE_STATUS_PAGECACHE_SIZE	inc/sqlite3.h	5911;"	d
+SQLITE_STATUS_PAGECACHE_USED	inc/sqlite3.h	5905;"	d
+SQLITE_STATUS_PARSER_STACK	inc/sqlite3.h	5910;"	d
+SQLITE_STATUS_SCRATCH_OVERFLOW	inc/sqlite3.h	5908;"	d
+SQLITE_STATUS_SCRATCH_SIZE	inc/sqlite3.h	5912;"	d
+SQLITE_STATUS_SCRATCH_USED	inc/sqlite3.h	5907;"	d
+SQLITE_STMTSTATUS_AUTOINDEX	inc/sqlite3.h	6091;"	d
+SQLITE_STMTSTATUS_FULLSCAN_STEP	inc/sqlite3.h	6089;"	d
+SQLITE_STMTSTATUS_SORT	inc/sqlite3.h	6090;"	d
+SQLITE_SYNC_DATAONLY	inc/sqlite3.h	575;"	d
+SQLITE_SYNC_FULL	inc/sqlite3.h	574;"	d
+SQLITE_SYNC_NORMAL	inc/sqlite3.h	573;"	d
+SQLITE_TESTCTRL_ALWAYS	inc/sqlite3.h	5781;"	d
+SQLITE_TESTCTRL_ASSERT	inc/sqlite3.h	5780;"	d
+SQLITE_TESTCTRL_BENIGN_MALLOC_HOOKS	inc/sqlite3.h	5778;"	d
+SQLITE_TESTCTRL_BITVEC_TEST	inc/sqlite3.h	5776;"	d
+SQLITE_TESTCTRL_EXPLAIN_STMT	inc/sqlite3.h	5787;"	d
+SQLITE_TESTCTRL_FAULT_INSTALL	inc/sqlite3.h	5777;"	d
+SQLITE_TESTCTRL_FIRST	inc/sqlite3.h	5772;"	d
+SQLITE_TESTCTRL_ISKEYWORD	inc/sqlite3.h	5784;"	d
+SQLITE_TESTCTRL_LAST	inc/sqlite3.h	5788;"	d
+SQLITE_TESTCTRL_LOCALTIME_FAULT	inc/sqlite3.h	5786;"	d
+SQLITE_TESTCTRL_OPTIMIZATIONS	inc/sqlite3.h	5783;"	d
+SQLITE_TESTCTRL_PENDING_BYTE	inc/sqlite3.h	5779;"	d
+SQLITE_TESTCTRL_PRNG_RESET	inc/sqlite3.h	5775;"	d
+SQLITE_TESTCTRL_PRNG_RESTORE	inc/sqlite3.h	5774;"	d
+SQLITE_TESTCTRL_PRNG_SAVE	inc/sqlite3.h	5773;"	d
+SQLITE_TESTCTRL_RESERVE	inc/sqlite3.h	5782;"	d
+SQLITE_TESTCTRL_SCRATCHMALLOC	inc/sqlite3.h	5785;"	d
+SQLITE_TEXT	inc/sqlite3.h	3519;"	d
+SQLITE_TEXT	inc/sqlite3.h	3521;"	d
+SQLITE_TOOBIG	inc/sqlite3.h	400;"	d
+SQLITE_TRANSACTION	inc/sqlite3.h	2381;"	d
+SQLITE_TRANSIENT	inc/sqlite3.h	4089;"	d
+SQLITE_UPDATE	inc/sqlite3.h	2382;"	d
+SQLITE_UTF16	inc/sqlite3.h	3880;"	d
+SQLITE_UTF16BE	inc/sqlite3.h	3879;"	d
+SQLITE_UTF16LE	inc/sqlite3.h	3878;"	d
+SQLITE_UTF16_ALIGNED	inc/sqlite3.h	3882;"	d
+SQLITE_UTF8	inc/sqlite3.h	3877;"	d
+SQLITE_VERSION	inc/sqlite3.h	110;"	d
+SQLITE_VERSION	inc/sqlite3.h	77;"	d
+SQLITE_VERSION_NUMBER	inc/sqlite3.h	111;"	d
+SQLITE_VERSION_NUMBER	inc/sqlite3.h	80;"	d
+SQLITE_VTAB_CONSTRAINT_SUPPORT	inc/sqlite3.h	6911;"	d
+SRC	makefile	/^SRC = $(wildcard .\/src\/*\/*\/*.c)$/;"	m
+STR	inc/database.h	11;"	d
+STR_CARD_AMEX	inc/str.h	54;"	d
+STR_CARD_CUP	inc/str.h	55;"	d
+STR_CARD_INSERT	inc/str.h	59;"	d
+STR_CARD_JCB	inc/str.h	53;"	d
+STR_CARD_MANUAL	inc/str.h	57;"	d
+STR_CARD_MC	inc/str.h	52;"	d
+STR_CARD_SWIPE	inc/str.h	58;"	d
+STR_CARD_TAP	inc/str.h	60;"	d
+STR_CARD_VISA	inc/str.h	51;"	d
+STR_DEBUG_8583	inc/str.h	437;"	d
+STR_DETAIL_IC	inc/str.h	62;"	d
+STR_DETAIL_MANUAL	inc/str.h	65;"	d
+STR_DETAIL_RF	inc/str.h	63;"	d
+STR_DETAIL_SWIPE	inc/str.h	64;"	d
+STR_FUNC_DETAILS_REPORT	inc/str.h	47;"	d
+STR_FUNC_QUERY_ANY	inc/str.h	42;"	d
+STR_FUNC_QUERY_DETAILS	inc/str.h	43;"	d
+STR_FUNC_QUERY_SUMMARY	inc/str.h	44;"	d
+STR_FUNC_REPRINT	inc/str.h	38;"	d
+STR_FUNC_REPRINT_ANY	inc/str.h	46;"	d
+STR_FUNC_REPRINT_LAST	inc/str.h	45;"	d
+STR_FUNC_REPRINT_SETTLE	inc/str.h	49;"	d
+STR_FUNC_SETUP	inc/str.h	40;"	d
+STR_FUNC_SUMMARY_REPORT	inc/str.h	48;"	d
+STR_FUNC_SWITCH_APP	inc/str.h	41;"	d
+STR_FUNC_TRANS_QUERY	inc/str.h	39;"	d
+STR_INFO_ADD_AID_FAIL	inc/str.h	91;"	d
+STR_INFO_ADD_CAPK_FAIL	inc/str.h	92;"	d
+STR_INFO_ADJUST_NOT_ALLOWED	inc/str.h	185;"	d
+STR_INFO_ADJUST_TIMES_LIMIT	inc/str.h	186;"	d
+STR_INFO_ALREADY_ADJUSTED	inc/str.h	192;"	d
+STR_INFO_ALREADY_VOIDED	inc/str.h	183;"	d
+STR_INFO_AMOUNT	inc/str.h	134;"	d
+STR_INFO_AMOUNT_EXCEED	inc/str.h	105;"	d
+STR_INFO_AMOUNT_NOT_MATCH	inc/str.h	177;"	d
+STR_INFO_AMT_EXCEED	inc/str.h	90;"	d
+STR_INFO_APP_IS_BLOCKED	inc/str.h	207;"	d
+STR_INFO_ARROW_DOWN	inc/str.h	221;"	d
+STR_INFO_ARROW_UP	inc/str.h	220;"	d
+STR_INFO_AUTH_NO	inc/str.h	218;"	d
+STR_INFO_AUTO_LOGON_FAIL	inc/str.h	193;"	d
+STR_INFO_AVAILABLE_AMT	inc/str.h	225;"	d
+STR_INFO_BALANCE	inc/str.h	128;"	d
+STR_INFO_BALANCED_BATCHUP	inc/str.h	280;"	d
+STR_INFO_BATCHNO_NOT_MATCH	inc/str.h	178;"	d
+STR_INFO_BATCHUP_FAILED	inc/str.h	187;"	d
+STR_INFO_BATCH_UP_FAILED	inc/str.h	282;"	d
+STR_INFO_BATERR_OR_LOWPOWER	inc/str.h	208;"	d
+STR_INFO_BUFFER_ERROR	inc/str.h	158;"	d
+STR_INFO_CAPKI	inc/str.h	132;"	d
+STR_INFO_CARDNO_NOT_MATCH	inc/str.h	184;"	d
+STR_INFO_CARD_EXPIRED	inc/str.h	109;"	d
+STR_INFO_CARD_IS_BLOCKED	inc/str.h	204;"	d
+STR_INFO_CARD_NO	inc/str.h	214;"	d
+STR_INFO_CARD_NOT_ACCEPTED	inc/str.h	107;"	d
+STR_INFO_CARD_PICKED_UP	inc/str.h	102;"	d
+STR_INFO_CARD_READ_OK	inc/str.h	290;"	d
+STR_INFO_CASHIER_EXISTED	inc/str.h	262;"	d
+STR_INFO_CASHIER_LOGON_FIRST	inc/str.h	145;"	d
+STR_INFO_CASHIER_NOT_EXISTED	inc/str.h	263;"	d
+STR_INFO_CHECK_MSG_FAILED	inc/str.h	173;"	d
+STR_INFO_CHECK_PINPAD	inc/str.h	127;"	d
+STR_INFO_CHIP_CARD_PLS_INSERT	inc/str.h	245;"	d
+STR_INFO_CONFIGURATION_ERROR	inc/str.h	93;"	d
+STR_INFO_CONFIRM_WITH_ISS	inc/str.h	139;"	d
+STR_INFO_CONNECT_WIFI_FAILED	inc/str.h	94;"	d
+STR_INFO_CONTACT_ACQUIRER	inc/str.h	103;"	d
+STR_INFO_CONTACT_ISSUER	inc/str.h	100;"	d
+STR_INFO_CONTINUE_BATCH_UP	inc/str.h	283;"	d
+STR_INFO_CREATE_LINK	inc/str.h	159;"	d
+STR_INFO_CREATE_PPP_FAILED	inc/str.h	96;"	d
+STR_INFO_DATA_FORMAT_ERR	inc/str.h	206;"	d
+STR_INFO_DDA_FAILED	inc/str.h	195;"	d
+STR_INFO_DISCONNECTED	inc/str.h	157;"	d
+STR_INFO_DO_SETTLEMENT_FIRST	inc/str.h	150;"	d
+STR_INFO_ENCRYPTION_ERROR	inc/str.h	212;"	d
+STR_INFO_FILE_SYSTEM_ERROR	inc/str.h	151;"	d
+STR_INFO_FORMAT_ERR	inc/str.h	253;"	d
+STR_INFO_INPUT_ADMIN_PWD	inc/str.h	249;"	d
+STR_INFO_INPUT_AMOUNT	inc/str.h	255;"	d
+STR_INFO_INPUT_CARDNO	inc/str.h	248;"	d
+STR_INFO_INPUT_CASHBACK	inc/str.h	254;"	d
+STR_INFO_INPUT_CASHIER_NO	inc/str.h	260;"	d
+STR_INFO_INPUT_EXPIRYDATE	inc/str.h	258;"	d
+STR_INFO_INPUT_NEW_PWD	inc/str.h	241;"	d
+STR_INFO_INPUT_OFFLINE_PIN	inc/str.h	131;"	d
+STR_INFO_INPUT_ONLINE_PIN	inc/str.h	130;"	d
+STR_INFO_INPUT_ORIG_DATE	inc/str.h	256;"	d
+STR_INFO_INPUT_ORIG_PWD	inc/str.h	239;"	d
+STR_INFO_INPUT_ORIG_REFNO	inc/str.h	252;"	d
+STR_INFO_INPUT_ORIG_TRACENO	inc/str.h	251;"	d
+STR_INFO_INPUT_PIN	inc/str.h	129;"	d
+STR_INFO_INPUT_PWD	inc/str.h	244;"	d
+STR_INFO_INPUT_PWD_AGAIN	inc/str.h	242;"	d
+STR_INFO_INQUIRE_SUCC	inc/str.h	126;"	d
+STR_INFO_INVALID_CARDNO	inc/str.h	106;"	d
+STR_INFO_INVALID_CASHIER_NO	inc/str.h	261;"	d
+STR_INFO_INVALID_MERCHANT	inc/str.h	101;"	d
+STR_INFO_INVALID_TERM	inc/str.h	117;"	d
+STR_INFO_LACK_OF_PAPER	inc/str.h	268;"	d
+STR_INFO_LAST_CHANCE	inc/str.h	228;"	d
+STR_INFO_LAST_PRINT_FAILED	inc/str.h	238;"	d
+STR_INFO_LEN_ERR	inc/str.h	289;"	d
+STR_INFO_LINE_BUSY	inc/str.h	164;"	d
+STR_INFO_LINKING	inc/str.h	133;"	d
+STR_INFO_LINK_FAILURE	inc/str.h	166;"	d
+STR_INFO_LOGON_SUCCESS	inc/str.h	237;"	d
+STR_INFO_LOW_POWER	inc/str.h	210;"	d
+STR_INFO_MAC_ERR	inc/str.h	124;"	d
+STR_INFO_MEMORY_INSUFFICIENT	inc/str.h	152;"	d
+STR_INFO_MID_NOT_MATCH	inc/str.h	180;"	d
+STR_INFO_MMDD	inc/str.h	257;"	d
+STR_INFO_MTI_NOT_MATCH	inc/str.h	174;"	d
+STR_INFO_MULTI_CARDS	inc/str.h	197;"	d
+STR_INFO_NEED_MUTUAL_AUTH	inc/str.h	198;"	d
+STR_INFO_NEXGO	inc/str.h	226;"	d
+STR_INFO_NOT_SUFFICIENT_FUNDS	inc/str.h	115;"	d
+STR_INFO_NOT_SUPPORTED	inc/str.h	154;"	d
+STR_INFO_NO_APP_SELECTED	inc/str.h	205;"	d
+STR_INFO_NO_CARD_PRESENT	inc/str.h	196;"	d
+STR_INFO_NO_LINE_DETECTED	inc/str.h	162;"	d
+STR_INFO_NO_OR_YES	inc/str.h	285;"	d
+STR_INFO_NO_SETTLE_INFO	inc/str.h	279;"	d
+STR_INFO_NO_SIM_DETECTED	inc/str.h	165;"	d
+STR_INFO_NO_TRANS	inc/str.h	191;"	d
+STR_INFO_OPEN_ETH0_FAILED	inc/str.h	95;"	d
+STR_INFO_OPERATE_FAILED	inc/str.h	213;"	d
+STR_INFO_OPERATION	inc/str.h	108;"	d
+STR_INFO_ORIG_AMOUNT	inc/str.h	227;"	d
+STR_INFO_ORIG_PWD_INCORRECT	inc/str.h	240;"	d
+STR_INFO_PACK_MSG_FAILED	inc/str.h	167;"	d
+STR_INFO_PASSWORD	inc/str.h	235;"	d
+STR_INFO_PASSWORD_ERR	inc/str.h	189;"	d
+STR_INFO_PIN_CORRECT	inc/str.h	230;"	d
+STR_INFO_PIN_ERR	inc/str.h	99;"	d
+STR_INFO_PIN_TRY_LIMIT	inc/str.h	112;"	d
+STR_INFO_PLEASE_TRY_AGAIN	inc/str.h	247;"	d
+STR_INFO_PLEASE_WAIT	inc/str.h	223;"	d
+STR_INFO_PLS_CALL_BANK	inc/str.h	171;"	d
+STR_INFO_PLS_CHARGE	inc/str.h	211;"	d
+STR_INFO_PLS_CHECK	inc/str.h	116;"	d
+STR_INFO_PLS_CONFIRM	inc/str.h	264;"	d
+STR_INFO_PLS_LOGON_AGAIN	inc/str.h	125;"	d
+STR_INFO_PLS_LOGON_FIRST	inc/str.h	181;"	d
+STR_INFO_PLS_REPRINT	inc/str.h	148;"	d
+STR_INFO_PLS_RETRY	inc/str.h	104;"	d
+STR_INFO_PLS_RETRY_LATER	inc/str.h	122;"	d
+STR_INFO_PLS_SETTLE_FIRST	inc/str.h	288;"	d
+STR_INFO_PLS_SWIPE_AGAIN	inc/str.h	143;"	d
+STR_INFO_PLS_SWIPE_CARD	inc/str.h	200;"	d
+STR_INFO_PLS_SWIPE_INSERT	inc/str.h	142;"	d
+STR_INFO_PLS_TAKE_CARD	inc/str.h	265;"	d
+STR_INFO_POS_LOGON_FIRST	inc/str.h	120;"	d
+STR_INFO_POS_NOT_REGISTERED	inc/str.h	123;"	d
+STR_INFO_PRINTING	inc/str.h	271;"	d
+STR_INFO_PRINTING_SETTLE	inc/str.h	272;"	d
+STR_INFO_PRINT_DETAIL	inc/str.h	277;"	d
+STR_INFO_PRINT_ERROR	inc/str.h	172;"	d
+STR_INFO_PRINT_FAILED	inc/str.h	269;"	d
+STR_INFO_PRINT_FAILED_DETAIL	inc/str.h	286;"	d
+STR_INFO_PRINT_FORMAT_ERR	inc/str.h	273;"	d
+STR_INFO_PRINT_OVER	inc/str.h	274;"	d
+STR_INFO_PRINT_TIMEOUT	inc/str.h	270;"	d
+STR_INFO_PRINT_TRXN_DETAIL	inc/str.h	284;"	d
+STR_INFO_PROCCODE_NOT_MATCH	inc/str.h	175;"	d
+STR_INFO_PROCESSING	inc/str.h	266;"	d
+STR_INFO_PROCESS_WITH_PBOC	inc/str.h	203;"	d
+STR_INFO_PURE_EC_CARD	inc/str.h	202;"	d
+STR_INFO_PURE_EC_NOT_SUPPORT	inc/str.h	201;"	d
+STR_INFO_PUT_HANDLE_BACK	inc/str.h	163;"	d
+STR_INFO_PWD_ERROR	inc/str.h	250;"	d
+STR_INFO_PWD_NOT_MATCH	inc/str.h	243;"	d
+STR_INFO_QUERY_OVER	inc/str.h	276;"	d
+STR_INFO_READ_CARD_ERROR	inc/str.h	246;"	d
+STR_INFO_READ_CARD_FAILED	inc/str.h	155;"	d
+STR_INFO_READ_CHIP_FAIL	inc/str.h	199;"	d
+STR_INFO_RECEIVE_DATA	inc/str.h	156;"	d
+STR_INFO_RECEIVE_DATA_FAILED	inc/str.h	169;"	d
+STR_INFO_RECEIVING	inc/str.h	136;"	d
+STR_INFO_REFUND	inc/str.h	216;"	d
+STR_INFO_REFUND_AMT_EXCEED	inc/str.h	275;"	d
+STR_INFO_REF_NO	inc/str.h	219;"	d
+STR_INFO_REOVME_CARD	inc/str.h	233;"	d
+STR_INFO_REPRINT_FAILED	inc/str.h	146;"	d
+STR_INFO_RESEND_OFFLINE_DATA	inc/str.h	121;"	d
+STR_INFO_RESET_FAILURE	inc/str.h	194;"	d
+STR_INFO_RESPONSE_CODE	inc/str.h	144;"	d
+STR_INFO_SALE	inc/str.h	215;"	d
+STR_INFO_SALE_TIMES_LIMIT	inc/str.h	118;"	d
+STR_INFO_SAVING_PARAM	inc/str.h	222;"	d
+STR_INFO_SEE_PHONE	inc/str.h	232;"	d
+STR_INFO_SELECT_APP	inc/str.h	231;"	d
+STR_INFO_SENDING	inc/str.h	135;"	d
+STR_INFO_SEND_DATA_FAILED	inc/str.h	168;"	d
+STR_INFO_SETTLE_PRINT_FAILED	inc/str.h	147;"	d
+STR_INFO_SETTLING	inc/str.h	149;"	d
+STR_INFO_SET_FAILED	inc/str.h	287;"	d
+STR_INFO_SHUTTING_DOWN	inc/str.h	209;"	d
+STR_INFO_STOP_PRINT	inc/str.h	278;"	d
+STR_INFO_SWIPE_ERROR	inc/str.h	140;"	d
+STR_INFO_SYSTEM_INIT	inc/str.h	236;"	d
+STR_INFO_TID_NOT_MATCH	inc/str.h	179;"	d
+STR_INFO_TIMEOUT	inc/str.h	161;"	d
+STR_INFO_TIP_EXCEED	inc/str.h	89;"	d
+STR_INFO_TRACENO_NOT_MATCH	inc/str.h	176;"	d
+STR_INFO_TRACE_NO	inc/str.h	217;"	d
+STR_INFO_TRANS_CANCEL	inc/str.h	141;"	d
+STR_INFO_TRANS_FAIL	inc/str.h	224;"	d
+STR_INFO_TRANS_FAILED	inc/str.h	98;"	d
+STR_INFO_TRANS_FINISH	inc/str.h	97;"	d
+STR_INFO_TRANS_NOT_FOUND	inc/str.h	88;"	d
+STR_INFO_TRANS_NOT_SUPPORTED	inc/str.h	113;"	d
+STR_INFO_TRANS_NUM_EXCEEDED	inc/str.h	153;"	d
+STR_INFO_TRANS_SUCCESS	inc/str.h	137;"	d
+STR_INFO_TRANS_TIMEOUT	inc/str.h	119;"	d
+STR_INFO_TRY_ANOTHER_CARD	inc/str.h	111;"	d
+STR_INFO_UNBALANCED_BATCH_UP	inc/str.h	281;"	d
+STR_INFO_UNKOWN_ERROR	inc/str.h	160;"	d
+STR_INFO_UNPACK_MSG_FAILED	inc/str.h	170;"	d
+STR_INFO_UPDATE_KEY_FAILED	inc/str.h	190;"	d
+STR_INFO_UPLOADING	inc/str.h	267;"	d
+STR_INFO_USER_NO	inc/str.h	234;"	d
+STR_INFO_USER_NOT_EXIST	inc/str.h	188;"	d
+STR_INFO_USE_CHIPCARD	inc/str.h	114;"	d
+STR_INFO_VIP_CLIENT	inc/str.h	138;"	d
+STR_INFO_VOID_NOT_ALLOWED	inc/str.h	182;"	d
+STR_INFO_WELCOME	inc/str.h	229;"	d
+STR_INFO_WRONG_CARD	inc/str.h	110;"	d
+STR_INFO_YYMM	inc/str.h	259;"	d
+STR_PRESS_CANCEL_EXIT	inc/str.h	82;"	d
+STR_PRESS_CANCEL_NO	inc/str.h	85;"	d
+STR_PRESS_CANCEL_REINPUT	inc/str.h	83;"	d
+STR_PRESS_CANCEL_SKIP	inc/str.h	86;"	d
+STR_PRESS_CANCEL_STOP	inc/str.h	84;"	d
+STR_PRESS_ENTER_CONFIRM	inc/str.h	76;"	d
+STR_PRESS_ENTER_CONTINUE	inc/str.h	80;"	d
+STR_PRESS_ENTER_EXIT	inc/str.h	78;"	d
+STR_PRESS_ENTER_REINPUT	inc/str.h	74;"	d
+STR_PRESS_ENTER_REPRINT	inc/str.h	77;"	d
+STR_PRESS_ENTER_RETRY	inc/str.h	75;"	d
+STR_PRESS_ENTER_START	inc/str.h	81;"	d
+STR_PRESS_ENTER_YES	inc/str.h	79;"	d
+STR_SETUP_0_BCD	inc/str.h	366;"	d
+STR_SETUP_0_DES_1_3DES	inc/str.h	414;"	d
+STR_SETUP_0_DISABLE	inc/str.h	364;"	d
+STR_SETUP_0_EXTERNAL	inc/str.h	405;"	d
+STR_SETUP_0_GENERAL	inc/str.h	386;"	d
+STR_SETUP_0_INTERNAL	inc/str.h	402;"	d
+STR_SETUP_0_NOT_SUPPORT	inc/str.h	372;"	d
+STR_SETUP_1_500	inc/str.h	400;"	d
+STR_SETUP_1_9	inc/str.h	378;"	d
+STR_SETUP_1_BIG_2_MEDIUM	inc/str.h	396;"	d
+STR_SETUP_1_CHINA_UNION_PAY	inc/str.h	387;"	d
+STR_SETUP_1_ENABLE	inc/str.h	363;"	d
+STR_SETUP_1_EXTERNAL	inc/str.h	403;"	d
+STR_SETUP_1_HEX	inc/str.h	367;"	d
+STR_SETUP_1_INTERNAL	inc/str.h	406;"	d
+STR_SETUP_1_MODEM_2_GPRS	inc/str.h	334;"	d
+STR_SETUP_1_SUPPORT	inc/str.h	371;"	d
+STR_SETUP_3_CDMA_4_ETHERNET	inc/str.h	335;"	d
+STR_SETUP_3_SMALL	inc/str.h	397;"	d
+STR_SETUP_5_WIFI	inc/str.h	336;"	d
+STR_SETUP_5_WIFI_6_ECHO	inc/str.h	337;"	d
+STR_SETUP_ADD_CASHIER	inc/str.h	321;"	d
+STR_SETUP_ADD_SUCCESS	inc/str.h	432;"	d
+STR_SETUP_ADMIN_MANAGE	inc/str.h	326;"	d
+STR_SETUP_AMOUNT_CENT_LENGTH	inc/str.h	333;"	d
+STR_SETUP_APN	inc/str.h	342;"	d
+STR_SETUP_AUTO_LOGON	inc/str.h	388;"	d
+STR_SETUP_AUTO_LOGOUT	inc/str.h	376;"	d
+STR_SETUP_AUTO_TRANS	inc/str.h	313;"	d
+STR_SETUP_AUTO_UPLOAD_NUM	inc/str.h	379;"	d
+STR_SETUP_CASHIER_NO	inc/str.h	429;"	d
+STR_SETUP_CDMA	inc/str.h	295;"	d
+STR_SETUP_CHANGE_ADMIN_PWD	inc/str.h	310;"	d
+STR_SETUP_CHANGE_CASHIER_PWD	inc/str.h	324;"	d
+STR_SETUP_CHANGE_PASSWORD	inc/str.h	320;"	d
+STR_SETUP_CHANGE_PWD_SUCCESS	inc/str.h	417;"	d
+STR_SETUP_CHANGE_SYSTEM_PWD	inc/str.h	309;"	d
+STR_SETUP_CLEAR_REVERSAL	inc/str.h	311;"	d
+STR_SETUP_CLEAR_TRANS	inc/str.h	312;"	d
+STR_SETUP_COMMUNICATION	inc/str.h	316;"	d
+STR_SETUP_COMMU_MODE	inc/str.h	292;"	d
+STR_SETUP_CONNECT_WIFI_SUCC	inc/str.h	360;"	d
+STR_SETUP_COUNTRY_CODE	inc/str.h	330;"	d
+STR_SETUP_CURRENCY_CODE	inc/str.h	331;"	d
+STR_SETUP_CURRENCY_NAME	inc/str.h	332;"	d
+STR_SETUP_CURRENT_BATCH_NO	inc/str.h	393;"	d
+STR_SETUP_CURRENT_TRACE_NO	inc/str.h	392;"	d
+STR_SETUP_ClEAR_REV_SUCC	inc/str.h	418;"	d
+STR_SETUP_ClEAR_TRANS_SUCC	inc/str.h	419;"	d
+STR_SETUP_DAEMON	inc/str.h	426;"	d
+STR_SETUP_DAIL_TIME	inc/str.h	368;"	d
+STR_SETUP_DATE	inc/str.h	422;"	d
+STR_SETUP_DELETE_CASHIER	inc/str.h	323;"	d
+STR_SETUP_DES_TYPE	inc/str.h	307;"	d
+STR_SETUP_DETELE_SUCCESS	inc/str.h	433;"	d
+STR_SETUP_DHCP	inc/str.h	349;"	d
+STR_SETUP_DUKPT	inc/str.h	415;"	d
+STR_SETUP_DUPKT	inc/str.h	308;"	d
+STR_SETUP_ENABLE_SSL	inc/str.h	362;"	d
+STR_SETUP_ENABLE_USER	inc/str.h	345;"	d
+STR_SETUP_ETHERNET	inc/str.h	296;"	d
+STR_SETUP_FALLBACK	inc/str.h	384;"	d
+STR_SETUP_GATEWAY	inc/str.h	352;"	d
+STR_SETUP_GPRS	inc/str.h	294;"	d
+STR_SETUP_HOST_IP	inc/str.h	343;"	d
+STR_SETUP_IDLE_TIME	inc/str.h	407;"	d
+STR_SETUP_INJECT_TMK_FAILED	inc/str.h	412;"	d
+STR_SETUP_INJECT_TMK_SUCCESS	inc/str.h	411;"	d
+STR_SETUP_INPUT_ADMIN_PWD	inc/str.h	380;"	d
+STR_SETUP_INPUT_STN	inc/str.h	438;"	d
+STR_SETUP_INPUT_TRANS_NUM	inc/str.h	420;"	d
+STR_SETUP_INQUIRE_CASHIER	inc/str.h	322;"	d
+STR_SETUP_KEY_ALGORITHM	inc/str.h	413;"	d
+STR_SETUP_KEY_INDEX	inc/str.h	306;"	d
+STR_SETUP_KEY_INDEX_0_9	inc/str.h	408;"	d
+STR_SETUP_KEY_MANAGEMENT	inc/str.h	319;"	d
+STR_SETUP_KSN	inc/str.h	416;"	d
+STR_SETUP_LIBDEV	inc/str.h	428;"	d
+STR_SETUP_LIBXGDEMV	inc/str.h	425;"	d
+STR_SETUP_LOCAL_IP	inc/str.h	350;"	d
+STR_SETUP_MANAGE	inc/str.h	424;"	d
+STR_SETUP_MANUAL_INPUT_KEY	inc/str.h	305;"	d
+STR_SETUP_MASK_CARD_NO	inc/str.h	390;"	d
+STR_SETUP_MAX_REFUND_AMT	inc/str.h	381;"	d
+STR_SETUP_MAX_TRANS_NUM	inc/str.h	399;"	d
+STR_SETUP_MERCHANT_NAME	inc/str.h	329;"	d
+STR_SETUP_MID	inc/str.h	327;"	d
+STR_SETUP_MODEM	inc/str.h	293;"	d
+STR_SETUP_MSG_LEN_FORMAT	inc/str.h	365;"	d
+STR_SETUP_NEED_SCAN_HOTSPOTS	inc/str.h	355;"	d
+STR_SETUP_NEW_TIME	inc/str.h	436;"	d
+STR_SETUP_OFFLINE	inc/str.h	304;"	d
+STR_SETUP_OFFLINE_UPLOAD_TIMES	inc/str.h	377;"	d
+STR_SETUP_OPEN_FAILED	inc/str.h	354;"	d
+STR_SETUP_OPEN_WIFI_DEVICE	inc/str.h	353;"	d
+STR_SETUP_OTHER	inc/str.h	298;"	d
+STR_SETUP_PABX_NO	inc/str.h	341;"	d
+STR_SETUP_PANEL	inc/str.h	427;"	d
+STR_SETUP_PAYPASS_PAYWAVE	inc/str.h	383;"	d
+STR_SETUP_PIN	inc/str.h	302;"	d
+STR_SETUP_PINPAD_MODE	inc/str.h	401;"	d
+STR_SETUP_PLS_INPUT_PWD	inc/str.h	430;"	d
+STR_SETUP_PLS_INPUT_PWD_AGAIN	inc/str.h	431;"	d
+STR_SETUP_PLS_INPUT_TMK_16	inc/str.h	409;"	d
+STR_SETUP_PLS_INPUT_TMK_32	inc/str.h	410;"	d
+STR_SETUP_PORT	inc/str.h	344;"	d
+STR_SETUP_PRINT_SIZE	inc/str.h	395;"	d
+STR_SETUP_PRINT_TIMES	inc/str.h	394;"	d
+STR_SETUP_RECV_TIME	inc/str.h	370;"	d
+STR_SETUP_REDAIL_TIMES	inc/str.h	369;"	d
+STR_SETUP_REFUND_MODE	inc/str.h	385;"	d
+STR_SETUP_REVERSAL_TIMES	inc/str.h	398;"	d
+STR_SETUP_RF_READER_MODE	inc/str.h	404;"	d
+STR_SETUP_SCAN_HOTSPOTS	inc/str.h	356;"	d
+STR_SETUP_SCAN_HOTSPOTS_FAIL	inc/str.h	357;"	d
+STR_SETUP_SELECT_SSID	inc/str.h	358;"	d
+STR_SETUP_SET_TIME	inc/str.h	434;"	d
+STR_SETUP_SHIELD	inc/str.h	301;"	d
+STR_SETUP_SUBNET_MASK	inc/str.h	351;"	d
+STR_SETUP_SWIPE	inc/str.h	303;"	d
+STR_SETUP_SYSTEM	inc/str.h	318;"	d
+STR_SETUP_SYSTEM_MANAGEMENT	inc/str.h	325;"	d
+STR_SETUP_SYSTEM_TIME	inc/str.h	435;"	d
+STR_SETUP_TEL_NUMBER1	inc/str.h	338;"	d
+STR_SETUP_TEL_NUMBER2	inc/str.h	339;"	d
+STR_SETUP_TEL_NUMBER3	inc/str.h	340;"	d
+STR_SETUP_TERMINAL	inc/str.h	315;"	d
+STR_SETUP_TID	inc/str.h	328;"	d
+STR_SETUP_TIME	inc/str.h	423;"	d
+STR_SETUP_TIP_RATE	inc/str.h	382;"	d
+STR_SETUP_TPDU	inc/str.h	361;"	d
+STR_SETUP_TRANSACTION	inc/str.h	317;"	d
+STR_SETUP_USER	inc/str.h	346;"	d
+STR_SETUP_USER_NAME	inc/str.h	348;"	d
+STR_SETUP_USER_PASSWORD	inc/str.h	347;"	d
+STR_SETUP_VER	inc/str.h	421;"	d
+STR_SETUP_VERSION	inc/str.h	314;"	d
+STR_SETUP_VIRTUAL_RF_LED	inc/str.h	389;"	d
+STR_SETUP_VOID_AMT_PRINT	inc/str.h	391;"	d
+STR_SETUP_VOID_INPUT_PIN	inc/str.h	373;"	d
+STR_SETUP_VOID_SWIPE_CARD	inc/str.h	375;"	d
+STR_SETUP_WIFI	inc/str.h	297;"	d
+STR_SETUP_WIFI_CONNECTING	inc/str.h	359;"	d
+STR_SETUP_WIFI_HOTSPOTS	inc/str.h	299;"	d
+STR_SETUP_WIFI_PARAMETER	inc/str.h	300;"	d
+STR_SETUP_YES_OR_NO	inc/str.h	374;"	d
+STR_STATUS_ALREADY_ADJUSTED	inc/str.h	68;"	d
+STR_STATUS_ALREADY_UPLOADED	inc/str.h	69;"	d
+STR_STATUS_ALREADY_VOIDED	inc/str.h	67;"	d
+STR_STATUS_NOT_UPLOADED	inc/str.h	70;"	d
+STR_STATUS_UPLOAD_FAIL	inc/str.h	71;"	d
+STR_STATUS_UPLOAD_REJECTED	inc/str.h	72;"	d
+STR_TRANS_ADJUST	inc/str.h	30;"	d
+STR_TRANS_BALANCE	inc/str.h	31;"	d
+STR_TRANS_BATCH_UP	inc/str.h	33;"	d
+STR_TRANS_LOGON	inc/str.h	24;"	d
+STR_TRANS_LOGOUT	inc/str.h	25;"	d
+STR_TRANS_OFFLINE_UPLOAD	inc/str.h	34;"	d
+STR_TRANS_REFUND	inc/str.h	28;"	d
+STR_TRANS_REVERSAL	inc/str.h	36;"	d
+STR_TRANS_SALE	inc/str.h	26;"	d
+STR_TRANS_SCRIPT_UPLOAD	inc/str.h	35;"	d
+STR_TRANS_SETTLEMENT	inc/str.h	32;"	d
+STR_TRANS_TIP	inc/str.h	29;"	d
+STR_TRANS_VOID	inc/str.h	27;"	d
+ST_APP_SYSCFG	inc/setup.h	/^}ST_APP_SYSCFG;$/;"	t	typeref:struct:__anon69
+ST_BATCHUP_INFO	inc/settle.h	/^}ST_BATCHUP_INFO;$/;"	t	typeref:struct:__anon51
+ST_CARDINFO	inc/global.h	/^}ST_CARDINFO;$/;"	t	typeref:struct:__anon32
+ST_CASHIER	inc/global.h	/^ }ST_CASHIER;            $/;"	t	typeref:struct:__anon38
+ST_CASHIER_PWD	inc/setup.h	/^}ST_CASHIER_PWD;$/;"	t	typeref:struct:__anon66
+ST_COMMU_PARAM	inc/setup.h	/^}ST_COMMU_PARAM;     $/;"	t	typeref:struct:__anon63
+ST_DATABASE	inc/database.h	/^}ST_DATABASE;$/;"	t	typeref:struct:__anon10
+ST_DB_FIELD	inc/database.h	/^}ST_DB_FIELD;$/;"	t	typeref:struct:__anon8
+ST_DB_FILTER	inc/database.h	/^}ST_DB_FILTER;$/;"	t	typeref:struct:__anon11
+ST_DISP_LIST	inc/display.h	/^}ST_DISP_LIST;$/;"	t	typeref:struct:__anon19
+ST_DISP_LIST_ITEM	inc/display.h	/^}ST_DISP_LIST_ITEM;$/;"	t	typeref:struct:__anon18
+ST_EMVINFO	inc/global.h	/^}ST_EMVINFO;$/;"	t	typeref:struct:__anon33
+ST_EMV_TLV	inc/emv.h	/^}ST_EMV_TLV;$/;"	t	typeref:struct:__anon21
+ST_ICCDATA_DOL	inc/iso8583.h	/^}ST_ICCDATA_DOL;$/;"	t	typeref:struct:__anon42
+ST_LOGIN_INFO	inc/global.h	/^}ST_LOGIN_INFO;$/;"	t	typeref:struct:__anon39
+ST_MENU	inc/display.h	/^}ST_MENU;$/;"	t	typeref:struct:__anon15
+ST_MENU_ITEM	inc/display.h	/^}ST_MENU_ITEM;$/;"	t	typeref:struct:__anon14
+ST_MSGINFO	inc/global.h	/^}ST_MSGINFO;$/;"	t	typeref:struct:__anon34
+ST_PACKET_INFO	inc/global.h	/^}ST_PACKET_INFO;$/;"	t	typeref:struct:__anon41
+ST_RECORD_FILTER	inc/record.h	/^}ST_RECORD_FILTER;$/;"	t	typeref:struct:__anon50
+ST_RESP_TEXT	inc/display.h	/^}ST_RESP_TEXT;$/;"	t	typeref:struct:__anon17
+ST_SAVED_DEBUG8583	inc/appdbg.h	/^}ST_SAVED_DEBUG8583;$/;"	t	typeref:struct:__anon3
+ST_SAVE_ECHO_MSG	inc/appdbg.h	/^}ST_SAVE_ECHO_MSG;$/;"	t	typeref:struct:__anon4
+ST_SECURE_KEY	inc/setup.h	/^}ST_SECURE_KEY;$/;"	t	typeref:struct:__anon65
+ST_SETTLE	inc/settle.h	/^}ST_SETTLE;$/;"	t	typeref:struct:__anon55
+ST_SETUP_GROUP	inc/setup.h	/^}ST_SETUP_GROUP;$/;"	t	typeref:struct:__anon61
+ST_SETUP_ITEM	inc/setup.h	/^}ST_SETUP_ITEM;$/;"	t	typeref:struct:__anon60
+ST_SYS_PARAM	inc/setup.h	/^}ST_SYS_PARAM;$/;"	t	typeref:struct:__anon62
+ST_TERMINAL_INFO	inc/setup.h	/^}ST_TERMINAL_INFO;$/;"	t	typeref:struct:__anon68
+ST_TOTAL_ALL	inc/settle.h	/^}ST_TOTAL_ALL;$/;"	t	typeref:struct:__anon53
+ST_TOTAL_INFO	inc/settle.h	/^}ST_TOTAL_INFO;$/;"	t	typeref:struct:__anon54
+ST_TOTAL_TRADE	inc/settle.h	/^}ST_TOTAL_TRADE;$/;"	t	typeref:struct:__anon52
+ST_TRADENAME	inc/misc.h	/^}ST_TRADENAME;$/;"	t	typeref:struct:__anon45
+ST_TRANSDATA	inc/global.h	/^}ST_TRANSDATA; $/;"	t	typeref:struct:__anon37
+ST_TRANSLOG	inc/global.h	/^}ST_TRANSLOG;$/;"	t	typeref:struct:__anon36
+ST_TRANSLOG_TLV	inc/misc.h	/^}ST_TRANSLOG_TLV;$/;"	t	typeref:struct:__anon46
+ST_TRANS_NAME	inc/global.h	/^}ST_TRANS_NAME;$/;"	t	typeref:struct:__anon40
+ST_TRANS_PARAM	inc/setup.h	/^}ST_TRANS_PARAM;$/;"	t	typeref:struct:__anon64
+ST_TRANS_STATUS	inc/global.h	/^}ST_TRANS_STATUS;$/;"	t	typeref:struct:__anon35
+ST_TRANS_STATUS_TEXT	inc/display.h	/^}ST_TRANS_STATUS_TEXT;$/;"	t	typeref:struct:__anon16
+ST_USER_PWD	inc/setup.h	/^}ST_USER_PWD;$/;"	t	typeref:struct:__anon67
+SUBVERSION	inc/global.h	46;"	d
+SYSADMINNO	inc/logon.h	24;"	d
+SYSTEM_PWDLEN	inc/setup.h	37;"	d
+SaleOfflineProc	src/sale.c	/^s32 SaleOfflineProc(s32 iIccRet)$/;"	f
+SalePackMsg	src/sale.c	/^s32 SalePackMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SaleTrans	src/sale.c	/^void SaleTrans(u16 usCardType)$/;"	f
+ScriptGetResult	src/script.c	/^s32 ScriptGetResult()$/;"	f
+ScriptPackMsg	src/script.c	/^s32 ScriptPackMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+ScriptSendMsg	src/script.c	/^s32 ScriptSendMsg(void)$/;"	f
+SettleDeleteInfo	src/settle.c	/^void SettleDeleteInfo(void)$/;"	f
+SettleEndProcess	src/settle.c	/^s32 SettleEndProcess(bool bRePrint)$/;"	f
+SettleGetTotalAmount	src/settle.c	/^s32 SettleGetTotalAmount(ST_SETTLE *pstSettle)$/;"	f
+SettleGetTransMsg	src/settle.c	/^s32 SettleGetTransMsg(ST_PACKET_INFO *pstPacketInfo)$/;"	f
+SettlePackAdviceTransMsg	src/settle.c	/^s32 SettlePackAdviceTransMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettlePackAllArpcErrIccTransMsg	src/settle.c	/^s32 SettlePackAllArpcErrIccTransMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettlePackAllFailIccTransMsg	src/settle.c	/^s32 SettlePackAllFailIccTransMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettlePackAllIccTransMsg	src/settle.c	/^s32 SettlePackAllIccTransMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettlePackAllMagTransMsg	src/settle.c	/^s32 SettlePackAllMagTransMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettlePackIccOfflineTransMsg	src/settle.c	/^s32 SettlePackIccOfflineTransMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettlePackMsg	src/settle.c	/^s32 SettlePackMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettlePackOfflineTransMsg	src/settle.c	/^s32 SettlePackOfflineTransMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettlePackTrailerMsg	src/settle.c	/^s32 SettlePackTrailerMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettleReadInfo	src/settle.c	/^s32 SettleReadInfo(ST_SETTLE *pstSettle)$/;"	f
+SettleReprint	src/settle.c	/^s32 SettleReprint(void)$/;"	f
+SettleSaveInfo	src/settle.c	/^void SettleSaveInfo(ST_SETTLE *pstSettle)$/;"	f
+SettleSetField048	src/settle.c	/^void SettleSetField048(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+SettleTrans	src/settle.c	/^s32 SettleTrans(void)$/;"	f
+SetupAddCashier	src/setup.c	/^void SetupAddCashier(void)$/;"	f
+SetupAppendSetting	src/setup.c	/^s32 SetupAppendSetting(void)$/;"	f
+SetupChangeCashierPwd	src/setup.c	/^void SetupChangeCashierPwd(void)$/;"	f
+SetupCommu	src/setup.c	/^void SetupCommu(void)$/;"	f
+SetupCommuCdma	src/setup.c	/^void SetupCommuCdma(void)$/;"	f
+SetupCommuDial	src/setup.c	/^void SetupCommuDial(void)$/;"	f
+SetupCommuEthernet	src/setup.c	/^void SetupCommuEthernet(void)$/;"	f
+SetupCommuGprs	src/setup.c	/^void SetupCommuGprs(void)$/;"	f
+SetupCommuMode	src/setup.c	/^void SetupCommuMode(void)$/;"	f
+SetupCommuOthers	src/setup.c	/^void SetupCommuOthers(void)$/;"	f
+SetupCommuWifi	src/setup.c	/^void SetupCommuWifi(void)$/;"	f
+SetupCommuWifiHotspots	src/setup.c	/^void SetupCommuWifiHotspots(void)$/;"	f
+SetupCommuWifiParam	src/setup.c	/^void SetupCommuWifiParam(void)$/;"	f
+SetupDeleteCashier	src/setup.c	/^void SetupDeleteCashier(void)$/;"	f
+SetupGroup	src/setup.c	/^s32 SetupGroup(ST_SETUP_GROUP *pstGroup)$/;"	f
+SetupInitSetting	src/setup.c	/^s32 SetupInitSetting(void)$/;"	f
+SetupItem	src/setup.c	/^s32 SetupItem(ST_SETUP_ITEM *pstItem)$/;"	f
+SetupOthersAutoTrans	src/setup.c	/^void SetupOthersAutoTrans(void)$/;"	f
+SetupOthersClearBatch	src/setup.c	/^void SetupOthersClearBatch(void)$/;"	f
+SetupOthersClearReversal	src/setup.c	/^void SetupOthersClearReversal(void)$/;"	f
+SetupPassword	src/setup.c	/^void SetupPassword(void)$/;"	f
+SetupPasswordAdmin	src/setup.c	/^void SetupPasswordAdmin(void)$/;"	f
+SetupPasswordSystem	src/setup.c	/^void SetupPasswordSystem(void)$/;"	f
+SetupQueryCashier	src/setup.c	/^void SetupQueryCashier(void)$/;"	f
+SetupReadSetting	src/setup.c	/^s32 SetupReadSetting(s32 iIndex)$/;"	f
+SetupSaveSetting	src/setup.c	/^s32 SetupSaveSetting(void)$/;"	f
+SetupSecure	src/setup.c	/^void SetupSecure(void)$/;"	f
+SetupSecureDesType	src/setup.c	/^void SetupSecureDesType(void)$/;"	f
+SetupSecureDukpt	src/setup.c	/^void SetupSecureDukpt(void)$/;"	f
+SetupSecureTmk	src/setup.c	/^void SetupSecureTmk(void)$/;"	f
+SetupSecureTmkIndex	src/setup.c	/^void SetupSecureTmkIndex(void)$/;"	f
+SetupShowVersion	src/setup.c	/^void SetupShowVersion(void)$/;"	f
+SetupSystemParam	src/setup.c	/^void SetupSystemParam(void)$/;"	f
+SetupSystemTime	src/setup.c	/^void SetupSystemTime(void)$/;"	f
+SetupTerminalInfo	src/setup.c	/^void SetupTerminalInfo(void)$/;"	f
+SetupTransParam	src/setup.c	/^void SetupTransParam(void)$/;"	f
+SetupTransParamOffline	src/setup.c	/^void SetupTransParamOffline(void)$/;"	f
+SetupTransParamOthers	src/setup.c	/^void SetupTransParamOthers(void)$/;"	f
+SetupTransParamPassword	src/setup.c	/^void SetupTransParamPassword(void)$/;"	f
+SetupTransParamReadCard	src/setup.c	/^void SetupTransParamReadCard(void)$/;"	f
+SetupTransParamSettle	src/setup.c	/^void SetupTransParamSettle(void)$/;"	f
+SetupTransParamSupport	src/setup.c	/^void SetupTransParamSupport(void)$/;"	f
+TABNAME_AID	inc/aid.h	23;"	d
+TABNAME_APPSYSCFG	inc/setup.h	23;"	d
+TABNAME_CAPK	inc/capk.h	23;"	d
+TABNAME_TRANSLOG	inc/record.h	23;"	d
+TARGET	makefile	/^			TARGET = .\/$(trg_name)".so.unsign"						# K-PLATFORM$/;"	m
+TARGET	makefile	/^	TARGET = .\/$(trg_name)".a"								# static is xxx.a$/;"	m
+TARGET	makefile	/^TARGET = .\/$(trg_name)".so.unsign"							# default is xxx.so.unsign$/;"	m
+TMR_CTLS_LED_IDLE	inc/global.h	75;"	d
+TMR_NONE	inc/global.h	72;"	d
+TMR_OPERATE	inc/global.h	69;"	d
+TMR_PROMPT	inc/global.h	71;"	d
+TMR_REFRESH_TIME	inc/global.h	74;"	d
+TMR_WAITKEY	inc/global.h	70;"	d
+TRANSID_ADJUST	inc/global.h	/^    TRANSID_ADJUST,                 \/\/ adjust transaction for offline settlement$/;"	e	enum:__anon23
+TRANSID_BALANCE	inc/global.h	/^    TRANSID_BALANCE,                \/\/ balance inquire transaction$/;"	e	enum:__anon23
+TRANSID_BATCHUP_END	inc/global.h	/^    TRANSID_BATCHUP_END,            \/\/ batch upload end$/;"	e	enum:__anon23
+TRANSID_BATCHUP_TIP	inc/global.h	/^    TRANSID_BATCHUP_TIP,            \/\/ batch upload tip$/;"	e	enum:__anon23
+TRANSID_BATCHUP_TRAILER	inc/global.h	/^    TRANSID_BATCHUP_TRAILER,        \/\/ batch upload trailer $/;"	e	enum:__anon23
+TRANSID_LOGON	inc/global.h	/^    TRANSID_LOGON,                  \/\/ login transaction$/;"	e	enum:__anon23
+TRANSID_LOGOUT	inc/global.h	/^    TRANSID_LOGOUT,                 \/\/ logout transaction$/;"	e	enum:__anon23
+TRANSID_MAINMENU	inc/global.h	/^    TRANSID_MAINMENU,               \/\/ main menu$/;"	e	enum:__anon23
+TRANSID_OFFSALE	inc/global.h	/^    TRANSID_OFFSALE,$/;"	e	enum:__anon23
+TRANSID_REFUND	inc/global.h	/^    TRANSID_REFUND,                 \/\/ refund transaction$/;"	e	enum:__anon23
+TRANSID_REPORT	inc/global.h	/^    TRANSID_REPORT,$/;"	e	enum:__anon23
+TRANSID_REVERSAL	inc/global.h	/^    TRANSID_REVERSAL,$/;"	e	enum:__anon23
+TRANSID_SALE	inc/global.h	/^    TRANSID_SALE,                   \/\/ sale transaction$/;"	e	enum:__anon23
+TRANSID_SCRIPT	inc/global.h	/^    TRANSID_SCRIPT,$/;"	e	enum:__anon23
+TRANSID_SETTLE	inc/global.h	/^    TRANSID_SETTLE,$/;"	e	enum:__anon23
+TRANSID_TIP	inc/global.h	/^    TRANSID_TIP,                    \/\/ tip transaction for sale$/;"	e	enum:__anon23
+TRANSID_UNKNOWN	inc/global.h	/^    TRANSID_UNKNOWN = 0x00,$/;"	e	enum:__anon23
+TRANSID_VOID	inc/global.h	/^    TRANSID_VOID,                   \/\/ void transaction$/;"	e	enum:__anon23
+TRANSID_WELCOME	inc/global.h	/^    TRANSID_WELCOME,                \/\/ welcome menu$/;"	e	enum:__anon23
+TRANS_ADJUSTED	inc/global.h	/^    TRANS_ADJUSTED,             \/\/ already adjust$/;"	e	enum:__anon25
+TRANS_NORMAL	inc/global.h	/^    TRANS_NORMAL,               \/\/ normal$/;"	e	enum:__anon25
+TRANS_REFUNDED	inc/global.h	/^    TRANS_REFUNDED,             \/\/ already refund$/;"	e	enum:__anon25
+TRANS_STATUS_FINISH	inc/global.h	148;"	d
+TRANS_VOIDED	inc/global.h	/^    TRANS_VOIDED,               \/\/ already void$/;"	e	enum:__anon25
+TRUE	inc/database.h	14;"	d
+TRUE	inc/global.h	58;"	d
+TabAid	src/aid.c	/^static ST_DATABASE TabAid = $/;"	v	file:
+TabAmexLiveAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabAmexLiveAIDs[] =$/;"	v	file:
+TabAmexLiveCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabAmexLiveCAPKs[] =$/;"	v	file:
+TabAmexTestAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabAmexTestAIDs[] =$/;"	v	file:
+TabAmexTestCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabAmexTestCAPKs[] =$/;"	v	file:
+TabCapk	src/capk.c	/^static ST_DATABASE TabCapk = $/;"	v	file:
+TabCupLiveAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabCupLiveAIDs[] =$/;"	v	file:
+TabCupLiveCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabCupLiveCAPKs[] =$/;"	v	file:
+TabCupTestAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabCupTestAIDs[] =$/;"	v	file:
+TabCupTestCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabCupTestCAPKs[] =$/;"	v	file:
+TabEmvDOL	src/iso8583.c	/^static const ST_ICCDATA_DOL TabEmvDOL[] =$/;"	v	file:
+TabIsoFields	src/iso8583.c	/^static SDK_8583_STFIELDDEF TabIsoFields[SDK_8583_FIELDMAX + 1] =$/;"	v	file:
+TabJcbLiveAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabJcbLiveAIDs[] =$/;"	v	file:
+TabJcbLiveCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabJcbLiveCAPKs[] =$/;"	v	file:
+TabJcbTestAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabJcbTestAIDs[] =$/;"	v	file:
+TabJcbTestCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabJcbTestCAPKs[] =$/;"	v	file:
+TabMasterLiveAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabMasterLiveAIDs[] =$/;"	v	file:
+TabMasterLiveCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabMasterLiveCAPKs[] =$/;"	v	file:
+TabMasterTestAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabMasterTestAIDs[] =$/;"	v	file:
+TabMasterTestCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabMasterTestCAPKs[] =$/;"	v	file:
+TabPacketInfo	src/settle.c	/^static ST_PACKET_INFO TabPacketInfo[] = $/;"	v	file:
+TabPaypassCfg	src/emv.c	/^static ST_EMV_TLV TabPaypassCfg[] =$/;"	v	file:
+TabPaypassDOL	src/iso8583.c	/^static const ST_ICCDATA_DOL TabPaypassDOL[] =$/;"	v	file:
+TabPaywaveCfg	src/emv.c	/^static ST_EMV_TLV TabPaywaveCfg[] =$/;"	v	file:
+TabPaywaveDOL	src/iso8583.c	/^static const ST_ICCDATA_DOL TabPaywaveDOL[] =$/;"	v	file:
+TabRespErrText	src/display.c	/^static ST_RESP_TEXT TabRespErrText[] = $/;"	v	file:
+TabRespSuccText	src/display.c	/^static ST_RESP_TEXT TabRespSuccText[] = $/;"	v	file:
+TabReversalEmvDOL	src/iso8583.c	/^static const ST_ICCDATA_DOL TabReversalEmvDOL[] =$/;"	v	file:
+TabScriptEmvDOL	src/iso8583.c	/^static const ST_ICCDATA_DOL TabScriptEmvDOL[] =$/;"	v	file:
+TabSysCfg	src/setup.c	/^static ST_DATABASE TabSysCfg = $/;"	v	file:
+TabTransLog	src/record.c	/^static ST_DATABASE TabTransLog = $/;"	v	file:
+TabTransName	src/misc.c	/^static const ST_TRADENAME TabTransName[] =$/;"	v	file:
+TabTransStatusText	src/display.c	/^static ST_TRANS_STATUS_TEXT TabTransStatusText[] =$/;"	v	file:
+TabVisaLiveAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabVisaLiveAIDs[] =$/;"	v	file:
+TabVisaLiveCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabVisaLiveCAPKs[] =$/;"	v	file:
+TabVisaTestAIDs	src/aid.c	/^const static SDK_ICC_EmvSysIni_STRUCT TabVisaTestAIDs[] =$/;"	v	file:
+TabVisaTestCAPKs	src/capk.c	/^const static SDK_ICC_CAPK_STRUCT TabVisaTestCAPKs[] =$/;"	v	file:
+TrnCheckAdminPwd	src/misc.c	/^bool TrnCheckAdminPwd(void)$/;"	f
+TrnCheckCashBackAmount	src/misc.c	/^s32 TrnCheckCashBackAmount(u8 *asAmount, u8 *asCashBack)$/;"	f
+TrnCheckCondition	src/misc.c	/^bool TrnCheckCondition(bool bIsSaveRecord, bool bIsSupport)$/;"	f
+TrnCheckDate	src/misc.c	/^bool TrnCheckDate(u8 *pasDate)$/;"	f
+TrnCheckPrintDetail	src/misc.c	/^bool TrnCheckPrintDetail(ST_TRANSLOG *pstTransLog)$/;"	f
+TrnCheckRefundAmount	src/misc.c	/^bool TrnCheckRefundAmount(u8 *pasAmount)$/;"	f
+TrnCheckResponseCode	src/misc.c	/^bool TrnCheckResponseCode(const u8 *asResp)$/;"	f
+TrnCheckTime	src/misc.c	/^bool TrnCheckTime(u8 *pbcTime, u8 ucLen)$/;"	f
+TrnCheckTotalAmount	src/misc.c	/^s32 TrnCheckTotalAmount(E_TRANS_ID eTransID, u8 *asAmount)$/;"	f
+TrnCheckYearMonth	src/misc.c	/^bool TrnCheckYearMonth(u8 *pasYearMonth)$/;"	f
+TrnConfirmRefundAmount	src/misc.c	/^s32 TrnConfirmRefundAmount(u8 *pasAmount)$/;"	f
+TrnDispLed	src/misc.c	/^void TrnDispLed(u8 ucLedStatus)$/;"	f
+TrnEndProcess	src/misc.c	/^void TrnEndProcess(void)$/;"	f
+TrnFormBlankAlignChar	src/misc.c	/^s32 TrnFormBlankAlignChar(E_ALIGN_MODE eAlign, u8 *pasDest, const u8 *pasSrc, u32 uiMaxLen)$/;"	f
+TrnFormatAmount	src/misc.c	/^void TrnFormatAmount(u8 *pasStr, u8 const *pasAmount, bool bIsCurrency)$/;"	f
+TrnGetAmount	src/misc.c	/^s32 TrnGetAmount(s32 iTimeOut, u8 *pasAmount, s32 iLine, bool bIsAllowZero)$/;"	f
+TrnGetIccDataFromMsg	src/misc.c	/^void TrnGetIccDataFromMsg(SDK_8583_ST8583 *pstPacket8583)$/;"	f
+TrnGetIccMagData	src/misc.c	/^s32 TrnGetIccMagData(SDK_ICC_CARDDATA *pstCardData)$/;"	f
+TrnGetMagCardNo	src/misc.c	/^s32 TrnGetMagCardNo(SDK_ICC_CARDDATA const *pstCardData, u8 *pasCardNo)$/;"	f
+TrnGetName	src/misc.c	/^void TrnGetName(u8 *pasName, E_TRANS_ID eTransID)$/;"	f
+TrnGetNumber	src/misc.c	/^s32 TrnGetNumber(s32 iTimeOut, u8 *pasNumber, s32 iMin, s32 iMax, s32 iLine)$/;"	f
+TrnGetStatus	src/misc.c	/^s32 TrnGetStatus(void)$/;"	f
+TrnIncBatchNo	src/misc.c	/^void TrnIncBatchNo(s32 iNum)$/;"	f
+TrnIncTraceNo	src/misc.c	/^void TrnIncTraceNo(s32 iNum)$/;"	f
+TrnInitGlobal	src/misc.c	/^void TrnInitGlobal(void)$/;"	f
+TrnInputAddCashier	src/misc.c	/^bool TrnInputAddCashier(u32 *puiOperator)$/;"	f
+TrnInputAmount	src/misc.c	/^s32 TrnInputAmount(E_AMOUNT_MODE eAmountMode, u8 *pasAmount)$/;"	f
+TrnInputDate	src/misc.c	/^bool TrnInputDate(u8 *pasDate)$/;"	f
+TrnInputDeleteCashier	src/misc.c	/^bool TrnInputDeleteCashier(u32 *puiOperator)$/;"	f
+TrnInputExpiredDate	src/misc.c	/^bool TrnInputExpiredDate(u8 *pasDate)$/;"	f
+TrnInputIpAddr	src/misc.c	/^s32 TrnInputIpAddr(s32 iTimeOut, u8 *pasIpAddr, s32 iLine)$/;"	f
+TrnInputLine	src/misc.c	/^s32 TrnInputLine(s32 iTimeOut, u8 *pasStr, s32 iMinLen, s32 iMaxLen, s32 iMode, s32 iLine)$/;"	f
+TrnInputPin	src/misc.c	/^s32 TrnInputPin(bool bIsWithPan, const u8 *pasTransAmount, SDK_ICC_CARDDATA const *pstCardData, u8 *phePwd, s32 iDispLine)$/;"	f
+TrnInputReferenceNo	src/misc.c	/^bool TrnInputReferenceNo(u8 *pasRefNo)$/;"	f
+TrnInputTraceNo	src/misc.c	/^bool TrnInputTraceNo(u8 *pasTracerNo)$/;"	f
+TrnJudgeCreditTrans	src/misc.c	/^bool TrnJudgeCreditTrans(E_TRANS_ID eTransID)$/;"	f
+TrnLightCtrl	src/misc.c	/^void TrnLightCtrl(void)$/;"	f
+TrnLightRelease	src/misc.c	/^void TrnLightRelease(void)$/;"	f
+TrnMaskCardNo	src/misc.c	/^bool TrnMaskCardNo(E_TRANS_ID eTransID, u8 *pasCardNo)$/;"	f
+TrnPadding	src/misc.c	/^void TrnPadding(u8 *pasDest, u8 *pasSrc, u8 ucChar, s32 iLen, E_ALIGN_MODE eAlign)$/;"	f
+TrnPasswordSet	src/misc.c	/^bool TrnPasswordSet(u8 *pasTitle, u8 *pasPassword, u32 uiLen)$/;"	f
+TrnPasswordUpdate	src/misc.c	/^bool TrnPasswordUpdate(u8 *pasTitle, u8 *pasPassword, u32 uiLen)$/;"	f
+TrnPedCloseVoice	src/misc.c	/^void TrnPedCloseVoice(void)$/;"	f
+TrnProcInsert	src/misc.c	/^s32 TrnProcInsert(s32 iCardMode, SDK_ICC_TRADE_PARAM *pstIccTradeParam, ST_CARDINFO *pstCardInfo)$/;"	f
+TrnProcManual	src/misc.c	/^s32 TrnProcManual(s32 iCardMode, s32 iKey, SDK_ICC_TRADE_PARAM *pstIccTradeParam, ST_CARDINFO *pstCardInfo)$/;"	f
+TrnProcSwipe	src/misc.c	/^s32 TrnProcSwipe(s32 iCardMode, SDK_ICC_TRADE_PARAM *pstIccTradeParam, ST_CARDINFO *pstCardInfo)$/;"	f
+TrnProcTap	src/misc.c	/^s32 TrnProcTap(s32 iCardMode, SDK_ICC_TRADE_PARAM *pstIccTradeParam, ST_CARDINFO *pstCardInfo, u32 uiTimer)$/;"	f
+TrnReadCard	src/misc.c	/^s32 TrnReadCard(s32 iCardMode, SDK_ICC_TRADE_PARAM *pstIccTradeParam, ST_CARDINFO *pstCardInfo)$/;"	f
+TrnSetStatus	src/misc.c	/^void TrnSetStatus(s32 iStatus)$/;"	f
+TrnSwitchApp	src/misc.c	/^void TrnSwitchApp(void)$/;"	f
+TrnSyncDateTime	src/misc.c	/^void TrnSyncDateTime(ST_TRANSDATA *pstTransData)$/;"	f
+TrnUpdateTransDataRecv	src/misc.c	/^s32 TrnUpdateTransDataRecv(SDK_8583_ST8583 *pstRecvPacket)$/;"	f
+TrnUpdateTransDataSend	src/misc.c	/^s32 TrnUpdateTransDataSend(SDK_8583_ST8583 *pstSendPacket)$/;"	f
+UPLOAD_BATCHDONE_OFFDECLINE	inc/global.h	/^    UPLOAD_BATCHDONE_OFFDECLINE,    \/\/batch upload success but host rejected when upload this offline transaction before $/;"	e	enum:__anon24
+UPLOAD_BATCHDONE_OFFFAIL	inc/global.h	/^    UPLOAD_BATCHDONE_OFFFAIL,       \/\/batch upload success but failed to upload this offline transaction before  $/;"	e	enum:__anon24
+UPLOAD_BATCH_DONE	inc/global.h	/^    UPLOAD_BATCH_DONE,              \/\/batch upload success                              $/;"	e	enum:__anon24
+UPLOAD_OFFLINE_DECLINE	inc/global.h	/^    UPLOAD_OFFLINE_DECLINE,         \/\/uploaded but rejected                                                  $/;"	e	enum:__anon24
+UPLOAD_OFFLINE_FAIL	inc/global.h	/^    UPLOAD_OFFLINE_FAIL,            \/\/fail to upload                                            $/;"	e	enum:__anon24
+UPLOAD_OFFLINE_NONE	inc/global.h	/^    UPLOAD_OFFLINE_NONE,            \/\/not uploaded                                               $/;"	e	enum:__anon24
+UPLOAD_OFFLINE_SUCCESS	inc/global.h	/^    UPLOAD_OFFLINE_SUCCESS,         \/\/upload success                                           $/;"	e	enum:__anon24
+USE_SDK_DEBUG	src/main.c	27;"	d	file:
+USE_SDK_DEBUG	src/main.c	28;"	d	file:
+VISA	inc/aid.h	/^    VISA = 0,$/;"	e	enum:__anon1
+VoidCheckOriginalTrans	src/void.c	/^s32 VoidCheckOriginalTrans(ST_TRANSLOG *pstTransLog)$/;"	f
+VoidPackMsg	src/void.c	/^s32 VoidPackMsg(SDK_8583_ST8583 *pstIsoMsg)$/;"	f
+VoidTrans	src/void.c	/^void VoidTrans(u16 usCardType)$/;"	f
+_ADJUST_H_	inc/adjust.h	18;"	d
+_AID_H_	inc/aid.h	18;"	d
+_BALANCE_H_	inc/balance.h	18;"	d
+_CAPK_H_	inc/capk.h	18;"	d
+_COMMU_H_	inc/commu.h	18;"	d
+_DATABASE_H_	inc/database.h	2;"	d
+_DISPLAY_H_	inc/display.h	18;"	d
+_EMV_H_	inc/emv.h	18;"	d
+_GLOBAL_H_	inc/global.h	18;"	d
+_ISO8583_H_	inc/iso8583.h	18;"	d
+_LOGON_H_	inc/logon.h	18;"	d
+_LOGOUT_H_	inc/logout.h	18;"	d
+_MISC_H_	inc/misc.h	18;"	d
+_OFFLINE_H_	inc/offline.h	19;"	d
+_PRINT_H_	inc/print.h	18;"	d
+_RECORD_H_	inc/record.h	18;"	d
+_REFUND_H_	inc/refund.h	18;"	d
+_REPORT_H_	inc/report.h	18;"	d
+_REVERSAL_H_	inc/reversal.h	18;"	d
+_SALE_H_	inc/sale.h	18;"	d
+_SCRIPT_H_	inc/script.h	18;"	d
+_SETTLE_H_	inc/settle.h	18;"	d
+_SETUP_H_	inc/setup.h	18;"	d
+_SQLITE3RTREE_H_	inc/sqlite3.h	6971;"	d
+_SQLITE3_H_	inc/sqlite3.h	34;"	d
+_STR_H_	inc/str.h	18;"	d
+_VOID_H_	inc/void.h	18;"	d
+__APPDBG_H__	inc/appdbg.h	18;"	d
+_gasTitle	src/display.c	/^static u8 _gasTitle[64];$/;"	v	file:
+_gasTitleBak	src/display.c	/^static u8 _gasTitleBak[64];$/;"	v	file:
+_gstAid	src/aid.c	/^static SDK_ICC_EmvSysIni_STRUCT _gstAid;$/;"	v	file:
+_gstCapk	src/capk.c	/^static SDK_ICC_CAPK_STRUCT _gstCapk;$/;"	v	file:
+_gstSdkIccExparam3	src/emv.c	/^static SDK_ICC_EXPARAM3 _gstSdkIccExparam3; \/\/for contactless transaction$/;"	v	file:
+_gstTransLog	src/record.c	/^static ST_TRANSLOG _gstTransLog;$/;"	v	file:
+_pgSSL	src/commu.c	/^static SDK_SSL_HANDLE _pgSSL;$/;"	v	file:
+aConstraint	inc/sqlite3.h	/^  } *aConstraint;            \/* Table of WHERE clause constraints *\/$/;"	m	struct:sqlite3_index_info	typeref:struct:sqlite3_index_info::sqlite3_index_constraint
+aConstraintUsage	inc/sqlite3.h	/^  } *aConstraintUsage;$/;"	m	struct:sqlite3_index_info	typeref:struct:sqlite3_index_info::sqlite3_index_constraint_usage
+aOrderBy	inc/sqlite3.h	/^  } *aOrderBy;               \/* The ORDER BY clause *\/$/;"	m	struct:sqlite3_index_info	typeref:struct:sqlite3_index_info::sqlite3_index_orderby
+aParam	inc/sqlite3.h	/^  double *aParam;                 \/* Parameters passed to SQL geom function *\/$/;"	m	struct:sqlite3_rtree_geometry
+argvIndex	inc/sqlite3.h	/^    int argvIndex;           \/* if >0, constraint is part of argv to xFilter *\/$/;"	m	struct:sqlite3_index_info::sqlite3_index_constraint_usage
+asAIID	inc/global.h	/^    u8 asAIID[11+1];                \/\/ #32 Acquiring Institution ID Code    $/;"	m	struct:__anon34
+asAccount	inc/appdbg.h	/^	u8 asAccount[19+1];$/;"	m	struct:__anon4
+asAcqInfo	inc/global.h	/^    u8 asAcqInfo[40+1];             \/\/ #63.2.3 acquirer info$/;"	m	struct:__anon34
+asAcquirerCode	inc/global.h	/^    u8 asAcquirerCode[11+1];        \/\/ #44 Additional Response Data - Acquirer code$/;"	m	struct:__anon34
+asAdditionInfo	inc/global.h	/^    u8 asAdditionInfo[323+1];       \/\/ #48 Additional Data - Private$/;"	m	struct:__anon37
+asAdminPwd	inc/setup.h	/^    u8 asAdminPwd[ADMIN_PWDLEN + 1];                        \/\/ admin password: len - ADMIN_PWDLEN$/;"	m	struct:__anon67
+asAmount	inc/appdbg.h	/^	u8 asAmount[12+1];$/;"	m	struct:__anon4
+asAmount	inc/global.h	/^    u8 asAmount[12+1];              \/\/ #04 Amount   $/;"	m	struct:__anon34
+asAppLabel	inc/global.h	/^    u8 asAppLabel[16+1];            \/\/Tag 50  (O): Application Label$/;"	m	struct:__anon33
+asAppPreferName	inc/global.h	/^    u8 asAppPreferName[16+1];       \/\/Tag 9F12(O): Application Preferred Name$/;"	m	struct:__anon33
+asAuthCode	inc/global.h	/^    u8 asAuthCode[6+1];             \/\/ #38 Authorisation Identification Res$/;"	m	struct:__anon34
+asBalance	inc/global.h	/^    u8 asBalance[13+1];             \/\/ #54 Additional Amounts   $/;"	m	struct:__anon34
+asBatchNO	inc/global.h	/^    u8 asBatchNO[6+1];              \/\/ #60.2 System batch Number    $/;"	m	struct:__anon34
+asBatchNO	inc/settle.h	/^    u8 asBatchNO[6 + 1];         $/;"	m	struct:__anon55
+asBatchNO	inc/setup.h	/^    u8  asBatchNO[6 + 1];$/;"	m	struct:__anon64
+asCUPInfo	inc/global.h	/^    u8 asCUPInfo[40+1];             \/\/ #63.2.2 CUP info$/;"	m	struct:__anon34
+asCVV	inc/global.h	/^    u8 asCVV[4+1];                  \/\/ CVV(must be encrypted before being stored in DB!!!)$/;"	m	struct:__anon32
+asCardHolder	inc/global.h	/^    u8 asCardHolder[26+1];          \/\/ card holder name(MAG\/5F20)$/;"	m	struct:__anon32
+asCashbackAmount	inc/global.h	/^    u8 asCashbackAmount[12+1];      \/\/ #xx: cashback amount $/;"	m	struct:__anon34
+asCashierPwd	inc/global.h	/^     u8 asCashierPwd[9]; $/;"	m	struct:__anon38
+asCdmaHostIP1	inc/setup.h	/^    u8 asCdmaHostIP1[17];           \/\/ CDMA host IP address$/;"	m	struct:__anon63
+asCdmaHostIP2	inc/setup.h	/^    u8 asCdmaHostIP2[17];           \/\/ CDMA host IP address$/;"	m	struct:__anon63
+asCdmaHostPort1	inc/setup.h	/^    u8 asCdmaHostPort1[7];          \/\/ CDMA host port$/;"	m	struct:__anon63
+asCdmaHostPort2	inc/setup.h	/^    u8 asCdmaHostPort2[7];          \/\/ CDMA host port$/;"	m	struct:__anon63
+asCdmaUser	inc/setup.h	/^    u8 asCdmaUser[52];              \/\/ CDMA user name$/;"	m	struct:__anon63
+asCdmaUserPwd	inc/setup.h	/^    u8 asCdmaUserPwd[52];           \/\/ CDMA user password$/;"	m	struct:__anon63
+asConditionCode	inc/global.h	/^    u8 asConditionCode[2+1];        \/\/ #25 Point of Service Condition Code  $/;"	m	struct:__anon34
+asCountryCode	inc/setup.h	/^    u8 asCountryCode[3 + 1];        \/\/ currency code$/;"	m	struct:__anon68
+asCurrencyCode	inc/global.h	/^    u8 asCurrencyCode[3+1];         \/\/ #49 Transaction Currency Code    $/;"	m	struct:__anon34
+asCurrencyCode	inc/setup.h	/^    u8 asCurrencyCode[3 + 1];       \/\/ currency code$/;"	m	struct:__anon68
+asCurrencyName	inc/setup.h	/^    u8 asCurrencyName[3+1];         \/\/ currency name$/;"	m	struct:__anon68
+asDateTime	inc/global.h	/^    u8 asDateTime[10+1];            \/\/ #07 Transmission Date & Time $/;"	m	struct:__anon34
+asDateTime	inc/settle.h	/^    u8 asDateTime[10 + 1];       $/;"	m	struct:__anon55
+asEntryMode	inc/global.h	/^    u8 asEntryMode[3+1];            \/\/ #22 Point of Service Entry Mode  $/;"	m	struct:__anon34
+asFuncCode	inc/global.h	/^    u8 asFuncCode[2+1];              \/\/ #60.2 System batch Number    $/;"	m	struct:__anon34
+asGprsAPN	inc/setup.h	/^    u8 asGprsAPN[52];               \/\/ GPRS APN$/;"	m	struct:__anon63
+asGprsHostIP1	inc/setup.h	/^    u8 asGprsHostIP1[17];           \/\/ GPRS host IP address$/;"	m	struct:__anon63
+asGprsHostIP2	inc/setup.h	/^    u8 asGprsHostIP2[17];           \/\/ GPRS host IP address$/;"	m	struct:__anon63
+asGprsHostPort1	inc/setup.h	/^    u8 asGprsHostPort1[7];          \/\/ GPRS host port $/;"	m	struct:__anon63
+asGprsHostPort2	inc/setup.h	/^    u8 asGprsHostPort2[7];          \/\/ GPRS host port $/;"	m	struct:__anon63
+asGprsUser	inc/setup.h	/^    u8 asGprsUser[52];              \/\/ GPRS user name$/;"	m	struct:__anon63
+asGprsUserPwd	inc/setup.h	/^    u8 asGprsUserPwd[52];           \/\/ GPRS user password$/;"	m	struct:__anon63
+asIFDSN	inc/global.h	/^    u8 asIFDSN[8];                  \/\/Tag 9F1E(O): IFD Serial Number$/;"	m	struct:__anon33
+asInterOrgCode	inc/global.h	/^    u8 asInterOrgCode[3+1];         \/\/ #63.1 International Organization code$/;"	m	struct:__anon34
+asIssuerCode	inc/global.h	/^    u8 asIssuerCode[11+1];          \/\/ #44 Additional Response Data - Issuer code$/;"	m	struct:__anon34
+asIssuerInfo	inc/global.h	/^    u8 asIssuerInfo[40+1];          \/\/ #63.2.1 Issuer info$/;"	m	struct:__anon34
+asLanguage	inc/setup.h	/^    u8 asLanguage[32 + 1];      \/\/ Language$/;"	m	struct:__anon62
+asMTI	inc/global.h	/^    u8 asMTI[4+1];                  \/\/ #0 Message Type Identifier$/;"	m	struct:__anon37
+asMerchAddr1	inc/setup.h	/^    u8 asMerchAddr1[48 + 1];        \/\/ merchant address line 1$/;"	m	struct:__anon68
+asMerchAddr2	inc/setup.h	/^    u8 asMerchAddr2[48 + 1];        \/\/ merchant address line 2$/;"	m	struct:__anon68
+asMerchAddr3	inc/setup.h	/^    u8 asMerchAddr3[48 + 1];        \/\/ merchant address line 3$/;"	m	struct:__anon68
+asMerchID	inc/global.h	/^    u8 asMerchID[15+1];             \/\/ #42 Card Acceptor Identification Code(MID): stTermInfo.asMID $/;"	m	struct:__anon34
+asMerchID	inc/settle.h	/^    u8 asMerchID[15 + 1];        $/;"	m	struct:__anon55
+asMerchID	inc/setup.h	/^    u8 asMerchID[15 + 1];           \/\/ merchant ID$/;"	m	struct:__anon68
+asMerchName	inc/setup.h	/^    u8 asMerchName[40 + 1];     \/\/ merchant name$/;"	m	struct:__anon68
+asMerchTel	inc/setup.h	/^    u8 asMerchTel[20+1];            \/\/ merchant telephone$/;"	m	struct:__anon68
+asNII	inc/setup.h	/^    u8 asNII[3+1];                  \/\/ #24 network international identifier (NII)$/;"	m	struct:__anon63
+asName	inc/global.h	/^    u8 asName[32];        $/;"	m	struct:__anon40
+asName	inc/misc.h	/^    u8 asName[32];    $/;"	m	struct:__anon45
+asNetDNS1	inc/setup.h	/^    u8 asNetDNS1[17];               \/\/ ethernet DNS 1                                         $/;"	m	struct:__anon63
+asNetDNS2	inc/setup.h	/^    u8 asNetDNS2[17];               \/\/ ethernet DNS 2          $/;"	m	struct:__anon63
+asNetGateway	inc/setup.h	/^    u8 asNetGateway[17];            \/\/ ethernet Local gateway                                $/;"	m	struct:__anon63
+asNetHostIP1	inc/setup.h	/^    u8 asNetHostIP1[17];                \/\/ ethernet host IP address                            $/;"	m	struct:__anon63
+asNetHostIP2	inc/setup.h	/^    u8 asNetHostIP2[17];                \/\/ ethernet host IP address                            $/;"	m	struct:__anon63
+asNetHostPort1	inc/setup.h	/^    u8 asNetHostPort1[7];           \/\/ ethernet host port                            $/;"	m	struct:__anon63
+asNetHostPort2	inc/setup.h	/^    u8 asNetHostPort2[7];           \/\/ ethernet host port                            $/;"	m	struct:__anon63
+asNetLocalIP	inc/setup.h	/^    u8 asNetLocalIP[17];            \/\/ ethernet Local IP                                     $/;"	m	struct:__anon63
+asNetMask	inc/setup.h	/^    u8 asNetMask[17];               \/\/ ethernet Local subnet mask                            $/;"	m	struct:__anon63
+asOrigBatchNO	inc/global.h	/^    u8 asOrigBatchNO[6+1];          \/\/ #61.1 original System batch Number   $/;"	m	struct:__anon34
+asOrigDate	inc/global.h	/^    u8 asOrigDate[4+1];             \/\/ #61.3 original transaction date$/;"	m	struct:__anon34
+asOrigTraceNO	inc/global.h	/^    u8 asOrigTraceNO[6+1];          \/\/ #61.2 original System Trace Audit Number $/;"	m	struct:__anon34
+asPabxNO	inc/setup.h	/^    u8 asPabxNO[9];                 \/\/ PABX number$/;"	m	struct:__anon63
+asPhone1	inc/setup.h	/^    u8 asPhone1[28];                \/\/ phone number1$/;"	m	struct:__anon63
+asPhone2	inc/setup.h	/^    u8 asPhone2[28];                \/\/ phone number2$/;"	m	struct:__anon63
+asPhone3	inc/setup.h	/^    u8 asPhone3[28];                \/\/ phone number3$/;"	m	struct:__anon63
+asPin	inc/appdbg.h	/^	u8 asPin[12+1];$/;"	m	struct:__anon4
+asPinCapCode	inc/global.h	/^    u8 asPinCapCode[2+1];           \/\/ #26 PIN Capture Code $/;"	m	struct:__anon34
+asProcCode	inc/global.h	/^    u8 asProcCode[6+1];             \/\/ #03 Processing Code  $/;"	m	struct:__anon34
+asPwd	inc/setup.h	/^    u8 asPwd[CASHIER_PWDLEN + 1];      \/\/ cashier password: len - CASHIER_PWDLEN$/;"	m	struct:__anon66
+asRefNO	inc/global.h	/^    u8 asRefNO[12+1];               \/\/ #37 Retrieval Ref. Number    $/;"	m	struct:__anon34
+asRefundMaxAmount	inc/setup.h	/^    u8  asRefundMaxAmount[12 + 1];  \/\/ the max. amount when doing refund transaction$/;"	m	struct:__anon64
+asRespCode	inc/display.h	/^    u8 asRespCode[2+1];          $/;"	m	struct:__anon17
+asRespCode	inc/global.h	/^    u8 asRespCode[2+1];             \/\/ #39 response code    $/;"	m	struct:__anon34
+asSettlementDate	inc/global.h	/^    u8 asSettlementDate[4+1];       \/\/ #15 Date Of Settlement   $/;"	m	struct:__anon34
+asStr	inc/display.h	/^    u8 asStr[64];$/;"	m	struct:__anon18
+asSysPwd	inc/setup.h	/^    u8 asSysPwd[SYSTEM_PWDLEN + 1];                         \/\/ system password: len - SYSTEM_PWDLEN$/;"	m	struct:__anon67
+asTPDU	inc/setup.h	/^    u8 asTPDU[12];                  \/\/ TPDU$/;"	m	struct:__anon63
+asTermID	inc/global.h	/^    u8 asTermID[8+1];               \/\/ #41 Card Acceptor Terminal ID(TID): stTermInfo.asTermID  $/;"	m	struct:__anon34
+asTermID	inc/settle.h	/^    u8 asTermID[8 + 1];          $/;"	m	struct:__anon55
+asTermID	inc/setup.h	/^    u8 asTermID[8 + 1];             \/\/ terminal ID$/;"	m	struct:__anon68
+asTermReserved	inc/global.h	/^    u8 asTermReserved[60+1];        \/\/ #63.2.4 $/;"	m	struct:__anon34
+asText	inc/display.h	/^    u8 asText[64 + 1];$/;"	m	struct:__anon14
+asTextLine2	inc/display.h	/^    u8 asTextLine2[50+1];         $/;"	m	struct:__anon16
+asTextLine2	inc/display.h	/^    u8 asTextLine2[50+1];         $/;"	m	struct:__anon17
+asTextLine3	inc/display.h	/^    u8 asTextLine3[50+1];         $/;"	m	struct:__anon16
+asTextLine3	inc/display.h	/^    u8 asTextLine3[50+1];         $/;"	m	struct:__anon17
+asTipAmount	inc/global.h	/^    u8 asTipAmount[12+1];           \/\/ #48\/#54 Additional Data – Private: TIP Amount   $/;"	m	struct:__anon34
+asTitle	inc/display.h	/^    u8 asTitle[64 + 1];$/;"	m	struct:__anon15
+asTitle	inc/setup.h	/^    u8 asTitle[64];$/;"	m	struct:__anon61
+asTraceNO	inc/global.h	/^    u8 asTraceNO[6+1];              \/\/ #11 System Trace Audit Number    $/;"	m	struct:__anon34
+asTraceNO	inc/setup.h	/^    u8  asTraceNO[6 + 1];$/;"	m	struct:__anon64
+asTransDate	inc/global.h	/^    u8 asTransDate[4+1];            \/\/ #13 Local Transaction Date   $/;"	m	struct:__anon34
+asTransTime	inc/global.h	/^    u8 asTransTime[6+1];            \/\/ #12 Local Transaction Time   $/;"	m	struct:__anon34
+asWifiHostIP1	inc/setup.h	/^    u8 asWifiHostIP1[17];                \/\/ ethernet host IP address                            $/;"	m	struct:__anon63
+asWifiHostIP2	inc/setup.h	/^    u8 asWifiHostIP2[17];                \/\/ ethernet host IP address                            $/;"	m	struct:__anon63
+asWifiHostPort1	inc/setup.h	/^    u8 asWifiHostPort1[7];           \/\/ ethernet host port                            $/;"	m	struct:__anon63
+asWifiHostPort2	inc/setup.h	/^    u8 asWifiHostPort2[7];           \/\/ ethernet host port                            $/;"	m	struct:__anon63
+bIsAdjusted	inc/global.h	/^    bool bIsAdjusted;                       \/\/ have been adjusted or not$/;"	m	struct:__anon35
+bIsAutoLogon	inc/setup.h	/^    bool bIsAutoLogon;              \/\/ do logon transaction automatically before other transaction$/;"	m	struct:__anon64
+bIsAutoLogout	inc/setup.h	/^    bool bIsAutoLogout;             \/\/ do logout transaction automatically after settlement$/;"	m	struct:__anon64
+bIsBacklight	inc/setup.h	/^    bool bIsBacklight;          \/\/ backlight: enable\/disable$/;"	m	struct:__anon62
+bIsBackup	inc/database.h	/^    bool bIsBackup;$/;"	m	struct:__anon10
+bIsBeep	inc/setup.h	/^    bool bIsBeep;               \/\/ buzzer beep: enable\/disable$/;"	m	struct:__anon62
+bIsCTLS	inc/setup.h	/^    bool bIsCTLS;$/;"	m	struct:__anon64
+bIsCashierLogon	inc/global.h	/^    bool bIsCashierLogon;              $/;"	m	struct:__anon39
+bIsCheckAdminPwd	inc/setup.h	/^    bool bIsCheckAdminPwd;          \/\/ need chenk admin password when doing transactions of void$/;"	m	struct:__anon64
+bIsCtlsReadCardOk	inc/global.h	/^    bool bIsCtlsReadCardOk;         \/\/ whether read CTLS card ok     $/;"	m	struct:__anon37
+bIsDesc	inc/database.h	/^    bool bIsDesc;$/;"	m	struct:__anon11
+bIsDesc	inc/record.h	/^    bool bIsDesc;$/;"	m	struct:__anon50
+bIsEnableTrack1	inc/setup.h	/^    bool bIsEnableTrack1;$/;"	m	struct:__anon64
+bIsEncrypt	inc/database.h	/^    bool bIsEncrypt;$/;"	m	struct:__anon8
+bIsExist	inc/setup.h	/^    bool bIsExist;   $/;"	m	struct:__anon66
+bIsExtPED	inc/setup.h	/^    bool bIsExtPED;             \/\/ external pinpad: enable\/disable$/;"	m	struct:__anon62
+bIsFallback	inc/setup.h	/^    bool bIsFallback;$/;"	m	struct:__anon64
+bIsForceOnline	inc/setup.h	/^    bool bIsForceOnline;$/;"	m	struct:__anon64
+bIsGprsNeedUser	inc/setup.h	/^    bool bIsGprsNeedUser;           \/\/ GPRS whether user name and password are needed$/;"	m	struct:__anon63
+bIsHide	inc/display.h	/^    bool bIsHide;$/;"	m	struct:__anon14
+bIsIccFailTrans	inc/global.h	/^    bool bIsIccFailTrans;                   \/\/ ICC transaction or not$/;"	m	struct:__anon35
+bIsIccTrans	inc/global.h	/^    bool bIsIccTrans;                       \/\/ ICC transaction or not$/;"	m	struct:__anon35
+bIsIntRf	inc/setup.h	/^    bool bIsIntRf;              \/\/ RF reader mode: 0 - auto; 1 - internal; 2 - external$/;"	m	struct:__anon62
+bIsLedOn	inc/setup.h	/^    bool bIsLedOn;$/;"	m	struct:__anon64
+bIsMandatory	inc/iso8583.h	/^    bool bIsMandatory;$/;"	m	struct:__anon42
+bIsMaskPAN	inc/setup.h	/^    bool bIsMaskPAN;                \/\/ mask the PAN when doing thransacions of sale$/;"	m	struct:__anon64
+bIsNeedRePrint	inc/global.h	/^    bool bIsNeedRePrint;                    \/\/ had printed or not$/;"	m	struct:__anon35
+bIsNeedReversal	inc/global.h	/^    bool bIsNeedReversal;                   \/\/ need reversal or not $/;"	m	struct:__anon35
+bIsNeedScript	inc/global.h	/^    bool bIsNeedScript;                     \/\/ need send script resault or not  $/;"	m	struct:__anon35
+bIsNeedSettle	inc/setup.h	/^    bool bIsNeedSettle;$/;"	m	struct:__anon60
+bIsNetDHCP	inc/setup.h	/^    bool bIsNetDHCP;                \/\/ enable DHCP or not                   $/;"	m	struct:__anon63
+bIsOffline	inc/global.h	/^    bool bIsOffline;                        \/\/ offline transaction or not$/;"	m	struct:__anon35
+bIsOnlineEC	inc/global.h	/^    bool bIsOnlineEC;               \/\/ Electronic cash to online process$/;"	m	struct:__anon37
+bIsPosLogon	inc/global.h	/^    bool bIsPosLogon;             $/;"	m	struct:__anon39
+bIsPrintMinusSign	inc/setup.h	/^    bool bIsPrintMinusSign;         \/\/ is void transaction need print minus sign$/;"	m	struct:__anon64
+bIsPromptICC	inc/setup.h	/^    bool bIsPromptICC;$/;"	m	struct:__anon64
+bIsSupportAdjust	inc/setup.h	/^    bool bIsSupportAdjust;$/;"	m	struct:__anon64
+bIsSupportRefund	inc/setup.h	/^    bool bIsSupportRefund;$/;"	m	struct:__anon64
+bIsSupportSale	inc/setup.h	/^    bool bIsSupportSale;$/;"	m	struct:__anon64
+bIsSupportVoid	inc/setup.h	/^    bool bIsSupportVoid;$/;"	m	struct:__anon64
+bIsTripleDES	inc/setup.h	/^    bool bIsTripleDES;$/;"	m	struct:__anon65
+bIsUseBackupFirst	inc/setup.h	/^    bool bIsUseBackupFirst;         \/\/ use backup parameter firstly$/;"	m	struct:__anon63
+bIsUseDUKPT	inc/setup.h	/^    bool bIsUseDUKPT;$/;"	m	struct:__anon65
+bIsVirtualLed	inc/setup.h	/^    bool bIsVirtualLed;$/;"	m	struct:__anon64
+bIsVoidNeedCard	inc/setup.h	/^    bool bIsVoidNeedCard;           \/\/ read card when doing transactions of void$/;"	m	struct:__anon64
+bIsVoidNeedPIN	inc/setup.h	/^    bool bIsVoidNeedPIN;            \/\/ need PIN when doing transactions of void$/;"	m	struct:__anon64
+bIsVoided	inc/global.h	/^    bool bIsVoided;                         \/\/ have been voided or not$/;"	m	struct:__anon35
+bIsWithSSL	inc/setup.h	/^    bool bIsWithSSL;                \/\/ communication wiht SSL$/;"	m	struct:__anon63
+bcAOSA	inc/global.h	/^    u8 bcAOSA[6];                   \/\/Tag 9F5D(O): Available Offline Spending Amount $/;"	m	struct:__anon33
+bcAmountOther	inc/global.h	/^    u8 bcAmountOther[6];            \/\/Tag 9F03(O): Amount Other  $/;"	m	struct:__anon33
+bcCountryCode	inc/global.h	/^    u8 bcCountryCode[2];            \/\/Tag 9F1A(M): Terminal Country Code $/;"	m	struct:__anon33
+bcCurrencyCode	inc/global.h	/^    u8 bcCurrencyCode[2];           \/\/Tag 5F2A(M): Transaction Currency Code$/;"	m	struct:__anon33
+bcPrivateData	inc/global.h	/^    u8 bcPrivateData[255];          \/\/ #62 Reserved private data$/;"	m	struct:__anon37
+bcRecvIccData	inc/global.h	/^    u8 bcRecvIccData[255];          \/\/ #55 receive icc data$/;"	m	struct:__anon37
+bcTotalCreditAmount	inc/settle.h	/^    u8 bcTotalCreditAmount[6];      \/\/总的贷计金额$/;"	m	struct:__anon53
+bcTotalDebitAmount	inc/settle.h	/^    u8 bcTotalDebitAmount[6];       \/\/总的借计金额$/;"	m	struct:__anon53
+bcTotalRefundAmount	inc/settle.h	/^    u8 bcTotalRefundAmount[6];              \/\/退货交易总额$/;"	m	struct:__anon52
+bcTotalSaleAmount	inc/settle.h	/^    u8 bcTotalSaleAmount[6];                \/\/消费交易总金额(不包括已撤销)$/;"	m	struct:__anon52
+bcTotalVoidAmount	inc/settle.h	/^    u8 bcTotalVoidAmount[6];               \/\/消费撤销$/;"	m	struct:__anon52
+bcTransAmount	inc/global.h	/^    u8 bcTransAmount[6];            \/\/Tag 9F02(M): Transaction Amount  $/;"	m	struct:__anon33
+desc	inc/sqlite3.h	/^     unsigned char desc;       \/* True for DESC.  False for ASC. *\/$/;"	m	struct:sqlite3_index_info::sqlite3_index_orderby
+double	inc/sqlite3.h	263;"	d
+double	inc/sqlite3.h	6949;"	d
+eCtlsType	inc/global.h	/^    E_EMV_CTLS_TYPE eCtlsType;      \/\/ Cardreader return contactless transaction type$/;"	m	struct:__anon37
+eFontSize	inc/display.h	/^    SDK_DISP_FONT eFontSize;$/;"	m	struct:__anon15
+eMode	inc/database.h	/^    E_FILTER_MODE eMode;$/;"	m	struct:__anon11
+eMode	inc/display.h	/^    E_MENU_MODE eMode;$/;"	m	struct:__anon15
+eMode	inc/record.h	/^    E_FILTER_MODE eMode;$/;"	m	struct:__anon50
+eMsgLenType	inc/setup.h	/^    E_MSGLEN_TYPE eMsgLenType;      \/\/ type of message's length : bcd\/hex\/asc$/;"	m	struct:__anon63
+eTransID	inc/global.h	/^    E_TRANS_ID eTransID;                    \/\/ transaction ID$/;"	m	struct:__anon36
+eTransID	inc/global.h	/^    E_TRANS_ID eTransID;       $/;"	m	struct:__anon40
+eTransID	inc/global.h	/^    u32 eTransID;$/;"	m	struct:__anon41
+eTransID	inc/misc.h	/^    E_TRANS_ID eTransID;     $/;"	m	struct:__anon45
+eType	inc/setup.h	/^    E_SETUP_TYPE eType;$/;"	m	struct:__anon60
+eUploadStatus	inc/global.h	/^    E_UPLOAD_STATUS eUploadStatus;          \/\/ transaction upload status$/;"	m	struct:__anon35
+estimatedCost	inc/sqlite3.h	/^  double estimatedCost;      \/* Estimated cost of using this index *\/$/;"	m	struct:sqlite3_index_info
+gheTRMData	inc/global.h	/^EXTERN u8 gheTRMData[8];$/;"	v
+gstAppSysCfg	inc/global.h	/^EXTERN ST_APP_SYSCFG gstAppSysCfg; $/;"	v
+gstLoginInfo	inc/global.h	/^EXTERN ST_LOGIN_INFO gstLoginInfo;      \/\/login related information$/;"	v
+gstRecvPacket	inc/global.h	/^EXTERN SDK_8583_ST8583 gstRecvPacket;   \/\/ ISO8583 receive packet struct$/;"	v
+gstSendPacket	inc/global.h	/^EXTERN SDK_8583_ST8583 gstSendPacket;   \/\/ ISO8583 send packet struct$/;"	v
+gstTransData	inc/global.h	/^EXTERN ST_TRANSDATA gstTransData;       \/\/transaction related information$/;"	v
+gucMsdCVM	inc/global.h	/^EXTERN u8 gucMsdCVM;$/;"	v
+guiScrBuffSize	inc/global.h	/^EXTERN u32 guiScrBuffSize;  \/\/screen buffer size$/;"	v
+heAC	inc/global.h	/^    u8 heAC[8];                     \/\/Tag 9F26(M): Application Cryptogram$/;"	m	struct:__anon33
+heAID	inc/global.h	/^    u8 heAID[16];                   \/\/Tag 84  (O): Dedicated File Name\/Application ID  $/;"	m	struct:__anon33
+heAIP	inc/global.h	/^    u8 heAIP[2];                    \/\/Tag 82  (M): Application Interchange Profile   $/;"	m	struct:__anon33
+heATC	inc/global.h	/^    u8 heATC[2];                    \/\/Tag 9F36(M): Application Transaction Counter  $/;"	m	struct:__anon33
+heAppVerNum	inc/global.h	/^    u8 heAppVerNum[2];              \/\/Tag 9F08(O): Application Version Number$/;"	m	struct:__anon33
+heBitmap	inc/global.h	/^    u8 heBitmap[16];                \/\/ #xx bitmap, 8 or 16 bytes, up to 128 fields$/;"	m	struct:__anon34
+heCVMR	inc/global.h	/^    u8 heCVMR[3];                   \/\/Tag 9F34(M): CVM Results$/;"	m	struct:__anon33
+heEchoTak	inc/appdbg.h	/^	u8 heEchoTak[8+1];$/;"	m	struct:__anon4
+heEchoTmk	inc/appdbg.h	/^	u8 heEchoTmk[8+1];$/;"	m	struct:__anon4
+heEchoTpk	inc/appdbg.h	/^	u8 heEchoTpk[8+1];$/;"	m	struct:__anon4
+heFFI	inc/global.h	/^    u8 heFFI[32];                   \/\/Tag 9F6E(O): Form Factor Indicator$/;"	m	struct:__anon33
+heIAD	inc/global.h	/^    u8 heIAD[32];                   \/\/Tag 9F10(M): Issuer Application Data  $/;"	m	struct:__anon33
+heIDN	inc/global.h	/^    u8 heIDN[8];                    \/\/Tag 9F4C(O): ICC Dynamic Number  $/;"	m	struct:__anon33
+heIssAuthData	inc/global.h	/^    u8 heIssAuthData[32];           \/\/Tag 91    : Issuer Authentication Data                                            $/;"	m	struct:__anon33
+heKSN	inc/global.h	/^    u8 heKSN[10];                   \/\/ DUKPT KSN        \/\/wm20161008$/;"	m	struct:__anon37
+hePIN	inc/global.h	/^    u8 hePIN[13];                   \/\/ #52 Personal Identification Number$/;"	m	struct:__anon37
+heRFU	inc/global.h	/^    u8 heRFU[128];                  \/\/RFU data$/;"	m	struct:__anon33
+heRFU	inc/global.h	/^    u8 heRFU[256];                          \/\/ RFU$/;"	m	struct:__anon36
+heScriptResult	inc/global.h	/^    u8 heScriptResult[21];          \/\/Tag DF31  : issuer script 71\/72 result                                            $/;"	m	struct:__anon33
+heTSI	inc/global.h	/^    u8 heTSI[2];                    \/\/Tag 9B  (O): Transaction Status Information                                           $/;"	m	struct:__anon33
+heTVR	inc/global.h	/^    u8 heTVR[5];                    \/\/Tag 95  (M): Terminal Verification Results              $/;"	m	struct:__anon33
+heTag	inc/emv.h	/^    u8 heTag[3];$/;"	m	struct:__anon21
+heTag	inc/iso8583.h	/^    u8 heTag[3];$/;"	m	struct:__anon42
+heTag	inc/misc.h	/^    u8 heTag[3];$/;"	m	struct:__anon46
+heTermAppVerNum	inc/global.h	/^    u8 heTermAppVerNum[2];          \/\/Tag 9F09(O): Terminal Application Version Number$/;"	m	struct:__anon33
+heTermCap	inc/global.h	/^    u8 heTermCap[3];                \/\/Tag 9F33(M): Terminal Capabilities  $/;"	m	struct:__anon33
+heTransDate	inc/global.h	/^    u8 heTransDate[3];              \/\/Tag 9A  (M): Transaction Date $/;"	m	struct:__anon33
+heTransSeqCnt	inc/global.h	/^    u8 heTransSeqCnt[4];            \/\/Tag 9F41(O): Transaction Sequence Counter$/;"	m	struct:__anon33
+heUN	inc/global.h	/^    u8 heUN[4];                     \/\/Tag 9F37(M): Unpredictable Number$/;"	m	struct:__anon33
+heValue	inc/emv.h	/^    u8 heValue[256];$/;"	m	struct:__anon21
+iColumn	inc/sqlite3.h	/^     int iColumn;              \/* Column number *\/$/;"	m	struct:sqlite3_index_info::sqlite3_index_orderby
+iColumn	inc/sqlite3.h	/^     int iColumn;              \/* Column on left-hand side of constraint *\/$/;"	m	struct:sqlite3_index_info::sqlite3_index_constraint
+iEndLine	inc/display.h	/^    s32 iEndLine;$/;"	m	struct:__anon19
+iID	inc/global.h	/^    s32 iID;                                \/\/ transaction record ID$/;"	m	struct:__anon36
+iId	inc/database.h	/^    s32 iId;$/;"	m	struct:__anon8
+iId	inc/record.h	/^    s32 iId;$/;"	m	struct:__anon50
+iId	inc/setup.h	/^    s32 iId;$/;"	m	struct:__anon69
+iLen	inc/database.h	/^    s32 iLen; $/;"	m	struct:__anon11
+iLen	inc/database.h	/^    s32 iLen;$/;"	m	struct:__anon8
+iNum	inc/database.h	/^    s32 iNum;$/;"	m	struct:__anon11
+iNum	inc/record.h	/^    s32 iNum;$/;"	m	struct:__anon50
+iOriginalID	inc/global.h	/^    s32 iOriginalID;                        \/\/ original transaction record ID   \/\/只要保存这个ID，就可以根据该ID找到原交易所有信息$/;"	m	struct:__anon36
+iPrivateDataLen	inc/global.h	/^    s32  iPrivateDataLen;           \/\/ Reserved private data len$/;"	m	struct:__anon37
+iRecvIccDataLen	inc/global.h	/^    s32  iRecvIccDataLen;           \/\/ receive icc data length$/;"	m	struct:__anon37
+iSize	inc/database.h	/^    s32 iSize;                   \/\/Size of the field$/;"	m	struct:__anon8
+iStartLine	inc/display.h	/^    s32 iStartLine;$/;"	m	struct:__anon19
+iStatus	inc/display.h	/^    s32 iStatus;          $/;"	m	struct:__anon16
+iStatus	inc/global.h	/^    s32 iStatus;                   \/\/ global error code$/;"	m	struct:__anon37
+iTermOffset	inc/sqlite3.h	/^     int iTermOffset;          \/* Used internally - xBestIndex should ignore *\/$/;"	m	struct:sqlite3_index_info::sqlite3_index_constraint
+iType	inc/database.h	/^    s32 iType;                                 \/\/Type of the field: TEXT, INT, VARCHAR(), etc$/;"	m	struct:__anon11
+iType	inc/database.h	/^    s32 iType;                   \/\/Type of the field: TEXT, INT, VARCHAR(), etc$/;"	m	struct:__anon8
+iVersion	inc/sqlite3.h	/^  int iVersion;            \/* Structure version number (currently 3) *\/$/;"	m	struct:sqlite3_vfs
+iVersion	inc/sqlite3.h	/^  int iVersion;$/;"	m	struct:sqlite3_io_methods
+iVersion	inc/sqlite3.h	/^  int iVersion;$/;"	m	struct:sqlite3_module
+iVersion	inc/sqlite3.h	/^  int iVersion;$/;"	m	struct:sqlite3_pcache_methods2
+idxNum	inc/sqlite3.h	/^  int idxNum;                \/* Number used to identify the index *\/$/;"	m	struct:sqlite3_index_info
+idxStr	inc/sqlite3.h	/^  char *idxStr;              \/* String, possibly obtained from sqlite3_malloc *\/$/;"	m	struct:sqlite3_index_info
+main	src/main.c	/^s32 main(s32 argc, char const *argv[])$/;"	f
+mxPathname	inc/sqlite3.h	/^  int mxPathname;          \/* Maximum file pathname length *\/$/;"	m	struct:sqlite3_vfs
+nConstraint	inc/sqlite3.h	/^  int nConstraint;           \/* Number of entries in aConstraint *\/$/;"	m	struct:sqlite3_index_info
+nOrderBy	inc/sqlite3.h	/^  int nOrderBy;              \/* Number of terms in the ORDER BY clause *\/$/;"	m	struct:sqlite3_index_info
+nParam	inc/sqlite3.h	/^  int nParam;                     \/* Size of array aParam[] *\/$/;"	m	struct:sqlite3_rtree_geometry
+nRef	inc/sqlite3.h	/^  int nRef;                       \/* NO LONGER USED *\/$/;"	m	struct:sqlite3_vtab
+needToFreeIdxStr	inc/sqlite3.h	/^  int needToFreeIdxStr;      \/* Free idxStr using sqlite3_free() if true *\/$/;"	m	struct:sqlite3_index_info
+omit	inc/sqlite3.h	/^    unsigned char omit;      \/* Do not code a test for this constraint *\/$/;"	m	struct:sqlite3_index_info::sqlite3_index_constraint_usage
+op	inc/sqlite3.h	/^     unsigned char op;         \/* Constraint operator *\/$/;"	m	struct:sqlite3_index_info::sqlite3_index_constraint
+orderByConsumed	inc/sqlite3.h	/^  int orderByConsumed;       \/* True if output is already ordered *\/$/;"	m	struct:sqlite3_index_info
+pAddress	inc/database.h	/^    void *pAddress;$/;"	m	struct:__anon8
+pAddress	inc/iso8583.h	/^    u8 *pAddress;$/;"	m	struct:__anon42
+pAddress	inc/misc.h	/^    u8 *pAddress;$/;"	m	struct:__anon46
+pAddress	inc/setup.h	/^    void *pAddress;$/;"	m	struct:__anon60
+pAppData	inc/sqlite3.h	/^  void *pAppData;                \/* Argument to xInit() and xShutdown() *\/$/;"	m	struct:sqlite3_mem_methods
+pAppData	inc/sqlite3.h	/^  void *pAppData;          \/* Pointer to application-specific data *\/$/;"	m	struct:sqlite3_vfs
+pArg	inc/sqlite3.h	/^  void *pArg;$/;"	m	struct:sqlite3_pcache_methods
+pArg	inc/sqlite3.h	/^  void *pArg;$/;"	m	struct:sqlite3_pcache_methods2
+pBlackList	src/main.c	/^char const *pBlackList[] =$/;"	v
+pBuf	inc/sqlite3.h	/^  void *pBuf;        \/* The content of the page *\/$/;"	m	struct:sqlite3_pcache_page
+pContext	inc/sqlite3.h	/^  void *pContext;                 \/* Copy of pContext passed to s_r_g_c() *\/$/;"	m	struct:sqlite3_rtree_geometry
+pExtra	inc/sqlite3.h	/^  void *pExtra;      \/* Extra information associated with the page *\/$/;"	m	struct:sqlite3_pcache_page
+pFun	inc/display.h	/^    MENUITEM_FUN pFun;$/;"	m	struct:__anon14
+pFun	inc/global.h	/^    PACKET_FUN pFun;$/;"	m	struct:__anon41
+pLength	inc/misc.h	/^    u8 *pLength;$/;"	m	struct:__anon46
+pMethods	inc/sqlite3.h	/^  const struct sqlite3_io_methods *pMethods;  \/* Methods for an open file *\/$/;"	m	struct:sqlite3_file	typeref:struct:sqlite3_file::sqlite3_io_methods
+pModule	inc/sqlite3.h	/^  const sqlite3_module *pModule;  \/* The module for this virtual table *\/$/;"	m	struct:sqlite3_vtab
+pNext	inc/sqlite3.h	/^  sqlite3_vfs *pNext;      \/* Next registered VFS *\/$/;"	m	struct:sqlite3_vfs
+pUser	inc/sqlite3.h	/^  void *pUser;                    \/* Callback implementation user data *\/$/;"	m	struct:sqlite3_rtree_geometry
+pVtab	inc/sqlite3.h	/^  sqlite3_vtab *pVtab;      \/* Virtual table of this cursor *\/$/;"	m	struct:sqlite3_vtab_cursor
+pWhiteList	src/main.c	/^char const *pWhiteList[] =$/;"	v
+pasFieldName	inc/database.h	/^    u8 *pasFieldName;            \/\/Name of the field$/;"	m	struct:__anon8
+pasName	inc/database.h	/^    u8 *pasName;$/;"	m	struct:__anon11
+pasStr	inc/setup.h	/^    u8 *pasStr[SETUP_MAXPROMPT_LINE + 1];$/;"	m	struct:__anon60
+pasTabName	inc/database.h	/^    u8 *pasTabName;                            \/*! Name of the table*\/$/;"	m	struct:__anon10
+pasValue	inc/database.h	/^    void *pasValue[DB_MAXFILTER_VALUE];$/;"	m	struct:__anon11
+pasValue	inc/record.h	/^    void *pasValue[DB_MAXFILTER_VALUE];$/;"	m	struct:__anon50
+pgScrBuff	inc/global.h	/^EXTERN u16 *pgScrBuff;      \/\/screen buffer$/;"	v
+sTranNo	inc/appdbg.h	/^	s32 sTranNo;$/;"	m	struct:__anon3
+sqlite3	inc/sqlite3.h	/^typedef struct sqlite3 sqlite3;$/;"	t	typeref:struct:sqlite3
+sqlite3_backup	inc/sqlite3.h	/^typedef struct sqlite3_backup sqlite3_backup;$/;"	t	typeref:struct:sqlite3_backup
+sqlite3_blob	inc/sqlite3.h	/^typedef struct sqlite3_blob sqlite3_blob;$/;"	t	typeref:struct:sqlite3_blob
+sqlite3_callback	inc/sqlite3.h	/^typedef int (*sqlite3_callback)(void*,int,char**, char**);$/;"	t
+sqlite3_context	inc/sqlite3.h	/^typedef struct sqlite3_context sqlite3_context;$/;"	t	typeref:struct:sqlite3_context
+sqlite3_destructor_type	inc/sqlite3.h	/^typedef void (*sqlite3_destructor_type)(void*);$/;"	t
+sqlite3_file	inc/sqlite3.h	/^struct sqlite3_file {$/;"	s
+sqlite3_file	inc/sqlite3.h	/^typedef struct sqlite3_file sqlite3_file;$/;"	t	typeref:struct:sqlite3_file
+sqlite3_index_constraint	inc/sqlite3.h	/^  struct sqlite3_index_constraint {$/;"	s	struct:sqlite3_index_info
+sqlite3_index_constraint_usage	inc/sqlite3.h	/^  struct sqlite3_index_constraint_usage {$/;"	s	struct:sqlite3_index_info
+sqlite3_index_info	inc/sqlite3.h	/^struct sqlite3_index_info {$/;"	s
+sqlite3_index_info	inc/sqlite3.h	/^typedef struct sqlite3_index_info sqlite3_index_info;$/;"	t	typeref:struct:sqlite3_index_info
+sqlite3_index_orderby	inc/sqlite3.h	/^  struct sqlite3_index_orderby {$/;"	s	struct:sqlite3_index_info
+sqlite3_int64	inc/sqlite3.h	/^typedef sqlite_int64 sqlite3_int64;$/;"	t
+sqlite3_io_methods	inc/sqlite3.h	/^struct sqlite3_io_methods {$/;"	s
+sqlite3_io_methods	inc/sqlite3.h	/^typedef struct sqlite3_io_methods sqlite3_io_methods;$/;"	t	typeref:struct:sqlite3_io_methods
+sqlite3_mem_methods	inc/sqlite3.h	/^struct sqlite3_mem_methods {$/;"	s
+sqlite3_mem_methods	inc/sqlite3.h	/^typedef struct sqlite3_mem_methods sqlite3_mem_methods;$/;"	t	typeref:struct:sqlite3_mem_methods
+sqlite3_module	inc/sqlite3.h	/^struct sqlite3_module {$/;"	s
+sqlite3_module	inc/sqlite3.h	/^typedef struct sqlite3_module sqlite3_module;$/;"	t	typeref:struct:sqlite3_module
+sqlite3_mutex	inc/sqlite3.h	/^typedef struct sqlite3_mutex sqlite3_mutex;$/;"	t	typeref:struct:sqlite3_mutex
+sqlite3_mutex_methods	inc/sqlite3.h	/^struct sqlite3_mutex_methods {$/;"	s
+sqlite3_mutex_methods	inc/sqlite3.h	/^typedef struct sqlite3_mutex_methods sqlite3_mutex_methods;$/;"	t	typeref:struct:sqlite3_mutex_methods
+sqlite3_pcache	inc/sqlite3.h	/^typedef struct sqlite3_pcache sqlite3_pcache;$/;"	t	typeref:struct:sqlite3_pcache
+sqlite3_pcache_methods	inc/sqlite3.h	/^struct sqlite3_pcache_methods {$/;"	s
+sqlite3_pcache_methods	inc/sqlite3.h	/^typedef struct sqlite3_pcache_methods sqlite3_pcache_methods;$/;"	t	typeref:struct:sqlite3_pcache_methods
+sqlite3_pcache_methods2	inc/sqlite3.h	/^struct sqlite3_pcache_methods2 {$/;"	s
+sqlite3_pcache_methods2	inc/sqlite3.h	/^typedef struct sqlite3_pcache_methods2 sqlite3_pcache_methods2;$/;"	t	typeref:struct:sqlite3_pcache_methods2
+sqlite3_pcache_page	inc/sqlite3.h	/^struct sqlite3_pcache_page {$/;"	s
+sqlite3_pcache_page	inc/sqlite3.h	/^typedef struct sqlite3_pcache_page sqlite3_pcache_page;$/;"	t	typeref:struct:sqlite3_pcache_page
+sqlite3_rtree_geometry	inc/sqlite3.h	/^struct sqlite3_rtree_geometry {$/;"	s
+sqlite3_rtree_geometry	inc/sqlite3.h	/^typedef struct sqlite3_rtree_geometry sqlite3_rtree_geometry;$/;"	t	typeref:struct:sqlite3_rtree_geometry
+sqlite3_stmt	inc/sqlite3.h	/^typedef struct sqlite3_stmt sqlite3_stmt;$/;"	t	typeref:struct:sqlite3_stmt
+sqlite3_syscall_ptr	inc/sqlite3.h	/^typedef void (*sqlite3_syscall_ptr)(void);$/;"	t
+sqlite3_temp_directory	inc/sqlite3.h	/^SQLITE_API SQLITE_EXTERN char *sqlite3_temp_directory;$/;"	v
+sqlite3_uint64	inc/sqlite3.h	/^typedef sqlite_uint64 sqlite3_uint64;$/;"	t
+sqlite3_value	inc/sqlite3.h	/^typedef struct Mem sqlite3_value;$/;"	t	typeref:struct:Mem
+sqlite3_version	inc/sqlite3.h	/^SQLITE_API SQLITE_EXTERN const char sqlite3_version[];$/;"	v
+sqlite3_vfs	inc/sqlite3.h	/^struct sqlite3_vfs {$/;"	s
+sqlite3_vfs	inc/sqlite3.h	/^typedef struct sqlite3_vfs sqlite3_vfs;$/;"	t	typeref:struct:sqlite3_vfs
+sqlite3_vtab	inc/sqlite3.h	/^struct sqlite3_vtab {$/;"	s
+sqlite3_vtab	inc/sqlite3.h	/^typedef struct sqlite3_vtab sqlite3_vtab;$/;"	t	typeref:struct:sqlite3_vtab
+sqlite3_vtab_cursor	inc/sqlite3.h	/^struct sqlite3_vtab_cursor {$/;"	s
+sqlite3_vtab_cursor	inc/sqlite3.h	/^typedef struct sqlite3_vtab_cursor sqlite3_vtab_cursor;$/;"	t	typeref:struct:sqlite3_vtab_cursor
+sqlite_int64	inc/sqlite3.h	/^  typedef SQLITE_INT64_TYPE sqlite_int64;$/;"	t
+sqlite_int64	inc/sqlite3.h	/^  typedef __int64 sqlite_int64;$/;"	t
+sqlite_int64	inc/sqlite3.h	/^  typedef long long int sqlite_int64;$/;"	t
+sqlite_uint64	inc/sqlite3.h	/^  typedef unsigned SQLITE_INT64_TYPE sqlite_uint64;$/;"	t
+sqlite_uint64	inc/sqlite3.h	/^  typedef unsigned __int64 sqlite_uint64;$/;"	t
+sqlite_uint64	inc/sqlite3.h	/^  typedef unsigned long long int sqlite_uint64;$/;"	t
+stCardData	inc/global.h	/^    SDK_ICC_CARDDATA stCardData;    \/\/ Must NOT store track1\/2\/3 data in DB!!!$/;"	m	struct:__anon32
+stCardInfo	inc/global.h	/^    ST_CARDINFO stCardInfo;                 \/\/ card info                                            $/;"	m	struct:__anon36
+stCardParam	inc/global.h	/^    SDK_ICC_PARAM stCardParam;$/;"	m	struct:__anon32
+stCashier	inc/setup.h	/^    ST_CASHIER_PWD stCashier[CASHIER_NUM];$/;"	m	struct:__anon67
+stCommuParam	inc/setup.h	/^    ST_COMMU_PARAM stCommuParam;        \/\/ communication parameters$/;"	m	struct:__anon69
+stEmvInfo	inc/global.h	/^    ST_EMVINFO stEmvInfo;                   \/\/ EMV info$/;"	m	struct:__anon36
+stFields	inc/database.h	/^    ST_DB_FIELD  stFields[DB_MAX_FIELDS];      \/*! List of table fields, last field should be {0, 0, 0}, which means the end of list*\/$/;"	m	struct:__anon10
+stItem	inc/display.h	/^    ST_DISP_LIST_ITEM stItem[DISP_LIST_MAX];$/;"	m	struct:__anon19
+stItem	inc/display.h	/^    ST_MENU_ITEM stItem[MAX_MENU_ITEM];$/;"	m	struct:__anon15
+stItem	inc/setup.h	/^    ST_SETUP_ITEM stItem[SETUP_MAXITEM + 1];$/;"	m	struct:__anon61
+stMsgInfo	inc/global.h	/^    ST_MSGINFO stMsgInfo;                   \/\/ MSG info$/;"	m	struct:__anon36
+stRecvBag8583	inc/appdbg.h	/^	SDK_8583_ST8583 stRecvBag8583;$/;"	m	struct:__anon3
+stSecureKey	inc/setup.h	/^    ST_SECURE_KEY stSecureKey;          \/\/ secure key$/;"	m	struct:__anon69
+stSendBag8583	inc/appdbg.h	/^	SDK_8583_ST8583 stSendBag8583;$/;"	m	struct:__anon3
+stSysParam	inc/setup.h	/^    ST_SYS_PARAM stSysParam;            \/\/ system parameters$/;"	m	struct:__anon69
+stTermInfo	inc/setup.h	/^    ST_TERMINAL_INFO stTermInfo;        \/\/ terminal information$/;"	m	struct:__anon69
+stTotal	inc/settle.h	/^    ST_TOTAL_INFO stTotal;       $/;"	m	struct:__anon55
+stTotalAll	inc/settle.h	/^    ST_TOTAL_ALL    stTotalAll;$/;"	m	struct:__anon54
+stTotalRMB	inc/settle.h	/^    ST_TOTAL_INFO stTotalRMB;   $/;"	m	struct:__anon55
+stTotalTrans	inc/settle.h	/^    ST_TOTAL_TRADE  stTotalTrans;$/;"	m	struct:__anon54
+stTransLog	inc/global.h	/^    ST_TRANSLOG stTransLog;         \/\/ transaction status$/;"	m	struct:__anon37
+stTransParam	inc/setup.h	/^    ST_TRANS_PARAM stTransParam;        \/\/ transaction parameters$/;"	m	struct:__anon69
+stTransStatus	inc/global.h	/^    ST_TRANS_STATUS stTransStatus;          \/\/ transaction status$/;"	m	struct:__anon36
+stUserPwd	inc/setup.h	/^    ST_USER_PWD stUserPwd;              \/\/ user password$/;"	m	struct:__anon69
+stWifiInfo	inc/setup.h	/^    SDK_EXT_WIFI_INFO stWifiInfo;   \/\/ WIFI communication parameters$/;"	m	struct:__anon63
+szOsFile	inc/sqlite3.h	/^  int szOsFile;            \/* Size of subclassed sqlite3_file *\/$/;"	m	struct:sqlite3_vfs
+ucAIDLen	inc/global.h	/^    u8 ucAIDLen;                    \/\/AID length$/;"	m	struct:__anon33
+ucAdjustedTimes	inc/global.h	/^    u8 ucAdjustedTimes;                     \/\/ how many times the transaction has been adjusted$/;"	m	struct:__anon35
+ucBatchUpStep	inc/settle.h	/^    u8 ucBatchUpStep;                     \/\/批上送步骤$/;"	m	struct:__anon51
+ucBatchUpType	inc/settle.h	/^    u8 ucBatchUpType;                    \/\/批上送类型$/;"	m	struct:__anon51
+ucCID	inc/global.h	/^    u8 ucCID;                       \/\/Tag 9F27(M): Cryptogram Info Data  $/;"	m	struct:__anon33
+ucCardNoLen	inc/appdbg.h	/^	u8 ucCardNoLen;$/;"	m	struct:__anon4
+ucCashierNO	inc/global.h	/^     u8 ucCashierNO;     $/;"	m	struct:__anon38
+ucCashierNO	inc/global.h	/^    u8 ucCashierNO;                 \/\/ Cashier NO.$/;"	m	struct:__anon34
+ucCashierNO	inc/settle.h	/^    u8 ucCashierNO;            $/;"	m	struct:__anon55
+ucCategoryCode	inc/global.h	/^    u8 ucCategoryCode;              \/\/Tag 9F53(O): Transaction Category Code$/;"	m	struct:__anon33
+ucCtlsCardType	inc/global.h	/^    u8 ucCtlsCardType;              \/\/ CTLS card type$/;"	m	struct:__anon37
+ucDatalen	inc/emv.h	/^    u8 ucDatalen;$/;"	m	struct:__anon21
+ucDatalen	inc/iso8583.h	/^    u8 ucDatalen;$/;"	m	struct:__anon42
+ucDatalen	inc/misc.h	/^    u8 ucDatalen;$/;"	m	struct:__anon46
+ucDialTime	inc/setup.h	/^    u8 ucDialTime;$/;"	m	struct:__anon63
+ucDispAtr	inc/display.h	/^    u8 ucDispAtr;$/;"	m	struct:__anon18
+ucFFILen	inc/global.h	/^    u8 ucFFILen;                    \/\/FFI length                        $/;"	m	struct:__anon33
+ucIADLen	inc/global.h	/^    u8 ucIADLen;                    \/\/IAD length$/;"	m	struct:__anon33
+ucIssAuthDataLen	inc/global.h	/^    u8 ucIssAuthDataLen;            \/\/Issuer Authentication Data length$/;"	m	struct:__anon33
+ucNum	inc/display.h	/^    u8 ucNum;$/;"	m	struct:__anon19
+ucPANSN	inc/global.h	/^    u8 ucPANSN;                     \/\/Tag 5F34(O): Application PAN Sequence Number$/;"	m	struct:__anon33
+ucPinLen	inc/appdbg.h	/^	u8 ucPinLen;$/;"	m	struct:__anon4
+ucPrintState	inc/settle.h	/^    u8 ucPrintState;$/;"	m	struct:__anon55
+ucRFULen	inc/global.h	/^    u8 ucRFULen;                    \/\/RFU data length$/;"	m	struct:__anon33
+ucReDialTimes	inc/setup.h	/^    u8 ucReDialTimes;$/;"	m	struct:__anon63
+ucReSendNum	inc/settle.h	/^    u8 ucReSendNum;$/;"	m	struct:__anon51
+ucRecvTime	inc/setup.h	/^    u8 ucRecvTime;$/;"	m	struct:__anon63
+ucReversalReason	inc/global.h	/^    u8 ucReversalReason;                    \/\/ reversal reason $/;"	m	struct:__anon35
+ucScriptResultLen	inc/global.h	/^    u8 ucScriptResultLen;           \/\/issuer script result length$/;"	m	struct:__anon33
+ucSettleCode	inc/settle.h	/^    u8 ucSettleCode;$/;"	m	struct:__anon54
+ucTermType	inc/global.h	/^    u8 ucTermType;                  \/\/Tag 9F35(O): Terminal Type$/;"	m	struct:__anon33
+ucTransType	inc/global.h	/^    u8 ucTransType;                 \/\/Tag 9C  (M): Transaction Type$/;"	m	struct:__anon33
+ucUserNO	inc/global.h	/^    u8 ucUserNO;              $/;"	m	struct:__anon39
+uiAlign	inc/display.h	/^    u32 uiAlign;$/;"	m	struct:__anon14
+uiAmountDecimalLen	inc/setup.h	/^    u32 uiAmountDecimalLen;         \/\/ lenght of decimal for amount(x.xx, x.xxx, ...)  $/;"	m	struct:__anon68
+uiBatchUpNum	inc/settle.h	/^    u32 uiBatchUpNum;                     \/\/批上送总数$/;"	m	struct:__anon51
+uiCommuMode	inc/setup.h	/^    u32 uiCommuMode;                \/\/ communication mode$/;"	m	struct:__anon63
+uiIdleTimer	inc/setup.h	/^    u32  uiIdleTimer;           \/\/ countdown timer to let system enter idle mode(0: keep no idle, >= 5 unit:second)$/;"	m	struct:__anon62
+uiKeyValue	inc/display.h	/^    u32 uiKeyValue;$/;"	m	struct:__anon14
+uiMax	inc/setup.h	/^    u32 uiMax;$/;"	m	struct:__anon60
+uiMaxTransNum	inc/setup.h	/^    u32 uiMaxTransNum;$/;"	m	struct:__anon64
+uiMin	inc/setup.h	/^    u32 uiMin;$/;"	m	struct:__anon60
+uiMmiMask	inc/setup.h	/^    u32 uiMmiMask;$/;"	m	struct:__anon60
+uiOffSaleAutoUpNum	inc/setup.h	/^    u32 uiOffSaleAutoUpNum;$/;"	m	struct:__anon64
+uiOffTransUpTimes	inc/setup.h	/^    u32 uiOffTransUpTimes;          \/\/ offline transaction upload times$/;"	m	struct:__anon64
+uiPrintSize	inc/setup.h	/^    u32 uiPrintSize;$/;"	m	struct:__anon64
+uiPrintTimes	inc/setup.h	/^    u32 uiPrintTimes;$/;"	m	struct:__anon64
+uiRefundMode	inc/setup.h	/^    u32 uiRefundMode;$/;"	m	struct:__anon64
+uiReversalTimes	inc/setup.h	/^    u32 uiReversalTimes;$/;"	m	struct:__anon64
+uiTakIndex	inc/setup.h	/^    u32 uiTakIndex;$/;"	m	struct:__anon65
+uiTipRate	inc/setup.h	/^    u32 uiTipRate;$/;"	m	struct:__anon64
+uiTipTimes	inc/setup.h	/^    u32 uiTipTimes;$/;"	m	struct:__anon64
+uiTmkIndex	inc/setup.h	/^    u32 uiTmkIndex;$/;"	m	struct:__anon65
+uiTotalCreditNum	inc/settle.h	/^    u32 uiTotalCreditNum;         \/\/总的贷计笔数$/;"	m	struct:__anon53
+uiTotalDebitNum	inc/settle.h	/^    u32 uiTotalDebitNum;          \/\/总的借计笔数$/;"	m	struct:__anon53
+uiTotalRefundNum	inc/settle.h	/^    u32 uiTotalRefundNum;                 \/\/退货交易总笔数$/;"	m	struct:__anon52
+uiTotalSaleNum	inc/settle.h	/^    u32 uiTotalSaleNum;                     \/\/消费交易总笔数(不包括已撤销)$/;"	m	struct:__anon52
+uiTotalVoidNum	inc/settle.h	/^    u32 uiTotalVoidNum;                  \/\/消费撤销交易总笔数$/;"	m	struct:__anon52
+uiTpkIndex	inc/setup.h	/^    u32 uiTpkIndex;$/;"	m	struct:__anon65
+usable	inc/sqlite3.h	/^     unsigned char usable;     \/* True if this constraint is usable *\/$/;"	m	struct:sqlite3_index_info::sqlite3_index_constraint
+xAccess	inc/sqlite3.h	/^  int (*xAccess)(sqlite3_vfs*, const char *zName, int flags, int *pResOut);$/;"	m	struct:sqlite3_vfs
+xBegin	inc/sqlite3.h	/^  int (*xBegin)(sqlite3_vtab *pVTab);$/;"	m	struct:sqlite3_module
+xBestIndex	inc/sqlite3.h	/^  int (*xBestIndex)(sqlite3_vtab *pVTab, sqlite3_index_info*);$/;"	m	struct:sqlite3_module
+xCachesize	inc/sqlite3.h	/^  void (*xCachesize)(sqlite3_pcache*, int nCachesize);$/;"	m	struct:sqlite3_pcache_methods
+xCachesize	inc/sqlite3.h	/^  void (*xCachesize)(sqlite3_pcache*, int nCachesize);$/;"	m	struct:sqlite3_pcache_methods2
+xCheckReservedLock	inc/sqlite3.h	/^  int (*xCheckReservedLock)(sqlite3_file*, int *pResOut);$/;"	m	struct:sqlite3_io_methods
+xClose	inc/sqlite3.h	/^  int (*xClose)(sqlite3_file*);$/;"	m	struct:sqlite3_io_methods
+xClose	inc/sqlite3.h	/^  int (*xClose)(sqlite3_vtab_cursor*);$/;"	m	struct:sqlite3_module
+xColumn	inc/sqlite3.h	/^  int (*xColumn)(sqlite3_vtab_cursor*, sqlite3_context*, int);$/;"	m	struct:sqlite3_module
+xCommit	inc/sqlite3.h	/^  int (*xCommit)(sqlite3_vtab *pVTab);$/;"	m	struct:sqlite3_module
+xConnect	inc/sqlite3.h	/^  int (*xConnect)(sqlite3*, void *pAux,$/;"	m	struct:sqlite3_module
+xCreate	inc/sqlite3.h	/^  int (*xCreate)(sqlite3*, void *pAux,$/;"	m	struct:sqlite3_module
+xCreate	inc/sqlite3.h	/^  sqlite3_pcache *(*xCreate)(int szPage, int bPurgeable);$/;"	m	struct:sqlite3_pcache_methods
+xCreate	inc/sqlite3.h	/^  sqlite3_pcache *(*xCreate)(int szPage, int szExtra, int bPurgeable);$/;"	m	struct:sqlite3_pcache_methods2
+xCurrentTime	inc/sqlite3.h	/^  int (*xCurrentTime)(sqlite3_vfs*, double*);$/;"	m	struct:sqlite3_vfs
+xCurrentTimeInt64	inc/sqlite3.h	/^  int (*xCurrentTimeInt64)(sqlite3_vfs*, sqlite3_int64*);$/;"	m	struct:sqlite3_vfs
+xDelUser	inc/sqlite3.h	/^  void (*xDelUser)(void *);       \/* Called by SQLite to clean up pUser *\/$/;"	m	struct:sqlite3_rtree_geometry
+xDelete	inc/sqlite3.h	/^  int (*xDelete)(sqlite3_vfs*, const char *zName, int syncDir);$/;"	m	struct:sqlite3_vfs
+xDestroy	inc/sqlite3.h	/^  int (*xDestroy)(sqlite3_vtab *pVTab);$/;"	m	struct:sqlite3_module
+xDestroy	inc/sqlite3.h	/^  void (*xDestroy)(sqlite3_pcache*);$/;"	m	struct:sqlite3_pcache_methods
+xDestroy	inc/sqlite3.h	/^  void (*xDestroy)(sqlite3_pcache*);$/;"	m	struct:sqlite3_pcache_methods2
+xDeviceCharacteristics	inc/sqlite3.h	/^  int (*xDeviceCharacteristics)(sqlite3_file*);$/;"	m	struct:sqlite3_io_methods
+xDisconnect	inc/sqlite3.h	/^  int (*xDisconnect)(sqlite3_vtab *pVTab);$/;"	m	struct:sqlite3_module
+xDlClose	inc/sqlite3.h	/^  void (*xDlClose)(sqlite3_vfs*, void*);$/;"	m	struct:sqlite3_vfs
+xDlError	inc/sqlite3.h	/^  void (*xDlError)(sqlite3_vfs*, int nByte, char *zErrMsg);$/;"	m	struct:sqlite3_vfs
+xDlOpen	inc/sqlite3.h	/^  void *(*xDlOpen)(sqlite3_vfs*, const char *zFilename);$/;"	m	struct:sqlite3_vfs
+xEof	inc/sqlite3.h	/^  int (*xEof)(sqlite3_vtab_cursor*);$/;"	m	struct:sqlite3_module
+xFetch	inc/sqlite3.h	/^  sqlite3_pcache_page *(*xFetch)(sqlite3_pcache*, unsigned key, int createFlag);$/;"	m	struct:sqlite3_pcache_methods2
+xFetch	inc/sqlite3.h	/^  void *(*xFetch)(sqlite3_pcache*, unsigned key, int createFlag);$/;"	m	struct:sqlite3_pcache_methods
+xFileControl	inc/sqlite3.h	/^  int (*xFileControl)(sqlite3_file*, int op, void *pArg);$/;"	m	struct:sqlite3_io_methods
+xFileSize	inc/sqlite3.h	/^  int (*xFileSize)(sqlite3_file*, sqlite3_int64 *pSize);$/;"	m	struct:sqlite3_io_methods
+xFilter	inc/sqlite3.h	/^  int (*xFilter)(sqlite3_vtab_cursor*, int idxNum, const char *idxStr,$/;"	m	struct:sqlite3_module
+xFindFunction	inc/sqlite3.h	/^  int (*xFindFunction)(sqlite3_vtab *pVtab, int nArg, const char *zName,$/;"	m	struct:sqlite3_module
+xFree	inc/sqlite3.h	/^  void (*xFree)(void*);          \/* Free a prior allocation *\/$/;"	m	struct:sqlite3_mem_methods
+xFullPathname	inc/sqlite3.h	/^  int (*xFullPathname)(sqlite3_vfs*, const char *zName, int nOut, char *zOut);$/;"	m	struct:sqlite3_vfs
+xGetLastError	inc/sqlite3.h	/^  int (*xGetLastError)(sqlite3_vfs*, int, char *);$/;"	m	struct:sqlite3_vfs
+xGetSystemCall	inc/sqlite3.h	/^  sqlite3_syscall_ptr (*xGetSystemCall)(sqlite3_vfs*, const char *zName);$/;"	m	struct:sqlite3_vfs
+xInit	inc/sqlite3.h	/^  int (*xInit)(void*);           \/* Initialize the memory allocator *\/$/;"	m	struct:sqlite3_mem_methods
+xInit	inc/sqlite3.h	/^  int (*xInit)(void*);$/;"	m	struct:sqlite3_pcache_methods
+xInit	inc/sqlite3.h	/^  int (*xInit)(void*);$/;"	m	struct:sqlite3_pcache_methods2
+xLock	inc/sqlite3.h	/^  int (*xLock)(sqlite3_file*, int);$/;"	m	struct:sqlite3_io_methods
+xMalloc	inc/sqlite3.h	/^  void *(*xMalloc)(int);         \/* Memory allocation function *\/$/;"	m	struct:sqlite3_mem_methods
+xMutexAlloc	inc/sqlite3.h	/^  sqlite3_mutex *(*xMutexAlloc)(int);$/;"	m	struct:sqlite3_mutex_methods
+xMutexEnd	inc/sqlite3.h	/^  int (*xMutexEnd)(void);$/;"	m	struct:sqlite3_mutex_methods
+xMutexEnter	inc/sqlite3.h	/^  void (*xMutexEnter)(sqlite3_mutex *);$/;"	m	struct:sqlite3_mutex_methods
+xMutexFree	inc/sqlite3.h	/^  void (*xMutexFree)(sqlite3_mutex *);$/;"	m	struct:sqlite3_mutex_methods
+xMutexHeld	inc/sqlite3.h	/^  int (*xMutexHeld)(sqlite3_mutex *);$/;"	m	struct:sqlite3_mutex_methods
+xMutexInit	inc/sqlite3.h	/^  int (*xMutexInit)(void);$/;"	m	struct:sqlite3_mutex_methods
+xMutexLeave	inc/sqlite3.h	/^  void (*xMutexLeave)(sqlite3_mutex *);$/;"	m	struct:sqlite3_mutex_methods
+xMutexNotheld	inc/sqlite3.h	/^  int (*xMutexNotheld)(sqlite3_mutex *);$/;"	m	struct:sqlite3_mutex_methods
+xMutexTry	inc/sqlite3.h	/^  int (*xMutexTry)(sqlite3_mutex *);$/;"	m	struct:sqlite3_mutex_methods
+xNext	inc/sqlite3.h	/^  int (*xNext)(sqlite3_vtab_cursor*);$/;"	m	struct:sqlite3_module
+xNextSystemCall	inc/sqlite3.h	/^  const char *(*xNextSystemCall)(sqlite3_vfs*, const char *zName);$/;"	m	struct:sqlite3_vfs
+xOpen	inc/sqlite3.h	/^  int (*xOpen)(sqlite3_vfs*, const char *zName, sqlite3_file*,$/;"	m	struct:sqlite3_vfs
+xOpen	inc/sqlite3.h	/^  int (*xOpen)(sqlite3_vtab *pVTab, sqlite3_vtab_cursor **ppCursor);$/;"	m	struct:sqlite3_module
+xPagecount	inc/sqlite3.h	/^  int (*xPagecount)(sqlite3_pcache*);$/;"	m	struct:sqlite3_pcache_methods
+xPagecount	inc/sqlite3.h	/^  int (*xPagecount)(sqlite3_pcache*);$/;"	m	struct:sqlite3_pcache_methods2
+xRandomness	inc/sqlite3.h	/^  int (*xRandomness)(sqlite3_vfs*, int nByte, char *zOut);$/;"	m	struct:sqlite3_vfs
+xRead	inc/sqlite3.h	/^  int (*xRead)(sqlite3_file*, void*, int iAmt, sqlite3_int64 iOfst);$/;"	m	struct:sqlite3_io_methods
+xRealloc	inc/sqlite3.h	/^  void *(*xRealloc)(void*,int);  \/* Resize an allocation *\/$/;"	m	struct:sqlite3_mem_methods
+xRekey	inc/sqlite3.h	/^  void (*xRekey)(sqlite3_pcache*, sqlite3_pcache_page*, $/;"	m	struct:sqlite3_pcache_methods2
+xRekey	inc/sqlite3.h	/^  void (*xRekey)(sqlite3_pcache*, void*, unsigned oldKey, unsigned newKey);$/;"	m	struct:sqlite3_pcache_methods
+xRelease	inc/sqlite3.h	/^  int (*xRelease)(sqlite3_vtab *pVTab, int);$/;"	m	struct:sqlite3_module
+xRename	inc/sqlite3.h	/^  int (*xRename)(sqlite3_vtab *pVtab, const char *zNew);$/;"	m	struct:sqlite3_module
+xRollback	inc/sqlite3.h	/^  int (*xRollback)(sqlite3_vtab *pVTab);$/;"	m	struct:sqlite3_module
+xRollbackTo	inc/sqlite3.h	/^  int (*xRollbackTo)(sqlite3_vtab *pVTab, int);$/;"	m	struct:sqlite3_module
+xRoundup	inc/sqlite3.h	/^  int (*xRoundup)(int);          \/* Round up request size to allocation size *\/$/;"	m	struct:sqlite3_mem_methods
+xRowid	inc/sqlite3.h	/^  int (*xRowid)(sqlite3_vtab_cursor*, sqlite3_int64 *pRowid);$/;"	m	struct:sqlite3_module
+xSavepoint	inc/sqlite3.h	/^  int (*xSavepoint)(sqlite3_vtab *pVTab, int);$/;"	m	struct:sqlite3_module
+xSectorSize	inc/sqlite3.h	/^  int (*xSectorSize)(sqlite3_file*);$/;"	m	struct:sqlite3_io_methods
+xSetSystemCall	inc/sqlite3.h	/^  int (*xSetSystemCall)(sqlite3_vfs*, const char *zName, sqlite3_syscall_ptr);$/;"	m	struct:sqlite3_vfs
+xShmBarrier	inc/sqlite3.h	/^  void (*xShmBarrier)(sqlite3_file*);$/;"	m	struct:sqlite3_io_methods
+xShmLock	inc/sqlite3.h	/^  int (*xShmLock)(sqlite3_file*, int offset, int n, int flags);$/;"	m	struct:sqlite3_io_methods
+xShmMap	inc/sqlite3.h	/^  int (*xShmMap)(sqlite3_file*, int iPg, int pgsz, int, void volatile**);$/;"	m	struct:sqlite3_io_methods
+xShmUnmap	inc/sqlite3.h	/^  int (*xShmUnmap)(sqlite3_file*, int deleteFlag);$/;"	m	struct:sqlite3_io_methods
+xShrink	inc/sqlite3.h	/^  void (*xShrink)(sqlite3_pcache*);$/;"	m	struct:sqlite3_pcache_methods2
+xShutdown	inc/sqlite3.h	/^  void (*xShutdown)(void*);      \/* Deinitialize the memory allocator *\/$/;"	m	struct:sqlite3_mem_methods
+xShutdown	inc/sqlite3.h	/^  void (*xShutdown)(void*);$/;"	m	struct:sqlite3_pcache_methods
+xShutdown	inc/sqlite3.h	/^  void (*xShutdown)(void*);$/;"	m	struct:sqlite3_pcache_methods2
+xSize	inc/sqlite3.h	/^  int (*xSize)(void*);           \/* Return the size of an allocation *\/$/;"	m	struct:sqlite3_mem_methods
+xSleep	inc/sqlite3.h	/^  int (*xSleep)(sqlite3_vfs*, int microseconds);$/;"	m	struct:sqlite3_vfs
+xSync	inc/sqlite3.h	/^  int (*xSync)(sqlite3_file*, int flags);$/;"	m	struct:sqlite3_io_methods
+xSync	inc/sqlite3.h	/^  int (*xSync)(sqlite3_vtab *pVTab);$/;"	m	struct:sqlite3_module
+xTruncate	inc/sqlite3.h	/^  int (*xTruncate)(sqlite3_file*, sqlite3_int64 size);$/;"	m	struct:sqlite3_io_methods
+xTruncate	inc/sqlite3.h	/^  void (*xTruncate)(sqlite3_pcache*, unsigned iLimit);$/;"	m	struct:sqlite3_pcache_methods
+xTruncate	inc/sqlite3.h	/^  void (*xTruncate)(sqlite3_pcache*, unsigned iLimit);$/;"	m	struct:sqlite3_pcache_methods2
+xUnlock	inc/sqlite3.h	/^  int (*xUnlock)(sqlite3_file*, int);$/;"	m	struct:sqlite3_io_methods
+xUnpin	inc/sqlite3.h	/^  void (*xUnpin)(sqlite3_pcache*, sqlite3_pcache_page*, int discard);$/;"	m	struct:sqlite3_pcache_methods2
+xUnpin	inc/sqlite3.h	/^  void (*xUnpin)(sqlite3_pcache*, void*, int discard);$/;"	m	struct:sqlite3_pcache_methods
+xUpdate	inc/sqlite3.h	/^  int (*xUpdate)(sqlite3_vtab *, int, sqlite3_value **, sqlite3_int64 *);$/;"	m	struct:sqlite3_module
+xWrite	inc/sqlite3.h	/^  int (*xWrite)(sqlite3_file*, const void*, int iAmt, sqlite3_int64 iOfst);$/;"	m	struct:sqlite3_io_methods
+zErrMsg	inc/sqlite3.h	/^  char *zErrMsg;                  \/* Error message from sqlite3_mprintf() *\/$/;"	m	struct:sqlite3_vtab
+zName	inc/sqlite3.h	/^  const char *zName;       \/* Name of this virtual file system *\/$/;"	m	struct:sqlite3_vfs

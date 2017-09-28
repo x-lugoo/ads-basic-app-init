@@ -63,7 +63,7 @@
 #endif
 
 
-#define JEFF_DEBUG  //for jeff to debug added 20170913
+#define JEFF_ECHO  //for jeff to add ECHO project  added 20170913
 
 
 #define TMR_OPERATE  (30*1000)  // Timer for exiting to main menu automatically when no operation
@@ -535,7 +535,7 @@ typedef struct
 #include "print.h"
 #include "display.h"
 #include "appdbg.h"
-
+#include "echo.h"
 
 /*-----------------------------------------------------------------------------
 *                           GLOBAL VARIABLES
@@ -547,6 +547,9 @@ EXTERN u16 *pgScrBuff;      //screen buffer
 EXTERN u32 guiScrBuffSize;  //screen buffer size
 
 EXTERN ST_TRANSDATA gstTransData;       //transaction related information
+
+EXTERN ST_ECHO_ISO8583 gstEchoIso8583;       //Echo received iso8583 related information
+EXTERN ST_SAVED_ECHO_MSG gstSavedEchoMsg;   //Saved Echo Msg
 
 EXTERN ST_LOGIN_INFO gstLoginInfo;      //login related information
 

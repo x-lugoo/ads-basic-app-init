@@ -644,7 +644,7 @@ void SetupCommuMode(void)
     DispClearContent();
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_SETUP_1_MODEM_2_GPRS, SDK_DISP_LEFT_DEFAULT);
     sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_SETUP_3_CDMA_4_ETHERNET, SDK_DISP_LEFT_DEFAULT);
-#ifndef JEFF_DEBUG
+#ifndef JEFF_ECHO
     sdkDispFillRowRam(SDK_DISP_LINE4, 0, STR_SETUP_5_WIFI, SDK_DISP_LEFT_DEFAULT);	
 #else
 	sdkDispFillRowRam(SDK_DISP_LINE4, 0, STR_SETUP_5_WIFI_6_ECHO, SDK_DISP_LEFT_DEFAULT);
@@ -676,7 +676,7 @@ void SetupCommuMode(void)
          case SDK_COMM_WIFI:
             buf[1] = '5';
             break;
-#ifdef JEFF_DEBUG
+#ifdef JEFF_ECHO
 		case  SDK_COMM_ECHO:
 			buf[1] = '6';
 			break;
@@ -684,7 +684,7 @@ void SetupCommuMode(void)
          default:
             break;
     }
-#ifndef JEFF_DEBUG
+#ifndef JEFF_ECHO
 	ret = TrnGetNumber(TMR_OPERATE, buf, 1, 5, SDK_DISP_LINE5);
 #else
     ret = TrnGetNumber(TMR_OPERATE, buf, 1, 6, SDK_DISP_LINE5);
@@ -719,7 +719,7 @@ void SetupCommuMode(void)
          case SDK_KEY_5:
             pst_commparam->uiCommuMode = SDK_COMM_WIFI;
             break;
-#ifdef JEFF_DEBUG
+#ifdef JEFF_ECHO
 		case SDK_KEY_6:
 		 pst_commparam->uiCommuMode = SDK_COMM_ECHO;
 			break;
@@ -1474,8 +1474,7 @@ void SetupSecureTmk(void)
     u8 tmp[33] = {0};
     u8 key[33] = {0};
 	
-#ifdef JEFF_DEBUG
-	ST_SAVE_ECHO_MSG stEchoMsg;
+#ifdef JEFF_ECHO
 	s32 iRet;
 #endif
     DispClearContent();
@@ -1513,23 +1512,25 @@ void SetupSecureTmk(void)
         }
     }
     sdkAscToBcd(key, &tmp[1], tmp[0]);
-#ifdef JEFF_DEBUG
-	iRet = DbgReadEchoMsg(&stEchoMsg);
-	if(iRet < 0){
-		return;
+#ifdef JEFF_ECHO
+	if(0 == gstAppSysCfg.stSecureKey.bIsTripleDES)
+	{
+		gstSavedEchoMsg.ucIsTriDes = false;
 	}
-	if(0 == gstAppSysCfg.stSecureKey.bIsTripleDES){
-		memcpy(stEchoMsg.heEchoTmk,key,tmp[0]);
+	else
+	{
+		gstSavedEchoMsg.ucIsTriDes = true;
 	}
-	iRet = DbgSaveEchoMsg(&stEchoMsg);
-	if(iRet < 0){
+	memcpy(gstSavedEchoMsg.heEchoTmk,key,tmp[0] / 2);
+	iRet = SaveEchoMsg(&gstSavedEchoMsg);
+	if(iRet < 0)
+	{
 		return;
 	}
 	Trace("xgd","TMK index=%d,Len=%d, %02X %02X %02X %02X %02X %02X %02X %02X "
-		 	  "%02X %02X %02X %02X %02X %02X %02X %02X %s(%d)\r\n",index,tmp[0],
+		 	  "%02X %02X %02X %02X %02X %02X %02X %02X\r\n",index,tmp[0],
 			 tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7],tmp[8],
-			 tmp[9],tmp[10],tmp[11],tmp[12],tmp[13],tmp[14],tmp[15],tmp[16],
-			__FUNCTION__,__LINE__);
+			 tmp[9],tmp[10],tmp[11],tmp[12],tmp[13],tmp[14],tmp[15],tmp[16]);
 	TraceHex("xgd","TMK MESG",&tmp[1],tmp[0]);
 	TraceHex("xgd","TMK MESG",key,tmp[0]);
 #endif
@@ -1834,11 +1835,7 @@ void SetupOthersClearBatch(void)
         sdkDispBrushScreen();
         sdkKbWaitKey(SDK_KEY_MASK_ESC | SDK_KEY_MASK_ENTER, TMR_PROMPT);
         return;
-    }
-#ifdef JEFF_DEBUG
-			DbgSaveDbgTranTotalNum(0);
-			unlink(FILENAME_SAVED_8583_PKG);
-#endif    
+    }  
     RecordDeleteAll();
     BatchUpDeleteInfo();
     sdkDispClearScreen();

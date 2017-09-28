@@ -34,7 +34,7 @@ extern void DispBalanceAmount(void);
 extern s32 BalancePackMsg(SDK_8583_ST8583 *pstIsoMsg);
 extern void BalanceTrans(u16 usCardType);
 extern void OnBalance(void);
-extern s32 EchoBalancePackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv);
+extern s32 EchoBalancePackMsg(SDK_8583_ST8583 *pstIsoMsgRecv);
 
 
 /*-----------------------------------------------------------------------------*/

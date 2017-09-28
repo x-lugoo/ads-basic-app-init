@@ -50,8 +50,8 @@ extern s32 IsoSetField(SDK_8583_ST8583 *pstPacket8583, u8 ucFieldNo, u8 *pheFiel
 
 extern s32 EchoIsoPackMsgHeader(SDK_8583_ST8583 *pstIsoMsg);
 
-extern s32 EchoIsoPackPublicMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv);
-extern s32 EchoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac,u32 uiMsgCodeOffset);
+
+extern s32 EchoGetMsgMac(const u8 *pheSrc,s32 iSrcLen, u8 *pucMac,u32 uiMsgCodeOffset);
 /*-----------------------------------------------------------------------------*/
 #endif
 

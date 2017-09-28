@@ -155,49 +155,91 @@ s32 BalancePackMsg(SDK_8583_ST8583 *pstIsoMsg)
 }
 
 
-s32 EchoBalancePackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv)
+s32 EchoBalancePackMsg(SDK_8583_ST8583 *pstIsoMsgRecv)
 {
-#ifndef JEFF_DEBUG
-	return 0;
+#ifndef JEFF_ECHO
+	return SDK_OK;
 #else
-	s32 iRet;
 	u8 	mac[16] = {0};
-	u8  ucField39[2];
-	u8  ucField54[30] = {0};
+	u8 field39[2+1] = {0};
+	u8 *pSendEchoMsg;
+	s32 iRet;
 	
-	IsoSetField(pstIsoMsgRecv,SDK_8583_FIELD_MSG,"0210",4);  //Field 0,message code
-	EchoIsoPackPublicMsg(pstIsoMsgSend,pstIsoMsgRecv);
-
-	IsoSetField(pstIsoMsgRecv,25,"00",2);  //Field 25,condition code
-	IsoSetField(pstIsoMsgRecv,37,"123456789012",12);  //Field 37,reference num
-	IsoSetField(pstIsoMsgRecv,38,"123456",6);  //Field 38,auth code
-	
-	iRet = DbgEchoHandleField39AndField54(TRANSID_BALANCE,pstIsoMsgSend,ucField39,ucField54);
-	if(iRet < 0){
-		return iRet;
+	pSendEchoMsg = pstIsoMsgRecv->ucBagData + pstIsoMsgRecv->nBagLen;
+	memcpy(pSendEchoMsg,"\x02\x10",2);//set msg code
+	pstIsoMsgRecv->nBagLen += 2;
+	pSendEchoMsg += 2;
+	memcpy(pSendEchoMsg,"\x20\x38\x00\x81\x0E\xD0\x84\x13",8);//set bitmap
+	pstIsoMsgRecv->nBagLen += 8;
+	iRet = EchoIsoPackPublicMsg(TRANSID_BALANCE,pstIsoMsgRecv);//field 11,12,13
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
 	}
-	IsoSetField(pstIsoMsgRecv,39,ucField39,2);  //Field 39,response code
-	IsoSetField(pstIsoMsgRecv,44,"0102000001030000",strlen("0102000001030000"));  //Field 39,response code
-	IsoSetField(pstIsoMsgRecv,49,"156",3);  //currency code
-	IsoSetField(pstIsoMsgRecv,54,ucField54,strlen(ucField54));  //field54 balance
-	
-	TraceHex("xgd","balance field54",ucField54,strlen(ucField54));
-	IsoSetField(pstIsoMsgRecv,60,"22000001000600",strlen("22000001000600"));  
-	IsoSetField(pstIsoMsgRecv,63,"cup",3);
-	IsoSetField(pstIsoMsgRecv,64,"\x00\x00\x00\x00\x00\x00\x00\x00", 8);//calc ,need to copy mac before calc truely mac
-	memset(mac,0,sizeof(mac)); //get mac
-	iRet = IsoGetMsgMac(pstIsoMsgRecv, mac);
-	if (iRet <= 0)
-    {
-        return SDK_ESC;
-    }
-	TraceHex("xgd","generate Mac2",mac,8);
-	iRet = IsoSetField(pstIsoMsgRecv, 64, mac, 8);
-    if (iRet <= 0)
-    {
-        return SDK_ESC;
-    }
-	return 0;
+	iRet = EchoHandleField25(pstIsoMsgRecv); //Field 25,condition code
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField32(pstIsoMsgRecv);//field 32
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField37(pstIsoMsgRecv); //Field 37,reference num
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField38(pstIsoMsgRecv); // Field 38,auth code
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField39(TRANSID_BALANCE,pstIsoMsgRecv,field39);  //Field 39,response code
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleTIDMID(pstIsoMsgRecv);//set field 41,42
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField44(pstIsoMsgRecv); //Field 44
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField49(pstIsoMsgRecv); //Field 49
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField54(pstIsoMsgRecv,field39);
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField60(TRANSID_BALANCE,pstIsoMsgRecv); //Field 60
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoHandleField63(pstIsoMsgRecv); //Field 63
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	iRet = EchoGetMsgMac(pstIsoMsgRecv->ucBagData,pstIsoMsgRecv->nBagLen,mac,11);//Taking mannual method to calc mac
+	if(iRet < SDK_OK)
+	{
+		return SDK_ERR;
+	}
+	pSendEchoMsg = pstIsoMsgRecv->ucBagData + pstIsoMsgRecv->nBagLen;
+	memcpy(pSendEchoMsg,mac,8);
+	pstIsoMsgRecv->nBagLen += 8;
+	return SDK_OK;
 #endif
 }
 

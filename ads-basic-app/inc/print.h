@@ -59,7 +59,6 @@ extern s32 PrintSettleReport(bool bIsReprint);
 extern s32 PrintStart(bool bIsRollPaper);
 extern s32 PrintTotalReport(ST_SETTLE *pstSettle);
 
-extern  s32 PrintDebug8583(void);
 /*-----------------------------------------------------------------------------*/
 #endif
 

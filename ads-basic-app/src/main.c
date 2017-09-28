@@ -123,20 +123,17 @@ void AppInit(void)
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_SYSTEM_INIT, SDK_DISP_DEFAULT);
     sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_PLEASE_WAIT, SDK_DISP_DEFAULT);
     sdkDispBrushScreen();
-#ifdef JEFF_DEBUG //init the number of saved debug 8583 tranx
-	if(false == sdkAccessFile(FILENAME_TATAL_SAVED_8383_NUM)){
-		DbgSaveDbgTranTotalNum(0);
-	}
-	if(false == sdkAccessFile(FILENAME_SAVED_ECHO_MEG)){
-		ST_SAVE_ECHO_MSG stEchoMsg;
-		u32 siRet;
+#ifdef JEFF_ECHO //init the number of saved  8583 tranx
+	if(false == sdkAccessFile(FILENAME_SAVED_ECHO_MEG))
+	{
+		s32 iRet;
 		
-		DbgEchoInitMsg(&stEchoMsg);
-		siRet = DbgSaveEchoMsg(&stEchoMsg);
-		if(siRet < 0){
+		EchoInitMsg(&gstSavedEchoMsg);
+		iRet = SaveEchoMsg(&gstSavedEchoMsg);
+		if(iRet < 0)
+		{
 			return;
 		}
-		
 	}
 #endif
     
@@ -237,7 +234,6 @@ void OnCircle(void)
     bool refresh = TRUE;
     bool refresh_time = TRUE;
     bool refresh_led = TRUE;
-	bool bPreIndexMode = false;
     u8 max_line;
     s32 color;
 
@@ -310,11 +306,6 @@ void OnCircle(void)
              
         // process key input
         key = sdkKbGetKey();
-#ifdef JEFF_DEBUG
-		if(0 != key){
-			Trace("xgd","key=%d ,%s(%d)\r\n",key,__FUNCTION__,__LINE__);
-		}
-#endif
         if(SDK_KEY_ENTER == key)
         {
             sdkSysBeep(SDK_SYS_BEEP_OK);
@@ -336,25 +327,6 @@ void OnCircle(void)
         }
 
 		
-#ifdef JEFF_DEBUG//use cancel + '0' to  query tranx history
-		if(true == bPreIndexMode && SDK_KEY_0 == key){
-			Trace("xgd","Entrying into index mode%s(%d)\r\n",__FUNCTION__,__LINE__);
-			PrintDebug8583();
-			gstTransData.stTransLog.eTransID = TRANSID_WELCOME;
-			refresh = TRUE;
-		}
-		else if(true == bPreIndexMode && 0 == key){
-			bPreIndexMode = true;
-		}
-		else{
-			bPreIndexMode = false;
-		}
-		
-		if(SDK_KEY_ESC == key){
-			bPreIndexMode = true;
-			Trace("xgd","key=%d,prepare for index mode,%s(%d)\r\n",key,__FUNCTION__,__LINE__);
-		}
-#endif
         // refresh disp timer
         if(sdkTimerIsEnd(tmr_disp, TMR_REFRESH_TIME))
         {

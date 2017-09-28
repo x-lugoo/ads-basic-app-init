@@ -35,7 +35,7 @@ extern s32 VoidCheckOriginalTrans(ST_TRANSLOG *pstTransLog);
 extern s32 VoidPackMsg(SDK_8583_ST8583 *pstIsoMsg);
 extern void VoidTrans(u16 usCardType);
 extern void OnVoid(void);
-extern s32 EchoVoidPackMsg(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstIsoMsgRecv);
+extern s32 EchoVoidPackMsg(SDK_8583_ST8583 *pstIsoMsgRecv);
 /*-----------------------------------------------------------------------------*/
 #endif
 
