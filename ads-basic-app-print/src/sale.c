@@ -47,17 +47,9 @@ s32 SalePackMsg(SDK_8583_ST8583 *pstIsoMsg)
     {
         return 0;
     }
-	
-#ifdef JEFF_ECHO
-	Trace("xgd","pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
-#endif   
-
+    
     // #0  Message Type Identifier (MTI)
     ret = IsoSetField(pstIsoMsg, SDK_8583_FIELD_MSG, "0200", 4);
-
-#ifdef JEFF_ECHO
-	Trace("xgd","pstIsoMsg->nBagLen=%d Ret=%d %s(%d)\r\n",pstIsoMsg->nBagLen,ret,__FUNCTION__,__LINE__);
-#endif	
     if (ret <= 0)
     {
         return 0;
@@ -104,89 +96,6 @@ s32 SalePackMsg(SDK_8583_ST8583 *pstIsoMsg)
     return pstIsoMsg->nBagLen;
 }
 
-
-s32 EchoSalePackMsg(SDK_8583_ST8583 *pstIsoMsgRecv)
-{
-#ifndef JEFF_ECHO
-	return SDK_OK;
-#else
-	u8 	mac[16] = {0};
-	u8 field39[2+1] = {0};
-	u8 *pSendEchoMsg;
-	s32 iRet;
-	
-	pSendEchoMsg = pstIsoMsgRecv->ucBagData + pstIsoMsgRecv->nBagLen;
-	memcpy(pSendEchoMsg,"\x02\x10",2);//set msg code
-	pstIsoMsgRecv->nBagLen += 2;
-	pSendEchoMsg += 2;
-	memcpy(pSendEchoMsg,"\x20\x38\x00\x81\x0E\xD0\x80\x13",8);//set bitmap
-	pstIsoMsgRecv->nBagLen += 8;
-	iRet = EchoIsoPackPublicMsg(TRANSID_SALE,pstIsoMsgRecv);//field 11,12,13
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField25(pstIsoMsgRecv); //Field 25,condition code
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField32(pstIsoMsgRecv);//field 32 acquirer  identification instruction
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField37(pstIsoMsgRecv); //Field 37,reference num
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField38(pstIsoMsgRecv); // Field 38,auth code
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField39(TRANSID_SALE,pstIsoMsgRecv,field39);  //Field 39,response code
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleTIDMID(pstIsoMsgRecv);//set field 41,42
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField44(pstIsoMsgRecv); //Field 44
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField49(pstIsoMsgRecv); //Field 49
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField60(TRANSID_SALE,pstIsoMsgRecv); //Field 60
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField63(pstIsoMsgRecv); //Field 63
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoGetMsgMac(pstIsoMsgRecv->ucBagData,pstIsoMsgRecv->nBagLen,mac,11);//Taking mannual method to calc mac
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	pSendEchoMsg = pstIsoMsgRecv->ucBagData + pstIsoMsgRecv->nBagLen;
-	memcpy(pSendEchoMsg,mac,8);
-	pstIsoMsgRecv->nBagLen += 8;
-	return SDK_OK;
-#endif
-}
 /*****************************************************************************
 ** Description :  ICC offline Sale transaction process 
 ** Parameters  :  input

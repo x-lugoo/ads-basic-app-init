@@ -238,22 +238,13 @@ s32 EchoGetField(u8 *pheFieldData,s32 iFieldNo)
 s32 SaveEchoMsg(ST_SAVED_ECHO_MSG *pstEchoMsg)
 {
 #ifndef JEFF_ECHO
-	return 0;
+	return SDK_OK;
 #else
-	s32 siFd;
 	s32 iRet;
-	
-	siFd = open(FILENAME_SAVED_ECHO_MEG,O_CREAT | O_RDWR,0644);
-	if(siFd < 0){
-		return -1;
-	}
-	iRet = write(siFd,pstEchoMsg,sizeof(ST_SAVED_ECHO_MSG));
-	if(iRet != sizeof(ST_SAVED_ECHO_MSG)){
-		close(siFd);
-		return -2;
-	}
-	close(siFd);
-	return iRet;
+
+	iRet = sdkWriteFile(FILENAME_SAVED_ECHO_MEG,pstEchoMsg,sizeof(ST_SAVED_ECHO_MSG));
+	Trace("xgd","Write File,iRet=%d\r\n",iRet);
+	return iRet;
 #endif
 }
 
@@ -264,20 +255,13 @@ s32 ReadEchoMsg(ST_SAVED_ECHO_MSG *pstEchoMsg)
 #ifndef JEFF_ECHO
 	return SDK_OK;
 #else
-	s32 siFd;
 	s32 iRet;
-	
-	siFd = open(FILENAME_SAVED_ECHO_MEG,O_RDONLY,0);
-	if(siFd < 0){
-		return -1;
-	}
-	iRet = read(siFd,pstEchoMsg,sizeof(ST_SAVED_ECHO_MSG));
-	if(iRet != sizeof(ST_SAVED_ECHO_MSG)){
-		close(siFd);
-		return -2;
-	}
-	close(siFd);
-	return SDK_OK;
+	s32 iLen;
+
+	iLen = sizeof(ST_SAVED_ECHO_MSG);
+	iRet = sdkReadFile(FILENAME_SAVED_ECHO_MEG,pstEchoMsg, 0,&iLen);
+	Trace("xgd","ReadFile,iRet=%d,iLen=%d\r\n",iRet,iLen);
+	return iRet;
 #endif		
 }
 
@@ -462,7 +446,7 @@ s32 EchoHandleField39(E_TRANS_ID eTranId, SDK_8583_ST8583 *pstIsoMsgRecv,u8 *puc
 
 	pSendEchoMsg = pstIsoMsgRecv->ucBagData + pstIsoMsgRecv->nBagLen;
 	pstIsoMsgRecv->nBagLen += 2;
-	strcpy(pucFiled39,"03");	
+	strcpy(pucFiled39,"03");	//invaild Meichant as default return value
 	if(TRANSID_LOGON != eTranId)
 	{
 		if(0 == EchoGetFieldLen(64) || ECHO_MAC_ERR == EchoGetFieldLen(64))
@@ -505,6 +489,8 @@ s32 EchoHandleField39(E_TRANS_ID eTranId, SDK_8583_ST8583 *pstIsoMsgRecv,u8 *puc
 				if(memcmp(ucBuf,gstSavedEchoMsg.asAmount,12) > 0)
 				{
 					strcpy(pucFiled39,"51"); //No enough amount
+					memcpy(pSendEchoMsg,pucFiled39,2);
+					return SDK_OK;
 				}
 				else
 				{
@@ -529,7 +515,7 @@ s32 EchoHandleField39(E_TRANS_ID eTranId, SDK_8583_ST8583 *pstIsoMsgRecv,u8 *puc
 			return SDK_ERR;
 		}
 	}
-	memcpy(pucFiled39,"00",2); //
+	memcpy(pucFiled39,"00",2);
 	memcpy(pSendEchoMsg,pucFiled39,2);
 	return SDK_OK;
 #endif
@@ -671,11 +657,11 @@ s32 EchoHandleField60(E_TRANS_ID eTranId, SDK_8583_ST8583 *pstIsoMsgRecv)
 			pSendEchoMsg += 2;
 			pstIsoMsgRecv->nBagLen += 2;
 			
-			memcpy(pSendEchoMsg,"\x00\x00\x00\x01",4);
+			memcpy(pSendEchoMsg,"\x00\x00\x00\x01",4);//trans types<60.1> and batch no<60.2>
 			pSendEchoMsg += 4;
 			pstIsoMsgRecv->nBagLen += 4;
 			
-			iRet = EchoGetField(buf,60);
+			iRet = EchoGetField(buf,60);//<60.3>network management msg code
 			if(iRet <= 0)
 			{
 				return SDK_ERR;
@@ -825,7 +811,7 @@ s32 EchoHandleField62(E_TRANS_ID eTranId, SDK_8583_ST8583 *pstIsoMsgRecv,u8 *puc
 			}
 			else if(0 == memcmp(pSendEchoMsg - 2,"\x00\x40",0))//tri des and include TDK
 			{
-				//to do ,right now teiminal does not support it.
+				//to do ,right now terminal does not support it.
 			}
 			else
 			{
@@ -985,8 +971,6 @@ s32 EchoIsoPackPublicMsg(E_TRANS_ID eTranId,SDK_8583_ST8583 *pstIsoMsgRecv)
 
 	if(SDK_OK == sdkGetRtc(buf))
     {
-    	//sdkBcdToAsc(buf2, &buf[3], 3);
-		
 		memcpy(pSendEchoMsg,&buf[3],3); //Field 12,time
 		pSendEchoMsg += 3;
 		pstIsoMsgRecv->nBagLen += 3;
@@ -1076,17 +1060,6 @@ s32 EchoUnpackIso8583(const u8 *pheSrc,s32 iSrcLen)
 		 
 	   }
 	}	
-#if 0	
-	for(i = 0; i <= 64;i++)
-	{
-		if((iFieldLen = EchoGetFieldLen(i)) > 0)
-		{
-			Trace("xgd","Exist FieldNo[%d],iField=%d\r\n",i,iFieldLen);
-			iBufLen = EchoGetField(bufTmp2, i);
-			TraceHex("xgd","FieldMsg=",bufTmp2,iBufLen);
-		}
-	}
-#endif	
 	EchoHandleResponseMac(pheSrc,iSrcLen);
 	return SDK_OK;
 #endif	

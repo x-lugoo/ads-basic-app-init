@@ -155,15 +155,10 @@ s32 LogonPackMsg(SDK_8583_ST8583 *pstIsoMsg)
     {
         return 0;
     }
-
-#ifdef JEFF_ECHO
-	Trace("xgd","pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
-#endif	
+    
     // Message ID
     IsoSetField(pstIsoMsg, SDK_8583_FIELD_MSG, "0800", 4);
-#ifdef JEFF_ECHO
-	Trace("xgd","pstIsoMsg->nBagLen=%d  %s(%d)\r\n",pstIsoMsg->nBagLen,__FUNCTION__,__LINE__);
-#endif
+
     //60Óò
     memset(buf, 0, sizeof(buf));
     strcat(buf, "00");
@@ -186,60 +181,6 @@ s32 LogonPackMsg(SDK_8583_ST8583 *pstIsoMsg)
     IsoSetField(pstIsoMsg, 63, buf, strlen(buf));
 
     return pstIsoMsg->nBagLen;
-}
-
-s32 EchoLogonPackMsg(SDK_8583_ST8583 *pstIsoMsgRecv)
-{
-#ifndef JEFF_ECHO
-	return SDK_OK;
-#else
-	u8 field39[2+1] = {0};
-	s32 iRet;
-	u8 *pSendEchoMsg;
-
-	pSendEchoMsg = pstIsoMsgRecv->ucBagData + pstIsoMsgRecv->nBagLen;
-	memcpy(pSendEchoMsg,"\x08\x10",2);//set Msg code
-	pstIsoMsgRecv->nBagLen += 2;
-	pSendEchoMsg += 2;
-	memcpy(pSendEchoMsg,"\x00\x38\x00\x01\x0A\xC0\x00\x14",8);//set bitmap
-	pstIsoMsgRecv->nBagLen += 8;
-	iRet = EchoIsoPackPublicMsg(TRANSID_LOGON,pstIsoMsgRecv);
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField32(pstIsoMsgRecv); //set field32 acquirer  identification instruction
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField37(pstIsoMsgRecv);//set Field37
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField39(TRANSID_LOGON,pstIsoMsgRecv,field39);//set Field39
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleTIDMID(pstIsoMsgRecv);//set field 41,42
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-    iRet = EchoHandleField60(TRANSID_LOGON, pstIsoMsgRecv);//set field 60
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	iRet = EchoHandleField62(TRANSID_LOGON, pstIsoMsgRecv,field39);//set field62
-	if(iRet < SDK_OK)
-	{
-		return SDK_ERR;
-	}
-	return SDK_OK;
-#endif
 }
 
 /*****************************************************************************
@@ -324,11 +265,9 @@ void LogonTrans(void)
     DispClearContent();
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_PASSWORD, SDK_DISP_LEFT_DEFAULT);
     sdkDispBrushScreen();
-
-#ifdef JEFF_ECHO
-	Trace("xgd","InputUse=%d,sysPwd=%s,adminPwd=%s %s(%d)\r\n",cashier,
-		  gstAppSysCfg.stUserPwd.asSysPwd,gstAppSysCfg.stUserPwd.asAdminPwd,__FUNCTION__,__LINE__);
-#endif
+	
+	Trace("xgd","InputUse=%d,sysPwd=%s,adminPwd=%s\r\n",cashier,
+		  gstAppSysCfg.stUserPwd.asSysPwd,gstAppSysCfg.stUserPwd.asAdminPwd);
     // Input password
     memset(buf, 0, sizeof(buf));
     ret = sdkKbGetScanf(TMR_OPERATE, buf, 4, 8, SDK_MMI_NUMBER | SDK_MMI_PWD, SDK_DISP_LINE3);
@@ -337,10 +276,8 @@ void LogonTrans(void)
         TrnSetStatus(ret);
         return;
     }
-#ifdef JEFF_ECHO
 	Trace("xgd","InputPwd=%s,( %02X %02X %02X %02X %02X %02X %02X %02X )\r\n",
-	    &buf[1],buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7],__FUNCTION__,__LINE__);
-#endif 
+	    &buf[1],buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7]);
     if (SYSADMINNO == cashier && 0 == strcmp(&buf[1], gstAppSysCfg.stUserPwd.asSysPwd))
     {
         gstLoginInfo.ucUserNO = cashier;

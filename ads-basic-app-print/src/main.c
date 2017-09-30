@@ -18,7 +18,6 @@
 #include "global.h"
 #undef AFX_APP_VARIABLES
 
-
 // functions
 void AppMain(void);
 void MainMenu(void);
@@ -31,8 +30,7 @@ void OnCircle();
 #ifdef XGD_SDK_DEBUG
 
 #ifdef USE_SDK_DEBUG 
-
-static  const SDK_DEBUG_FILTER DebugFilter =
+static const SDK_DEBUG_FILTER DebugFilter =
 {
     FALSE,                   //whether in testing state
     FALSE,                   //whether output function name
@@ -87,8 +85,7 @@ s32 main(s32 argc, char const *argv[])
     
 #ifdef XGD_SDK_DEBUG
 #ifdef USE_SDK_DEBUG
-        Verify(sdkDebugInitalList(pWhiteList, sizeof(pWhiteList) / sizeof(char *), 
-        		pBlackList, sizeof(pBlackList) / sizeof(char *)) == SDK_OK);
+        Verify(sdkDebugInitalList(pWhiteList, sizeof(pWhiteList) / sizeof(char *), pBlackList, sizeof(pBlackList) / sizeof(char *)) == SDK_OK);
         Verify(sdkDebugSetFilter(&DebugFilter) == SDK_OK);
 #else /* if 0 */
         AppDbgInit(&DbgFilter,
@@ -123,20 +120,6 @@ void AppInit(void)
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_SYSTEM_INIT, SDK_DISP_DEFAULT);
     sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_PLEASE_WAIT, SDK_DISP_DEFAULT);
     sdkDispBrushScreen();
-#ifdef JEFF_ECHO //init the messages that need to save for backend
-	if(false == sdkAccessFile(FILENAME_SAVED_ECHO_MEG))
-	{
-		s32 iRet;
-		
-		EchoInitMsg(&gstSavedEchoMsg);
-		iRet = SaveEchoMsg(&gstSavedEchoMsg);
-		if(iRet < 0)
-		{
-			return;
-		}
-	}
-#endif
-    
     sdkIccPowerStartInit();                                                 // Must be called for EMV IC card reset
     
     //sdkDbTest();
@@ -206,7 +189,6 @@ void AppMain(void)
     pgScrBuff = (u16 *)sdkGetMem(guiScrBuffSize * 2);
 
     AppInit();
-    
     // main loop here!!!
     OnCircle();
 
@@ -325,8 +307,6 @@ void OnCircle(void)
         {
             sdkSysBeep(SDK_SYS_BEEP_ERR);
         }
-
-		
         // refresh disp timer
         if(sdkTimerIsEnd(tmr_disp, TMR_REFRESH_TIME))
         {

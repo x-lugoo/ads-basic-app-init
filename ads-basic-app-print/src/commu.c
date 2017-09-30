@@ -384,11 +384,7 @@ s32 CommuSslConnect(s32 iTimeOut)
 s32 CommuCreateLink(void)
 {
     s32 ret;
-
-#ifdef JEFF_ECHO
-	if(SDK_COMM_ECHO != gstAppSysCfg.stCommuParam.uiCommuMode)
-	{
-#endif
+    
     CommuConfigParam(FALSE);
 
     // Create a link
@@ -447,9 +443,6 @@ s32 CommuCreateLink(void)
         sdkKbWaitKey(SDK_KEY_MASK_ENTER | SDK_KEY_MASK_ESC, TMR_WAITKEY);
         return SDK_ERR;
     }
-#ifdef JEFF_ECHO
-	}
-#endif
     return SDK_OK;
 }
 
@@ -783,36 +776,22 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
     s32 ret;
     u8 bag_data[SDK_8583_BAGMAXLEN + 2];
     u32 len = SDK_8583_BAGMAXLEN;
+	ST_PRINT_ISO8583 *pstPrintIso8583 = NULL;
 	
+	pstPrintIso8583 = &gstTransData.stTransLog.stPrintIso8583;
     //DispClearContent();
     sdkDispClearRowRam(SDK_DISP_LINE3);
     sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_SENDING, SDK_DISP_DEFAULT);
     sdkDispBrushScreen();
     
     // Send transation data
-#ifdef JEFF_ECHO
     TraceHex("commu", "ISO8583 send", pstIsoMsgSend->ucBagData, pstIsoMsgSend->nBagLen);
-    DbgTraceIso8583("commu", pstIsoMsgSend);
-#endif
-
-#ifdef JEFF_ECHO
-	Trace("xgd","communMOde=%d  \r\n",gstAppSysCfg.stCommuParam.uiCommuMode);
 	
-	if(SDK_COMM_ECHO == gstAppSysCfg.stCommuParam.uiCommuMode){
-		TrnIncTraceNo(1);
-		sdkDispClearRowRam(SDK_DISP_LINE3);
-   		sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_RECEIVING, SDK_DISP_DEFAULT);
-    	sdkDispBrushScreen();
-	 	ret = EchoModeExchangeIsoPacket(pstIsoMsgSend->ucBagData,pstIsoMsgSend->nBagLen,pstIsoMsgRecv);
-		if(ret < SDK_OK)
-		{
-			return SDK_ERR;
-		}
-	}
-	else
-	{
-#endif
-
+    //added by jeff 20190925 for printing 8583 msg
+	pstPrintIso8583->iSendLen = pstIsoMsgSend->nBagLen;
+	memcpy(pstPrintIso8583->hePrintSendBuf,pstIsoMsgSend->ucBagData,pstPrintIso8583->iSendLen);
+	
+    DbgTraceIso8583("commu", pstIsoMsgSend);
     if(0 == gstAppSysCfg.stCommuParam.bIsWithSSL)
     {
         if(LENTYPE_BCD == gstAppSysCfg.stCommuParam.eMsgLenType)
@@ -848,7 +827,7 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
         }
         TrnSetStatus(ERR_SEND);
         return SDK_ERR;
-    }	
+    }
     //DispClearContent();
     sdkDispClearRowRam(SDK_DISP_LINE3);
     sdkDispFillRowRam(SDK_DISP_LINE3, 0, STR_INFO_RECEIVING, SDK_DISP_DEFAULT);
@@ -924,25 +903,16 @@ s32 CommuExchangeIsoPacket(SDK_8583_ST8583 *pstIsoMsgSend, SDK_8583_ST8583 *pstI
         pstIsoMsgRecv->nBagLen = len - 2;
         memmove(pstIsoMsgRecv->ucBagData, &pstIsoMsgRecv->ucBagData[2], pstIsoMsgRecv->nBagLen);
     }
-	
-#ifdef JEFF_ECHO
-	}
-#endif
 
     // Parse the response message
-    Trace("xgd","Jeff pkg len=%d\r\n",pstIsoMsgRecv->nBagLen);
-    TraceHex("commu", "ISO8583 received1", pstIsoMsgRecv->ucBagData, pstIsoMsgRecv->nBagLen);
-
+    TraceHex("commu", "ISO8583 received", pstIsoMsgRecv->ucBagData, pstIsoMsgRecv->nBagLen);
+	pstPrintIso8583->iRecvLen = pstIsoMsgRecv->nBagLen;
+	memcpy(pstPrintIso8583->hePrintRecvBuf,pstIsoMsgRecv->ucBagData,pstPrintIso8583->iRecvLen);
     if (0 == IsoParse8583(pstIsoMsgRecv))
     {
         TrnSetStatus(ERR_UNPACK_MSG);
         return ERR_UNPACK_MSG;
     }
-#ifdef JEFF_ECHO
-	// Parse the response message
-    TraceHex("commu", "ISO8583 received2", pstIsoMsgRecv->ucBagData, pstIsoMsgRecv->nBagLen);
-#endif
-	
     DbgTraceIso8583("commu", pstIsoMsgRecv);
     return TrnUpdateTransDataRecv(pstIsoMsgRecv);
 }
