@@ -122,6 +122,27 @@ static ST_DATABASE TabTransLog =
         {STR(LOG_STAT_NEEDSCRIPT),     DB_DATATYPE_U8,  0, FALSE, &_gstTransLog.stTransStatus.bIsNeedScript,        0}, 
         {STR(LOG_STAT_REVERSALREASON), DB_DATATYPE_U8,  0, FALSE, &_gstTransLog.stTransStatus.ucReversalReason,     0}, 
         {STR(LOG_STAT_UPLOADSTATUS),   DB_DATATYPE_U32, 0, FALSE, &_gstTransLog.stTransStatus.eUploadStatus,        0},
+	     //added by jeff 20171010 for handle policy tranx
+	    {STR(LOG_POLICY_STX),     	 	DB_DATATYPE_U8,   0, FALSE, &_gstTransLog.stSentPolicyMsg.ucSTX,     0}, 
+        {STR(LOG_POLICY_CMD), 	      	DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.asCmd,     0}, 
+		{STR(LOG_POLICY_DATALEN), 	 	DB_DATATYPE_BIN,  0, FALSE, &_gstTransLog.stSentPolicyMsg.heDataLen, sizeof(_gstTransLog.stSentPolicyMsg.heDataLen)},
+	
+		{STR(LOG_POLICY_COMPANY_CODE), 	DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asCompanyCode,           0},
+		{STR(LOG_POLICY_MID), 	        DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asMID,     			     0}, 
+		{STR(LOG_POLICY_TID), 			DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asTID,     			     0},
+		{STR(LOG_POLICY_NUM), 			DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asPolicyNum,    	     0}, 	 
+		{STR(LOG_POLICY_AMOUNT), 		DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asAmount,     		     0}, 	 
+		{STR(LOG_POLICY_RET_CODE), 		DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asRetCode,    	 	     0}, 	 
+		{STR(LOG_POLICY_CARD_NO), 		DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asCardNo,     		     0}, 
+		{STR(LOG_POLICY_TRANS_DATE), 	DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asTransDate,             0}, 
+		{STR(LOG_POLICY_TRANS_TIME), 	DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asTransTime,             0}, 
+		{STR(LOG_POLICY_TRANS_NO), 		DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asTransNo,               0}, 
+		{STR(LOG_POLICY_REF_NO), 		DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asRefNo,             	  0}, 
+		{STR(LOG_POLICY_ORIG_DATA_FIELD), 	DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asOrigDataField,     0},
+		{STR(LOG_POLICY_ADD_MSG), 			DB_DATATYPE_ASC,  0, FALSE, &_gstTransLog.stSentPolicyMsg.stPolicyDataField.asAddMsg,            0}, 
+			
+		{STR(LOG_POLICY_ETX),    			DB_DATATYPE_U8,   0, FALSE, &_gstTransLog.stSentPolicyMsg.ucETX,     							  0}, 
+		{STR(LOG_POLICY_CRC),    			DB_DATATYPE_U8,   0, FALSE, &_gstTransLog.stSentPolicyMsg.ucCRC,     							  0}, 						
         {-1, NULL},
     }
 };

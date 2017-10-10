@@ -40,6 +40,9 @@
 #include "sdkexGlobal.h"
 #include "sdkiso8583.h"
 
+
+/*---------------------- app headers ----------------------*/
+#include "policy.h"
 /*-----------------------------------------------------------------------------
 *                          GLOBAL MACROS/CONSTANTS
 -----------------------------------------------------------------------------*/
@@ -446,6 +449,7 @@ typedef struct      //stored in DB
     ST_MSGINFO stMsgInfo;                   // MSG info
     ST_TRANS_STATUS stTransStatus;          // transaction status
     u8 heRFU[256];                          // RFU
+    ST_SENT_POLICY_MSG stSentPolicyMsg;     //Policy Msg added by jeff 20171010
 }ST_TRANSLOG;
 
 typedef struct      //stored in DB                                                                                 
