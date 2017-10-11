@@ -140,6 +140,13 @@ void AppInit(void)
 		EmvInitCtlsParam();
 	}
 
+    //initialize policy comm and debug msg
+	OutputPolicyDebugMsg();
+	OpenPolicyComm();
+	
+
+
+	
     if(gstAppSysCfg.stSysParam.bIsExtPED)
     {
         sdkPEDSetLanguage(SDK_PED_EN);
@@ -220,6 +227,7 @@ void OnCircle(void)
     bool refresh_led = TRUE;
     u8 max_line;
     s32 color;
+	s32 iRet;
 
     tmr_disp = sdkTimerGetId();
     tmr_idle = sdkTimerGetId();
@@ -230,8 +238,10 @@ void OnCircle(void)
     
     sdkKbKeyFlush();
     key = 0;
+	gstTransData.stTransLog.eTransID = TRANSID_WELCOME;
     while(1)
     {
+		printf("eTransID=%d,%s(%d)\n",gstTransData.stTransLog.eTransID,__FUNCTION__,__LINE__);
         switch(gstTransData.stTransLog.eTransID)
         {
             // process disp welcome screen
@@ -263,7 +273,7 @@ void OnCircle(void)
                 gstTransData.stTransLog.eTransID = TRANSID_WELCOME;
                 tmr_idle = sdkTimerGetId();
                 refresh = TRUE;
-                break;
+                continue;
 
             case TRANSID_SALE:
                 memset(&gstTransData, 0, sizeof(ST_TRANSDATA));
@@ -275,8 +285,8 @@ void OnCircle(void)
                 gstTransData.stTransLog.eTransID = TRANSID_WELCOME;
                 tmr_idle = sdkTimerGetId();
                 refresh = TRUE;
-                break;
-                
+				continue;
+           		
             default:
                 gstTransData.stTransLog.eTransID = TRANSID_WELCOME;
                 refresh = TRUE;
@@ -294,6 +304,7 @@ void OnCircle(void)
         {
             sdkSysBeep(SDK_SYS_BEEP_OK);
             gstTransData.stTransLog.eTransID = TRANSID_MAINMENU;
+			continue;
         }
         else if(key > SDK_KEY_0 && key <= SDK_KEY_9)
         {
@@ -332,6 +343,12 @@ void OnCircle(void)
             tmr_idle = sdkTimerGetId();
             refresh = TRUE;
         }
+		iRet = RecvPolicyMsg();
+		if(SDK_OK == iRet)
+		{
+			sdkSysBeep(SDK_SYS_BEEP_OK);
+            gstTransData.stTransLog.eTransID = TRANSID_SALE;
+		}
     }
 }
 

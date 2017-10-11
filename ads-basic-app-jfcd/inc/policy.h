@@ -66,5 +66,12 @@ typedef struct
 
 
 
+
+
+extern s32 OutputPolicyDebugMsg(void);
+extern s32 OpenPolicyComm(void);
+extern s32 RecvPolicyMsg(void);
+extern s32 ClosePolicyComm(void);
+
 #endif
 
