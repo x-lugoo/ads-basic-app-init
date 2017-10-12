@@ -42,8 +42,8 @@ DBG_FILTER DbgFilter =
 {
     TRUE,                  // whether in testing state
     DBG_OUTPUT_ALL,        // only block the tags of black list
-    DBG_MODE_PINPAD,        // mode for Trace(), TraceHex(), Assert(), Verify().
-    DBG_ENABLE_PINPAD,        // enable all trace modes
+    DBG_MODE_PINPAD,//DBG_MODE_PINPAD,        // mode for Trace(), TraceHex(), Assert(), Verify().
+    DBG_ENABLE_PINPAD,//DBG_ENABLE_PINPAD,        // enable all trace modes
 };
 #endif
 
@@ -114,6 +114,7 @@ void AppInit(void)
 {
     SDK_SYS_INITIAL_INFO st_initial;
     bool print = TRUE;
+	
     
     //display initial screen
     sdkDispClearScreen();
@@ -143,9 +144,6 @@ void AppInit(void)
     //initialize policy comm and debug msg
 	OutputPolicyDebugMsg();
 	OpenPolicyComm();
-	
-
-
 	
     if(gstAppSysCfg.stSysParam.bIsExtPED)
     {
@@ -241,7 +239,7 @@ void OnCircle(void)
 	gstTransData.stTransLog.eTransID = TRANSID_WELCOME;
     while(1)
     {
-		printf("eTransID=%d,%s(%d)\n",gstTransData.stTransLog.eTransID,__FUNCTION__,__LINE__);
+		//printf("eTransID=%d,%s(%d)\n",gstTransData.stTransLog.eTransID,__FUNCTION__,__LINE__);
         switch(gstTransData.stTransLog.eTransID)
         {
             // process disp welcome screen
@@ -343,7 +341,7 @@ void OnCircle(void)
             tmr_idle = sdkTimerGetId();
             refresh = TRUE;
         }
-		iRet = RecvPolicyMsg();
+		iRet = HandlePolicyMsg();
 		if(SDK_OK == iRet)
 		{
 			sdkSysBeep(SDK_SYS_BEEP_OK);

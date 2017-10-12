@@ -64,14 +64,24 @@ typedef struct
 	u8 ucCRC;
 }ST_SENT_POLICY_MSG;
 
-
+typedef enum
+{
+	POLICY_FIRST_REQUEST,
+	POLICY_CONFIRM_REQUEST,
+	
+}E_POLICY_REQUEST;
 
 
 
 extern s32 OutputPolicyDebugMsg(void);
 extern s32 OpenPolicyComm(void);
-extern s32 RecvPolicyMsg(void);
+extern s32 RecvPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen);
 extern s32 ClosePolicyComm(void);
-
+extern s32 HandlePolicyMsg(void);
+extern s32 SavePolicyMsg(u8 *pheInputBuf,s32 iLen);
+extern bool VarifyPolicyMsg(u8 *pheInputBuf,s32 iLen);
+extern s32 CalcPolicyCRCValue(u8 *pheInputBuf,s32 iLen);
+extern s32 PackPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen,E_POLICY_REQUEST ePolicyRequest);
+extern s32 SendPolicyMsg(u8 *pheInputBuf,s32 iLen);
 #endif
 
