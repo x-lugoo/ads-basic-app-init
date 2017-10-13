@@ -119,6 +119,7 @@ static ST_EMV_TLV TabPaypassCfg[] =
 *****************************************************************************/
 s32 CbEmvInputAmount(u8 *pasAmount)
 {
+#if 0	
     u8 sale_amt[12 + 1] = {0}, cashback_amt[12 + 1] = {0};
     u8 amt1[6], amt2[6];
 
@@ -141,6 +142,8 @@ s32 CbEmvInputAmount(u8 *pasAmount)
     sdkBcdAdd(amt1, amt1, 6, amt2, 6);
     sdkBcdToAsc(pasAmount, amt1, 6);
     Trace("sale", "total amount(sale + cashback) = %s\r\n", pasAmount);
+#endif
+	memcpy(pasAmount,gstTransData.stTransLog.stSentPolicyMsg.stPolicyDataField.asAmount, 12);
     return SDK_OK;
 }
 

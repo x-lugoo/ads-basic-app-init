@@ -532,7 +532,8 @@ typedef struct
 #include "script.h"
 #include "print.h"
 #include "display.h"
-#include "appdbg.h"
+
+//#include "appdbg.h"
 
 /*-----------------------------------------------------------------------------
 *                           GLOBAL VARIABLES
@@ -542,6 +543,7 @@ EXTERN ST_APP_SYSCFG gstAppSysCfg;
 
 EXTERN u16 *pgScrBuff;      //screen buffer
 EXTERN u32 guiScrBuffSize;  //screen buffer size
+EXTERN u8  gucCommPort;     //communication port with pc 
 
 EXTERN ST_TRANSDATA gstTransData;       //transaction related information
 

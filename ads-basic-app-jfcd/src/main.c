@@ -24,7 +24,7 @@ void MainMenu(void);
 void OnCircle();
 
 #define USE_SDK_DEBUG 
-#undef USE_SDK_DEBUG
+//#undef USE_SDK_DEBUG
 
 //-----------------------------------------------------------------------------
 #ifdef XGD_SDK_DEBUG
@@ -42,8 +42,8 @@ DBG_FILTER DbgFilter =
 {
     TRUE,                  // whether in testing state
     DBG_OUTPUT_ALL,        // only block the tags of black list
-    DBG_MODE_PINPAD,//DBG_MODE_PINPAD,        // mode for Trace(), TraceHex(), Assert(), Verify().
-    DBG_ENABLE_PINPAD,//DBG_ENABLE_PINPAD,        // enable all trace modes
+    DBG_MODE_RS232,//DBG_MODE_PINPAD,        // mode for Trace(), TraceHex(), Assert(), Verify().
+    DBG_ENABLE_ALL,//DBG_ENABLE_PINPAD,        // enable all trace modes
 };
 #endif
 
@@ -141,8 +141,8 @@ void AppInit(void)
 		EmvInitCtlsParam();
 	}
 
-    //initialize policy comm and debug msg
-	OutputPolicyDebugMsg();
+    //initialize communcation port and  open policy comm
+    gucCommPort = SDK_COMM_UART_PINPAD;
 	OpenPolicyComm();
 	
     if(gstAppSysCfg.stSysParam.bIsExtPED)
@@ -239,7 +239,6 @@ void OnCircle(void)
 	gstTransData.stTransLog.eTransID = TRANSID_WELCOME;
     while(1)
     {
-		//printf("eTransID=%d,%s(%d)\n",gstTransData.stTransLog.eTransID,__FUNCTION__,__LINE__);
         switch(gstTransData.stTransLog.eTransID)
         {
             // process disp welcome screen
@@ -274,7 +273,6 @@ void OnCircle(void)
                 continue;
 
             case TRANSID_SALE:
-                memset(&gstTransData, 0, sizeof(ST_TRANSDATA));
                 gstTransData.stTransLog.stMsgInfo.asAmount[0] = (u8)key;
                 DispBackground(FILE_BACKGROUND_BMP);
                 sdkDispSetFontColor(color);
@@ -303,11 +301,6 @@ void OnCircle(void)
             sdkSysBeep(SDK_SYS_BEEP_OK);
             gstTransData.stTransLog.eTransID = TRANSID_MAINMENU;
 			continue;
-        }
-        else if(key > SDK_KEY_0 && key <= SDK_KEY_9)
-        {
-            sdkSysBeep(SDK_SYS_BEEP_OK);
-            gstTransData.stTransLog.eTransID = TRANSID_SALE;
         }
         else if(SDK_KEY_FUNCTION == key)
         {
@@ -342,7 +335,7 @@ void OnCircle(void)
             refresh = TRUE;
         }
 		iRet = HandlePolicyMsg();
-		if(SDK_OK == iRet)
+		if(POLICY_FIRST_REQUEST == iRet)
 		{
 			sdkSysBeep(SDK_SYS_BEEP_OK);
             gstTransData.stTransLog.eTransID = TRANSID_SALE;
@@ -366,11 +359,11 @@ void MainMenu(void)
         0,    
         {
             {STR_TRANS_LOGON,      SDK_DISP_LDISP, FALSE, 0, LogonTrans}, 
-            {STR_TRANS_SALE,       SDK_DISP_LDISP, FALSE, 0, OnSale},
-            {STR_TRANS_VOID,       SDK_DISP_LDISP, FALSE, 0, OnVoid},
-            {STR_TRANS_REFUND,     SDK_DISP_LDISP, FALSE, 0, OnRefund},
-            {STR_TRANS_TIP,        SDK_DISP_LDISP, FALSE, 0, OnAdjust},
-            {STR_TRANS_BALANCE,    SDK_DISP_LDISP, FALSE, 0, OnBalance},
+            //{STR_TRANS_SALE,       SDK_DISP_LDISP, FALSE, 0, OnSale},
+           // {STR_TRANS_VOID,       SDK_DISP_LDISP, FALSE, 0, OnVoid},
+           // {STR_TRANS_REFUND,     SDK_DISP_LDISP, FALSE, 0, OnRefund},
+           // {STR_TRANS_TIP,        SDK_DISP_LDISP, FALSE, 0, OnAdjust},
+           // {STR_TRANS_BALANCE,    SDK_DISP_LDISP, FALSE, 0, OnBalance},
             {STR_TRANS_SETTLEMENT, SDK_DISP_LDISP, FALSE, 0, OnSettle},
             {STR_TRANS_LOGOUT,     SDK_DISP_LDISP, FALSE, 0, LogoutTrans}, 
             {STR_FUNC_REPRINT,     SDK_DISP_LDISP, FALSE, 0, MenuPrintTrans}, 

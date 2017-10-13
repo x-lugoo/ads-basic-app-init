@@ -2861,7 +2861,13 @@ void TrnEndProcess(void)
 {
     ST_CARDINFO *pst_cardinfo = &gstTransData.stTransLog.stCardInfo;
     u32 tmr;
+	u8  ucPackBuf[512];
+	u8  ucDebugBuf[2048];
+	s32 iLen;
+	s32 iRet;
+	s32 i = 0;
 
+	Trace("xgd","pass ENDPROCESS");
     if(TRANSID_MAINMENU != gstTransData.stTransLog.eTransID 
         && TRANSID_UNKNOWN != gstTransData.stTransLog.eTransID
         && TRANSID_WELCOME != gstTransData.stTransLog.eTransID)
@@ -2869,7 +2875,18 @@ void TrnEndProcess(void)
         if(0 == TrnGetStatus())
         {
             sdkSysBeep(SDK_SYS_BEEP_OK);
-            
+            if(TRANSID_SALE == gstTransData.stTransLog.eTransID)
+			{
+				
+				PackPolicyMsg(ucPackBuf,&iLen,POLICY_FIRST_REQUEST,true);
+				iRet = SendPolicyMsg(ucPackBuf,iLen);
+				Trace("xgd","send policy msg iRet=%d\r\n",iRet);	
+				for(i = 0;i < iLen;i++)
+				{
+					snprintf(ucDebugBuf + 3*i,2048,"%02X ",ucPackBuf[i]);
+				}
+				Trace("xgd"," iLen=%d,SendBuf=%s\r\n",iLen,ucDebugBuf);	
+            }
             if(TRANSID_BALANCE != gstTransData.stTransLog.eTransID)
             {
                 DispSuccResponse();
@@ -2878,6 +2895,18 @@ void TrnEndProcess(void)
         else
         {
             sdkSysBeep(SDK_SYS_BEEP_ERR);
+			if(TRANSID_SALE == gstTransData.stTransLog.eTransID)
+			{
+				
+				PackPolicyMsg(ucPackBuf,&iLen,POLICY_FIRST_REQUEST,false);
+				iRet = SendPolicyMsg(ucPackBuf,iLen);
+				Trace("xgd","send policy msg iRet=%d\r\n",iRet);	
+				for(i = 0;i < iLen;i++)
+				{
+					snprintf(ucDebugBuf + 3*i,2048,"%02X ",ucPackBuf[i]);
+				}
+				Trace("xgd"," iLen=%d,SendBuf=%s\r\n",iLen,ucDebugBuf);	
+			}
             DispTransStatus();
         }
     }

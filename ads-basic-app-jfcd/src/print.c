@@ -354,6 +354,13 @@ void PrintFormRefData(bool bIsReprint, SDK_PRINT_FONT stFont, s32 iOffset, s32 i
         strcpy(printbuf, "TermCap:");
         sdkBcdToAsc(&printbuf[strlen(printbuf)], pst_emvinfo->heTermCap, 3);
         sdkPrintStr(printbuf, stFont, SDK_PRINT_LEFTALIGN, iOffset, iRowGap);
+
+		memset(printbuf, 0, sizeof(printbuf));
+		strcpy(printbuf, "POLICY NUM:");
+		memcpy(printbuf + strlen(printbuf),
+			gstTransData.stTransLog.stSentPolicyMsg.stPolicyDataField.asPolicyNum,
+			POLICY_NUMBER_LEN);
+		sdkPrintStr(printbuf,stFont, SDK_PRINT_LEFTALIGN, iOffset, iRowGap);
     }
 }
 

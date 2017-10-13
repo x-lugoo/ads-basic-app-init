@@ -169,67 +169,23 @@ void SaleTrans(u16 usCardType)
     SDK_ICC_TRADE_PARAM st_tradeparam;
     ST_CARDINFO *pst_cardinfo = NULL;
     ST_MSGINFO *pst_msginfo = NULL;
+	ST_SENT_POLICY_DATA_FIELD *stPolicyDataField = NULL;
     s32 ret;
     u8 buf[16], sale_amt[6], cashback_amt[6];
-
-    /* step1 : initializes the transaction data */
-    if(0 == strlen(gstTransData.stTransLog.stMsgInfo.asAmount))
-    {
-        memset(&gstTransData, 0, sizeof(ST_TRANSDATA));
-    }
+ 
     memset(&st_tradeparam, 0, sizeof(SDK_ICC_TRADE_PARAM));
     pst_cardinfo = &gstTransData.stTransLog.stCardInfo;
     pst_msginfo = &gstTransData.stTransLog.stMsgInfo;
     pst_msginfo->ucCashierNO = gstLoginInfo.ucUserNO;
+	stPolicyDataField  = &gstTransData.stTransLog.stSentPolicyMsg.stPolicyDataField;
     gstTransData.stTransLog.eTransID = TRANSID_SALE;
 
-    /* step2 : Display title */
     DispTitle(STR_TRANS_SALE);
-
-    /* step3 : check transaction conditions */
     if(!TrnCheckCondition(TRUE, gstAppSysCfg.stTransParam.bIsSupportSale))
     {
         return;
     }
-
-    /* step4 : input transaction amount */
-    ret = TrnInputAmount(SALE_AMOUNT, pst_msginfo->asAmount);
-    if(SDK_OK != ret)
-    {
-        return;
-    }
-
-    /* step5 : input cashback amount(optional) */
-    ret = TrnInputAmount(CASHBACK_AMOUNT, pst_msginfo->asCashbackAmount);
-    if(SDK_OK != ret)
-    {
-        return;
-    }
-
-//    if(SDK_OK != TrnCheckCashBackAmount(pst_msginfo->asAmount, pst_msginfo->asCashbackAmount))
-//    {
-//        TrnSetStatus(ERR_CASHBACK_LIMIT);
-//        return;
-//    }
-
-    /* step6 : calculate total amount (total amount = sale amount + cashback amount) */
-    memset(sale_amt, 0, sizeof(sale_amt));
-    sdkAscToBcd(sale_amt, pst_msginfo->asAmount, 12);
-
-    memset(cashback_amt, 0, sizeof(cashback_amt));
-    sdkAscToBcd(cashback_amt, pst_msginfo->asCashbackAmount, 12);
-    
-    sdkBcdAdd(sale_amt, sale_amt, 6, cashback_amt, 6);
-    memset(pst_msginfo->asAmount, 0, sizeof(pst_msginfo->asAmount));
-    sdkBcdToAsc(pst_msginfo->asAmount, sale_amt, 6);
-    
-//    if(SDK_OK != TrnCheckTotalAmount(gstTransData.stTransLog.eTransID, pst_msginfo->asAmount))
-//    {
-//        TrnSetStatus(ERR_AMT_LIMIT);
-//        return;
-//    }
-
-    /* step7 : Process card */
+	memcpy(pst_msginfo->asAmount, stPolicyDataField->asAmount, 12);
     while(1)
     {
         ret = TrnReadCard(usCardType, &st_tradeparam, pst_cardinfo);
@@ -253,7 +209,7 @@ void SaleTrans(u16 usCardType)
             {
                 usCardType &= ~SDK_ICC_RF;
             }
-            memset(&gstTransData, 0, sizeof(ST_TRANSDATA));
+           
             gstTransData.stTransLog.eTransID = TRANSID_SALE;
             sdkBcdToAsc(pst_msginfo->asAmount, sale_amt, 6);
             sdkBcdToAsc(pst_msginfo->asCashbackAmount, cashback_amt, 6);
