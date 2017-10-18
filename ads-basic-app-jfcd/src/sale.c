@@ -186,6 +186,32 @@ void SaleTrans(u16 usCardType)
         return;
     }
 	memcpy(pst_msginfo->asAmount, stPolicyDataField->asAmount, 12);
+	if(0 == memcmp(pst_msginfo->asAmount,"000000000000",12) 
+		|| (0 == memcmp(pst_msginfo->asAmount,"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00",12)))
+	{
+		memset(pst_msginfo->asAmount,'\0',12);
+	 	ret = TrnInputAmount(SALE_AMOUNT, pst_msginfo->asAmount);
+	    if(SDK_OK != ret)
+	    {
+	        return;
+	    }
+	    ret = TrnInputAmount(CASHBACK_AMOUNT, pst_msginfo->asCashbackAmount);
+	    if(SDK_OK != ret)
+	    {
+	        return;
+	    }
+		memset(sale_amt, 0, sizeof(sale_amt));
+	    sdkAscToBcd(sale_amt, pst_msginfo->asAmount, 12);
+
+	    memset(cashback_amt, 0, sizeof(cashback_amt));
+	    sdkAscToBcd(cashback_amt, pst_msginfo->asCashbackAmount, 12);
+	    
+	    sdkBcdAdd(sale_amt, sale_amt, 6, cashback_amt, 6);
+	    memset(pst_msginfo->asAmount, 0, sizeof(pst_msginfo->asAmount));
+	    sdkBcdToAsc(pst_msginfo->asAmount, sale_amt, 6);
+		memcpy(stPolicyDataField->asAmount,pst_msginfo->asAmount, 12);
+	}
+	
     while(1)
     {
         ret = TrnReadCard(usCardType, &st_tradeparam, pst_cardinfo);

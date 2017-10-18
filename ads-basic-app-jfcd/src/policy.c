@@ -15,9 +15,6 @@
 
 ******************************************************************************/
 #include "global.h"
-#include <sys/types.h>
-#include <sys/fcntl.h>
-
 /*----------------------------------------------------------------------------*/
 
 
@@ -33,9 +30,7 @@ s32 OpenPolicyComm(void)
 	uartCfg.ucCheckBit = 'n';
 	uartCfg.ucStopBitLen = '1';
 	uartCfg.ucFlowControl = '0';
-	iRet = ClosePolicyComm();
-	Trace("xgd","close commm iRet =%d\r\n",iRet);
-
+	ClosePolicyComm();
     iRet = sdkCommOpenUart(&uartCfg);
 	Trace("xgd","open commm iRet =%d\r\n",iRet);
 
@@ -46,11 +41,8 @@ s32 OpenPolicyComm(void)
 s32 HandlePolicyMsg(void)
 { 
 	u8  ucRecvBuf[512] = {0};
-	u8  ucDebugBuf[2048];
 	s32 iLen;
 	s32 iRet;
-	s32 i = 0;
-	s32 iExistRecodeFlag = 0;
 	
 	iRet = RecvPolicyMsg(ucRecvBuf,&iLen);
 	if(iRet != SDK_OK)
@@ -61,7 +53,6 @@ s32 HandlePolicyMsg(void)
 	{
 		return SDK_ERR;
 	}
-
 	iRet = SavePolicyMsg(ucRecvBuf,iLen); 
 	if(iRet != SDK_OK)
 	{
@@ -74,13 +65,10 @@ s32 HandlePolicyMsg(void)
 	}
 	else if(0 == memcmp(&ucRecvBuf[1],"02",2))
 	{
-		Trace("xgd","entry confirm policy request,policy number =%s\r\n",gstTransData.stTransLog.stSentPolicyMsg.stPolicyDataField.asPolicyNum);
 		iRet = RecordSearch(LOG_POLICY_NUM,gstTransData.stTransLog.stSentPolicyMsg.stPolicyDataField.asPolicyNum,
 				&gstTransData.stTransLog); 
-		Trace("xgd","recordsearch policy msg returnValue=%d\r\n",iRet);
         if(SDK_OK == iRet)
         {
-			iExistRecodeFlag = 1;
 			PackPolicyMsg(ucRecvBuf,&iLen,POLICY_CONFIRM_REQUEST,true);
         }
 		else
@@ -92,16 +80,6 @@ s32 HandlePolicyMsg(void)
 		{
 			return iRet;
 		}
-		if(1 == iExistRecodeFlag)
-		{
-			PrintRecipt(FALSE);
-		}
-		Trace("xgd","send policy msg iRet=%d\r\n",iRet);	
-		for(i = 0;i < iLen;i++)
-		{
-			snprintf(ucDebugBuf + 3*i,2048,"%02X ",ucRecvBuf[i]);
-		}
-		Trace("xgd"," iLen=%d,SendBuf=%s,confirm=%d\r\n",iLen,ucDebugBuf);
 		memset(&gstTransData, 0, sizeof(ST_TRANSDATA));
 		return POLICY_CONFIRM_REQUEST;
 	}
@@ -230,7 +208,6 @@ s32 PackPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen,E_POLICY_REQUEST ePolicyReque
 
 s32 SendPolicyMsg(u8 *pheInputBuf,s32 iLen)
 {
-	
 	return (sdkCommUartSendData(gucCommPort,pheInputBuf,iLen));
 }
 
@@ -264,12 +241,10 @@ s32 SavePolicyMsg(u8 *pheInputBuf,s32 iLen)
 	memcpy(stPolicyDataField->asAmount,ucRecvBuf + iDataFieldOffsetLen,POLICY_AMOUNT_LEN);
 	Trace("xgd","Amount=%s\r\n",stPolicyDataField->asAmount);
 
-	
 	iDataFieldOffsetLen += POLICY_AMOUNT_LEN;
 	memcpy(stPolicyDataField->asOrigDataField,ucRecvBuf + iDataFieldOffsetLen,POLICY_ORIGINAL_DATA_FIELD_LEN);
 	Trace("xgd","OrigDataField=%s\r\n",stPolicyDataField->asOrigDataField);
 
-	
 	iDataFieldOffsetLen += POLICY_ORIGINAL_DATA_FIELD_LEN;
 	memcpy(stPolicyDataField->asAddMsg,ucRecvBuf + iDataFieldOffsetLen,POCLICY_ADDITIONAL_LEN);
 	Trace("xgd","AddMsg=%s\r\n",stPolicyDataField->asAddMsg);
@@ -306,11 +281,9 @@ bool VarifyPolicyMsg(u8 *pheInputBuf,s32 iLen)
 s32 RecvPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen)
 {
 	u8 ucRecvBuf[512] = {0};
-	u8  ucDebugBuf[2048];
 	s32 iRet;
 	s32 iLen = 0;
 	s32 iTrueLen = 0;
-	s32 i = 0;
 	s32 iFirstPos = 0;
 	s32 iSecondPos = 0;
 	SDK_QUEUE_HAND pHead = NULL;
@@ -349,10 +322,6 @@ s32 RecvPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen)
 		{
 			continue;
 		}
-		//printf("pos3=%02X,pos4=%02X,pos5=%02X,pos6=%02X %s(%d)\n",
-		//	sdkQueueGetPosValue(pHead, 3),sdkQueueGetPosValue(pHead, 4),sdkQueueGetPosValue(pHead, 5),
-		//	sdkQueueGetPosValue(pHead, 6),__FUNCTION__,__LINE__);
-
 		iTrueLen = (sdkQueueGetPosValue(pHead, 3)- '0') * 1000 + (sdkQueueGetPosValue(pHead, 4) - '0') * 100
 					+ (sdkQueueGetPosValue(pHead, 5)- '0') * 10 + (sdkQueueGetPosValue(pHead, 6) - '0') + 9;
 		if(sdkQueueGetDataLen(pHead) < iTrueLen)
@@ -373,15 +342,8 @@ s32 RecvPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen)
 	sdkQueueRelease(pHead);
 	*iOutputLen = iTrueLen;
 	memcpy(pheOutputBuf,ucRecvBuf,iTrueLen);
-	 for(i = 0;i < iTrueLen;i++)
-	 {
-	 	snprintf(ucDebugBuf + 3*i,2048,"%02X ",ucRecvBuf[i]);
-	 }
-	Trace("xgd","iLen=%d,RecvBuf=%s\r\n",iTrueLen,ucDebugBuf);
-	
 	return SDK_OK;
 }
-
 
 
 s32 ClosePolicyComm(void)

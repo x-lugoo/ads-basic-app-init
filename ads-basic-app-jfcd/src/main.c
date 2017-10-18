@@ -359,11 +359,6 @@ void MainMenu(void)
         0,    
         {
             {STR_TRANS_LOGON,      SDK_DISP_LDISP, FALSE, 0, LogonTrans}, 
-            //{STR_TRANS_SALE,       SDK_DISP_LDISP, FALSE, 0, OnSale},
-           // {STR_TRANS_VOID,       SDK_DISP_LDISP, FALSE, 0, OnVoid},
-           // {STR_TRANS_REFUND,     SDK_DISP_LDISP, FALSE, 0, OnRefund},
-           // {STR_TRANS_TIP,        SDK_DISP_LDISP, FALSE, 0, OnAdjust},
-           // {STR_TRANS_BALANCE,    SDK_DISP_LDISP, FALSE, 0, OnBalance},
             {STR_TRANS_SETTLEMENT, SDK_DISP_LDISP, FALSE, 0, OnSettle},
             {STR_TRANS_LOGOUT,     SDK_DISP_LDISP, FALSE, 0, LogoutTrans}, 
             {STR_FUNC_REPRINT,     SDK_DISP_LDISP, FALSE, 0, MenuPrintTrans}, 
