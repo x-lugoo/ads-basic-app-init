@@ -48,6 +48,15 @@
 
 //#define T2_DEBUG
 
+
+
+
+
+/*---------------------- app headers ----------------------*/
+#include "voice.h"
+
+/*-----------------------------------------------------------------------------*/
+
 #ifdef T2_DEBUG
 #define     SDK_ICC_PLS_INSERT_CARD   (SDK_SYS_RET_ERR_MAX + (-8))  // switch to another interface
 #define     SDK_ICC_PLS_SEE_PHONE     (SDK_SYS_RET_ERR_MAX + (-9))  // see phone and perform CDCVM
@@ -74,6 +83,7 @@
 #define FILE_BACKGROUND_BMP  "/mtd0/res/background.bmp"    // background image
 #define FILENAME_PRINT_BMP   "printlogo.bmp"               // print title image
 #define FILENAME_WELCOME_BMP "welcome.bmp"                 // welcome display image
+#define FILENAME_SAVED_VOICE_SECURE_MEG       "/mtd0/res/VoiceSecureMsg"       //saved voice secure message
 
 #define CARDPROC_NONEEDPIN       (100)
 #define CARDPROC_OFFLINE_SUCC    (101)
@@ -221,6 +231,11 @@ typedef enum
     TRANSID_BATCHUP_END,            // batch upload end
 
     TRANSID_REPORT,
+
+	TRANSID_VOICE_ADD_FUNC,
+	TRANSID_VOICE_READD_ONE_FUNC,
+	TRANSID_VOICE_CANCEL_ONE_FUNC,
+	TRANSID_VOICE_CANCEL_ALL_FUNC,
     //add new transaction IDs here ...
 }E_TRANS_ID;
 
@@ -445,6 +460,7 @@ typedef struct      //stored in DB
     ST_EMVINFO stEmvInfo;                   // EMV info
     ST_MSGINFO stMsgInfo;                   // MSG info
     ST_TRANS_STATUS stTransStatus;          // transaction status
+    ST_VOICE_MSG  stVoiceMsg;				//voice info
     u8 heRFU[256];                          // RFU
 }ST_TRANSLOG;
 
@@ -540,7 +556,7 @@ EXTERN u16 *pgScrBuff;      //screen buffer
 EXTERN u32 guiScrBuffSize;  //screen buffer size
 
 EXTERN ST_TRANSDATA gstTransData;       //transaction related information
-
+EXTERN ST_SAVED_VOICE_SECURE_MSG gstSavedVoiceMsg;   //Saved Voice secure msg
 EXTERN ST_LOGIN_INFO gstLoginInfo;      //login related information
 
 EXTERN SDK_8583_ST8583 gstSendPacket;   // ISO8583 send packet struct

@@ -2132,6 +2132,42 @@ bool TrnInputReferenceNo(u8 *pasRefNo)
     return TRUE;
 }
 
+
+
+
+
+bool TrnInputPaymentMethodNo(u8 *pasPayMethodNo)
+{
+   	u8 tmp[21+1];
+    s32 ret;
+
+    DispClearContent();
+    sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_INPUT_PAYMEN_METHOD_NO, SDK_DISP_LEFT_DEFAULT);
+    sdkDispBrushScreen();
+
+    memset(tmp, 0, sizeof(tmp));
+    ret = TrnInputLine(TMR_OPERATE, tmp, 5, 20, SDK_MMI_NUMBER, SDK_DISP_LINE3);
+    if (SDK_KEY_ENTER != ret)
+    {
+        TrnSetStatus(ret);
+        return FALSE;
+    }
+
+    if(tmp[0] < 20)
+    {
+        TrnPadding(pasPayMethodNo, &tmp[1], ' ', 20, LEFT_ALIGN);
+    }
+    else
+    {
+        strncpy(pasPayMethodNo, &tmp[1], 20);
+    }
+    TraceHex("xgd","paymethodNo,var tmp=",tmp,21);
+	TraceHex("xgd","paymethodNo,=",pasPayMethodNo,20);
+	
+    return TRUE;
+}
+
+
 /*****************************************************************************
 ** Description :  Check date format (MMDD)
 ** Parameters  :  output

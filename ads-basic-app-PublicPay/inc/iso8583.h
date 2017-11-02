@@ -47,6 +47,7 @@ extern s32 IsoPackMsgMac(SDK_8583_ST8583 *pstIsoMsg);
 extern s32 IsoPackPublicMsg(SDK_8583_ST8583 *pstIsoMsg, ST_TRANSDATA *pstTransData, u8 *pasBitMap);
 extern s32 IsoParse8583(SDK_8583_ST8583 *pstIsoMsg);
 extern s32 IsoSetField(SDK_8583_ST8583 *pstPacket8583, u8 ucFieldNo, u8 *pheFieldData, u16 usDataLen);
+extern s32 VoiceIsoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac);
 
 /*-----------------------------------------------------------------------------*/
 #endif

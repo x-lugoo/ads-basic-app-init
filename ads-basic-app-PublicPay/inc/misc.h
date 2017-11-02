@@ -83,6 +83,7 @@ extern s32 TrnInputIpAddr(s32 iTimeOut, u8 *pasIpAddr, s32 iLine);
 extern s32 TrnInputLine(s32 iTimeOut, u8 *pasStr, s32 iMinLen, s32 iMaxLen, s32 iMode, s32 iLine);
 extern s32 TrnInputPin(bool bIsWithPan, const u8 *pasTransAmount, SDK_ICC_CARDDATA const *pstCardData, u8 *phePwd, s32 iDispLine);
 extern bool TrnInputReferenceNo(u8 *pasRefNo);
+extern bool TrnInputPaymentMethodNo(u8 *pasPayMethodNo);
 extern bool TrnInputTraceNo(u8 *pasTracerNo);
 extern bool TrnInputAddCashier(u32 *puiOperator);
 extern bool TrnInputDeleteCashier(u32 *puiOperator);

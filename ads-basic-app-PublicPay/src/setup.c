@@ -1457,6 +1457,7 @@ void SetupSecureTmk(void)
     s32 index;
     u8 tmp[33] = {0};
     u8 key[33] = {0};
+	s32 iRet;
      
     DispClearContent();
     sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_SETUP_KEY_INDEX_0_9, SDK_DISP_LEFT_DEFAULT);
@@ -1493,6 +1494,24 @@ void SetupSecureTmk(void)
         }
     }
     sdkAscToBcd(key, &tmp[1], tmp[0]);
+	if(0 == gstAppSysCfg.stSecureKey.bIsTripleDES)
+	{
+		gstSavedVoiceMsg.ucIsTriDes = true;
+		gstSavedVoiceMsg.ucTmkLen = 16;
+	}
+	else
+	{
+		gstSavedVoiceMsg.ucIsTriDes = false;
+		gstSavedVoiceMsg.ucTmkLen = 8;
+	}
+	memcpy(gstSavedVoiceMsg.heVoiceTMK,key,tmp[0] / 2);
+	TraceHex("xgd","get voiceTMK=",gstSavedVoiceMsg.heVoiceTMK,gstSavedVoiceMsg.ucTmkLen);
+	iRet = SaveVoiceSecureMsg(&gstSavedVoiceMsg);
+	if(iRet < 0)
+	{
+		return;
+	}
+	
     DispClearContent();
     if(SDK_OK == sdkPEDUpdateTmk(index, gstAppSysCfg.stSecureKey.bIsTripleDES, key, 30000))
     {

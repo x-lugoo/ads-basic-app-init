@@ -68,7 +68,8 @@ static SDK_8583_STFIELDDEF TabIsoFields[SDK_8583_FIELDMAX + 1] =
     /* FLD  45 */ {2, SDK_8583_LEN_BCD, 76, SDK_8583_DATA_BCD, SDK_8583_ALIGN_L, '0'},
     /* FLD  46 */ {0, SDK_8583_LEN_BCD, 12, SDK_8583_DATA_BCD, SDK_8583_ALIGN_R, '0'},
     /* FLD  47 */ {0, SDK_8583_LEN_BCD, 12, SDK_8583_DATA_BCD, SDK_8583_ALIGN_R, '0'},
-    /* FLD  48 */ {3, SDK_8583_LEN_BCD, 322, SDK_8583_DATA_BCD, SDK_8583_ALIGN_L, '0'},
+    			// {3, SDK_8583_LEN_BCD, 322, SDK_8583_DATA_BCD, SDK_8583_ALIGN_L, '0'},  //for cup                 
+    /* FLD  48 */ {3, SDK_8583_LEN_BCD, 332, SDK_8583_DATA_BIT, SDK_8583_ALIGN_L, 0}, /*for voice sending*/
     /* FLD  49 */ {0, SDK_8583_LEN_BCD, 3, SDK_8583_DATA_ASC, SDK_8583_ALIGN_L, ' '},
     /* FLD  50 */ {0, SDK_8583_LEN_BCD, 12, SDK_8583_DATA_BCD, SDK_8583_ALIGN_R, '0'},
     /* FLD  51 */ {0, SDK_8583_LEN_BCD, 12, SDK_8583_DATA_BCD, SDK_8583_ALIGN_R, '0'},
@@ -500,7 +501,8 @@ s32 IsoPackPublicMsg(SDK_8583_ST8583 *pstIsoMsg, ST_TRANSDATA *pstTransData, u8 
             case 42:
                 IsoSetField(pstIsoMsg, 42, gstAppSysCfg.stTermInfo.asMerchID, 15);
                 break;
-
+			case 48:
+				break;
             case 49:
                 IsoSetField(pstIsoMsg, 49, gstAppSysCfg.stTermInfo.asCurrencyCode, 3);
                 break;
@@ -681,13 +683,16 @@ s32 IsoPackMsgMac(SDK_8583_ST8583 *pstIsoMsg)
 {
     s32 ret = SDK_OK;
     u8 mac[16];
+	u8 testMacBuf[8 + 1];
 
+	memset(testMacBuf,0,sizeof(testMacBuf));
     // Check if field 64 exists
     if (sdk8583IsDomainExist(pstIsoMsg, 64))
     {
-        // Get MAC
+        // Get MAC ,Using cup's method to  calculate mac 
         ret = IsoGetMsgMac(pstIsoMsg, mac);
-
+		/*Take CBC mode to calculate MAC according manual method*/
+        // ret = VoiceIsoGetMsgMac(pstIsoMsg, mac);
         if (SDK_OK != ret)
         {
             DispClearContent();
@@ -728,7 +733,7 @@ s32 IsoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac)
     u8 *p_data = NULL;
     u16 len;
     u8 ksn_len;
-
+	
     p_data = &(pstIsoMsg->ucBagData[pstIsoMsg->stFiled[SDK_8583_FIELD_MSG].nFieldHead]);
     len = pstIsoMsg->stFiled[64].nFieldHead - pstIsoMsg->stFiled[SDK_8583_FIELD_MSG].nFieldHead;
 
@@ -738,15 +743,58 @@ s32 IsoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac)
     }
     else
     {
+		/*for cup,Mac calculating takes ECB mode*/
         ret = sdkPEDCalcMac(gstAppSysCfg.stSecureKey.uiTakIndex, SDK_PED_ECB, SDK_PED_DES_SINGLE, p_data, len, pucMac);
+        /*for voice sending ,Mac calculating takes CBC Mode*/
+		//ret = sdkPEDCalcMac(gstAppSysCfg.stSecureKey.uiTakIndex, SDK_PED_CBC, SDK_PED_DES_SINGLE, p_data, len, pucMac);
     }
-
     if (SDK_OK != ret)
     {
         return SDK_ESC;
     }
     return SDK_OK;
 }
+
+s32 VoiceIsoGetMsgMac(SDK_8583_ST8583 *pstIsoMsg, u8 *pucMac)
+{
+    u8 *p_data = NULL;
+    s32 iLen;
+	s32 iLen2;
+	s32 i;
+	s32 j;
+	s32 iRet;
+	u8 ucMacResult[8+1];
+	u8 ucIsoMsgBuf[2048+1];
+	ST_SAVED_VOICE_SECURE_MSG stVoiceMsg;
+	
+    iRet = ReadVoiceSecureMsg(&stVoiceMsg);
+	
+	if(iRet < 0)
+	{
+		return iRet;
+	}
+    p_data = &(pstIsoMsg->ucBagData[pstIsoMsg->stFiled[SDK_8583_FIELD_MSG].nFieldHead]);
+    iLen = pstIsoMsg->stFiled[64].nFieldHead - pstIsoMsg->stFiled[SDK_8583_FIELD_MSG].nFieldHead;
+	iLen2 = iLen;
+	memcpy(ucIsoMsgBuf,p_data,iLen);
+	if(0 != (iLen % 8))
+	{
+		iLen = ((iLen / 8) + 1) * 8;
+		memset(ucIsoMsgBuf + iLen2,0x00,iLen - iLen2);
+	}
+	memset(ucMacResult,0x00,sizeof(ucMacResult));
+	for(j = 0;j < iLen / 8;j++)
+	{
+		for(i = 0;i < 8;i++)
+		{
+			ucMacResult[i] ^= ucIsoMsgBuf[j * 8 + i];
+		}
+		sdkDesS(1,ucMacResult,stVoiceMsg.heVoiceTAK);//Take CBC mode to encrypt MAC
+	}
+	memcpy(pucMac,ucMacResult,8);
+    return SDK_OK;
+}
+
 
 /*****************************************************************************
 ** Description :  Parse ISO8583 message

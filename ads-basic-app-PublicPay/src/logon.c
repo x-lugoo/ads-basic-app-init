@@ -51,6 +51,9 @@ static s32 PedUpdateSessionKey(void)
     }
     memset(&st_wkcfg, 0, sizeof(st_wkcfg));
 
+	ReadVoiceSecureMsg(&gstSavedVoiceMsg);
+	TraceHex("xgd","get voiceTMK=",gstSavedVoiceMsg.heVoiceTMK,gstSavedVoiceMsg.ucTmkLen);
+
     // Update TPK
     if (gstAppSysCfg.stSecureKey.bIsTripleDES)
     {
@@ -59,6 +62,13 @@ static s32 PedUpdateSessionKey(void)
         st_wkcfg.ucTmkIndex = gstAppSysCfg.stSecureKey.uiTmkIndex;
         st_wkcfg.ucEnWkLen = 16;
         memcpy(st_wkcfg.heEnWk, revbuf, 16);
+		
+		gstSavedVoiceMsg.ucTpkLen = 16;
+		memcpy(gstSavedVoiceMsg.heVoiceTPK,st_wkcfg.heEnWk,16);
+		sdkDes3S(0,gstSavedVoiceMsg.heVoiceTPK,gstSavedVoiceMsg.heVoiceTMK);
+		sdkDes3S(0,gstSavedVoiceMsg.heVoiceTPK + 8,gstSavedVoiceMsg.heVoiceTMK);
+		TraceHex("xgd","get voiceTPK=",gstSavedVoiceMsg.heVoiceTPK,16);
+		
         st_wkcfg.ucCheckDataLen = 16;
         memset(st_wkcfg.heCheckData, 0, 16);
         st_wkcfg.ucWkIndex = gstAppSysCfg.stSecureKey.uiTpkIndex;
@@ -73,6 +83,12 @@ static s32 PedUpdateSessionKey(void)
         st_wkcfg.ucTmkIndex = gstAppSysCfg.stSecureKey.uiTmkIndex;
         st_wkcfg.ucEnWkLen = 8;
         memcpy(st_wkcfg.heEnWk, revbuf, 8);
+
+		gstSavedVoiceMsg.ucTpkLen = 8;
+		memcpy(gstSavedVoiceMsg.heVoiceTPK,st_wkcfg.heEnWk,8);
+		sdkDesS(0,gstSavedVoiceMsg.heVoiceTPK,gstSavedVoiceMsg.heVoiceTMK);
+		TraceHex("xgd","get voiceTPK=",gstSavedVoiceMsg.heVoiceTPK,8);
+
         st_wkcfg.ucCheckDataLen = 8;
         memset(st_wkcfg.heCheckData, 0, 8);
         st_wkcfg.ucWkIndex = gstAppSysCfg.stSecureKey.uiTpkIndex;
@@ -98,6 +114,12 @@ static s32 PedUpdateSessionKey(void)
         st_wkcfg.ucTmkIndex = gstAppSysCfg.stSecureKey.uiTmkIndex;
         st_wkcfg.ucEnWkLen = 8;
         memcpy(st_wkcfg.heEnWk, &revbuf[20], 8);
+
+		gstSavedVoiceMsg.ucTakLen = 8;
+		memcpy(gstSavedVoiceMsg.heVoiceTAK,st_wkcfg.heEnWk,8);
+		sdkDes3S(0,gstSavedVoiceMsg.heVoiceTAK,gstSavedVoiceMsg.heVoiceTMK);
+		TraceHex("xgd","get voiceTAK=",gstSavedVoiceMsg.heVoiceTAK,8);
+		
         st_wkcfg.ucCheckDataLen = 8;
         memset(st_wkcfg.heCheckData, 0, 8);
         st_wkcfg.ucWkIndex = gstAppSysCfg.stSecureKey.uiTakIndex;
@@ -112,6 +134,12 @@ static s32 PedUpdateSessionKey(void)
         st_wkcfg.ucTmkIndex = gstAppSysCfg.stSecureKey.uiTmkIndex;
         st_wkcfg.ucEnWkLen = 8;
         memcpy(st_wkcfg.heEnWk, &revbuf[12], 8);
+
+		gstSavedVoiceMsg.ucTakLen = 8;
+		memcpy(gstSavedVoiceMsg.heVoiceTAK,st_wkcfg.heEnWk,8);
+		sdkDesS(0,gstSavedVoiceMsg.heVoiceTAK,gstSavedVoiceMsg.heVoiceTMK);
+		TraceHex("xgd","get voiceTAK=",gstSavedVoiceMsg.heVoiceTAK,8);
+		
         st_wkcfg.ucCheckDataLen = 8;
         memset(st_wkcfg.heCheckData, 0, 8);
         st_wkcfg.ucWkIndex = gstAppSysCfg.stSecureKey.uiTakIndex;
@@ -129,6 +157,7 @@ static s32 PedUpdateSessionKey(void)
     
     slt = sdkPEDUpdateWk(st_allwkcfg, num, SDK_PED_TIMEOUT / 2);
     Trace("logon", "slt=[%d]\r\n", slt);
+	SaveVoiceSecureMsg(&gstSavedVoiceMsg);
 
     return slt;
 }

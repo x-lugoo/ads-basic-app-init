@@ -48,6 +48,7 @@ typedef struct
 -----------------------------------------------------------------------------*/
 // callback functions
 extern s32 CbEmvInputAmount(u8 *pasAmount);
+extern s32 CbVoiceEmvInputAmount(u8 *pasAmount);
 extern s32 CbEmvDispCardNo(u8 const *pasCardNo);
 extern s32 CbEmvDispPrompts(SDK_ICC_PROMPT_TYPE ePromptType);
 extern s32 CbEmvDispCandAppList(u8 ucAppNum, u8 **ppheAppList);

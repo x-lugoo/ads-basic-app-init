@@ -144,6 +144,12 @@ s32 CbEmvInputAmount(u8 *pasAmount)
     return SDK_OK;
 }
 
+
+s32 CbVoiceEmvInputAmount(u8 *pasAmount)
+{
+	return SDK_OK;
+}
+
 /*****************************************************************************
 ** Description :  EMV flow callback function - display card number
 ** Parameters  :  input:
@@ -543,7 +549,7 @@ s32 CbEmvInputPin(const u8 *pasTransAmount, u8 ucRemainPinTries, u8 ePinMode, u8
         return ret;
     }
     // Get password
-    ret = EmvInputPin(pwd, TRUE, pasTransAmount, ePinMode, row);
+    ret = EmvInputPin(pwd, FALSE, pasTransAmount, ePinMode, row);
 
     if (SDK_OK == ret)
     {
@@ -972,7 +978,16 @@ void EmvConfigTransParam(ST_TRANSDATA *pstTransData, SDK_ICC_TRADE_PARAM *pstIcc
             pstIccTradeParam->InputPWD = CbEmvInputPin;
             pstIccTradeParam->DispCardOut = CbEmvCltsRemoveCard;
             break;
-            
+         case TRANSID_VOICE_READD_ONE_FUNC:
+		 	pstIccTradeParam->bIsForceOnline = FALSE;
+            pstIccTradeParam->bIsFallback = TRUE;
+            pstIccTradeParam->bIsSupportQPBOC = TRUE;
+            pstIccTradeParam->eFlowMode = SDK_ICC_ALL_FLOW;
+            pstIccTradeParam->InputAmount = CbVoiceEmvInputAmount;
+            pstIccTradeParam->VerifyCardNo = CbEmvDispCardNo;
+            pstIccTradeParam->InputPWD = CbEmvInputPin;
+            pstIccTradeParam->DispCardOut = CbEmvCltsRemoveCard;
+		 	break;
     	/* private configuration for QUERY BALANCE */
         case TRANSID_BALANCE:
             pstIccTradeParam->bIsForceOnline = TRUE;
