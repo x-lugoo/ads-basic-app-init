@@ -704,7 +704,7 @@ s32 IsoPackMsgMac(SDK_8583_ST8583 *pstIsoMsg)
             return SDK_ESC;
         }
         ret = IsoSetField(pstIsoMsg, 64, mac, 8);
-
+       TraceHex("xgd","get mac",mac,8);
         if (ret <= 0)
         {
             return SDK_ESC;

@@ -58,6 +58,7 @@ extern s32 CbEmvCltsRemoveCard(void);
 
 extern u8 DispInputPin(u8 *pucDispLine, E_PED_DISPAMOUNT eDispAmountMode, u8 const *pasAmount, SDK_PED_PIN_MODE ePinMode, u8 ucRemainPinTries);
 extern s32 EmvInputPin(u8 *phePin, bool bIsWithPan, const u8 *pasAmount, SDK_PED_PIN_MODE ePinMode, u8 ucDispLine);
+extern s32 CbVoiceEmvInputPin(const u8 *pasTransAmount, u8 ucRemainPinTries, u8 ePinMode, u8 *phePin);
 extern s32 EmvOptImportRespData(SDK_8583_ST8583 *pst8583Packet);
 extern void EmvConfigTransParam(ST_TRANSDATA *pstTransData, SDK_ICC_TRADE_PARAM *pstIccTradeParam);
 extern void EmvInitPayPassWave(SDK_ICC_TRADE_PARAM *pstTradeParam);

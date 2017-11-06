@@ -579,6 +579,13 @@ s32 CbEmvInputPin(const u8 *pasTransAmount, u8 ucRemainPinTries, u8 ePinMode, u8
     return ret;
 }
 
+
+s32 CbVoiceEmvInputPin(const u8 *pasTransAmount, u8 ucRemainPinTries, u8 ePinMode, u8 *phePin)
+{
+	return SDK_OK;
+}
+
+
 /*****************************************************************************
 ** Description :  Get result after performing the EMV mandatory flow. 
 ** Parameters  :  input:
@@ -986,6 +993,16 @@ void EmvConfigTransParam(ST_TRANSDATA *pstTransData, SDK_ICC_TRADE_PARAM *pstIcc
             pstIccTradeParam->InputAmount = CbVoiceEmvInputAmount;
             pstIccTradeParam->VerifyCardNo = CbEmvDispCardNo;
             pstIccTradeParam->InputPWD = CbEmvInputPin;
+            pstIccTradeParam->DispCardOut = CbEmvCltsRemoveCard;
+		 	break;
+		case TRANSID_VOICE_ADD_FUNC:
+			pstIccTradeParam->bIsForceOnline = FALSE;
+            pstIccTradeParam->bIsFallback = TRUE;
+            pstIccTradeParam->bIsSupportQPBOC = TRUE;
+            pstIccTradeParam->eFlowMode = SDK_ICC_ALL_FLOW;
+            pstIccTradeParam->InputAmount = CbVoiceEmvInputAmount;
+            pstIccTradeParam->VerifyCardNo = CbEmvDispCardNo;
+            pstIccTradeParam->InputPWD = CbVoiceEmvInputPin;
             pstIccTradeParam->DispCardOut = CbEmvCltsRemoveCard;
 		 	break;
     	/* private configuration for QUERY BALANCE */

@@ -2136,15 +2136,22 @@ bool TrnInputReferenceNo(u8 *pasRefNo)
 
 
 
-bool TrnInputPaymentMethodNo(u8 *pasPayMethodNo)
+bool TrnInputVoiceCommonNo(u8 *pasInputdNo,E_VOICE_INPUT_TYPE eInputType)
 {
    	u8 tmp[21+1];
     s32 ret;
 
     DispClearContent();
-    sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_INPUT_PAYMEN_METHOD_NO, SDK_DISP_LEFT_DEFAULT);
+	if(VOICE_INPUT_INVOICE_NO == eInputType)
+	{
+		 sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_INPUT_INVOICE__NO, SDK_DISP_LEFT_DEFAULT);
+	}
+    else
+    {
+		sdkDispFillRowRam(SDK_DISP_LINE2, 0, STR_INFO_INPUT_PAYMEN_METHOD_NO, SDK_DISP_LEFT_DEFAULT);
+    }
+	
     sdkDispBrushScreen();
-
     memset(tmp, 0, sizeof(tmp));
     ret = TrnInputLine(TMR_OPERATE, tmp, 5, 20, SDK_MMI_NUMBER, SDK_DISP_LINE3);
     if (SDK_KEY_ENTER != ret)
@@ -2155,14 +2162,14 @@ bool TrnInputPaymentMethodNo(u8 *pasPayMethodNo)
 
     if(tmp[0] < 20)
     {
-        TrnPadding(pasPayMethodNo, &tmp[1], ' ', 20, LEFT_ALIGN);
+        TrnPadding(pasInputdNo, &tmp[1], ' ', 20, LEFT_ALIGN);
     }
     else
     {
-        strncpy(pasPayMethodNo, &tmp[1], 20);
+        strncpy(pasInputdNo, &tmp[1], 20);
     }
     TraceHex("xgd","paymethodNo,var tmp=",tmp,21);
-	TraceHex("xgd","paymethodNo,=",pasPayMethodNo,20);
+	TraceHex("xgd","paymethodNo,=",pasInputdNo,20);
 	
     return TRUE;
 }

@@ -45,12 +45,19 @@ typedef struct
 
 }ST_SAVED_VOICE_SECURE_MSG;
 
+typedef enum 
+{
+	VOICE_INPUT_INVOICE_NO,
+	VOICE_INPUT_PAYMENT_NO,
+	
+}E_VOICE_INPUT_TYPE;
+
 extern s32 VoiceReAddFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg);
 extern s32 VoiceAddFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg);
 extern s32 VoiceCancelOneFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg);
 extern void VoiceReAddTrans(u16 usCardType);
 extern void VoiceReAddFunc(void);
-
+extern void VoiceAddFunc(void);
 extern s32 ReadVoiceSecureMsg(ST_SAVED_VOICE_SECURE_MSG *pstVoiceSecureMsg);
 extern s32 SaveVoiceSecureMsg(ST_SAVED_VOICE_SECURE_MSG *pstVoiceSecureMsg);
 

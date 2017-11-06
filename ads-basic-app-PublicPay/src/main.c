@@ -353,6 +353,7 @@ void MainMenu(void)
             {STR_TRANS_LOGON,      SDK_DISP_LDISP, FALSE, 0, LogonTrans}, 
             //{STR_TRANS_SALE,       SDK_DISP_LDISP, FALSE, 0, OnSale},
             {STR_TRANS_READD_FUNC, SDK_DISP_LDISP, FALSE, 0, VoiceReAddFunc},
+			{STR_TRANS_ADD_FUNC,   SDK_DISP_LDISP, FALSE, 0, VoiceAddFunc},
             {STR_TRANS_VOID,       SDK_DISP_LDISP, FALSE, 0, OnVoid},
             {STR_TRANS_REFUND,     SDK_DISP_LDISP, FALSE, 0, OnRefund},
             {STR_TRANS_TIP,        SDK_DISP_LDISP, FALSE, 0, OnAdjust},

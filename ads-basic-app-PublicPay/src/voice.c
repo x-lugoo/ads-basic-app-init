@@ -67,21 +67,20 @@ s32 VoiceHandleField48(SDK_8583_ST8583 *pstIsoMsg,E_TRANS_ID eTransId)
 			memcpy(pucBuf,"01",2);
 			pucBuf += 2;
 			/*account number*/
-			memcpy(pucBuf,"",20);
+			memcpy(pucBuf,pst_voiceinfo->asInvoiceNum,20);
 			pucBuf += 20;
 			/*The six numbers at the end of the bank card number*/
-			memcpy(pucBuf,"",6);
+			memcpy(pucBuf,pst_cardinfo->stCardData.asCardNO + strlen(pst_cardinfo->stCardData.asCardNO) - 6,6);
 			pucBuf += 6;
 			/*payment method*/
-			memcpy(pucBuf,"",2);
+			memcpy(pucBuf,"01",2);
 			pucBuf += 2;
 			/*the number of the payment */
-			memcpy(pucBuf,"",20);
+			memcpy(pucBuf,pst_voiceinfo->asPayMethodNum,20);
 			pucBuf += 20;
-			/*PIN*/
-			memcpy(pucBuf,"",6);
+			/*password*/
+			memcpy(pucBuf,"000000",6);
 			pucBuf += 6;
-			
 			break;
 		case TRANSID_VOICE_READD_ONE_FUNC:
 			/*Identification*/
@@ -163,8 +162,7 @@ s32 VoiceReAddFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg)
 
 s32 VoiceAddFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg)
 {
-    u8 buf[128] = {0};
-    s32 ret;
+	s32 ret;
     ST_MSGINFO *pst_msginfo = NULL;
 
     if(NULL == pstIsoMsg)
@@ -182,148 +180,32 @@ s32 VoiceAddFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg)
         return 0;
     }
     
-    // #0  Message Type Identifier (MTI)
+    /* Field 0  Message Type Identifier (MTI) */
     ret = IsoSetField(pstIsoMsg, SDK_8583_FIELD_MSG, "0100", 4);
     if (ret <= 0)
     {
         return 0;
     }
-    // #3
+    /*Field 3 */
     IsoSetField(pstIsoMsg, 3, "930002", 6);
 
-	// #25
+	/*Field 25*/
     IsoSetField(pstIsoMsg, 25, "87", 2); 
-    
-	
-    // #60.1  transaction type code
-    memset(buf, 0, sizeof(buf));
-    strcat(buf, "22");
-    // #60.2  batch number
-    strcat(buf, gstAppSysCfg.stTransParam.asBatchNO);
-    // #60.3  network management information code
-    strcat(buf, "000");
-    // #60.4  Reading capability at the terminal
-    if ((0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_QCTLS, 2)) || 
-        (0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_MSD, 2)) || 
-        (0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_CTLS, 2)))                 
-    {
-        strcat(buf, "6");
-    }
-    else if ((0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_MANUAL, 2)) ||
-             (0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_SWIPE, 2)) ||
-             (0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_INSERT, 2)))
-    {
-        strcat(buf, "5");
-    }
-    else 
-    {
-        strcat(buf, "0");
-    }
-    // #60.5  IC card condition code based on CUPIC debit / credit standard
-    if (CTLSFLOW_FALLBACK == gstTransData.stTransLog.stCardInfo.stCardParam.ucCLType && 
-        gstTransData.stTransLog.stCardInfo.stCardData.bIsIccMagCard)       //fallbcak
-    {
-        strcat(buf, "2");
-    }
-    else
-    {
-        strcat(buf, "0");
-    }
-    // #60.6  Symbol of supporting partial deduction and return balance
-    strcat(buf, "0");
-    IsoSetField(pstIsoMsg, 60, buf, strlen(buf));
 
+	/*Field 48*/
+	VoiceHandleField48(pstIsoMsg,TRANSID_VOICE_ADD_FUNC);
     return pstIsoMsg->nBagLen;
 }
 
 
 s32 VoiceCancelOneFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg)
 {
-    s32 ret;
-    u8 buf[128] = {0};
-    ST_MSGINFO *pst_msginfo = NULL;
-
-    if(NULL == pstIsoMsg)
-    {
-        return 0;
-    }
-
-    pst_msginfo = &gstTransData.stTransLog.stMsgInfo;
-
-    ret = IsoPackPublicMsg(pstIsoMsg, &gstTransData, "702406C030C09819");
-
-    if (ret <= 0)
-    {
-        return 0;
-    }
-    // #0 MTI
-    ret = IsoSetField(pstIsoMsg, SDK_8583_FIELD_MSG, "0200", 4);
-
-    if (ret <= 0)
-    {
-        return 0;
-    }
-    
-    // #3
-    IsoSetField(pstIsoMsg, 3, "200000", 6);
-
-    // #25
-    IsoSetField(pstIsoMsg, 25, "00", 2); 
-    
-    // #37
-    IsoSetField(pstIsoMsg, 37, pst_msginfo->asRefNO, 12);
-
-    // #38
-    IsoSetField(pstIsoMsg, 38, pst_msginfo->asAuthCode, 6);
-
-    // #60
-    memset(buf, 0, sizeof(buf));
-    strcat(buf, "23");
-    strcat(buf, gstAppSysCfg.stTransParam.asBatchNO);
-    strcat(buf, "000");
-
-    if ((0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_QCTLS, 2)) || 
-        (0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_MSD, 2)) || 
-        (0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_CTLS, 2)))                 
-    {
-        strcat(buf, "6");
-    }
-    else if ((0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_MANUAL, 2)) ||
-             (0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_SWIPE, 2)) ||
-             (0 == memcmp(pst_msginfo->asEntryMode, CARDMODE_INSERT, 2)))
-    {
-        strcat(buf, "5");
-    }
-    else 
-    {
-        strcat(buf, "0");
-    }
-
-    if (CTLSFLOW_FALLBACK == gstTransData.stTransLog.stCardInfo.stCardParam.ucCLType && 
-        gstTransData.stTransLog.stCardInfo.stCardData.bIsIccMagCard)       //fallbcak
-    {
-        strcat(buf, "2");
-    }
-    else
-    {
-        strcat(buf, "0");
-    }
-
-    strcat(buf, "0");
-    IsoSetField(pstIsoMsg, 60, buf, strlen(buf));
-
-    // #61
-    memset(buf, 0, sizeof(buf));
-   
-    sprintf(buf, "%-6.6s%-6.6s", pst_msginfo->asOrigBatchNO, 
-                                 pst_msginfo->asOrigTraceNO);
-    IsoSetField(pstIsoMsg, 61, buf, strlen(buf));
     
     return pstIsoMsg->nBagLen;
 }
 
 
-void VoiceReAddTrans(u16 usCardType)
+void VoiceTrans(u16 usCardType,E_TRANS_ID eTranID)
 {
     SDK_ICC_TRADE_PARAM st_tradeparam;
     ST_CARDINFO *pst_cardinfo = NULL;
@@ -342,17 +224,55 @@ void VoiceReAddTrans(u16 usCardType)
     pst_msginfo = &gstTransData.stTransLog.stMsgInfo;
 	pst_voiceinfo = &gstTransData.stTransLog.stVoiceMsg;
     pst_msginfo->ucCashierNO = gstLoginInfo.ucUserNO;
-    gstTransData.stTransLog.eTransID = TRANSID_VOICE_READD_ONE_FUNC;
+    gstTransData.stTransLog.eTransID = eTranID;
+	s32 (*pPackFun)(SDK_8583_ST8583 *) = NULL;
 
     /* step2 : Display title */
-    DispTitle(STR_TRANS_READD_FUNC);
-
+	switch(eTranID)
+	{
+		case TRANSID_VOICE_READD_ONE_FUNC:
+			pPackFun = VoiceReAddFuncPackMsg;
+			strcpy(buf,STR_TRANS_READD_FUNC);
+			break;
+		case TRANSID_VOICE_ADD_FUNC:
+			pPackFun = VoiceAddFuncPackMsg;
+			strcpy(buf,STR_TRANS_ADD_FUNC);
+			break;
+		case TRANSID_VOICE_CANCEL_ONE_FUNC:
+			break;
+		case TRANSID_VOICE_CANCEL_ALL_FUNC:
+			break;
+		default:
+			break;
+	}
+    DispTitle(buf);
     /* step3 : input payment method number */
- 
-    if(FALSE == TrnInputPaymentMethodNo(pst_voiceinfo->asPayMethodNum))
-    {
-		return;
-    }
+	switch(eTranID)
+	{
+		case TRANSID_VOICE_READD_ONE_FUNC:
+		if(FALSE == TrnInputVoiceCommonNo(pst_voiceinfo->asPayMethodNum,VOICE_INPUT_PAYMENT_NO))
+   		{
+			return;
+   		}
+		break;
+		case TRANSID_VOICE_ADD_FUNC:
+		if(FALSE == TrnInputVoiceCommonNo(pst_voiceinfo->asInvoiceNum,VOICE_INPUT_PAYMENT_NO))
+   		{
+			return;
+   		}
+		if(FALSE == TrnInputVoiceCommonNo(pst_voiceinfo->asPayMethodNum,VOICE_INPUT_INVOICE_NO))
+   		{
+			return;
+   		}
+		break;
+		case TRANSID_VOICE_CANCEL_ONE_FUNC:
+			break;
+		case TRANSID_VOICE_CANCEL_ALL_FUNC:
+			break;
+		default:
+			break;
+	}
+    
 	memset(buf,0,sizeof(buf));
     memcpy(buf,pst_voiceinfo->asPayMethodNum,20);
     /* step4 : Process card */
@@ -380,7 +300,7 @@ void VoiceReAddTrans(u16 usCardType)
                 usCardType &= ~SDK_ICC_RF;
             }
             memset(&gstTransData, 0, sizeof(ST_TRANSDATA));
-            gstTransData.stTransLog.eTransID = TRANSID_VOICE_READD_ONE_FUNC;
+            gstTransData.stTransLog.eTransID = eTranID;
 			memcpy(pst_voiceinfo->asPayMethodNum,buf,20);
             continue;
         }
@@ -414,7 +334,7 @@ void VoiceReAddTrans(u16 usCardType)
         }
     }
     /* step7 : Exchange transaction ISO8538 messages */
-    ret = CommuExchangeIsoMsg(&st_tradeparam, VoiceReAddFuncPackMsg, TRUE, TRUE, TRUE);
+    ret = CommuExchangeIsoMsg(&st_tradeparam, pPackFun, TRUE, TRUE, TRUE);
     if (ret <= 0)
     {
         return;
@@ -433,9 +353,15 @@ void VoiceReAddTrans(u16 usCardType)
 
 void VoiceReAddFunc(void)
 {
-    VoiceReAddTrans(ICCRF|MAGONLY);
+    VoiceTrans(ICCRF|MAGONLY,TRANSID_VOICE_READD_ONE_FUNC);
     sdkPEDCancel();
     EmvLedClose();
 }
 
+void VoiceAddFunc(void)
+{
+    VoiceTrans(ICCRF|MAGONLY,TRANSID_VOICE_ADD_FUNC);
+    sdkPEDCancel();
+    EmvLedClose();
+}
 
