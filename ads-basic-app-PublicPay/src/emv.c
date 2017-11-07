@@ -996,6 +996,8 @@ void EmvConfigTransParam(ST_TRANSDATA *pstTransData, SDK_ICC_TRADE_PARAM *pstIcc
             pstIccTradeParam->DispCardOut = CbEmvCltsRemoveCard;
 		 	break;
 		case TRANSID_VOICE_ADD_FUNC:
+		case TRANSID_VOICE_CANCEL_ALL_FUNC:
+		case TRANSID_VOICE_CANCEL_ONE_FUNC:
 			pstIccTradeParam->bIsForceOnline = FALSE;
             pstIccTradeParam->bIsFallback = TRUE;
             pstIccTradeParam->bIsSupportQPBOC = TRUE;
@@ -2401,8 +2403,8 @@ void EmvLedIdle(void)
 {
     SDK_PED_LAMP_CTRL st_lampctrl;
 
-    Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
-          gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
+    //Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
+       //   gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
 
     if (gstAppSysCfg.stSysParam.bIsIntRf) //internal CTLS card reader
     {

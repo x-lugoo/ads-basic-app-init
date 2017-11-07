@@ -109,8 +109,32 @@ s32 VoiceHandleField48(SDK_8583_ST8583 *pstIsoMsg,E_TRANS_ID eTransId)
 			pucBuf += 20;
 			break;
 		case TRANSID_VOICE_CANCEL_ONE_FUNC:
+			/*Identification*/
+			memcpy(pucBuf,"CP",2);
+			pucBuf += 2;
+			/*The type of the account*/
+			memcpy(pucBuf,"01",2);
+			pucBuf += 2;
+			/*account number*/
+			memcpy(pucBuf,pst_voiceinfo->asInvoiceNum,20);
+			pucBuf += 20;
+			/*payment method*/
+			memcpy(pucBuf,"01",2);
+			pucBuf += 2;
+			/*the number of the payment */
+			memcpy(pucBuf,pst_voiceinfo->asPayMethodNum,20);
+			pucBuf += 20;
 			break;
 		case TRANSID_VOICE_CANCEL_ALL_FUNC:
+			/*Identification*/
+			memcpy(pucBuf,"CP",2);
+			pucBuf += 2;
+			/*payment method*/
+			memcpy(pucBuf,"01",2);
+			pucBuf += 2;
+			/*the number of the payment */
+			memcpy(pucBuf,pst_voiceinfo->asPayMethodNum,20);
+			pucBuf += 20;
 			break;
 		default:
 			break;
@@ -200,10 +224,79 @@ s32 VoiceAddFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg)
 
 s32 VoiceCancelOneFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg)
 {
+    s32 ret;
+    ST_MSGINFO *pst_msginfo = NULL;
+
+    if(NULL == pstIsoMsg)
+    {
+        return 0;
+    }
+
+    pst_msginfo = &gstTransData.stTransLog.stMsgInfo;
+
+    /*Field 3,11,25,41,42,48,64  */
+    ret = IsoPackPublicMsg(pstIsoMsg, &gstTransData, "2020008000C10001");
+
+    if (ret <= 0)
+    {
+        return 0;
+    }
     
+    /* Field 0  Message Type Identifier (MTI) */
+    ret = IsoSetField(pstIsoMsg, SDK_8583_FIELD_MSG, "0100", 4);
+    if (ret <= 0)
+    {
+        return 0;
+    }
+    /*Field 3 */
+    IsoSetField(pstIsoMsg, 3, "940001", 6);
+
+	/*Field 25*/
+    IsoSetField(pstIsoMsg, 25, "00", 2); 
+
+	/*Field 48*/
+	VoiceHandleField48(pstIsoMsg,TRANSID_VOICE_ADD_FUNC);
     return pstIsoMsg->nBagLen;
+ 
 }
 
+s32 VoiceCancelAllFuncPackMsg(SDK_8583_ST8583 *pstIsoMsg)
+{
+    s32 ret;
+    ST_MSGINFO *pst_msginfo = NULL;
+
+    if(NULL == pstIsoMsg)
+    {
+        return 0;
+    }
+
+    pst_msginfo = &gstTransData.stTransLog.stMsgInfo;
+
+    /*Field 3,11,25,41,42,48,64  */
+    ret = IsoPackPublicMsg(pstIsoMsg, &gstTransData, "2020008000C10001");
+
+    if (ret <= 0)
+    {
+        return 0;
+    }
+    
+    /* Field 0  Message Type Identifier (MTI) */
+    ret = IsoSetField(pstIsoMsg, SDK_8583_FIELD_MSG, "0100", 4);
+    if (ret <= 0)
+    {
+        return 0;
+    }
+    /*Field 3 */
+    IsoSetField(pstIsoMsg, 3, "940002", 6);
+
+	/*Field 25*/
+    IsoSetField(pstIsoMsg, 25, "99", 2); 
+
+	/*Field 48*/
+	VoiceHandleField48(pstIsoMsg,TRANSID_VOICE_ADD_FUNC);
+    return pstIsoMsg->nBagLen;
+ 
+}
 
 void VoiceTrans(u16 usCardType,E_TRANS_ID eTranID)
 {
@@ -239,8 +332,12 @@ void VoiceTrans(u16 usCardType,E_TRANS_ID eTranID)
 			strcpy(buf,STR_TRANS_ADD_FUNC);
 			break;
 		case TRANSID_VOICE_CANCEL_ONE_FUNC:
+			pPackFun = VoiceCancelOneFuncPackMsg;
+			strcpy(buf,STR_TRANS_CANCEL_ONE_FUNC);
 			break;
 		case TRANSID_VOICE_CANCEL_ALL_FUNC:
+			pPackFun = VoiceCancelAllFuncPackMsg;
+			strcpy(buf,STR_TRANS_CANCEL_ALL_FUNC);
 			break;
 		default:
 			break;
@@ -250,12 +347,14 @@ void VoiceTrans(u16 usCardType,E_TRANS_ID eTranID)
 	switch(eTranID)
 	{
 		case TRANSID_VOICE_READD_ONE_FUNC:
+		case TRANSID_VOICE_CANCEL_ALL_FUNC:
 		if(FALSE == TrnInputVoiceCommonNo(pst_voiceinfo->asPayMethodNum,VOICE_INPUT_PAYMENT_NO))
    		{
 			return;
    		}
 		break;
 		case TRANSID_VOICE_ADD_FUNC:
+		case TRANSID_VOICE_CANCEL_ONE_FUNC:
 		if(FALSE == TrnInputVoiceCommonNo(pst_voiceinfo->asInvoiceNum,VOICE_INPUT_PAYMENT_NO))
    		{
 			return;
@@ -265,10 +364,6 @@ void VoiceTrans(u16 usCardType,E_TRANS_ID eTranID)
 			return;
    		}
 		break;
-		case TRANSID_VOICE_CANCEL_ONE_FUNC:
-			break;
-		case TRANSID_VOICE_CANCEL_ALL_FUNC:
-			break;
 		default:
 			break;
 	}
@@ -361,6 +456,20 @@ void VoiceReAddFunc(void)
 void VoiceAddFunc(void)
 {
     VoiceTrans(ICCRF|MAGONLY,TRANSID_VOICE_ADD_FUNC);
+    sdkPEDCancel();
+    EmvLedClose();
+}
+
+void VoiceCancelOneFunc(void)
+{
+    VoiceTrans(ICCRF|MAGONLY,TRANSID_VOICE_CANCEL_ONE_FUNC);
+    sdkPEDCancel();
+    EmvLedClose();
+}
+
+void VoiceCancelAllFunc(void)
+{
+    VoiceTrans(ICCRF|MAGONLY,TRANSID_VOICE_CANCEL_ALL_FUNC);
     sdkPEDCancel();
     EmvLedClose();
 }
