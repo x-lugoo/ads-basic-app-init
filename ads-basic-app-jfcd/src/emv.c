@@ -2372,8 +2372,8 @@ void EmvLedIdle(void)
 {
     SDK_PED_LAMP_CTRL st_lampctrl;
 
-    Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
-          gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
+   // Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
+        //  gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
 
     if (gstAppSysCfg.stSysParam.bIsIntRf) //internal CTLS card reader
     {
@@ -2406,8 +2406,8 @@ void EmvLedReadCard(void)
 {
     SDK_PED_LAMP_CTRL st_lampctrl;
 
-    Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
-          gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
+   // Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
+       //   gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
 
     if ((SDK_ICC_RF == gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode) //CTLS transaction
         && (gstAppSysCfg.stSysParam.bIsIntRf)) //internal CTLS card reader
@@ -2439,8 +2439,8 @@ void EmvLedReadCardOk(void)
 {
     SDK_PED_LAMP_CTRL st_lampctrl;
 
-    Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
-          gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
+    //Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
+       //   gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
 
     if ((SDK_ICC_RF == gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode) //CTLS transaction
         && (gstAppSysCfg.stSysParam.bIsIntRf)) //internal CTLS card reader
@@ -2494,8 +2494,8 @@ void EmvLedTransFail(void)
 {
     SDK_PED_LAMP_CTRL st_lampctrl;
 
-    Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
-          gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
+    //Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
+       //   gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
 
     if ((SDK_ICC_RF == gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode) //CTLS transaction
         && (gstAppSysCfg.stSysParam.bIsIntRf)) //internal CTLS card reader
@@ -2525,8 +2525,8 @@ void EmvLedClose(void)
 {
     SDK_PED_LAMP_CTRL st_lampctrl;
 
-    Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
-          gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
+   // Trace("emv", "card mode = %d, RF mode = %d, bIsVirtualLed = %d\r\n",
+        //  gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode, gstAppSysCfg.stSysParam.bIsIntRf, gstAppSysCfg.stTransParam.bIsVirtualLed);
 
     if ((SDK_ICC_RF == gstTransData.stTransLog.stCardInfo.stCardParam.ucCardMode) //CTLS transaction
         && (gstAppSysCfg.stSysParam.bIsIntRf)) //internal CTLS card reader

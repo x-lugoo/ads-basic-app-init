@@ -278,70 +278,71 @@ bool VarifyPolicyMsg(u8 *pheInputBuf,s32 iLen)
 	return (iCRC  == iVerifyCRC);
 }
 
+static s32 CalcStartPointOffset(u8 *pheInputBuf,s32 iBufLen,s32 startChar)
+{
+	s32 i;
+
+	for(i = 0;i < iBufLen;i++)
+	{
+		if(pheInputBuf[i] == startChar)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
 s32 RecvPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen)
 {
 	u8 ucRecvBuf[512] = {0};
+	u8 *p;
 	s32 iRet;
 	s32 iLen = 0;
 	s32 iTrueLen = 0;
-	s32 iFirstPos = 0;
-	s32 iSecondPos = 0;
-	SDK_QUEUE_HAND pHead = NULL;
+	s32 iCurTotalLen = 0;
+	s32 iOffsetLen = 0;
+	static s32 flag = 0;
+	static SDK_QUEUE_HAND pHead = NULL;
 
 
+	p = ucRecvBuf;
 	iRet = sdkCommUartRecvData(gucCommPort,ucRecvBuf,300,300);
 	if(iRet < 0) 
 	{
 		return iRet;
 	}
-	if(0x02 != ucRecvBuf[0])
+	if(0 == flag)
 	{
-		Trace("xgd","The first byte=%02X\r\n",ucRecvBuf[0]);
-		return SDK_ERR;
+		pHead = sdkQueueCreate(512);
+		flag = 1;
 	}
-	pHead = sdkQueueCreate(512);
+	iLen = iRet;
 	sdkQueueInsertData(pHead,ucRecvBuf, iRet);
-	Trace("xgd","RecvLen=%d,queueLen=%d\r\n",iRet,sdkQueueGetDataLen(pHead));
-	while(1)
+	iCurTotalLen = sdkQueueGetDataLen(pHead);
+	sdkQueueGetData(pHead,ucRecvBuf, iCurTotalLen);
+	TraceHex("xgd","RecvCommdata:",ucRecvBuf,iCurTotalLen);
+	if(iCurTotalLen < 9)
 	{
-		iRet = sdkCommUartRecvData(gucCommPort,ucRecvBuf,300,300);  //Take non-blocked way to receive comm msgs
-		if(iRet < 0) 
+		return POLICY_CONT_TO_RECV;
+	}
+	
+   do{
+		iOffsetLen  = CalcStartPointOffset(ucRecvBuf,iCurTotalLen,0x02);
+		if(-1 == iOffsetLen)
 		{
-			Trace("xgd","Recv data fail.iRet = %d\r\n",iRet);
-			sdkQueueRelease(pHead);
-			return iRet;
+			return POLICY_CONT_TO_RECV;
 		}
-		iLen = iRet;
-		sdkQueueInsertData(pHead,ucRecvBuf, iLen);
-		iFirstPos = sdkQueueGetPosValue(pHead, 0);
-		iSecondPos = sdkQueueGetPosValue(pHead, 1);
-		Trace("xgd","pos0:0X%02X,pos1:0X%02X %s(%d)\r\n",iFirstPos,iSecondPos);
-		Trace("xgd","RecvLen=%d,queueLen=%d,%s(%d)\r\n",iLen,sdkQueueGetDataLen(pHead));
+		iTrueLen = (ucRecvBuf[iOffsetLen + 3] - '0') * 1000 + (ucRecvBuf[iOffsetLen + 4] - '0') * 100
+				  +(ucRecvBuf[iOffsetLen + 5] - '0') * 10 +   (ucRecvBuf[iOffsetLen + 6] - '0') + 9;
 		
-		if(sdkQueueGetDataLen(pHead) < 7)
+		if(iCurTotalLen - iOffsetLen  < iTrueLen)
 		{
-			continue;
+			return POLICY_CONT_TO_RECV;
 		}
-		iTrueLen = (sdkQueueGetPosValue(pHead, 3)- '0') * 1000 + (sdkQueueGetPosValue(pHead, 4) - '0') * 100
-					+ (sdkQueueGetPosValue(pHead, 5)- '0') * 10 + (sdkQueueGetPosValue(pHead, 6) - '0') + 9;
-		if(sdkQueueGetDataLen(pHead) < iTrueLen)
-		{
-			continue;
-		}
-		else if(sdkQueueGetDataLen(pHead) == iTrueLen)
-		{
-			break;
-		}
-		else
-		{
-			sdkQueueRelease(pHead);
-			return SDK_ERR;
-		}
-	}//while(1)
-	sdkQueueGetData(pHead,ucRecvBuf, iTrueLen);
-	sdkQueueRelease(pHead);
+	}while( (ucRecvBuf[iTrueLen-2] != 0x03) && (iCurTotalLen - iOffsetLen  >= iTrueLen));
 	*iOutputLen = iTrueLen;
-	memcpy(pheOutputBuf,ucRecvBuf,iTrueLen);
+	memcpy(pheOutputBuf,p+iOffsetLen,iTrueLen);
+	sdkQueueEmpty(pHead);
 	return SDK_OK;
 }
 
