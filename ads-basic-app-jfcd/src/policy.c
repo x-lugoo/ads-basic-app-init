@@ -278,11 +278,11 @@ bool VarifyPolicyMsg(u8 *pheInputBuf,s32 iLen)
 	return (iCRC  == iVerifyCRC);
 }
 
-static s32 CalcStartPointOffset(u8 *pheInputBuf,s32 iBufLen,s32 startChar)
+static s32 CalcStartPointOffset(u8 *pheInputBuf,s32 iBufLen,s32 startChar,s32 iOffsetVar)
 {
 	s32 i;
 
-	for(i = 0;i < iBufLen;i++)
+	for(i = iOffsetVar;i < iBufLen;i++)
 	{
 		if(pheInputBuf[i] == startChar)
 		{
@@ -301,6 +301,7 @@ s32 RecvPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen)
 	s32 iTrueLen = 0;
 	s32 iCurTotalLen = 0;
 	s32 iOffsetLen = 0;
+	s32 iOffsetVar = 0;
 	static s32 flag = 0;
 	static SDK_QUEUE_HAND pHead = NULL;
 
@@ -327,7 +328,7 @@ s32 RecvPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen)
 	}
 	
    do{
-		iOffsetLen  = CalcStartPointOffset(ucRecvBuf,iCurTotalLen,0x02);
+		iOffsetLen  = CalcStartPointOffset(ucRecvBuf,iCurTotalLen,0x02,iOffsetVar);
 		if(-1 == iOffsetLen)
 		{
 			return POLICY_CONT_TO_RECV;
@@ -339,9 +340,11 @@ s32 RecvPolicyMsg(u8 *pheOutputBuf,s32 *iOutputLen)
 		{
 			return POLICY_CONT_TO_RECV;
 		}
+		iOffsetVar++;
 	}while( (ucRecvBuf[iTrueLen-2] != 0x03) && (iCurTotalLen - iOffsetLen  >= iTrueLen));
 	*iOutputLen = iTrueLen;
 	memcpy(pheOutputBuf,p+iOffsetLen,iTrueLen);
+	iOffsetVar = 0;
 	sdkQueueEmpty(pHead);
 	return SDK_OK;
 }
